@@ -37,6 +37,7 @@ All data in this repository was obtained through reverse engineering using tools
 * Ghidra
 * Manual disassembly analysis
 * Cross-referencing ECU memory structures
+* AI-assisted code analysis and interpretation
 
 Maps and parameters were identified by:
 
