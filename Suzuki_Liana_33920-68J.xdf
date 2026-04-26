@@ -1,4 +1,4 @@
-<!-- Written 04/26/2026 18:09:28 -->
+<!-- Written 04/26/2026 19:55:30 -->
 <XDFFORMAT version="1.80">
   <XDFHEADER>
     <flags>0x1</flags>
@@ -1122,7 +1122,7 @@
     <description>&#202;&#238;&#253;&#244;&#244;&#232;&#246;&#232;&#229;&#237;&#242; &#239;&#229;&#240;&#229;&#226;&#238;&#228;&#224; &#241;&#251;&#240;&#251;&#245; &#228;&#224;&#237;&#237;&#251;&#245; &#192;&#214;&#207; &#226; Float &#228;&#224;&#242;&#247;&#232;&#234;&#224; &#224;&#225;&#241;&#238;&#235;&#254;&#242;&#237;&#238;&#227;&#238; &#228;&#224;&#226;&#235;&#229;&#237;&#232;&#255; &#226;&#239;&#243;&#241;&#234;&#237;&#238;&#227;&#238; &#234;&#238;&#235;&#235;&#229;&#234;&#242;&#238;&#240;&#224; </description>
     <CATEGORYMEM index="0" category="7" />
     <EMBEDDEDDATA mmedtypeflags="0x10000" mmedaddress="0xF244" mmedelementsizebits="32" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <decimalpl>963983410</decimalpl>
+    <decimalpl>1670919184</decimalpl>
     <rangehigh>65535.000000</rangehigh>
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -1136,7 +1136,7 @@
     <description>&#209;&#236;&#229;&#249;&#229;&#237;&#232;&#229; &#239;&#229;&#240;&#229;&#226;&#238;&#228;&#224; &#241;&#251;&#240;&#251;&#245; &#228;&#224;&#237;&#237;&#251;&#245; &#192;&#214;&#207; &#226; Float &#228;&#224;&#242;&#247;&#232;&#234;&#224; &#224;&#225;&#241;&#238;&#235;&#254;&#242;&#237;&#238;&#227;&#238; &#228;&#224;&#226;&#235;&#229;&#237;&#232;&#255; &#226;&#239;&#243;&#241;&#234;&#237;&#238;&#227;&#238; &#234;&#238;&#235;&#235;&#229;&#234;&#242;&#238;&#240;&#224; </description>
     <CATEGORYMEM index="0" category="7" />
     <EMBEDDEDDATA mmedtypeflags="0x10000" mmedaddress="0x6C604" mmedelementsizebits="32" mmedmajorstridebits="0" mmedminorstridebits="0" />
-    <decimalpl>963991446</decimalpl>
+    <decimalpl>1670976582</decimalpl>
     <rangehigh>65535.000000</rangehigh>
     <datatype>0</datatype>
     <unittype>0</unittype>
@@ -19934,6 +19934,21 @@
     <CATEGORYMEM index="0" category="19" />
     <EMBEDDEDDATA mmedtypeflags="0x10000" mmedaddress="0x79BD4" mmedelementsizebits="32" mmedmajorstridebits="0" mmedminorstridebits="0" />
     <outputtype>2</outputtype>
+    <rangehigh>150.000000</rangehigh>
+    <rangelow>-9.000000</rangelow>
+    <datatype>0</datatype>
+    <unittype>0</unittype>
+    <DALINK index="0" />
+    <MATH equation="X">
+      <VAR id="X" />
+    </MATH>
+  </XDFCONSTANT>
+  <XDFCONSTANT uniqueid="0x640D">
+    <title>EGR_P0403_CoilDiag_EnableFlag_ForceZero</title>
+    <description>stock: E001&#013;&#010;EGR off: E000</description>
+    <CATEGORYMEM index="0" category="19" />
+    <EMBEDDEDDATA mmedaddress="0x45F5E" mmedelementsizebits="16" mmedmajorstridebits="0" mmedminorstridebits="0" />
+    <outputtype>3</outputtype>
     <rangehigh>150.000000</rangehigh>
     <rangelow>-9.000000</rangelow>
     <datatype>0</datatype>
