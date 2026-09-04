@@ -292,7 +292,7 @@ undefined *PTR_LAB_00002190;
 undefined *PTR_data_from_AN22_111_pin_00002194;
 undefined *PTR_LAB_00002198;
 undefined *PTR_LAB_0000219c;
-undefined *PTR_LAB_000021a0;
+undefined *PTR_IgnitionPhaseCommandBlend_InhibitRampOutput_000021a0;
 undefined *PTR_LAB_000021a4;
 undefined *PTR_DAT_000021a8;
 undefined *PTR_DAT_000021ac;
@@ -304,7 +304,7 @@ undefined *PTR_LAB_00002298;
 undefined *PTR_LAB_0000229c;
 undefined *PTR_LAB_000022a0;
 undefined *PTR_LAB_000022a4;
-undefined *PTR_LAB_000022a8;
+undefined *PTR_IgnitionPhaseCommandBlend_InhibitRampOutput_000022a8;
 undefined *PTR_ECT_TableOutput_MafBlendSnapshotA_000022ac;
 undefined *PTR_LAB_000022b8;
 undefined *PTR_LAB_000022bc;
@@ -427,15 +427,15 @@ undefined *PTR_DAT_000042c8;
 undefined *PTR_DAT_0000431c;
 undefined *PTR_DAT_00004320;
 short DAT_000044da;
-undefined *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_000044e4;
+undefined *PTR_CatalystMonitor_P0420_PrerequisiteFlagC_000044e4;
 undefined *PTR_DAT_0000513c;
 undefined *PTR_ECTSensor_AN28_RawAdcForGauge_00005144;
 undefined *PTR_KnockSensor_WindowedRawHeldValue_00005148;
 undefined *PTR_O2Sensor1_AN6_ScaledVoltage_0000514c;
 undefined *PTR_IndexFromFloat_Clamped_1_00005154;
 undefined4 DAT_00005150;
-undefined *PTR_DAT_00005158;
-undefined *PTR_DAT_0000515c;
+undefined *PTR_PhaseFrontend_Mode0_ResponseStableWord_00005158;
+undefined *PTR_PhaseFrontend_Mode2_ResponseStableByte_0000515c;
 undefined *PTR_DAT_00005140;
 undefined *PTR_LAB_00005160;
 undefined *PTR_LAB_00005164;
@@ -846,6 +846,13 @@ undefined *PTR_DiagAndEgr_ServiceBatch_Init_000097b0;
 undefined *PTR_SensorCluster_Service_000097b4;
 undefined *PTR_SensorCluster_Service_GatedStart_000097b8;
 undefined *PTR_MixedScheduler_GroupA_CommandBlendPrepPair_Entry_000097bc;
+undefined *PTR_EnginePhaseEventQueue_PopByChannel_00009b5c;
+undefined *PTR_InjectorCylinderDispatch_SelectPathAndCompute_00009b60;
+undefined *PTR_PhaseFrontend_RequestByCylinderAndUpdateDelta_00009b64;
+undefined *PTR_InjectorChannel_PendingCommitCountdown_ServiceAll_00009b68;
+undefined *PTR_IgnitionCoilPairSlots_ServiceAll_00009b6c;
+undefined *PTR_MixedScheduler_GroupJ_InputAModelAndSeededPrecheck_Entry_00009b70;
+undefined *PTR_Update_BYTE_ffffffdb_00009b08;
 undefined *PTR_PTR_00009cd4;
 undefined *PTR_LAB_0000fffe+1_00009cd8;
 undefined *PTR_RecordTable_Push_00009cdc;
@@ -952,19 +959,19 @@ undefined *PTR_DAT_0000acb4;
 undefined *PTR_DAT_0000acb8;
 float FLOAT_0000acc0;
 undefined *PTR_DAT_0000acc4;
-undefined *PTR_DAT_0000acc8;
+undefined *PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000acc8;
 undefined *PTR_DAT_0000accc;
 undefined *PTR_DAT_0000acd0;
-undefined *PTR_DAT_0000acd4;
+undefined *PTR_PhaseFrontend_AN14_SlopeModeState_0000acd4;
 undefined *PTR_DAT_0000acd8;
-undefined *PTR_DAT_0000acdc;
+undefined *PTR_PhaseFrontend_AN14_DrivePair_ModeFlag_0000acdc;
 undefined *PTR_LAB_0000ace0;
 undefined *PTR_DAT_0000ace4;
 undefined *PTR_DAT_0000ace8;
 undefined *PTR_ProtectedDword_ReadWithChecksumFallback_0000acec;
-undefined *PTR_DAT_0000acf0;
+undefined *PTR_PhaseFrontend_AN14_DrivePair_ToggleCounter_0000acf0;
 word WORD_0000aca2;
-undefined *PTR_DAT_0000acf4;
+undefined *PTR_PhaseFrontend_AN14_FilterTickCounter_0000acf4;
 undefined *PTR_ProtectedDword_WriteWithChecksumMirror_0000acf8;
 undefined *PTR_SetPrivilegedSR_0000adf8;
 word WORD_0000ade8;
@@ -977,24 +984,19 @@ word WORD_0000adf0;
 word WORD_0000adf2;
 word WORD_0000adf4;
 undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_0000ae04;
-undefined *PTR_DAT_0000ae08;
 word WORD_0000adf6;
+pointer PTR_PhaseFrontend_AN14_FilterTickCounter;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0000ae0c;
 undefined *PTR_DAT_0000b0d4;
 undefined *PTR_DAT_0000b0d8;
-undefined *PTR_DAT_0000b0dc;
 word WORD_0000b0d2;
 undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_0000b0e0;
-undefined *PTR_DAT_0000b0e4;
-undefined *PTR_DAT_0000b0e8;
 float DAT_0000b0ec;
 undefined *PTR_DAT_0000b0f0;
 undefined *PTR_DAT_0000b0f4;
-undefined *PTR_DAT_0000b0f8;
-undefined *PTR_DAT_0000b0fc;
+undefined *PTR_PhaseFrontend_AN14_ResetPreviousSample_0000b0fc;
 undefined *PTR_DAT_0000b100;
 undefined *PTR_DAT_0000b104;
-undefined *PTR_DAT_0000b108;
 undefined *PTR_DAT_0000b10c;
 undefined4 DAT_0000b110;
 undefined *PTR_DAT_0000b114;
@@ -1008,10 +1010,13 @@ undefined *PTR_DAT_0000b21c;
 undefined *PTR_DAT_0000b220;
 undefined *PTR_DAT_0000b224;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0000b228;
+pointer PTR_PhaseFrontend_AN14_SlopeModeState;
+pointer PTR_PhaseFrontend_AN14_DrivePair_CurrentSample;
+pointer PTR_PhaseFrontend_AN14_ResetCurrentSample;
+pointer PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000B108;
+pointer PTR_PhaseFrontend_AN14_DrivePair_PreviousSample;
 undefined *PTR_DAT_0000af50;
-undefined *PTR_DAT_0000af54;
 undefined *PTR_DAT_0000af58;
-undefined *PTR_data_from_AN14_103_pin_0000af5c;
 undefined *PTR_DAT_0000af60;
 undefined *PTR_DAT_0000af64;
 undefined *PTR_DAT_0000af68;
@@ -1021,7 +1026,6 @@ undefined *PTR_DAT_0000af74;
 dword DWORD_0000af78;
 undefined *PTR_DAT_0000af7c;
 undefined *PTR_DAT_0000af80;
-undefined *PTR_DAT_0000af84;
 undefined *PTR_DAT_0000af88;
 undefined *PTR_DAT_0000af8c;
 undefined *PTR_DAT_0000af90;
@@ -1036,19 +1040,22 @@ undefined *PTR_FloatBlendTowardsTarget_WithDeadband_0000afb0;
 undefined *PTR_DAT_0000afb4;
 undefined *PTR_LAB_0000afb8;
 undefined *PTR_Interpolate1D_WithTransform_0000afbc;
-undefined *PTR_DAT_0000b22c;
-undefined *PTR_DAT_0000b230;
+pointer PTR_PhaseFrontend_AN14_RawAdc;
+pointer PTR_PhaseFrontend_AN14_FilterTickCounter_0000AF54;
+pointer PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000AF84;
 word WORD_0000b214;
-undefined *PTR_DAT_0000b234;
-undefined *PTR_DAT_0000b238;
+pointer PTR_PhaseFrontend_AN14_DrivePair_ResetLatch;
 undefined *PTR_DAT_0000b23c;
-undefined *PTR_DAT_0000b240;
+pointer PTR_PhaseFrontend_AN14_DrivePair_ModeFlag;
 undefined *PTR_DAT_0000b244;
 undefined *PTR_PhaseFrontend_ModeTransfer_SetDrivePair_0000b248;
-undefined *PTR_DAT_0000b24c;
-undefined *PTR_DAT_0000b250;
-undefined *PTR_DAT_0000b254;
-undefined *PTR_DAT_0000b2ec;
+pointer PTR_PhaseFrontend_AN14_DrivePair_CurrentSample_0000B230;
+pointer PTR_PhaseFrontend_AN14_DrivePair_ToggleCounter;
+pointer PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000B238;
+pointer PTR_PhaseFrontend_AN14_DrivePair_PreviousSample_0000B234;
+undefined *PTR_Cal_AN14_DrivePair_Mode0CompareA_16_0000b250;
+undefined *PTR_Cal_AN14_DrivePair_Mode0CompareB_45_0000b254;
+undefined *PTR_Cal_AN14_DrivePair_Mode1CompareA_5_0000b2ec;
 word WORD_0000b2da;
 undefined *PTR_SetPrivilegedSR_0000b2f0;
 word WORD_0000b2dc;
@@ -1058,15 +1065,15 @@ word WORD_0000b2e0;
 word WORD_0000b2e2;
 word WORD_0000b2e4;
 word WORD_0000b2e6;
-undefined *PTR_DAT_0000b2f8;
+undefined *PTR_Cal_AN14_DrivePair_EndOffset_14_0000b2f8;
 word WORD_0000b2e8;
 undefined *PTR_RestorePrivilegedSR_0000b2fc;
-undefined *PTR_DAT_0000b300;
-undefined *PTR_DAT_0000b304;
 word WORD_0000b2ea;
-undefined *PTR_DAT_0000b308;
-undefined *PTR_DAT_0000b30c;
-undefined *PTR_DAT_0000b310;
+pointer PTR_PhaseFrontend_AN14_ResetCurrentSample_0000B304;
+pointer PTR_PhaseFrontend_AN14_DrivePair_ResetLatch_0000B300;
+pointer PTR_PhaseFrontend_AN14_SlopeModeState_0000B30C;
+pointer PTR_PhaseFrontend_AN14_ResetPreviousSample_0000B308;
+pointer PTR_PhaseFrontend_AN14_FilterTickCounter_0000B310;
 undefined *PTR_LAB_0000b448;
 undefined *PTR_DAT_0000b44c;
 word WORD_0000b43a;
@@ -1120,13 +1127,13 @@ undefined *PTR_LAB_00057032+2_0000b6d0;
 undefined *PTR_Interpolate1D_WithTransform_0000b6d4;
 undefined *PTR_KnockSensor_WindowInterpolatedValue_0000b6d8;
 undefined *PTR_KnockSensor_WindowRangeState_0000b6dc;
-undefined *PTR_KnockSensor_AN21_RawAdc_0000b72c;
-undefined *PTR_KnockSensor_AN21_FilteredRawAdc_0000b730;
-undefined *PTR_DAT_0000b734;
+undefined *PTR_BatteryVoltage_RawAdc_0000b72c;
+undefined *PTR_BatteryVoltage_FilteredRawAdc_0000b730;
+undefined *PTR_BatteryVoltage_FilterCoeff_0000b734;
 undefined *PTR_Read_FLOAT_000057c4_0000b738;
 float DAT_0000b73c;
-undefined *PTR_DAT_0000b740;
-undefined *PTR_SharedWindowScaleValue_0000b744;
+undefined *PTR_BatteryVoltage_AdcToVoltScaleFactor_20_0000b740;
+undefined *PTR_BatteryVoltage_FilteredVolts_0000b744;
 undefined *PTR_DAT_0000b89c;
 undefined *PTR_SetPrivilegedSR_0000b8a0;
 short DAT_0000b88e;
@@ -1202,8 +1209,8 @@ undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_0000be50;
 undefined *PTR_DAT_0000be54;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0000be58;
 undefined *PTR_DAT_0000be5c;
-undefined *PTR_DrivePair_ToggleAndSync_0000be60;
-undefined *PTR_DrivePair_ResetState_0000be64;
+undefined *PTR_PhaseFrontend_AN14FeedbackDrivePair_ToggleAndSync_0000be60;
+undefined *PTR_PhaseFrontend_AN14FeedbackDrivePair_ResetState_0000be64;
 undefined *PTR_DAT_0000be68;
 undefined *PTR_data_from_AN0_86_pin_0000be6c;
 short DAT_0000be3c;
@@ -1670,7 +1677,7 @@ pointer PTR_InjectorPhaseRequestSlot_RegisterPtrTable_ArmView;
 undefined *PTR_LAB_0000e5fc;
 undefined *PTR_WriteWordToRegisterPrivileged_0000e600;
 pointer PTR_InjectorPhaseRequestSlot_StateBlock_CompareArmView;
-undefined *PTR_Desc_InjectorPhaseRequest_BaseTiming_Table_0000e610;
+undefined *PTR_Desc_IgnitionCoilPair_Dwell_ByRPM_BatteryVoltage_Table_0000e610;
 pointer PTR_InjectorPhaseRequest_BaseTimingWord;
 pointer PTR_InjectorPhaseRequest_BaseTimingCalibrationB;
 pointer PTR_InjectorPhaseRequest_BaseTimingCalibrationA;
@@ -2047,28 +2054,28 @@ undefined *PTR_SetPrivilegedSR_0000feb8;
 short DAT_0000feae;
 undefined *PTR_ModifyRegisterBits_0000febc;
 undefined *PTR_RestorePrivilegedSR_0000fec4;
-undefined *PTR_O2_Heater1_StateFlags_0000fec0;
+undefined *PTR_HO2S1_Heater_PD0_StateFlags_0000fec0;
 undefined *PTR_O2Heater2_PD4_ControlOutput_0000fec8;
-undefined *PTR_O2_Heater2_StateFlags_0000fecc;
+undefined *PTR_HO2S2_Heater_PD4_StateFlags_0000fecc;
 short DAT_0000feb0;
 undefined *PTR_FixedPointMultiplyWithSaturation_0000fed0;
 undefined2 DAT_0000feb0;
 undefined *PTR_O2Heater1_PD0_ControlOutput_0000ff34;
 float DAT_0000ff30;
-undefined *PTR_O2_Heater1_StateFlags_0000ff38;
+undefined *PTR_HO2S1_Heater_PD0_StateFlags_0000ff38;
 undefined *PTR_FixedPointMultiplyWithSaturation_0000ff3c;
-undefined *PTR_O2_Heater2_StateFlags_0000ff40;
-undefined *PTR_O2_Heater1_StateFlags_0000ff64;
+undefined *PTR_HO2S2_Heater_PD4_StateFlags_0000ff40;
+undefined *PTR_HO2S1_Heater_PD0_StateFlags_0000ff64;
 short DAT_0001001c;
-undefined *PTR_DAT_00010020;
-undefined *PTR_DAT_00010024;
+undefined *PTR_PhaseFrontend_Mode0_ResponseRawWord_00010020;
+undefined *PTR_PhaseFrontend_Mode0_ResponseStableWord_00010024;
 undefined *PTR_PhaseFrontend_ModeTransfer_SendAndReadResponse_00010028;
-undefined *PTR_DAT_0001002c;
-undefined *PTR_DAT_00010030;
-undefined *PTR_DAT_00010034;
-undefined *PTR_DAT_00010038;
-undefined *PTR_DAT_0001003c;
-undefined *PTR_DAT_00010040;
+undefined *PTR_PhaseFrontend_Mode1_ResponseRawByte_0001002c;
+undefined *PTR_PhaseFrontend_Mode1_ResponseStableByte_00010030;
+undefined *PTR_PhaseFrontend_Mode2_ResponseRawByte_00010034;
+undefined *PTR_PhaseFrontend_Mode2_ResponseStableByte_00010038;
+undefined *PTR_PhaseFrontend_ExtendedResponseRawDword_0001003c;
+undefined *PTR_PhaseFrontend_ExtendedResponseStableDword_00010040;
 pointer PTR_InjectorOutputWindow_RuntimeScale;
 undefined *PTR_SetPrivilegedSR_00010188;
 short DAT_00010174;
@@ -2218,31 +2225,31 @@ undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00010c88;
 pointer PTR_FuelMixture_ControlRamp_ImmediateInput;
 pointer PTR_FuelMixture_ControlRamp_RequestActiveFlag;
 pointer PTR_FuelMixture_ControlRamp_OutputImmediate;
-pointer PTR_FuelMixture_ControlRamp_RequestPendingFlag;
-pointer PTR_FuelMixture_ControlRamp_RequestSelector;
+pointer PTR_Injector_TO8_PulseScaleControl_RequestPendingFlag;
+pointer PTR_Injector_TO8_PulseScaleControl_RequestSelector;
 undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_00010d94;
 undefined *PTR_FixedPointMultiplyWithSaturation_00010da0;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00010da4;
-pointer PTR_FuelMixture_ControlRamp_OutputStaged;
+pointer PTR_Injector_TO8_PulseScaleControl_OutputImmediate;
 undefined2 FuelMixture_ControlRamp_StagedScaledCompareReg;
 pointer PTR_FuelMixture_ControlRamp_StagedScaleInput;
-pointer PTR_FuelMixture_ControlRamp_RiseCounter;
-pointer PTR_FuelMixture_ControlRamp_FallCounter;
-pointer PTR_FuelMixture_ControlRamp_EndpointA;
-pointer PTR_FuelMixture_ControlRamp_EndpointB;
+pointer PTR_Injector_TO8_PulseScaleControl_RiseCounter;
+pointer PTR_Injector_TO8_PulseScaleControl_FallCounter;
+pointer Injector_TO8_PulseScaleControl_EndpointA_OutputMaxPtr;
+pointer Injector_TO8_PulseScaleControl_EndpointB_OutputMinPtr;
 undefined *PTR_Read_Interpolate1D_Int32_00010e60;
 undefined *PTR_FixedPointMultiplyWithSaturation_00010e6c;
 undefined *PTR_SignedDivide32_LongDivision_00010e70;
-pointer PTR_FuelMixture_ControlRamp_OutputMin;
-pointer PTR_FuelMixture_ControlRamp_OutputMax;
-pointer PTR_FuelMixture_ControlRamp_PositionInput;
-undefined4 FuelMixture_ControlRamp_PositionScale;
-pointer PTR_SharedWindowScaleValue_ForControlRamp;
-pointer PTR_FuelMixture_ControlRamp_OutputBase;
-pointer PTR_FuelMixture_ControlRamp_PositionThreshold;
-pointer PTR_FuelMixture_ControlRamp_LowerTransformContext;
-pointer PTR_FuelMixture_ControlRamp_UpperTransformContext;
-pointer FuelMixture_ControlRamp_PositionFullScale;
+pointer Injector_TO8_PulseScaleControl_EndpointB_MinClampPtr;
+pointer Injector_TO8_PulseScaleControl_EndpointA_MaxClampPtr;
+pointer PTR_Injector_TO8_PulseScaleControl_ImmediateInput;
+undefined4 Injector_TO8_PulseScaleControl_PositionScale;
+pointer PTR_SharedWindowScaleValue_ForInjectorTO8PulseScale;
+pointer Injector_TO8_PulseScaleControl_OutputBasePtr;
+pointer Injector_TO8_PulseScaleControl_PositionThresholdPtr;
+pointer Injector_TO8_PulseScaleControl_LowerTransformContextPtr;
+pointer Injector_TO8_PulseScaleControl_UpperTransformContextPtr;
+pointer Injector_TO8_PulseScaleControl_PositionFullScale;
 undefined *PTR_SetPrivilegedSR_00010fac;
 undefined *PTR_RestorePrivilegedSR_00010fb4;
 undefined2 InjectorPhaseControl_PrivilegedSrMask;
@@ -2835,9 +2842,9 @@ float DAT_00014534;
 float DAT_00014538;
 undefined *PTR_DAT_0001453c;
 undefined *PTR_DAT_00014540;
-undefined *PTR_DAT_00014544;
+undefined *PTR_IgnitionPhaseCommandBlend_WindowFlag_VvtDelta_00014544;
 undefined *PTR_DAT_00014548;
-undefined *PTR_DAT_0001454c;
+undefined *PTR_IgnitionPhaseCommandBlend_WindowFlag_SecondaryInput_0001454c;
 pointer PTR_SubsystemA_CommandBlend_SeededIatLoad_SecondaryInput_00014508;
 undefined *PTR_DAT_00014550;
 undefined *PTR_DAT_00014554;
@@ -2879,10 +2886,10 @@ undefined *PTR_DAT_00014858;
 undefined *PTR_DAT_0001485c;
 undefined *PTR_MinFloat_00014860;
 undefined *PTR_Interpolate2D_float_WithTransform_00014868;
-undefined *PTR_LAB_0001486c;
+undefined *PTR_IgnitionPhaseCommandBlend_InhibitRampOutput_0001486c;
 undefined *PTR_IATSensor_AN29_TempValueUsed_00014870;
 undefined *PTR_Interpolate1D_WithTransform_00014878;
-undefined *PTR_DAT_0001487c;
+undefined *PTR_IgnitionPhaseCommandBlend_InhibitRampIatAdder_0001487c;
 pointer PTR_SubsystemA_PrimaryEnable_ElapsedCounter_00014654;
 pointer PTR_SubsystemA_EnableSharedInhibitFlag_00014658;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_0001465c;
@@ -2918,7 +2925,7 @@ undefined *PTR_DAT_000148b0;
 pointer PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_Table10_00014db0;
 float DAT_000148ac;
 pointer PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_Table11_00014db4;
-undefined *PTR_DAT_000148c0;
+undefined *PTR_IgnitionPhaseCommandBlend_WindowFlag_VvtDelta_000148c0;
 pointer PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_Table12_00014db8;
 float DAT_000148bc;
 pointer PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_Table13_00014dbc;
@@ -2926,11 +2933,11 @@ undefined *PTR_DAT_000148c4;
 pointer PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_Table14_00014dc0;
 undefined *PTR_DAT_000148c8;
 pointer PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_Table15_00014dd4;
-undefined *PTR_DAT_000148cc;
+undefined *PTR_IgnitionPhaseCommandBlend_WindowFlag_SecondaryInput_000148cc;
 pointer PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_Table16_00014de0;
 undefined *PTR_Interpolate2D_float_WithTransform_00014ac4;
 pointer PTR_Meta_SubsystemA_CommandBlend_MapBlendOffset_Table15_TargetBundle_00014dec;
-undefined *PTR_DAT_00014ac8;
+undefined *PTR_IgnitionPhaseCommandBlend_WindowFlag_SecondaryInput_00014ac8;
 pointer PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_Table17_00014e34;
 undefined *PTR_DAT_00014ad4;
 undefined *PTR_IATSensor_AN29_TempValueUsed_00014ad8;
@@ -2962,7 +2969,7 @@ undefined *PTR_DAT_00014da4;
 float DAT_00014dac;
 undefined *PTR_DAT_00014dc4;
 undefined *PTR_VVT_ChannelControl_EnabledFlag_00014dc8;
-undefined *PTR_DAT_00014dcc;
+undefined *PTR_IgnitionPhaseCommandBlend_WindowFlag_VvtDelta_00014dcc;
 undefined *PTR_DAT_00014dd0;
 undefined *PTR_DAT_00014dd8;
 undefined *PTR_DAT_00014ddc;
@@ -2970,7 +2977,7 @@ undefined *PTR_DAT_00014de4;
 undefined *PTR_DAT_00014de8;
 undefined *PTR_DAT_00014df0;
 undefined *PTR_DAT_00014df4;
-undefined *PTR_DAT_00014e38;
+undefined *PTR_IgnitionPhaseCommandBlend_BaseMapOutput_00014e38;
 undefined *PTR_DAT_00014e3c;
 undefined *PTR_DAT_00014e40;
 undefined *PTR_DAT_00014e44;
@@ -2981,12 +2988,12 @@ pointer PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_MapC_00014adc;
 pointer PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_Table18_00014ae4;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00014af0;
 pointer PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_TableBase_00014af4;
-undefined *PTR_DAT_00014fc0;
+undefined *PTR_IdleTargetRpm_SelectedFinal_00014fc0;
 undefined *PTR_EngineSpeed_RPM_Filtered_00014fc4;
 undefined *PTR_DAT_00014fc8;
 undefined *PTR_DAT_00014fd4;
 undefined *PTR_DAT_00014fd0;
-undefined *PTR_DAT_00014fd8;
+undefined *PTR_IgnitionPhaseControlRamp_Output_00014fd8;
 undefined *PTR_DAT_00014fe4;
 undefined *PTR_DAT_00014fe8;
 undefined *PTR_FuelDisplay_InputWindowAvg_00014fec;
@@ -3004,7 +3011,7 @@ undefined *PTR_DAT_00015028;
 undefined *PTR_DAT_0001502c;
 undefined *PTR_DAT_00015030;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00014fcc;
-undefined *PTR_DAT_00015038;
+undefined *PTR_IgnitionPhaseControlRamp_EnablePathFlag_00015038;
 pointer PTR_SubsystemA_EnableSharedInhibitFlag_00014fdc;
 undefined *PTR_DAT_0001503c;
 pointer PTR_SubsystemA_EnableSharedInhibitFlag_00014fe0;
@@ -3018,7 +3025,7 @@ undefined *PTR_DAT_0001504c;
 pointer PTR_SubsystemA_CommandBlend_SeedRequestFlag_00015020;
 undefined *PTR_DAT_00015050;
 pointer PTR_SubsystemA_CommandBlend_TableInput_00015034;
-undefined *PTR_DAT_00015054;
+undefined *PTR_IgnitionPhaseCommandBlend_ClampedOutput_00015054;
 undefined *PTR_Interpolate1D_WithTransform_00015058;
 pointer PTR_Desc_SubsystemA_ControlRamp_DecayClamp_TableB_0001505c;
 pointer PTR_Desc_SubsystemA_ControlRamp_DecayClamp_TableC_00015060;
@@ -3036,7 +3043,7 @@ undefined *PTR_DAT_00015284;
 undefined *PTR_DAT_00015288;
 undefined *PTR_DAT_0001528c;
 undefined *PTR_DAT_00015290;
-undefined *PTR_DAT_00015298;
+undefined *PTR_IgnitionPhaseControlRamp_TableE_Output_00015298;
 undefined *PTR_DAT_0001529c;
 undefined *PTR_DAT_000152a0;
 undefined *PTR_DAT_000152a4;
@@ -3044,7 +3051,7 @@ undefined *PTR_DAT_000152a8;
 undefined *PTR_DAT_000152ac;
 undefined *PTR_DAT_000152b0;
 undefined *PTR_ClampFloat_000152b4;
-undefined *PTR_DAT_000152b8;
+undefined *PTR_IgnitionPhaseControlRamp_Output_000152b8;
 undefined *PTR_DAT_000152bc;
 undefined *PTR_DAT_000152c0;
 undefined *PTR_AddUint16AndSaturateToFFFE_000152c8;
@@ -3058,16 +3065,16 @@ undefined *PTR_DAT_000152ec;
 undefined *PTR_DAT_000152f4;
 undefined *PTR_FuelDisplay_InputWindowAvg_000152f8;
 undefined *PTR_DAT_000152fc;
-undefined *PTR_DAT_00015300;
-undefined *PTR_DAT_00015304;
+undefined *PTR_IgnitionPhaseCommandBlend_ClampedOutput_00015300;
+undefined *PTR_IgnitionPhaseCommandBlend_IntegratorOutput_00015304;
 undefined *PTR_DAT_00015310;
 undefined *PTR_DAT_00015314;
 undefined *PTR_ECT_TableOutput_MafBlendSnapshotA_00015318;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_0001531c;
 undefined *PTR_Interpolate2D_float_WithTransform_00015324;
-undefined *PTR_DAT_00015328;
+undefined *PTR_IgnitionPhaseCommandBlend_IntegratorTableC_Output_00015328;
 undefined *PTR_Interpolate1D_WithTransform_00015334;
-undefined *PTR_DAT_00015338;
+undefined *PTR_IgnitionPhaseCommandBlend_IntegratorTableB_Output_00015338;
 undefined *PTR_DAT_0001533c;
 undefined *PTR_DAT_00015340;
 pointer PTR_SubsystemA_PrimaryEnable_QualifiedCounter_000152cc;
@@ -3079,7 +3086,7 @@ pointer PTR_SubsystemA_EnableSharedInhibitFlag_0001530c;
 pointer PTR_Desc_SubsystemA_CommandBlend_Integrator_TableC_00015320;
 pointer PTR_SubsystemA_CommandBlend_SeededIatLoad_SecondaryInput_0001532c;
 pointer PTR_Desc_SubsystemA_CommandBlend_Integrator_TableB_00015330;
-undefined *PTR_DAT_00015344;
+undefined *PTR_IgnitionPhaseCommandBlend_TotalOutput_00015344;
 undefined *PTR_EngineSpeed_RPM_Filtered_000154ec;
 undefined *PTR_Interpolate1D_WithTransform_000154f8;
 undefined *PTR_DAT_000154fc;
@@ -3094,7 +3101,7 @@ undefined *PTR_DAT_00015520;
 undefined *PTR_DAT_00015524;
 undefined *PTR_DAT_00015528;
 undefined *PTR_DAT_0001552c;
-undefined *PTR_DAT_00015530;
+undefined *PTR_IgnitionPhaseControlRamp_EnableWindowFlag_00015530;
 undefined *PTR_DAT_00015534;
 undefined *PTR_DAT_00015538;
 undefined *PTR_DAT_0001553c;
@@ -3112,7 +3119,7 @@ undefined *PTR_Read_FLOAT_00005788_00015568;
 undefined *PTR_AddBytesWithLimit_0001556c;
 undefined *PTR_DAT_00015570;
 undefined *PTR_AddBytesWithLimit_0001570c;
-undefined *PTR_DAT_00015710;
+undefined *PTR_IgnitionPhaseControlRamp_EnableWindowFlag_00015710;
 undefined *PTR_DAT_00015714;
 undefined *PTR_DAT_00015718;
 undefined *PTR_DAT_0001571c;
@@ -3133,7 +3140,7 @@ undefined *PTR_Interpolate1D_WithTransform_0001574c;
 undefined *PTR_Desc_ECT_Gauge_TimerStage_TableC_00015750;
 undefined *PTR_Desc_ECT_Gauge_TimerStage_TableD_00015754;
 undefined *PTR_DAT_0001575c;
-undefined *PTR_DAT_00015758;
+undefined *PTR_IgnitionPhaseControlRamp_HoldAccumulator_00015758;
 undefined4 DAT_00015760;
 undefined *PTR_DAT_00015764;
 undefined *PTR_MulAdd_f32_u8_1_00015768;
@@ -3148,31 +3155,31 @@ undefined *PTR_DAT_00015784;
 undefined *PTR_DAT_00015788;
 undefined *PTR_DAT_0001578c;
 undefined *PTR_DAT_00015790;
-undefined *PTR_DAT_00015950;
+undefined *PTR_SubsystemA_CommandBlend_WindowedOutputMax_00015950;
 undefined4 DAT_0001594c;
 undefined *PTR_ValueInDeltaRange_00015954;
-undefined *PTR_DAT_00015958;
+undefined *PTR_IgnitionPhaseCommandBlend_BalanceTarget_00015958;
 undefined *PTR_DAT_0001595c;
 undefined *PTR_DAT_00015960;
 undefined *PTR_DAT_00015964;
-undefined *PTR_DAT_00015968;
-undefined *PTR_DAT_0001596c;
+undefined *PTR_IgnitionPhaseCommandBlend_BalanceValue_00015968;
+undefined *PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagB_0001596c;
 undefined *PTR_DAT_00015970;
 undefined *PTR_DAT_00015974;
 undefined *PTR_FloatBlendTowardsTarget_WithDeadband_00015978;
 undefined *PTR_DAT_0001597c;
-undefined *PTR_DAT_00015980;
+undefined *PTR_SubsystemA_PrereqA_WindowRampOutput_00015980;
 undefined *PTR_ECTGauge_CommandBase_RampedValue_00015984;
-undefined *PTR_DAT_00015988;
-undefined *PTR_DAT_0001598c;
-undefined *PTR_DAT_00015990;
-undefined *PTR_DAT_00015994;
-undefined *PTR_DAT_00015998;
-undefined *PTR_DAT_0001599c;
-undefined *PTR_DAT_000159a0;
-undefined *PTR_DAT_000159a4;
-undefined *PTR_DAT_000159a8;
-undefined *PTR_DAT_000159ac;
+undefined *PTR_SubsystemA_DTC34_EctLoadThresholdOutput_00015988;
+undefined *PTR_SubsystemA_Diag_LoadBasedThresholdFilter_0001598c;
+undefined *PTR_IgnitionPhaseCommandBlend_ModeTableOutput_00015990;
+undefined *PTR_SubsystemA_LearnCommand_Delta_00015994;
+undefined *PTR_IgnitionPhaseCommandBlend_TotalOutput_00015998;
+undefined *PTR_IgnitionPhaseCommandBlend_EctMafPhaseProduct_0001599c;
+undefined *PTR_IgnitionPhasePrimaryEnable_DecayCommand_000159a0;
+undefined *PTR_SubsystemA_TransientPulse_WindowedOutput_000159a4;
+undefined *PTR_SubsystemA_ModeByte3To10_SelectedOutput_000159a8;
+undefined *PTR_IgnitionPhaseCommandBlend_ResidualSum_000159ac;
 undefined *PTR_DAT_000159b0;
 undefined *PTR_DAT_000159b8;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_000159b4;
@@ -3185,20 +3192,20 @@ undefined *PTR_DAT_000159d0;
 undefined *PTR_DAT_000159d4;
 undefined *PTR_DAT_000159d8;
 float FLOAT_000159dc;
-undefined *PTR_DAT_000159e0;
+undefined *PTR_PhaseFrontend_Mode2Bit08_DebouncedFlag_000159e0;
 undefined *PTR_DAT_000159e4;
 undefined *PTR_DAT_000159e8;
-undefined *PTR_DAT_000159ec;
-undefined *PTR_DAT_000159f0;
+undefined *PTR_IgnitionPhaseControlRamp_EnableWindowFlag_000159ec;
+undefined *PTR_IgnitionPhaseControlRamp_HoldAccumulator_000159f0;
 undefined *PTR_ClampFloat_000159f4;
-undefined *PTR_DAT_000159f8;
+undefined *PTR_IgnitionPhaseCommandBlend_ClampedOutput_000159f8;
 undefined *PTR_CommandBlend_RequestFlag_00015afc;
 undefined *PTR_DAT_00015b00;
 undefined *PTR_EngineSpeed_RPM_Filtered_00015b04;
 undefined4 DAT_00015b0c;
 undefined *PTR_DAT_00015b10;
 undefined *PTR_ValueInDeltaRange_00015b14;
-undefined *PTR_DAT_00015b18;
+undefined *PTR_IgnitionPhasePrimaryEnable_DecayCommand_00015b18;
 undefined *PTR_DAT_00015b1c;
 undefined *PTR_FuelDisplay_InputPhaseFilter_Accum_00015b20;
 undefined *PTR_DAT_00015b24;
@@ -3218,7 +3225,7 @@ undefined *PTR_DAT_00015c38;
 pointer PTR_SubsystemA_SeededLoadWindow_ModeState_Code_00015c2c;
 undefined *PTR_DAT_00015c3c;
 undefined *PTR_DAT_00015c40;
-undefined *PTR_DAT_00015c44;
+undefined *PTR_IgnitionPhaseCommandBlend_ClampedOutput_00015c44;
 undefined *PTR_DAT_00015c48;
 undefined *PTR_DAT_00015c4c;
 undefined *PTR_DAT_00015c50;
@@ -3233,7 +3240,7 @@ undefined *PTR_DAT_00015c70;
 undefined *PTR_DAT_00015c74;
 undefined *PTR_DAT_00015c78;
 undefined *PTR_DAT_00015c7c;
-undefined *PTR_DAT_00015e4c;
+undefined *PTR_IgnitionPhaseCommandBlend_TotalOutput_00015e4c;
 undefined *PTR_DAT_00015e50;
 undefined *PTR_DAT_00015e54;
 undefined *PTR_DAT_00015e5c;
@@ -3264,7 +3271,7 @@ undefined *PTR_MinFloat_00015ec8;
 undefined *PTR_DAT_00015ecc;
 undefined *PTR_DAT_00015ed0;
 undefined *PTR_ClampFloat_00015ed4;
-undefined *PTR_DAT_00015ed8;
+undefined *PTR_IgnitionPhaseCommandBlend_ModeTableOutput_00015ed8;
 undefined *PTR_DAT_00015edc;
 pointer PTR_SubsystemA_EnableSharedInhibitFlag_00015e90;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00015e94;
@@ -3276,10 +3283,10 @@ undefined *PTR_DAT_000160bc;
 undefined *PTR_DAT_000160c4;
 pointer PTR_SubsystemA_EnablePrecondition_InputB_000160c0;
 undefined *PTR_DAT_000160c8;
-undefined *PTR_DAT_000160cc;
-undefined *PTR_DAT_000160d0;
+undefined *PTR_SubsystemA_EnablePrecondition_WindowedOutput_000160cc;
+undefined *PTR_SubsystemA_CommandBlend_CommitSlot4WindowOutput_000160d0;
 undefined *PTR_MaxFloat_000160d4;
-undefined *PTR_DAT_000160d8;
+undefined *PTR_SubsystemA_CommandBlend_WindowedOutputMax_000160d8;
 undefined *PTR_DAT_000160dc;
 undefined *PTR_DAT_000160e0;
 undefined *PTR_EngineSpeed_RPM_Filtered_000160e4;
@@ -3292,30 +3299,30 @@ pointer PTR_SubsystemA_CommandBlend_SeededIatLoad_SecondaryInput_00016108;
 undefined *PTR_DAT_000160f8;
 undefined *PTR_DAT_00016100;
 undefined *PTR_DAT_00016104;
-undefined *PTR_DAT_0001610c;
+undefined *PTR_SubsystemA_CommandBlend_CommitSlot4WindowQualifiedPrev_0001610c;
 undefined *PTR_DAT_00016110;
 undefined *PTR_DAT_00016114;
 undefined *PTR_DAT_00016118;
 undefined *PTR_DAT_0001611c;
 undefined *PTR_DAT_00016120;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_00016124;
-undefined *PTR_DAT_00016128;
+undefined *PTR_SubsystemA_CommandBlend_TableSelectGateFlag_00016128;
 undefined *PTR_MAP_IAT_SelectedCommitSlot4_0001612c;
 undefined *PTR_Desc_ECT_Gauge_CommandEnable_TableA_00016130;
 undefined *PTR_Desc_ECT_Gauge_CommandEnable_TableB_00016134;
 undefined *PTR_Interpolate1D_WithTransform_00016138;
-undefined *PTR_DAT_0001613c;
-undefined *PTR_DAT_00016144;
+undefined *PTR_SubsystemA_CommandBlend_CommitSlot4WindowActiveFlag_0001613c;
+undefined *PTR_SubsystemA_EnablePrecondition_SecondaryInputThreshold_00016144;
 pointer PTR_Desc_SubsystemA_EnablePrecondition_WindowedOutput_TableA_00016140;
 undefined *PTR_DAT_0001614c;
-undefined *PTR_DAT_00016148;
+undefined *PTR_SubsystemA_EnablePrecondition_SecondaryInputGateFlag_00016148;
 pointer PTR_Desc_SubsystemA_EnablePrecondition_WindowedOutput_TableB_000162d8;
 undefined *PTR_DAT_00016150;
 undefined *PTR_DAT_000162a0;
 undefined *PTR_DAT_000162a4;
 undefined *PTR_DAT_000162a8;
 undefined *PTR_DAT_000162ac;
-undefined *PTR_DAT_000162b0;
+undefined *PTR_SubsystemA_EnablePrecondition_SecondaryInputThreshold_000162b0;
 float DAT_000162b4;
 undefined *PTR_DAT_000162b8;
 undefined *PTR_DAT_000162c0;
@@ -3326,15 +3333,15 @@ undefined *PTR_DAT_000162cc;
 undefined *PTR_DAT_000162d0;
 float DAT_000162d4;
 undefined *PTR_Interpolate1D_WithTransform_000162dc;
-undefined *PTR_DAT_000162e0;
+undefined *PTR_SubsystemA_EnablePrecondition_WindowedOutput_000162e0;
 undefined *PTR_DAT_000162e4;
 undefined *PTR_DAT_000162e8;
-undefined *PTR_DAT_000162ec;
+undefined *PTR_SubsystemA_CommandBlend_TableSelectGateFlag_000162ec;
 undefined *PTR_DAT_000162f8;
 undefined *PTR_DAT_000162fc;
 undefined *PTR_DAT_00016304;
 undefined *PTR_DAT_00016308;
-undefined *PTR_DAT_00016310;
+undefined *PTR_SubsystemA_CommandBlend_CommitSlot4WindowActiveFlag_00016310;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_000162f0;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000162f4;
 pointer PTR_SubsystemA_SeededIatLoad_SecondaryDelta_00016300;
@@ -3342,7 +3349,7 @@ pointer PTR_SubsystemA_CommandBlend_SeededIatLoad_SecondaryInput_0001630c;
 undefined *PTR_EngineSpeed_RPM_Filtered_00016360;
 pointer PTR_Desc_SubsystemA_CommandBlend_PhaseTableOutput_MapB_00016384;
 undefined *PTR_Interpolate1D_WithTransform_00016364;
-undefined *PTR_DAT_0001636c;
+undefined *PTR_IgnitionPhaseCommandBlend_PhaseTableInputB_ThresholdByRPM_0001636c;
 undefined *PTR_DAT_00016370;
 pointer PTR_Desc_SubsystemA_CommandBlend_PhaseTableOutput_MapA_00016368;
 pointer PTR_SubsystemA_CommandBlend_TableInput_00016374;
@@ -3362,12 +3369,12 @@ pointer PTR_Desc_SubsystemA_CommandBlend_ModeTableOutput_MapC_000163fc;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_00016464;
 undefined *PTR_DAT_0001646c;
 undefined *PTR_Interpolate1D_WithTransform_0001647c;
-undefined *PTR_DAT_00016480;
+undefined *PTR_IgnitionPhaseCommandBlend_EctMafPhaseProduct_ECTFactor_00016480;
 undefined *PTR_EngineSpeed_RPM_Filtered_00016484;
 undefined *PTR_ECT_TableOutput_MafBlendSnapshotA_00016488;
 undefined *PTR_Interpolate2D_float_WithTransform_00016490;
-undefined *PTR_DAT_00016494;
-undefined *PTR_DAT_00016498;
+undefined *PTR_IgnitionPhaseCommandBlend_EctMafPhaseProduct_LoadRpmFactor_00016494;
+undefined *PTR_IgnitionPhaseCommandBlend_EctMafPhaseProduct_00016498;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00016468;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00016470;
 pointer PTR_Desc_SubsystemA_CommandBlend_EctMafPhaseProduct_TableA_00016474;
@@ -3376,7 +3383,7 @@ pointer PTR_Desc_SubsystemA_CommandBlend_EctMafPhaseProduct_TableC_0001648c;
 undefined *PTR_SubsystemA_ControlRampBlend_NoOpD_000165ac;
 undefined *PTR_SubsystemA_ControlRampBlend_NoOpC_000165b0;
 undefined *PTR_MixedSnapshotNoOpBundle_DiagState_Sub_5_000165b4;
-undefined *PTR_EGR_CommandBlend_BalanceValue_Reset_000165b8;
+undefined *PTR_IgnitionPhaseCommandBlend_BalanceValue_Reset_000165b8;
 undefined *PTR_nothing_104_000165bc;
 undefined *PTR_nothing_102_000165c0;
 undefined *PTR_nothing_100_000165c4;
@@ -3404,10 +3411,10 @@ undefined *PTR_nothing_93_00016618;
 undefined *PTR_nothing_92_0001661c;
 undefined *PTR_nothing_91_00016620;
 undefined *PTR_nothing_98_00016624;
-undefined *PTR_EGR_ControlRamp_PhaseThresholdFlag_Update_00016628;
+undefined *PTR_IgnitionPhaseControlRamp_PhaseThresholdFlag_Update_00016628;
 undefined *PTR_nothing_109_0001662c;
 undefined *PTR_nothing_108_00016630;
-undefined *PTR_SubsystemA_DTC34_EnableState_Snapshot_A_00016634;
+undefined *PTR_CoolingFanRelay1_PE4_P0480_EnableState_Snapshot_A_00016634;
 undefined *PTR_NoOp_Return_2e768_00016638;
 undefined *PTR_nothing_83_0001663c;
 undefined *PTR_MixedSnapshotNoOpBundle_DiagState_Sub_2_00016640;
@@ -3422,7 +3429,7 @@ undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_00016828;
 undefined *PTR_SubsystemA_ControlRampBlend_RequestCounters_Reset_0001682c;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00016830;
 undefined *PTR_GaugeFlagPacket_EctFuel_Update_00016834;
-undefined *PTR_EGR_CommandBlend_WindowFlags_Update_00016838;
+undefined *PTR_IgnitionPhaseCommandBlend_WindowFlags_Update_00016838;
 undefined *PTR_EGR_LearnEnable_WindowFlags_Update_0001683c;
 undefined *PTR_EGR_LearnEnable_EctThresholdFlag_Update_00016840;
 undefined *PTR_NoOp_Return_2e9c8_00016844;
@@ -3432,7 +3439,7 @@ undefined *PTR_MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket_Sub_1_
 undefined *PTR_nothing_114_00016854;
 undefined *PTR_nothing_112_00016858;
 undefined *PTR_nothing_110_0001685c;
-undefined *PTR_EGR_EnablePrecondition_WindowFlags_Update_00016860;
+undefined *PTR_IgnitionPhaseEnablePrecondition_WindowFlags_Update_00016860;
 undefined *PTR_nothing_84_00016864;
 undefined *PTR_Read_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00016868;
 undefined *PTR_Read_SubsystemA_EnablePrecondition_InputB_0001686c;
@@ -3443,58 +3450,58 @@ undefined *PTR_EGR_PrimaryEnable_FlagSnapshot_Update_0001687c;
 undefined *PTR_nothing_107_00016880;
 undefined *PTR_nothing_106_00016884;
 undefined *PTR_nothing_105_00016888;
-undefined *PTR_SubsystemA_DTC34_EnableState_Snapshot_B_0001688c;
+undefined *PTR_CoolingFanRelay1_PE4_P0480_EnableState_Snapshot_B_0001688c;
 undefined *PTR_EGR_TableSelectGate_RampState_Reset_00016890;
 undefined *PTR_MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket_Sub_2_00016894;
 undefined *PTR_ECT_GAUGE_EnableFlags_UpdatePrimaryThresholds_00016898;
 undefined *PTR_MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket_Sub_3_0001689c;
 undefined *PTR_MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket_Sub_4_000168a0;
-undefined *PTR_EGR_CommandBlend_BalanceValue_Reset_Alias_000168a4;
+undefined *PTR_IgnitionPhaseCommandBlend_BalanceValue_Reset_Alias_000168a4;
 undefined *PTR_nothing_103_000168a8;
 undefined *PTR_nothing_101_000168ac;
 undefined *PTR_nothing_99_000168b0;
 undefined *PTR_nothing_95_000168b4;
-undefined *PTR_EGR_ModeFlags_Snapshot_Update_000168b8;
+undefined *PTR_IgnitionPhaseModeFlags_Snapshot_Update_000168b8;
 undefined *PTR_SubsystemA_ControlRampBlend_NoOpB_000168bc;
 undefined *PTR_PhaseSlot_GlobalFlag_Set_Alias_000168c0;
-undefined *PTR_EGR_ModeTransitionFlags_Update_000168c4;
+undefined *PTR_IgnitionPhaseModeTransitionFlags_Update_000168c4;
 undefined *PTR_PhaseSlotMaskAndMode_Update_000168c8;
 undefined *PTR_PhaseSlot_StepService_UpdateAll_000168cc;
 undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_00016b80;
 undefined *PTR_SubsystemA_ControlRampBlend_RequestWindow_Update_00016b84;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00016b88;
-undefined *PTR_EGR_CommandBlend_InhibitRamp_Update_00016b8c;
-undefined *PTR_EGR_CommandBlend_MapBlendAndOffset_Update_00016b90;
+undefined *PTR_IgnitionPhaseCommandBlend_InhibitRamp_Update_00016b8c;
+undefined *PTR_IgnitionPhaseCommandBlend_MapBlendAndOffset_Update_00016b90;
 undefined *PTR_EGR_LearnEnable_Conditions_Update_00016b94;
 undefined *PTR_EGR_LearnCommand_ScaledProtectedOutput_Update_00016b98;
 undefined *PTR_EGR_LearnRatio_ProtectedFiltered_Update_00016b9c;
 undefined *PTR_EGR_LearnCommand_BaseValue_Update_00016ba0;
-undefined *PTR_EGR_LearnCommand_Delta_Update_00016ba4;
-undefined *PTR_GroupK_DTC34_GaugeDiagAndMode_Update_00016ba8;
-undefined *PTR_EGR_ControlRamp_DecayAndClamp_Update_00016bac;
-undefined *PTR_EGR_CommandBlend_Integrator_Update_00016bb0;
-undefined *PTR_EGR_CommandBlend_TotalOutput_Update_00016bb4;
-undefined *PTR_EGR_EnablePrecondition_RateLimit_Update_00016bb8;
-undefined *PTR_EGR_CommandBlend_EctMafPhaseProduct_Update_00016bbc;
+undefined *PTR_SubsystemA_LearnCommand_Delta_Update_00016ba4;
+undefined *PTR_SubsystemA_PrereqA_WindowRampOutput_Update_00016ba8;
+undefined *PTR_IgnitionPhaseControlRamp_DecayAndClamp_Update_00016bac;
+undefined *PTR_IgnitionPhaseCommandBlend_Integrator_Update_00016bb0;
+undefined *PTR_IgnitionPhaseCommandBlend_TotalOutput_Update_00016bb4;
+undefined *PTR_IgnitionPhaseEnablePrecondition_RateLimit_Update_00016bb8;
+undefined *PTR_IgnitionPhaseCommandBlend_EctMafPhaseProduct_Update_00016bbc;
 undefined *PTR_MaxFloat_Wrapper_00016bc0;
 undefined *PTR_EGR_EnablePrecondition_WindowedTableOutput_Update_00016bc4;
-undefined *PTR_Read_MaxFloat_00016bc8;
-undefined *PTR_EGR_PrimaryEnable_DecayCommand_Update_00016bcc;
-undefined *PTR_EGR_ControlRamp_HoldAccumulator_Update_00016bd0;
-undefined *PTR_SubsystemA_DTC34_ThresholdValue_UpdateFromECTAndLoad_00016bd4;
+undefined *PTR_SubsystemA_CommandBlend_WindowedOutputMax_Update_00016bc8;
+undefined *PTR_IgnitionPhasePrimaryEnable_DecayCommand_Update_00016bcc;
+undefined *PTR_IgnitionPhaseControlRamp_HoldAccumulator_Update_00016bd0;
+undefined *PTR_SubsystemA_DTC34_EctLoadThresholdOutput_Update_00016bd4;
 undefined *PTR_EGR_TableSelectGate_RampState_Update_00016bd8;
-undefined *PTR_ModeByte3To10_SelectOrDecayToZero_Update_00016bdc;
+undefined *PTR_SubsystemA_ModeByte3To10_SelectedOutput_Update_00016bdc;
 undefined *PTR_ECT_GAUGE_CommandEnable_Evaluate_00016be0;
 undefined *PTR_ECT_GAUGE_CommandBase_UpdateFromCoolant_00016be4;
-undefined *PTR_Diag_LoadBasedThresholdFilter_Update_00016be8;
-undefined *PTR_EGR_CommandBlend_BalanceValue_Update_00016bec;
-undefined *PTR_EGR_CommandBlend_ResidualSum_Update_00016bf0;
-undefined *PTR_EGR_CommandBlend_LimitsAndPhaseTable_Update_00016bf4;
-undefined *PTR_EGR_CommandBlend_OutputClamp_Update_00016bf8;
-undefined *PTR_EGR_CommandBlend_OffsetSums_Update_00016bfc;
+undefined *PTR_SubsystemA_Diag_LoadBasedThresholdFilter_Update_00016be8;
+undefined *PTR_IgnitionPhaseCommandBlend_BalanceValue_Update_00016bec;
+undefined *PTR_IgnitionPhaseCommandBlend_ResidualSum_Update_00016bf0;
+undefined *PTR_IgnitionPhaseCommandBlend_LimitsByRPM_Update_00016bf4;
+undefined *PTR_IgnitionPhaseCommandBlend_OutputClamp_Update_00016bf8;
+undefined *PTR_IgnitionPhaseSnapshotOffsetSums_Update_00016bfc;
 undefined *PTR_SubsystemA_ControlRampBlend_TableSelectSnapshot_Copy_00016c00;
 undefined *PTR_PhaseSlot_GlobalFlag_Clear_00016c04;
-undefined *PTR_PhaseSlot_AllOutputs_Recalculate_00016c08;
+undefined *PTR_PhaseSlot_DwellOffsetCorrectionCache_UpdateAll_00016c08;
 undefined *PTR_PhaseSlot_RequestEnable_All_00016c0c;
 undefined *PTR_PhaseSlot_InitRequest_Set_00016c10;
 undefined *PTR_PhaseSlot_ClearAllPendingIfIdle_00016c14;
@@ -3503,15 +3510,15 @@ undefined *PTR_EGR_LearnDirectionAndRatio_State_Update_00016c1c;
 undefined *PTR_EGR_LearnRatio_UpdateWindowTimer_00016c20;
 undefined *PTR_EGR_LearnCommand_ProtectedRatioNudge_Update_00016c24;
 undefined *PTR_EGR_SeedRequest_ClearOrCount_00016c28;
-undefined *PTR_ECT_GAUGE_CommandEnableTimerAndLocalStagePrep_Bundle_Sub_1_00016c2c;
+undefined *PTR_SubsystemA_CommandBlend_CommitSlot4WindowOutput_Update_00016c2c;
 undefined *PTR_EGR_CommandBlend_TableSelectGate_Update_00016c30;
-undefined *PTR_EGR_ControlRamp_EnableWindowAndCounters_Update_00016c34;
+undefined *PTR_IgnitionPhaseControlRamp_EnableWindowAndCounters_Update_00016c34;
 undefined *PTR_ECT_GAUGE_CommandEnable_TimerAndStagePrep_00016c38;
-undefined *PTR_EGR_TransientPulse_WindowAndTimer_Update_00016c3c;
+undefined *PTR_SubsystemA_TransientPulse_WindowAndTimer_Update_00016c3c;
 undefined *PTR_ECT_GAUGE_CommandEnableTimer_Update_00016c40;
-undefined *PTR_EGR_CommandBlend_ModeTableOutput_Update_00016c44;
-undefined *PTR_EGR_CommandBlend_PhaseTableOutput_Update_00016c48;
-undefined *PTR_SubsystemA_DTC34_EnableTimer_Update_00016c4c;
+undefined *PTR_IgnitionPhaseCommandBlend_ModeTableOutput_Update_00016c44;
+undefined *PTR_IgnitionPhaseCommandBlend_PhaseTableOutput_Update_00016c48;
+undefined *PTR_CoolingFanRelay1_PE4_P0480_EnableTimer_Update_00016c4c;
 undefined *PTR_EGR_TableSelectGate_Timer_Update_00016c50;
 undefined *PTR_EGR_LearnRatio_ProtectedDefault_Write_00016c54;
 undefined *PTR_EGR_LearnRatio_ProtectedSource_Write_00016c58;
@@ -3593,14 +3600,14 @@ undefined *PTR_VVT_ChannelControl_ServiceBundle_00017528;
 undefined *PTR_MixedProtectedScheduler_SeedAndState_ServiceBundle_0001752c;
 undefined *PTR_O2_Heater_SharedNormalizedRatio_ServiceBundle_00017530;
 undefined *PTR_O2_Heater1_ServiceBundle_00017534;
-undefined *PTR_O2_Heater2_ServiceBundle_00017538;
+undefined *PTR_HO2S2_Heater_PD4_ServiceBundle_00017538;
 undefined *PTR_CoolingFan_ControlStage_Task_00017548;
 undefined *PTR_PD10_SignalGenerator_Task_0001754c;
 undefined *PTR_O2_Heater1_CompositeDutyReset_Dispatcher_00017550;
 undefined *PTR_ProtectedStatusPair_Group2AF_Init_00017554;
 undefined *PTR_SubsystemA_DiagAndInfoDisplay_ResetBundle_00017558;
 undefined *PTR_DiagResetRunner_SubsystemASharedState_ResetAll_00017560;
-undefined *PTR_ECTGauge_PF5_CommandAndOutput_UpdateApp_00017564;
+undefined *PTR_ECTGauge_PF5_PWM_UpdateApp_00017564;
 undefined *PTR_ECT_GAUGE_Output_Disable_00017568;
 undefined *PTR_NoOp_Thunk_400ec_0001756c;
 undefined *PTR_ECT_GAUGE_PWM_Output_ResetHook_00017570;
@@ -3613,7 +3620,7 @@ pointer PTR_MixedPreFan_NoOpTailDispatcher_00017544;
 pointer PTR_O2_Heater2_CommandWordAndGpioCommit_ServiceBundle_0001753C;
 pointer PTR_SubsystemA_SeededLoadWindow_ServiceBundle_0001755C;
 pointer PTR_MixedInfoDisplayAndSubsystemAHook_ServiceBundle_0001751C;
-undefined *PTR_SubsystemA_DTC2A_StateScanAndLatch_ServiceProtected_00017584;
+undefined *PTR_ECU_P0601_StateScanAndLatch_ServiceProtected_00017584;
 undefined *PTR_ReportFourSlotPayload_ServiceProtected_00017588;
 undefined *PTR_ECT_GAUGE_ServiceDispatcher_SubgroupA_NoOpA_00017590;
 undefined *PTR_ECT_GAUGE_ServiceDispatcher_SubgroupA_NoOpB_00017594;
@@ -3663,7 +3670,7 @@ pointer PTR_InfoDisplay_SubsystemABlendMessageStatus_ServiceBundle_ForGroupA_000
 pointer PTR_EGR_CoilMonitorAndDrive_ServiceDispatch_ForGroupA;
 pointer PTR_Thunk_DiagLocalIdCountdown_Decrement_ForGroupA_00017644;
 pointer PTR_ImmoStatusRequestAndCounter_ServicePair_ForGroupA_00017648;
-undefined *PTR_DiagRunner_SubsystemADTC2A_StateScan_Wrapped_00017884;
+undefined *PTR_ECU_P0601_StateScan_Wrapped_00017884;
 undefined *PTR_IMMO_PacketReader_ServiceProtected_0001788c;
 undefined *PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_00017888;
 undefined *PTR_MixedScheduler_GroupC_CommandBlendBundle_00017894;
@@ -3696,7 +3703,7 @@ undefined *PTR_ECT_GAUGE_Output_UpdateAtomic_0001790c;
 pointer PTR_SubsystemA_DTC34_EnableAndLocalState_ServiceProtected_000178EC;
 undefined *PTR_ECT_GAUGE_PWM_Output_UpdateLocked_00017914;
 pointer PTR_CoolingFan_ProtectedLocalBatchA_000178F4;
-undefined *PTR_DiagRunner_SubsystemAInfoDisplay_DTC1C1D_DTC3536_Group_00017918;
+undefined *PTR_DiagRunner_FuelTrimP0171P0172_HO2S2P0137P0138_Group_00017918;
 pointer PTR_CoolingFan_ProtectedLocalBatchB_000178F8;
 undefined *PTR_SubsystemA_SeededLoadWindow_SubBundleA_PairUpdate2_0001791c;
 pointer PTR_CoolingFan_ProtectedTailPair_000178FC;
@@ -3728,7 +3735,7 @@ pointer PTR_DiagResetRunner_SubsystemALocalLatchGate_Update_00017984;
 pointer PTR_MixedScheduler_GroupH_SingleLockedDispatchTail_00017974;
 pointer PTR_MixedScheduler_GroupH_DoubleBatchWrapper_A_00017978;
 pointer PTR_MixedScheduler_GroupH_DoubleBatchWrapper_B_0001797C;
-undefined *PTR_DiagRunner_SubsystemADTC2A2B_DTC25_Group_00017988;
+undefined *PTR_DiagRunner_ECU_P0601_P0602_CatalystP0420_Group_00017988;
 undefined *PTR_LAB_0001798c;
 pointer PTR_FlagGatedSaturatingCounter_ServiceProtected_000179A4;
 pointer PTR_DiagRunner_SubsystemAModelDiag_DTC0F_Group_000179A8;
@@ -3777,7 +3784,7 @@ undefined *PTR_IMMO_PacketFetch_ServiceProtected_00017af0;
 undefined *PTR_DAT_00017bc8;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00017bc4;
 undefined *PTR_IATSensor_AN29_ModeFlag_00017bcc;
-undefined *PTR_DAT_00017bd0;
+undefined *PTR_PhaseFrontend_Mode0_ResponseStableWord_00017bd0;
 ushort DAT_00017bc2;
 undefined *PTR_DAT_00017bd4;
 undefined *PTR_IATSensor_AN29_Offset_00017bd8;
@@ -3800,58 +3807,58 @@ undefined *PTR_InjectorOutputWindow_CycleLimit_ModeA_00017c14;
 undefined *PTR_DAT_00017c18;
 undefined *PTR_FuelMixture_LoadFactorTableData_00017c1c;
 undefined *PTR_LAB_0005717d+3_00017c20;
-undefined *PTR_DAT_00017d08;
+undefined *PTR_SubsystemA_ControlRampBlend_RequestEnableMirror_00017d08;
 pointer PTR_SubsystemA_SeededLoadWindow_ModeFlags_LatchedB_00017d18;
-undefined *PTR_DAT_00017d0c;
+undefined *PTR_IMMO_StatusQuadByteD_00017d0c;
 pointer PTR_SubsystemA_SeededLoadWindow_ModeFlags_LatchedC_00017d1c;
 undefined *PTR_LAB_0000fffe+1_00017d10;
 pointer PTR_SubsystemA_SeededLoadWindow_ModeFlags_LatchedD_00017d20;
-undefined *PTR_DAT_00017d24;
-undefined *PTR_DAT_00017d28;
-undefined *PTR_DAT_00017d2c;
+undefined *PTR_PhaseSlot_SelectedMaskWord_00017d24;
+undefined *PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagB_00017d28;
+undefined *PTR_PhaseSlot_SelectedMode_00017d2c;
 pointer PTR_SubsystemA_SeededLoadWindow_ModeFlags_LatchedA_00017d14;
 undefined *PTR_PhaseSlot_ModeRaw_Read_00017d30;
 short DAT_00017d06;
 float DAT_00017e20;
 undefined *PTR_SharedDiagAggregate_PhaseState2RequestFlag_00017e28;
 float DAT_00017e24;
-undefined *PTR_DAT_00017e2c;
-undefined *PTR_DAT_00017e30;
-undefined *PTR_DAT_00017e34;
-undefined *PTR_DAT_00017e38;
+undefined *PTR_IgnitionPhaseOutputAngle_Slot0_Snapshot_00017e2c;
+undefined *PTR_IgnitionPhaseOutputAngle_Slot1_Snapshot_00017e30;
+undefined *PTR_IgnitionPhaseOutputAngle_Slot2_Snapshot_00017e34;
+undefined *PTR_IgnitionPhaseOutputAngle_Slot3_Snapshot_00017e38;
 undefined *PTR_EngineSpeed_RPM_Filtered_00017e3c;
-undefined *PTR_Desc_PhaseSlot_OutputValue_Map_00017e40;
+undefined *PTR_Desc_IgnitionPhaseOutputAngle_ByRPM_Table_00017e40;
 undefined *PTR_Interpolate1D_WithTransform_00017e44;
-undefined *PTR_DAT_00017e48;
-undefined *PTR_DAT_00017e4c;
-undefined *PTR_DAT_00017e50;
-undefined *PTR_Desc_PhaseSlot_TableScaledValue_Map_00017e54;
-undefined *PTR_DAT_00017e58;
+undefined *PTR_IgnitionPhaseOutputAngle_FromRPM_00017e48;
+undefined *PTR_PhaseSlot_GlobalEnableFlag_00017e4c;
+undefined *PTR_IgnitionCoilPair_BaseDwellWord_00017e50;
+undefined *PTR_Desc_PhaseSlot_DwellOffsetCorrection_ByRPM_00017e54;
+undefined *PTR_PhaseSlot_DwellOffsetCorrection_FromRPM_00017e58;
 float DAT_00017e5c;
 short DAT_00017e1e;
-undefined *PTR_DAT_00017e60;
-undefined *PTR_DAT_00017eb8;
-undefined *PTR_DAT_00018004;
-undefined *PTR_DAT_00018008;
-undefined *PTR_DAT_0001800c;
-undefined *PTR_DAT_00018010;
+undefined *PTR_PhaseSlot_DwellOffsetCorrectionWordCache_ByOutputIndex_00017e60;
+undefined *PTR_PhaseSlot_GlobalEnableFlag_00017eb8;
+undefined *PTR_PhaseSlot_SelectedMode_00018004;
+undefined *PTR_PhaseSlot_SelectedMaskWord_00018008;
+undefined *PTR_PhaseSlot_InitRequestFlag_0001800c;
+undefined *PTR_PhaseSlot_Config_BaseStepBySlot_00018010;
 short DAT_00018002;
-undefined *PTR_DAT_00018014;
-undefined *PTR_PhaseSlot_AllOutputs_Recalculate_00018018;
+undefined *PTR_PhaseSlot_Config_OutputIdAndMaskIndexPairs_00018014;
+undefined *PTR_PhaseSlot_DwellOffsetCorrectionCache_UpdateAll_00018018;
 undefined *PTR_DAT_0001811c;
 int DAT_00018120;
 short DAT_0001811a;
 undefined *PTR_PhaseSlot_OutputValue_Update_00018128;
-undefined *PTR_DAT_00018124;
-undefined *PTR_DAT_0001812c;
-undefined *PTR_DAT_00018130;
+undefined *PTR_PhaseSlot_InitRequestFlag_00018124;
+undefined *PTR_PhaseSlot_SelectedMode_0001812c;
+undefined *PTR_PhaseSlot_SelectedMaskWord_00018130;
 int DAT_00018134;
 undefined *PTR_PTR_00018138;
 undefined *PTR_PhaseSlotMode_ReadOrFallback_000182b8;
-undefined *PTR_DAT_000182bc;
+undefined *PTR_PhaseSlot_SelectedMode_000182bc;
 undefined *PTR_LAB_000182c0;
 undefined *PTR_PhaseSlotMask_ReadOrDefault_000182c4;
-undefined *PTR_DAT_000182c8;
+undefined *PTR_PhaseSlot_SelectedMaskWord_000182c8;
 int DAT_000182cc;
 undefined *PTR_DAT_000182d0;
 undefined *PTR_LAB_000182d4;
@@ -3860,9 +3867,9 @@ undefined *PTR_IgnitionCoilPairSlot_QueryState_000182dc;
 undefined *PTR_PhaseIndexTracker_CurrentStepIndex_000183d4;
 int DAT_000183d8;
 undefined *PTR_PhaseSlotMode_ReadOrFallback_000183dc;
-undefined *PTR_DAT_000183e0;
+undefined *PTR_PhaseSlot_SelectedMode_000183e0;
 undefined *PTR_PhaseSlotMask_ReadOrDefault_000183e4;
-undefined *PTR_DAT_000183e8;
+undefined *PTR_PhaseSlot_SelectedMaskWord_000183e8;
 short DAT_000183d0;
 int DAT_000183ec;
 undefined *PTR_LAB_000183f0;
@@ -3870,10 +3877,10 @@ undefined *PTR_PhaseSlot_OutputValue_Update_000183f4;
 undefined *PTR_IgnitionCoilPairSlot_ClearPendingFlagIfIdle_000183f8;
 undefined *PTR_LAB_000183fc;
 undefined *PTR_PTR_00018400;
-undefined *PTR_DAT_000184f0;
+undefined *PTR_PhaseSlot_InitRequestFlag_000184f0;
 short DAT_000184ee;
 undefined *PTR_IgnitionCoilPairSlot_ClearPendingFlagIfIdle_000184f4;
-undefined *PTR_DAT_000184f8;
+undefined *PTR_PhaseSlot_SelectedMode_000184f8;
 undefined *PTR_DAT_000184fc;
 int DAT_00018500;
 int DAT_00018508;
@@ -3898,12 +3905,25 @@ short DAT_000187bc;
 undefined *PTR_IgnitionCoilPairSlot_CommitShadowIfIdle_000187c8;
 undefined *PTR_LAB_000187cc;
 int DAT_000187d0;
+undefined *PTR_PhaseSlot_StepDeltaFromCurrent_00018864;
+undefined *PTR_IgnitionCoilPairSlot_SetWrappedTarget_00018868;
+float DAT_0001886c;
+int DAT_00018870;
+undefined *PTR_PhaseSlot_StepDeltaFromCurrent_00018994;
+float DAT_00018998;
+undefined *PTR_DAT_0001899c;
+undefined *PTR_IgnitionCoilPairSlot_SetImmediateTargetAndStart_000189a0;
+short DAT_00018990;
+undefined *PTR_PhaseSlot_DwellOffsetCorrection_ByRPM_Calculate_000189a4;
+undefined *PTR_IgnitionCoilPair_BaseDwellWord_X16_Read_000189a8;
+undefined *PTR_InjectorPhaseAccumulator_000189ac;
+pointer PTR_SignedDivide32_LongDivision_Helper_000189B0;
 undefined *PTR_VVT_TPD1042F_AN17_FeedbackRaw_000189d8;
 undefined *PTR_DAT_000189dc;
 undefined *PTR_VVT_TPD1042F_TO6A_ConfigEntry_GetPtr_000189e0;
 undefined *PTR_DAT_000189e4;
 undefined *PTR_DAT_00018b04;
-undefined *PTR_DAT_00018b08;
+undefined *PTR_PhaseFrontend_Mode1_ResponseStableByte_00018b08;
 undefined *PTR_InputBitPair_DebouncedState_00018b0c;
 undefined *PTR_DAT_00018b10;
 undefined *PTR_DAT_00018b14;
@@ -3911,7 +3931,7 @@ undefined *PTR_DAT_00018b18;
 undefined *PTR_DAT_00018b1c;
 undefined *PTR_AddBytesWithLimit_00018b20;
 undefined *PTR_DAT_00018b24;
-undefined *PTR_DAT_00018b2c;
+undefined *PTR_PhaseFrontend_Mode2_ResponseStableByte_00018b2c;
 undefined *PTR_DAT_00018b28;
 undefined *PTR_DAT_00018b30;
 undefined *PTR_DAT_00018b34;
@@ -3921,7 +3941,7 @@ undefined *PTR_DAT_00018b40;
 pointer PTR_SubsystemA_ControlRampBlend_SharedScaleLatch_00018ba0;
 pointer PTR_SubsystemA_ControlRampBlend_TableInput_00018ba4;
 pointer PTR_SubsystemA_ControlRampBlend_SharedScaleSource_00018ba8;
-undefined *PTR_SharedWindowScaleValue_00018bac;
+undefined *PTR_BatteryVoltage_FilteredVolts_00018bac;
 undefined *PTR_DAT_00018bb4;
 undefined4 DAT_00018bb0;
 undefined *PTR_FloatBlendTowardsTarget_WithDeadband_00018bb8;
@@ -4120,19 +4140,19 @@ pointer PTR_SubsystemA_InputA_SourceValue_UpdateFromMafOrEctInhibit_ForEGRCoilSe
 pointer PTR_MAP_RawAdcSamples_Snapshot_ForGroupKService;
 pointer PTR_SubsystemA_InputA_SourceMinMaxSnapshots_Update_ForEGRCoilService;
 undefined *PTR_EGR_DTC2A_LocalStatusRefreshAndAggregate_00019530;
-undefined *PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_1_00019534;
-undefined *PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_2_00019538;
-undefined *PTR_Read_AddBytesWithLimit_2_0001953c;
-undefined *PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_3_00019540;
-undefined *PTR_Read_AddBytesWithLimit_00019544;
-undefined *PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_4_00019548;
-undefined *PTR_AddBytesWithLimit_Wrapper_0001954c;
-undefined *PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_5_00019550;
-undefined *PTR_Read_AddBytesWithLimit_3_00019554;
-undefined *PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_6_00019558;
-undefined *PTR_Read_AddBytesWithLimit_4_0001955c;
-undefined *PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_7_00019560;
-undefined *PTR_Read_AddBytesWithLimit_1_00019564;
+undefined *PTR_PhaseFrontend_Mode2Bit10_DebouncedPrereq_Update_00019534;
+undefined *PTR_PhaseFrontend_Mode0Bit10_InvertRaw_Update_00019538;
+undefined *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparison_Update_0001953c;
+undefined *PTR_PhaseFrontend_Mode1Bit20_Raw_Update_00019540;
+undefined *PTR_IdleUpMode_Mode1Bit20_DebouncedRequestAB_Update_00019544;
+undefined *PTR_PhaseFrontend_DisabledRequestRaw_Clear_00019548;
+undefined *PTR_PhaseFrontend_DisabledRequest_Debounce_Update_0001954c;
+undefined *PTR_PhaseFrontend_Mode1Bit08_Raw_Update_00019550;
+undefined *PTR_PhaseFrontend_Mode1Bit08_DebouncedIdleUpRequestC_Update_00019554;
+undefined *PTR_PhaseFrontend_Mode2Bit08_InvertRaw_Update_00019558;
+undefined *PTR_PhaseFrontend_Mode2Bit08_DebouncedFlag_Update_0001955c;
+undefined *PTR_PhaseFrontend_Mode1Bit40_InvertRaw_Update_00019560;
+undefined *PTR_PhaseFrontend_Mode1Bit40_DebouncedFlag_Update_00019564;
 undefined *PTR_InputBit1_StatusBit_Update_00019568;
 undefined *PTR_InputBit1_DebouncedState_Update_0001956c;
 undefined *PTR_InputBitPair_StatusBit0_Update_00019570;
@@ -4174,7 +4194,7 @@ pointer PTR_PhaseFrontend_ResponseMode0_Bits5And4Low_UpdateFlags_ForMainDiagServ
 pointer PTR_PhaseFrontend_ResponseMode0_Bits3And2Low_UpdateFlags_ForMainDiagService;
 pointer PTR_SubsystemA_InputPort_ReadTwoFlags_ForMainDiagService;
 pointer PTR_DiagFlag_F72C_Bit13_ReadFlag_ForMainDiagService;
-undefined *PTR_data_from_AN23_112_pin_000198ac;
+undefined *PTR_KnockSensor_AN21_RawAdc_000198ac;
 undefined *PTR_DAT_000198b0;
 undefined *PTR_InjectorTimer_ConfigBaseWord_Load_000198b4;
 undefined *PTR_InjectorTimer_ConfigEntry0_Ptr_Load_000198b8;
@@ -4432,7 +4452,7 @@ undefined *PTR_DAT_0001a7d4;
 undefined *PTR_DAT_0001a7d8;
 undefined *PTR_InputBit1_DebouncedState_0001a7dc;
 undefined *PTR_DAT_0001a7e0;
-undefined *PTR_DAT_0001a7e8;
+undefined *PTR_PhaseFrontend_Mode0_ResponseStableWord_0001a7e8;
 undefined *PTR_InputBitPair_StatusBit0_0001a7e4;
 undefined *PTR_DAT_0001a7ec;
 undefined *PTR_DAT_0001a7f0;
@@ -4487,7 +4507,7 @@ undefined *PTR_DAT_0001ab60;
 pointer PTR_SubsystemA_CommandBlend_SeedRequestFlag_0001ab64;
 undefined *PTR_DAT_0001ab68;
 undefined *PTR_EngineSpeed_RPM_Filtered_0001ab6c;
-undefined *PTR_DAT_0001ab70;
+undefined *PTR_IdleTargetRpm_SelectedFinal_0001ab70;
 undefined *PTR_DAT_0001ab74;
 undefined *PTR_DAT_0001ab78;
 undefined *PTR_DAT_0001ab7c;
@@ -4506,7 +4526,7 @@ pointer PTR_SubsystemA_EnablePrecondition_InputB_0001aba0;
 pointer PTR_SubsystemA_CommandBlend_TransientAnyFlag_0001aba4;
 pointer PTR_SubsystemA_SeededLoadWindowAccumulator_PhaseDelta_0001aba8;
 pointer PTR_SubsystemA_SeededLoadWindowAccumulator_IncrementStep_0001abb4;
-undefined *PTR_DAT_0001ada8;
+undefined *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_0001ada8;
 pointer PTR_SubsystemA_CommandBlend_TransientCounter_B_0001adc8;
 undefined *PTR_DAT_0001adbc;
 pointer PTR_SubsystemA_CommandBlend_TransientSourceB_Previous_0001adcc;
@@ -4555,7 +4575,7 @@ undefined *PTR_FloatDivideWithLimits_0001af54;
 undefined4 DAT_0001af50;
 undefined *PTR_FuelDisplay_InputPhaseScaled_0001af58;
 undefined *PTR_InjectorPhase_DeltaNormalized_0001af5c;
-undefined *PTR_DAT_0001af64;
+undefined *PTR_IdleTargetRpm_SelectedFinal_0001af64;
 undefined4 DAT_0001af68;
 undefined *PTR_FLOAT_0001af6c;
 undefined *PTR_FloatBlendTowardsTarget_WithDeadband_0001af70;
@@ -4601,7 +4621,7 @@ pointer PTR_SubsystemA_EnableSharedInhibitFlag_0001b164;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteB_AboveThresholdCounter_0001b16c;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteB_BelowThresholdCounter_0001b178;
 undefined *PTR_IATSensor_AN29_ModeFlag_0001b20c;
-undefined *PTR_DAT_0001b210;
+undefined *PTR_PhaseFrontend_Mode0_ResponseStableWord_0001b210;
 ushort DAT_0001b20a;
 undefined *PTR_IATSensor_AN29_RawAdcSnapshotA_0001b214;
 undefined *PTR_IATSensor_AN29_RawAdc_0001b218;
@@ -4791,7 +4811,7 @@ undefined *PTR_DAT_0001bf10;
 undefined *PTR_DAT_0001bf14;
 undefined *PTR_InputBit1_DebounceInitFlag_0001bfb0;
 undefined *PTR_InputBit1_StatusBit_0001bfb4;
-undefined *PTR_DAT_0001bfb8;
+undefined *PTR_PhaseFrontend_Mode0_ResponseStableWord_0001bfb8;
 undefined *PTR_InputBit1_DebouncedState_0001bfbc;
 undefined *PTR_InputBit1_ClearCounter_0001bfc0;
 undefined *PTR_InputBit1_SetCounter_0001bfc4;
@@ -4803,14 +4823,14 @@ pointer PTR_SubsystemA_SeededIatLoad_SecondaryDelta_Snapshot_0001c1a8;
 pointer PTR_SubsystemA_SeededIatLoad_SourceValue_Current_0001c1ac;
 pointer PTR_SubsystemA_SeededIatLoad_SourceValue_Snapshot_0001c1b0;
 undefined *PTR_DAT_0001c1b4;
-undefined *PTR_DAT_0001c1b8;
+undefined *PTR_SubsystemA_SeededIatLoad_ProtectedLearnedBaseline_0001c1b8;
 undefined *PTR_ProtectedDword_WriteWithChecksumMirror_0001c1bc;
 undefined *PTR_ProtectedDword_ChecksumRepairOrFail_0001c1c0;
-undefined *PTR_data_from_AN15_104_pin_0001c1c4;
+undefined *PTR_AN15_StatusSource_RawSample_0001c1c4;
 undefined *PTR_AN15_RawSample_Current_0001c1c8;
-undefined *PTR_DAT_0001c1cc;
+undefined *PTR_AN15_StatusSource_FilteredSample_0001c1cc;
 undefined *PTR_AN15_RawSample_Buffered_0001c1d0;
-undefined *PTR_DAT_0001c1d4;
+undefined *PTR_AN15_StatusSource_ScaledValue_0001c1d4;
 undefined *PTR_AN15_WindowLowerBound_Current_0001c1d8;
 pointer PTR_SubsystemA_SeededIatLoad_SecondaryInput_Previous2_0001c200;
 undefined *PTR_DAT_0001c1dc;
@@ -4826,32 +4846,32 @@ undefined *PTR_DAT_0001c208;
 pointer PTR_SubsystemA_CommandBlend_SeedRequestFlag_0001c204;
 float DAT_0001c20c;
 pointer PTR_SubsystemA_EnableSharedInhibitFlag_0001c210;
-undefined *PTR_DAT_0001c214;
+undefined *PTR_SubsystemA_SeededIatLoad_SourceAboveLearnThresholdFlag_0001c214;
 pointer PTR_SubsystemA_PrimaryEnable_QualifiedCounter_0001c238;
 pointer PTR_SubsystemA_SeededIatLoad_SecondaryDelta_0001c3ac;
 undefined *PTR_DAT_0001c21c;
 undefined4 DAT_0001c218;
 undefined *PTR_FloatBlendTowardsTarget_WithDeadband_0001c220;
-undefined *PTR_DAT_0001c224;
-undefined *PTR_DAT_0001c228;
+undefined *PTR_SubsystemA_ProtectedLearnedBaseline_AtOrAboveSnapshotFlag_0001c224;
+undefined *PTR_SubsystemA_ProtectedLearnedBaseline_RequestTransitionFlag_0001c228;
 undefined *PTR_SharedDiagAggregate_StatusPair2022_AnyFlag_0001c22c;
-undefined *PTR_DAT_0001c230;
+undefined *PTR_SubsystemA_ProtectedLearnedBaseline_UpdateWindowFlag_0001c230;
 undefined *PTR_InputBit1_DebouncedState_0001c234;
 undefined *PTR_DAT_0001c23c;
 undefined *PTR_DAT_0001c240;
 undefined *PTR_MAP_IAT_SelectedCommitSlot4_0001c244;
-undefined *PTR_DAT_0001c398;
-undefined *PTR_DAT_0001c39c;
+undefined *PTR_SubsystemA_ProtectedLearnedBaseline_InitDoneFlag_0001c398;
+undefined *PTR_SubsystemA_SeededIatLoad_ProtectedLearnedBaseline_0001c39c;
 undefined *PTR_DAT_0001c3a0;
-undefined *PTR_DAT_0001c3a4;
+undefined *PTR_SubsystemA_SeededIatLoad_SourceAboveLearnThresholdFlag_0001c3a4;
 undefined *PTR_DAT_0001c3a8;
-undefined *PTR_DAT_0001c3b0;
+undefined *PTR_SubsystemA_ProtectedLearnedBaseline_DecreaseCounter_0001c3b0;
 undefined *PTR_DAT_0001c3b4;
-undefined *PTR_DAT_0001c3b8;
-undefined *PTR_DAT_0001c3bc;
+undefined *PTR_SubsystemA_ProtectedLearnedBaseline_RequestTransitionPrevFlag_0001c3b8;
+undefined *PTR_SubsystemA_ProtectedLearnedBaseline_RequestTransitionFlag_0001c3bc;
 undefined *PTR_DAT_0001c3c0;
-undefined *PTR_DAT_0001c3c4;
-undefined *PTR_DAT_0001c3c8;
+undefined *PTR_SubsystemA_ProtectedLearnedBaseline_AtOrAboveSnapshotFlag_0001c3c4;
+undefined *PTR_SubsystemA_ProtectedLearnedBaseline_DecreaseCounterByte_0001c3c8;
 undefined *PTR_DAT_0001c3cc;
 undefined *PTR_DAT_0001c3d0;
 undefined *PTR_DAT_0001c3d4;
@@ -4998,7 +5018,7 @@ float DAT_0001ce10;
 undefined *PTR_DAT_0001ce14;
 undefined *PTR_InjectorChannel_FilterBiasA_Set_0001ce18;
 undefined *PTR_DAT_0001ce1c;
-undefined *PTR_DAT_0001ce20;
+undefined *PTR_IMMO_StatusQuadByteC_0001ce20;
 undefined *PTR_LAB_0000fffe+1_0001ce24;
 undefined *PTR_InjectorPhaseRecord_GlobalCounter_0001ce38;
 pointer PTR_SubsystemA_SeededLoadWindow_ModeStageFlag_A_0001ce28;
@@ -5180,7 +5200,7 @@ undefined *PTR_SecondaryEnable_BelowThresholdCounter_0001dfc4;
 undefined *PTR_SecondaryEnable_RisingEdgeFlag_0001dfcc;
 undefined *PTR_SecondaryEnable_AboveThresholdCounterThreshold_0001dfd0;
 undefined *PTR_SecondaryEnable_BelowThresholdCounterThreshold_0001dfd4;
-undefined *PTR_DAT_0001dfd8;
+undefined *PTR_HO2S1_DTC_ReferenceCenterVoltage_0001dfd8;
 pointer PTR_SubsystemA_SecondaryEnable_InhibitFlagA_0001df90;
 pointer PTR_SubsystemA_CommandBlend_SecondaryEnableThreshold_Current_0001df94;
 pointer PTR_Desc_SubsystemA_CommandBlend_SecondaryEnableThreshold_Table_0001dfa0;
@@ -6937,7 +6957,7 @@ pointer PTR_SubsystemA_ControlRamp_CommandBitmask_Update;
 pointer PTR_SubsystemA_ControlRamp_PrimaryOrSecondarySlotActive_Atomic;
 pointer PTR_SubsystemA_SecondaryEnable_TableOrLearnedSlotActive_Atomic;
 pointer PTR_SubsystemA_CommandStatusFlag_IsSetAtomic;
-pointer PTR_FuelMixture_ControlRamp_Request;
+pointer PTR_Injector_TO8_PulseScaleControl_RequestStagedUpdate;
 pointer PTR_SubsystemA_ControlRampBlend_Position;
 pointer PTR_SubsystemA_ControlRampBlend_SplitThreshold;
 pointer PTR_SubsystemA_ControlRampBlend_OutputConvertHelper;
@@ -6948,11 +6968,11 @@ pointer PTR_SubsystemA_ControlRampBlend_TableInput;
 pointer PTR_SubsystemA_ControlRampBlend_TableSelectFlag;
 pointer PTR_SubsystemA_ControlRampBlend_LowerAltContext;
 pointer PTR_SubsystemA_ControlRampBlend_LowerDefaultContext;
-pointer PTR_FuelMixture_ControlRamp_ApplyRequestedSample;
+pointer PTR_Injector_TO8_PulseScaleControl_ApplyRequestedSample;
 pointer PTR_Interpolate1D_WithTransform_ForSubsystemAControlRampBlend;
 pointer PTR_ClampFloat_ForSubsystemAControlRampBlend;
 undefined4 SubsystemA_ControlRampBlend_OutputConvertScale;
-pointer PTR_FuelMixture_ControlRamp_UpdateImmediate;
+pointer PTR_Injector_TO8_PulseScaleControl_UpdateImmediate;
 pointer PTR_SubsystemA_ControlRampBlend_UpperAltContext;
 pointer PTR_SubsystemA_ControlRampBlend_UpperDefaultContext;
 pointer PTR_SubsystemA_ControlRampBlend_UpperTarget;
@@ -6996,7 +7016,7 @@ pointer PTR_SubsystemA_ControlRampBlend_TableInput_00024be4;
 undefined *PTR_DAT_00024bf0;
 undefined *PTR_DAT_00024bf4;
 undefined *PTR_DAT_00024bf8;
-undefined *PTR_DAT_00024bfc;
+undefined *PTR_IdleTargetRpm_SelectedFinal_00024bfc;
 undefined *PTR_DAT_00024c04;
 undefined *PTR_DAT_00024c08;
 pointer PTR_SubsystemA_CommandBlend_SeedWindow_EnableFlag_00024c00;
@@ -7122,7 +7142,7 @@ undefined *PTR_EngineSpeed_RPM_Filtered_0002533c;
 undefined *PTR_DAT_00025340;
 undefined *PTR_DAT_00025344;
 undefined *PTR_DAT_00025348;
-undefined *PTR_DAT_0002534c;
+undefined *PTR_IdleTargetRpm_SelectedFinal_0002534c;
 undefined *PTR_DAT_00025350;
 undefined *PTR_CommandBlend_EctOffsetAndLatchedOutputSum_00025358;
 undefined *PTR_CommandBlend_EnableWindowThresholdCurrent_0002535c;
@@ -7204,7 +7224,7 @@ undefined *PTR_Interpolate1D_WithTransform_00025700;
 undefined *PTR_DAT_00025704;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_000256dc;
 undefined *PTR_EngineSpeed_RPM_Filtered_000257ac;
-undefined *PTR_DAT_000257b0;
+undefined *PTR_IgnitionPhaseCommandBlend_TotalOutput_000257b0;
 undefined *PTR_LAB_000257b4;
 undefined *PTR_Interpolate2D_float_WithTransform_000257b8;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_000257bc;
@@ -7244,11 +7264,11 @@ pointer PTR_SubsystemA_CommandBlend_EnableWindow_Input_000258a8;
 undefined *PTR_DAT_000258f4;
 undefined *PTR_DAT_000258f8;
 undefined *PTR_DAT_000258fc;
-undefined *PTR_DAT_000259ec;
-undefined *PTR_DAT_000259f0;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_000259ec;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_000259f0;
 undefined *PTR_DAT_00025a00;
 undefined *PTR_CoolingFanRelay1_LogicalRequest_FromECTDiagShared_000259f8;
-undefined *PTR_DAT_000259f4;
+undefined *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_000259f4;
 undefined *PTR_CoolingFanRelay2_LogicalRequest_FromECTDiagShared_000259fc;
 undefined *PTR_DAT_00025a04;
 undefined *PTR_Cal_CoolingFanRelay1_RequestEnableOrPriority_00025a08;
@@ -7309,9 +7329,9 @@ undefined *PTR_DAT_00025d24;
 undefined *PTR_DAT_00025d28;
 undefined *PTR_DAT_00025d2c;
 undefined *PTR_DAT_00025d30;
-undefined *PTR_DAT_00025de0;
-undefined *PTR_DAT_00025de4;
-undefined *PTR_DAT_00025de8;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_00025de0;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_00025de4;
+undefined *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00025de8;
 undefined *PTR_CoolingFanRelay1_LogicalRequest_FromECTDiagShared_00025dec;
 undefined *PTR_CoolingFanRelay2_LogicalRequest_FromECTDiagShared_00025df0;
 undefined *PTR_DAT_00025df4;
@@ -7366,20 +7386,20 @@ pointer PTR_SubsystemA_CommandBlend_EnableFlag_00026270;
 pointer PTR_SubsystemA_CommandBlend_EnableFlag_Previous_00026274;
 pointer PTR_SubsystemA_CommandBlend_TableSelectFlag_00026278;
 pointer PTR_SubsystemA_CommandBlend_TableSelectFlag_Previous_0002627c;
-undefined *PTR_DAT_00026280;
+undefined *PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_00026280;
 undefined *PTR_CoolingFanRelay1_LogicalRequest_FromECTDiagShared_00026284;
 undefined *PTR_CoolingFanRelay2_LogicalRequest_FromECTDiagShared_00026288;
 undefined *PTR_DAT_0002628c;
 undefined *PTR_DAT_00026290;
-undefined *PTR_DAT_00026294;
+undefined *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00026294;
 undefined *PTR_DAT_00026298;
 undefined *PTR_DAT_000262a4;
-undefined *PTR_DAT_0002629c;
+undefined *PTR_IdleUpMode_Mode1Bit08_RequestFlagC_0002629c;
 undefined *PTR_DAT_000262a0;
 undefined *PTR_DAT_000262a8;
 undefined *PTR_DAT_000262ac;
-undefined *PTR_DAT_000262b0;
-undefined *PTR_DAT_000262b4;
+undefined *PTR_IdleUpMode_Snapshot_FanRelay1Request_000262b0;
+undefined *PTR_IdleUpMode_Snapshot_FanRelay2Request_000262b4;
 undefined *PTR_DAT_000262b8;
 undefined *PTR_DAT_000262bc;
 undefined *PTR_DAT_000262c0;
@@ -7394,7 +7414,7 @@ undefined *PTR_DAT_000262e0;
 undefined *PTR_CommandBlend_RequestFlag_000262e4;
 undefined *PTR_DAT_000262e8;
 undefined *PTR_DAT_000262ec;
-undefined *PTR_DAT_000262f0;
+undefined *PTR_IdleTargetRpm_SelectedFinal_000262f0;
 undefined *PTR_DAT_000262fc;
 undefined4 DAT_00026300;
 undefined *PTR_DAT_00026304;
@@ -7403,7 +7423,7 @@ undefined *PTR_InputBitPair_DebouncedState_00026310;
 undefined *PTR_DAT_00026320;
 undefined *PTR_DAT_00026328;
 undefined *PTR_DAT_0002632c;
-undefined *PTR_DAT_00026334;
+undefined *PTR_PhaseFrontend_DisabledRequest_DebouncedFlag_00026334;
 undefined *PTR_SharedDiagAggregate_StatusPair1416_AnyFlag_0002633c;
 undefined *PTR_SharedDiagAggregate_Status50_Flag_00026340;
 undefined *PTR_DAT_00026344;
@@ -7422,13 +7442,13 @@ pointer PTR_SubsystemA_CommandBlend_EnableWindowCounterLimit_00026330;
 pointer PTR_SubsystemA_CommandBlend_EnableFlag_Previous_00026510;
 pointer PTR_SubsystemA_CommandBlend_TableSelectFlag_Previous_00026514;
 undefined *PTR_DAT_00026518;
-undefined *PTR_DAT_00026524;
-undefined *PTR_DAT_00026528;
+undefined *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00026524;
+undefined *PTR_IdleUpMode_Mode1Bit08_RequestFlagC_00026528;
 undefined *PTR_CoolingFanRelay1_LogicalRequest_FromECTDiagShared_00026530;
-undefined *PTR_DAT_0002652c;
-undefined *PTR_DAT_00026538;
+undefined *PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_0002652c;
+undefined *PTR_IdleUpMode_TransitionDetectedFlag_00026538;
 undefined *PTR_CoolingFanRelay2_LogicalRequest_FromECTDiagShared_00026534;
-undefined *PTR_DAT_0002653c;
+undefined *PTR_IdleUpMode_LatchedStableFlag_0002653c;
 undefined *PTR_DAT_00026540;
 undefined *PTR_LAB_0000fffe+1_00026544;
 undefined *PTR_DAT_00026548;
@@ -7451,23 +7471,23 @@ undefined *PTR_DAT_00026588;
 undefined *PTR_DAT_0002658c;
 undefined *PTR_DAT_00026590;
 undefined *PTR_DAT_00026594;
-undefined *PTR_DAT_00026598;
+undefined *PTR_IdleUpMode_PrevTransitionDetectedFlag_00026598;
 undefined *PTR_DAT_0002659c;
 undefined *PTR_DAT_000265a0;
 undefined *PTR_DAT_000265a4;
 undefined *PTR_DAT_000265a8;
 undefined *PTR_DAT_00026728;
-undefined *PTR_DAT_0002672c;
+undefined *PTR_IdleUpMode_PrevLatchedStableFlag_0002672c;
 undefined *PTR_DAT_00026730;
 undefined *PTR_DAT_00026734;
 undefined *PTR_DAT_00026738;
 undefined *PTR_DAT_0002673c;
-undefined *PTR_DAT_00026740;
+undefined *PTR_IdleUpMode_Snapshot_FanRelay1Request_00026740;
 undefined *PTR_DAT_00026744;
 undefined *PTR_DAT_00026748;
 undefined *PTR_DAT_0002674c;
 undefined *PTR_DAT_00026750;
-undefined *PTR_DAT_00026754;
+undefined *PTR_IdleUpMode_Snapshot_FanRelay2Request_00026754;
 undefined *PTR_DAT_00026758;
 undefined *PTR_DAT_0002675c;
 undefined *PTR_DAT_00026760;
@@ -7491,9 +7511,9 @@ undefined *PTR_DAT_00026938;
 undefined *PTR_DAT_0002693c;
 undefined *PTR_DAT_00026940;
 undefined *PTR_DAT_00026944;
-undefined *PTR_DAT_00026948;
-undefined *PTR_DAT_0002694c;
-undefined *PTR_DAT_00026950;
+undefined *PTR_IdleUpMode_Snapshot_FanRelay1Request_00026948;
+undefined *PTR_IdleUpMode_Snapshot_FanRelay2Request_0002694c;
+undefined *PTR_IdleUpMode_PrevLatchedStableFlag_00026950;
 undefined *PTR_DAT_00026954;
 undefined *PTR_DAT_00026958;
 undefined *PTR_DAT_0002695c;
@@ -7515,7 +7535,7 @@ undefined *PTR_PTR_000269a4;
 undefined *PTR_PTR_000269a8;
 undefined *PTR_Interpolate1D_WithTransform_000269ac;
 undefined *PTR_DAT_000269b4;
-undefined *PTR_DAT_000269b8;
+undefined *PTR_IdleTargetRpm_SelectedFinal_000269b8;
 undefined *PTR_FuelDisplay_InputPhaseFilter_Output_000269bc;
 undefined *PTR_DAT_000269c0;
 undefined *DAT_000269c4;
@@ -7571,8 +7591,8 @@ pointer PTR_SubsystemA_CommandBlend_SeedWindow_EnableFlag_00026e18;
 pointer PTR_SubsystemA_PositionLimitedRamp_DecayTarget_00026e1c;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00026e28;
 undefined *PTR_InputBit1_DebouncedState_00026e44;
-undefined *PTR_DAT_00026e54;
-undefined *PTR_DAT_00026e58;
+undefined *PTR_IdleUpMode_Mode1Bit20_DebouncedAnyFlag_00026e54;
+undefined *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00026e58;
 undefined *PTR_CoolingFanRelay2_LogicalRequest_FromECTDiagShared_00026e5c;
 undefined *PTR_DAT_00026e60;
 undefined4 DAT_00026e64;
@@ -7591,80 +7611,80 @@ undefined *PTR_DAT_00026ea0;
 undefined *PTR_DAT_00026ea4;
 undefined *PTR_AddUint16AndSaturateToFFFE_00026ea8;
 undefined *PTR_Interpolate1D_WithTransform_00026eac;
-undefined *PTR_PTR_00026eb0;
-undefined *PTR_PTR_00026eb4;
-undefined *PTR_PTR_00026eb8;
-undefined *PTR_PTR_00026ebc;
-undefined *PTR_PTR_00026ec0;
-undefined *PTR_PTR_00026ec4;
-undefined *PTR_PTR_000270a8;
-undefined *PTR_PTR_000270ac;
-undefined *PTR_PTR_000270b0;
-undefined *PTR_PTR_000270b4;
-undefined *PTR_PTR_000270b8;
-undefined *PTR_PTR_000270bc;
-undefined *PTR_PTR_000270c0;
-undefined *PTR_PTR_000270c4;
-undefined *PTR_PTR_000270c8;
-undefined *PTR_PTR_000270cc;
-undefined *PTR_PTR_000270d0;
-undefined *PTR_PTR_000270d4;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder140_ByECT_00026eb0;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder100_ByECT_00026eb4;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder140_B_ByECT_00026eb8;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder100_B_ByECT_00026ebc;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder100_C_ByECT_00026ec0;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder100_D_ByECT_00026ec4;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder90_ByECT_000270a8;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder50_ByECT_000270ac;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder90_B_ByECT_000270b0;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder100_E_ByECT_000270b4;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder100_F_ByECT_000270b8;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder100_G_ByECT_000270bc;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder40_ByECT_000270c0;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdderZero_ByECT_000270c4;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdderZero_B_ByECT_000270c8;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder50_B_ByECT_000270cc;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder50_C_ByECT_000270d0;
+undefined *PTR_Desc_IdleTargetRpm_IdleUpAdder50_D_ByECT_000270d4;
 undefined *PTR_DAT_000270d8;
 undefined *PTR_AddUint16AndSaturateToFFFE_000270dc;
 undefined *PTR_DAT_000270e0;
-undefined *PTR_DAT_000270e8;
-undefined *PTR_DAT_000270ec;
-undefined *PTR_DAT_000270f0;
-undefined *PTR_DAT_000270f4;
+undefined *PTR_Cal_IdleTargetRpm_ModeThreshold0_0_000270e8;
+undefined *PTR_Cal_IdleTargetRpm_ModeThreshold1_0_000270ec;
+undefined *PTR_Cal_IdleTargetRpm_ModeHysteresis_2p5_000270f0;
+undefined *PTR_Cal_IdleTargetRpm_ModeHysteresisB_2p5_000270f4;
 undefined *PTR_DAT_000270f8;
-undefined *PTR_PTR_000270fc;
-undefined *PTR_DAT_00027100;
-undefined *PTR_PTR_00027104;
-undefined *PTR_DAT_00027108;
-undefined *PTR_PTR_0002710c;
-undefined *PTR_DAT_00027110;
-undefined *PTR_PTR_00027114;
-undefined *PTR_DAT_00027118;
-undefined *PTR_PTR_0002711c;
-undefined *PTR_DAT_00027120;
-undefined *PTR_PTR_00027124;
-undefined *PTR_DAT_00027128;
-undefined *PTR_PTR_0002712c;
-undefined *PTR_DAT_00027130;
-undefined *PTR_PTR_00027134;
-undefined *PTR_DAT_00027138;
-undefined *PTR_DAT_0002713c;
+undefined *PTR_Desc_IdleTargetRpm_MT_BaseA_ByECT_000270fc;
+undefined *PTR_Cal_IdleTargetRpm_Offset0_A_00027100;
+undefined *PTR_Desc_IdleTargetRpm_MT_BaseB_ByECT_00027104;
+undefined *PTR_Cal_IdleTargetRpm_Offset0_B_00027108;
+undefined *PTR_Desc_IdleTargetRpm_BaseHigh750_ByECT_0002710c;
+undefined *PTR_Cal_IdleTargetRpm_Offset0_C_00027110;
+undefined *PTR_Desc_IdleTargetRpm_AT_BaseA_ByECT_00027114;
+undefined *PTR_Cal_IdleTargetRpm_Offset0_D_00027118;
+undefined *PTR_Desc_IdleTargetRpm_AT_BaseB_ByECT_0002711c;
+undefined *PTR_Cal_IdleTargetRpm_Offset0_E_00027120;
+undefined *PTR_Desc_IdleTargetRpm_MT_Settled_ByECT_00027124;
+undefined *PTR_Cal_IdleTargetRpm_Offset0_F_00027128;
+undefined *PTR_Desc_IdleTargetRpm_BaseHigh750B_ByECT_0002712c;
+undefined *PTR_Cal_IdleTargetRpm_Offset0_G_00027130;
+undefined *PTR_Desc_IdleTargetRpm_SettledHigh750_ByECT_00027134;
+undefined *PTR_Cal_IdleTargetRpm_Offset0_H_00027138;
+undefined *PTR_IdleTargetRpm_SelectedFinal_0002713c;
 undefined *PTR_DAT_00027140;
 undefined *PTR_DAT_00027148;
 undefined4 DAT_00027144;
 undefined *PTR_MulAdd_f32_u8_1_0002714c;
-undefined *PTR_DAT_000271b4;
+undefined *PTR_Cal_IdleTargetRpm_MinClamp_900_000271b4;
 undefined *PTR_MaxFloat_000271b8;
-undefined *PTR_DAT_000271bc;
-undefined *PTR_DAT_000271c0;
-undefined *PTR_DAT_000271c4;
-undefined *PTR_DAT_000271c8;
+undefined *PTR_IdleTargetRpm_IdleUpTerm0_000271bc;
+undefined *PTR_IdleTargetRpm_IdleUpTerm1_000271c0;
+undefined *PTR_IdleTargetRpm_IdleUpTerm2_000271c4;
+undefined *PTR_IdleTargetRpm_IdleUpTerm3_000271c8;
 pointer PTR_SubsystemA_CommandBlend_EnableFlag_00026e48;
-undefined *PTR_DAT_000271cc;
+undefined *PTR_IdleTargetRpm_IdleUpTerm4_000271cc;
 pointer PTR_SubsystemA_CommandBlend_TableInput_Snapshot_00026e4c;
-undefined *PTR_DAT_000271d0;
+undefined *PTR_IdleTargetRpm_IdleUpTerm5_000271d0;
 pointer PTR_SubsystemA_CommandBlend_TableSelectFlag_00026e50;
-undefined *PTR_DAT_000271d4;
+undefined *PTR_IdleTargetRpm_SelectedFinal_PreClamp_000271d4;
 pointer PTR_SubsystemA_ControlRampBlend_TableInput_00026e6c;
-undefined *PTR_DAT_000271d8;
+undefined *PTR_IdleUpMode_TransitionDetectedFlag_000271d8;
 pointer PTR_SubsystemA_EnableSharedInhibitFlag_00026e8c;
-undefined *PTR_DAT_000271dc;
+undefined *PTR_IdleUpMode_LatchedStableFlag_000271dc;
 pointer PTR_SubsystemA_PrimaryEnable_QualifiedCounter_00026e90;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000270e4;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_000272a0;
 undefined *PTR_DAT_000272a4;
 undefined *PTR_Interpolate1D_WithTransform_000272b4;
-undefined *PTR_DAT_000272d0;
+undefined *PTR_IdleControlPct_BaseAndIdleUpFeedForwardFinal_000272d0;
 undefined *PTR_DAT_000272d4;
 undefined *PTR_DAT_000272d8;
 undefined *PTR_DAT_000272dc;
 undefined *PTR_DAT_000272e4;
-undefined *PTR_DAT_000272ec;
+undefined *PTR_IdleControl_CommandRampSelectedPct_000272ec;
 undefined *PTR_DAT_000272f0;
 undefined *PTR_DAT_000272f4;
 undefined *PTR_DAT_000272f8;
@@ -7697,13 +7717,13 @@ undefined *PTR_DAT_000274c0;
 undefined *PTR_ProtectedDword_ChecksumRepairOrFail_000274c4;
 undefined *PTR_ProtectedDword_ReadWithChecksumFallback_000274c8;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000274d0;
-undefined *PTR_DAT_000274cc;
+undefined *PTR_IdleControl_CommandRampSelectedPct_000274cc;
 pointer PTR_SubsystemA_CommandBlend_TableSelectFlag_000274d4;
 undefined *PTR_DAT_000274dc;
 undefined *PTR_DAT_000274e4;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_000274e0;
 undefined *PTR_FuelDisplay_InputPhaseFilter_Output_000274e8;
-undefined *PTR_DAT_000274ec;
+undefined *PTR_IdleTargetRpm_SelectedFinal_000274ec;
 undefined *PTR_AbsFloatDifference_000274f0;
 undefined *PTR_ValueInDeltaRange_000274f8;
 undefined4 DAT_000274fc;
@@ -7714,7 +7734,7 @@ undefined *PTR_LAB_00027514;
 undefined *PTR_LAB_00027518;
 undefined *PTR_Interpolate1D_ToUint16_0002751c;
 undefined *PTR_DAT_00027520;
-undefined *PTR_DAT_00027524;
+undefined *PTR_Cal_IdleTargetRpm_ModeThreshold_70_00027524;
 undefined *PTR_DAT_00027528;
 undefined *PTR_DAT_0002752c;
 undefined *PTR_DAT_00027530;
@@ -7729,10 +7749,10 @@ undefined *PTR_DAT_00027700;
 undefined *PTR_DAT_00027704;
 undefined *PTR_DAT_00027708;
 undefined *PTR_DAT_00027710;
-undefined *PTR_DAT_00027714;
+undefined *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00027714;
 undefined *PTR_DAT_00027720;
 undefined *PTR_DAT_00027724;
-undefined *PTR_DAT_00027728;
+undefined *PTR_PhaseFrontend_Mode2Bit08_DebouncedFlag_00027728;
 pointer PTR_SubsystemA_CommandBlend_SeedWindow_EnableFlag_000274d8;
 undefined *PTR_DAT_0002772c;
 pointer PTR_SubsystemA_ControlRampBlend_Position_000274f4;
@@ -7792,7 +7812,7 @@ float DAT_00027b4c;
 undefined *PTR_DAT_00027b54;
 undefined *PTR_DAT_00027b58;
 undefined *PTR_DAT_00027b5c;
-undefined *PTR_DAT_00027b60;
+undefined *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00027b60;
 undefined *PTR_DAT_00027b64;
 undefined *PTR_DAT_00027b68;
 undefined *PTR_DAT_00027b6c;
@@ -7812,7 +7832,7 @@ undefined *PTR_DAT_00027da4;
 pointer PTR_SubsystemA_CommandBlend_TableInputRamp_Output_00027da8;
 undefined *PTR_DAT_00027dac;
 undefined *PTR_MaxFloat_00027db0;
-undefined *PTR_DAT_00027db8;
+undefined *PTR_IdleTargetRpm_SelectedFinal_00027db8;
 undefined *PTR_DAT_00027dbc;
 undefined *PTR_EngineSpeed_RPM_Filtered_00027dc0;
 undefined *PTR_DAT_00027dc4;
@@ -7845,7 +7865,7 @@ undefined *PTR_ECTSensor_AN28_CelsiusValidated_00027fdc;
 pointer PTR_SubsystemA_EnableSharedInhibitFlag_00027fec;
 undefined *PTR_EngineSpeed_RPM_Filtered_00027fe0;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00028014;
-undefined *PTR_DAT_00027fe4;
+undefined *PTR_IdleTargetRpm_SelectedFinal_00027fe4;
 pointer PTR_SubsystemA_PrimaryEnable_QualifiedCounter_00028024;
 undefined *PTR_DAT_00027ff0;
 undefined *PTR_DAT_00027ff4;
@@ -7868,9 +7888,9 @@ undefined *PTR_DAT_0002803c;
 undefined *PTR_MaxFloat_00028040;
 undefined *PTR_AddBytesWithLimit_00028044;
 pointer PTR_SubsystemA_ControlRampBlend_TableInput_00027fe8;
-undefined *PTR_DAT_00028048;
+undefined *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00028048;
 undefined *PTR_DAT_00028060;
-undefined *PTR_DAT_0002806c;
+undefined *PTR_PhaseFrontend_DisabledRequest_DebouncedFlag_0002806c;
 pointer PTR_SubsystemA_CommandBlend_EnableFlag_0002804c;
 undefined *PTR_SharedDiagAggregate_StatusPair1416_AnyFlag_00028074;
 pointer PTR_SubsystemA_CommandBlend_EnableWindowFlag_00028050;
@@ -7885,7 +7905,7 @@ pointer PTR_SubsystemA_CommandBlend_EnableFlag_SnapshotPrev_00028108;
 pointer PTR_DiagAggregate_ECT_DTC0D0E_AnyProtectedStatusSet_00028070;
 undefined *PTR_DAT_0002810c;
 undefined *PTR_EngineSpeed_RPM_Filtered_00028110;
-undefined *PTR_DAT_00028114;
+undefined *PTR_IdleTargetRpm_SelectedFinal_00028114;
 undefined4 DAT_00028118;
 undefined *PTR_ValueInDeltaRange_0002811c;
 undefined *PTR_DAT_00028124;
@@ -7910,31 +7930,31 @@ undefined *PTR_DAT_000282bc;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_000282c0;
 undefined *PTR_DAT_000282c4;
 undefined *PTR_CoolingFanRelay2_LogicalRequest_FromECTDiagShared_000282cc;
-undefined *PTR_DAT_000282d0;
-undefined *PTR_DAT_000282d4;
+undefined *PTR_IdleUpMode_TransitionDetectedFlag_000282d0;
+undefined *PTR_IdleUpMode_LatchedStableFlag_000282d4;
 undefined *PTR_Interpolate1D_WithTransform_000282d8;
-undefined *PTR_LAB_000282dc;
-undefined *PTR_LAB_000282e0;
-undefined *PTR_LAB_000282e4;
-undefined *PTR_LAB_000282e8;
-undefined *PTR_LAB_000282ec;
-undefined *PTR_LAB_000282f0;
-undefined *PTR_LAB_000282f4;
-undefined *PTR_LAB_000282f8;
-undefined *PTR_LAB_000282fc;
+undefined *PTR_Desc_IdleControlPct_IdleUpHigh_Term0_ByECT_000282dc;
+undefined *PTR_Desc_IdleControlPct_IdleUpHigh_Term1_ByECT_000282e0;
+undefined *PTR_Desc_IdleControlPct_IdleUpHigh_Term2_ByECT_000282e4;
+undefined *PTR_Desc_IdleControlPct_IdleUpHigh_Term3_ByECT_000282e8;
+undefined *PTR_Desc_IdleControlPct_IdleUpHigh_Term4_ByECT_000282ec;
+undefined *PTR_Desc_IdleControlPct_IdleUpHigh_Term5_ByECT_000282f0;
+undefined *PTR_Desc_IdleControlPct_IdleUpMid_Term0_ByECT_000282f4;
+undefined *PTR_Desc_IdleControlPct_IdleUpMid_Term1_ByECT_000282f8;
+undefined *PTR_Desc_IdleControlPct_IdleUpMid_Term2_ByECT_000282fc;
 pointer PTR_SubsystemA_CommandBlend_TableInput_Snapshot_000282c8;
-undefined *PTR_LAB_00028300;
-undefined *PTR_LAB_00028304;
+undefined *PTR_Desc_IdleControlPct_IdleUpMid_Term3_ByECT_00028300;
+undefined *PTR_Desc_IdleControlPct_IdleUpMid_Term4_ByECT_00028304;
 pointer PTR_SubsystemA_CommandBlend_EnableFlag_0002860c;
-undefined *PTR_LAB_00028308;
+undefined *PTR_Desc_IdleControlPct_IdleUpMid_Term5_ByECT_00028308;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00028614;
-undefined *PTR_LAB_0002830c;
+undefined *PTR_Desc_IdleControlPct_IdleUpLow_Term0_ByECT_0002830c;
 pointer PTR_SubsystemA_CommandBlend_TableSelectFlag_00028720;
-undefined *PTR_LAB_00028310;
-undefined *PTR_LAB_00028314;
-undefined *PTR_LAB_00028318;
-undefined *PTR_LAB_0002831c;
-undefined *PTR_LAB_00028320;
+undefined *PTR_Desc_IdleControlPct_IdleUpLow_Term1_ByECT_00028310;
+undefined *PTR_Desc_IdleControlPct_IdleUpLow_Term2_ByECT_00028314;
+undefined *PTR_Desc_IdleControlPct_IdleUpLow_Term3_ByECT_00028318;
+undefined *PTR_Desc_IdleControlPct_IdleUpLow_Term4_ByECT_0002831c;
+undefined *PTR_Desc_IdleControlPct_IdleUpLow_Term5_ByECT_00028320;
 undefined *PTR_DAT_00028578;
 undefined *PTR_DAT_0002857c;
 undefined *PTR_DAT_00028580;
@@ -7957,22 +7977,22 @@ undefined *PTR_DAT_000285c0;
 undefined *PTR_DAT_000285c4;
 undefined *PTR_DAT_000285c8;
 undefined *PTR_DAT_000285cc;
-undefined *PTR_DAT_000285d0;
-undefined *PTR_DAT_000285dc;
-undefined *PTR_DAT_000285d4;
-undefined *PTR_DAT_000285d8;
-undefined *PTR_LAB_000285e0;
+undefined *PTR_Cal_IdleTargetRpm_ModeHysteresis_2p5_000285d0;
+undefined *PTR_Cal_IdleTargetRpm_ModeThreshold1_0_000285dc;
+undefined *PTR_Cal_IdleTargetRpm_ModeThreshold0_0_000285d4;
+undefined *PTR_Cal_IdleTargetRpm_ModeHysteresisB_2p5_000285d8;
+undefined *PTR_Desc_IdleControlPct_BaseFeedForward_ByECT_000285e0;
 undefined *PTR_Interpolate2D_float_WithTransform_000285e4;
-undefined *PTR_LAB_000285e8;
-undefined *PTR_LAB_000285ec;
-undefined *PTR_LAB_000285f0;
-undefined *PTR_LAB_000285f4;
-undefined *PTR_LAB_000285f8;
-undefined *PTR_LAB_000285fc;
-undefined *PTR_LAB_00028600;
+undefined *PTR_Desc_IdleControlPct_2D_TableC_ByECT_TableInput_000285e8;
+undefined *PTR_Desc_IdleControlPct_2D_TableD_ByECT_TableInput_000285ec;
+undefined *PTR_Desc_IdleControlPct_2D_TableE_ByECT_TableInput_000285f0;
+undefined *PTR_Desc_IdleControlPct_DecayTableA_ByECT_000285f4;
+undefined *PTR_Desc_IdleControlPct_DecayTableB_ByECT_000285f8;
+undefined *PTR_Desc_IdleControlPct_2D_TableA_ByECT_TableInput_000285fc;
+undefined *PTR_Desc_IdleControlPct_2D_TableB_ByECT_TableInput_00028600;
 undefined *PTR_DAT_00028604;
 undefined *PTR_DAT_00028608;
-undefined *PTR_DAT_00028610;
+undefined *PTR_IdleControlPct_BaseAndIdleUpFeedForwardFinal_00028610;
 undefined *PTR_DAT_00028724;
 undefined *PTR_DAT_00028728;
 undefined *PTR_DAT_0002872c;
@@ -8031,7 +8051,7 @@ undefined *PTR_NoOp_Return_24e20_00028984;
 undefined *PTR_SubsystemA_CommandBlendHook_NoOp_00028988;
 undefined *PTR_NoOp_Return_25398_0002898c;
 undefined *PTR_SubsystemA_CommandBlend_FlagState_Snapshot_00028990;
-undefined *PTR_CoolingFanAndSubsystemAFlagState_Snapshot_00028998;
+undefined *PTR_IdleUpAndFanRequest_StateSnapshot_Update_00028998;
 undefined *PTR_NoOp_Return_26106_000289a0;
 undefined *PTR_NoOp_Return_26136_000289ac;
 undefined *PTR_NoOp_Return_2613a_000289b0;
@@ -8058,13 +8078,13 @@ undefined *PTR_CoolingFanRelay1_CommandArbitration_00028ca8;
 undefined *PTR_CoolingFanRelay2_CommandArbitration_00028cac;
 undefined *PTR_FloatPairSum_258fc_Update_00028cb0;
 undefined *PTR_EGR_TableSelectFlag_MaxDelta_Update_00028cc4;
-undefined *PTR_SharedCommandBlend_TotalWithSubsystemAProduct_Update_00028cd4;
+undefined *PTR_IdleControl_CommandCorrectionSum_Update_00028cd4;
 undefined *PTR_SubsystemA_CommandBlend_EnableWindowTerm_Update_00028cdc;
 undefined *PTR_EGR_CommandBlend_TableInput_Interpolate1D_Update_00028ce0;
-undefined *PTR_SubsystemA_ControlRampBlend_Position_UpdateFromEctAndTerms_00028ce4;
+undefined *PTR_IdleControlRamp_PositionPct_FromIdleTargetAndCorrections_Update_00028ce4;
 undefined *PTR_SubsystemA_ControlRampBlend_RequestFlag_Update_00028ce8;
 undefined *PTR_SubsystemA_ControlRampBlend_TableSelectValue_Copy_00028cec;
-undefined *PTR_SubsystemA_ControlRampBlend_UpdateAndCommit_00028cf0;
+undefined *PTR_IdleControlRamp_OutputBlendAndControlRampTimerCommit_00028cf0;
 pointer PTR_SubsystemA_CommandBlend_IatBiasPair_Update;
 pointer PTR_SubsystemA_CommandBlend_StagedTerm_Service;
 pointer PTR_SubsystemA_CommandBlend_TermA_Update;
@@ -8111,7 +8131,7 @@ pointer PTR_SubsystemA_CommandBlend_SeededLoadStabilityWindow_Update;
 pointer PTR_SubsystemA_PositionLimitedRamp_StageA_Update_00028D64;
 pointer PTR_SubsystemA_PositionLimitedRamp_DecayTarget_Update_00028D68;
 pointer PTR_CoolingFan_CommandRampOrTrim;
-undefined *PTR_SubsystemA_PositionLimitedRamp_StageB_Update_00028d70;
+undefined *PTR_IdleControl_PositionLimitedRamp_StageB_Update_00028d70;
 undefined *PTR_CoolingFan_CommandRampPair_ResetFromCalibration_00028d74;
 pointer PTR_CoolingFan_CommandRampPair_AnyActiveProtected;
 pointer PTR_MixedProtectedScheduler_SourceWord_Get;
@@ -8465,21 +8485,21 @@ short DAT_0002a2e0;
 undefined *PTR_ModifyRegisterBits_0002a2e8;
 undefined *PTR_RestorePrivilegedSR_0002a2ec;
 undefined *PTR_FuelPumpRelay_PJ7_OutputStateLatched_0002a2f0;
-undefined *PTR_DAT_0002a2f4;
+undefined *PTR_FuelPumpRelay_PJ7_CommandRequest_0002a2f4;
 undefined *PTR_O2Heater2_PD4_CommandWord_SelectAndLatch_0002a334;
 undefined *PTR_O2Heater2_PD4_OutputBit_ModifyProtected_0002a338;
 undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_0002a33c;
 undefined *PTR_MAF_RawSub2_StatusLatch_Update_0002a340;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0002a344;
 undefined *PTR_FuelPumpRelay_PJ7_OutputBit_ApplyProtected_0002a348;
-undefined *PTR_DAT_0002a418;
+undefined *PTR_FuelPumpRelay_PJ7_CommandWordLatched_0002a418;
 undefined *PTR_MAF_sensor_raw_data_buf_2_Sub_2_0002a41c;
 undefined *PTR_DAT_0002a420;
-undefined *PTR_DAT_0002a424;
+undefined *PTR_FuelPumpRelay_PJ7_CommandRequest_0002a424;
 undefined *PTR_DAT_0002a428;
 undefined *PTR_DAT_0002a42c;
 ushort DAT_0002a414;
-undefined *PTR_DAT_0002a430;
+undefined *PTR_FuelPumpRelay_PJ7_CommandRequestDelayCounter_0002a430;
 undefined *PTR_AddUint16AndSaturateToFFFE_0002a434;
 short DAT_0002a416;
 undefined *PTR_InputBit1_DebouncedState_0002a438;
@@ -8578,7 +8598,7 @@ undefined *PTR_DAT_0002abd0;
 undefined *PTR_DAT_0002abd4;
 undefined *PTR_DAT_0002abd8;
 undefined *PTR_DAT_0002abdc;
-undefined *PTR_DAT_0002abe0;
+undefined *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_0002abe0;
 undefined *PTR_DAT_0002abe4;
 undefined *PTR_DAT_0002abe8;
 undefined *PTR_DAT_0002abec;
@@ -8666,7 +8686,7 @@ undefined *PTR_DAT_0002b0e4;
 undefined *PTR_DAT_0002b0e8;
 undefined *PTR_DAT_0002b0ec;
 undefined *PTR_InputBitPair_DebouncedState_0002b0f0;
-undefined *PTR_DAT_0002b0f4;
+undefined *PTR_IMMO_StatusRequestQualifierRejectFlag_0002b0f4;
 undefined *PTR_HaltForever_A0D0_0002b0f8;
 undefined *PTR_DAT_0002b0fc;
 undefined *PTR_DAT_0002b100;
@@ -8675,7 +8695,7 @@ undefined *PTR_DAT_0002b108;
 undefined *PTR_LAB_0000fffe+1_0002b10c;
 undefined *PTR_DAT_0002b110;
 undefined *PTR_DAT_0002b114;
-undefined *PTR_DAT_0002b118;
+undefined *PTR_IMMO_StatusRequestGateResultFlag_0002b118;
 undefined *PTR_PeriodicTick_Loop_0002b11c;
 undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_0002b120;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0002b124;
@@ -8755,7 +8775,7 @@ float DAT_0002b540;
 undefined *PTR_DAT_0002b6f8;
 undefined *PTR_DAT_0002b6fc;
 undefined *PTR_DAT_0002b700;
-undefined *PTR_DAT_0002b704;
+undefined *PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_0002b704;
 undefined *PTR_DAT_0002b708;
 undefined *PTR_DAT_0002b70c;
 undefined *PTR_DAT_0002b710;
@@ -8845,7 +8865,7 @@ undefined *PTR_DAT_0002ba20;
 undefined *PTR_DAT_0002ba24;
 undefined *PTR_DAT_0002ba28;
 undefined *PTR_DAT_0002ba2c;
-undefined *PTR_DAT_0002ba30;
+undefined *PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_0002ba30;
 undefined *PTR_DAT_0002ba34;
 undefined *PTR_DAT_0002ba38;
 undefined *PTR_DAT_0002ba3c;
@@ -9159,7 +9179,7 @@ undefined *PTR_FuelDisplay_InputPhaseFilter_Accum_0002d318;
 undefined *PTR_PTR_0002d31c;
 undefined *PTR_AddUint16AndSaturateToFFFE_0002d320;
 undefined *PTR_VVT_PrimaryEnable_RequestBFlag_0002d324;
-undefined *PTR_DAT_0002d32c;
+undefined *PTR_IdleTargetRpm_SelectedFinal_0002d32c;
 float DAT_0002d330;
 undefined *PTR_DAT_0002d334;
 undefined *PTR_VVT_PrimaryEnable_OffsetRpmAboveLowFlag_0002d528;
@@ -9184,7 +9204,7 @@ undefined *PTR_VVT_SeedEnable_OutputRequestFlag_0002d56c;
 undefined *PTR_VVT_TO6A_ConfigEntryB_ActiveFlag_0002d570;
 undefined *PTR_VVT_TO6A_RequestFinishedFlag_0002d574;
 undefined *PTR_EngineSpeed_RPM_Filtered_0002d578;
-undefined *PTR_DAT_0002d57c;
+undefined *PTR_IdleTargetRpm_SelectedFinal_0002d57c;
 float DAT_0002d588;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_0002d580;
 undefined *PTR_PTR_0002d584;
@@ -9339,7 +9359,7 @@ undefined *PTR_NoOp_Return_2de94_0002e590;
 undefined *PTR_NoOp_Return_2de98_0002e594;
 undefined *PTR_NoOp_Return_2dad4_0002e598;
 undefined *PTR_NoOp_Return_2dad8_0002e59c;
-undefined *PTR_VVT_ChannelDefaultOutput_Load_0002e5a0;
+undefined *PTR_EGR_ChannelDefaultOutput_Load_0002e5a0;
 undefined *PTR_NoOp_Return_2dafa_0002e5a4;
 undefined *PTR_NoOp_Return_2e6a0_0002e5a8;
 undefined *PTR_NoOp_Return_2d0a8_0002e5ac;
@@ -9349,60 +9369,60 @@ undefined *PTR_NoOp_Return_2d0b4_0002e5b8;
 undefined *PTR_NoOp_Return_2c70c_0002e5bc;
 undefined *PTR_NoOp_Return_2c710_0002e5c0;
 undefined *PTR_NoOp_Return_2cb14_0002e5c4;
-undefined *PTR_VVT_ChannelBaseTable_Interpolate_Update_0002e5c8;
+undefined *PTR_EGR_ChannelBaseTable_Interpolate_Update_0002e5c8;
 undefined *PTR_NoOp_Return_2cb4a_0002e5cc;
 undefined *PTR_NoOp_Return_2ceb8_0002e5d0;
 undefined *PTR_NoOp_Return_2ceb0_0002e5d4;
 undefined *PTR_NoOp_Return_2ceb4_0002e5d8;
 undefined *PTR_NoOp_Return_2d8f4_0002e5dc;
 undefined *PTR_NoOp_Return_2d8f8_0002e5e0;
-undefined *PTR_VVT_ChannelBaseline_Interpolate_Update_0002e5e4;
+undefined *PTR_EGR_ChannelBaseline_Interpolate_Update_0002e5e4;
 undefined *PTR_NoOp_Return_2c02c_0002e5e8;
 undefined *PTR_NoOp_Return_2c030_0002e5ec;
 undefined *PTR_NoOp_Return_2c034_0002e5f0;
-undefined *PTR_VVT_TO6A_ChannelConfigByte_CopyFromTable_0002e5f4;
+undefined *PTR_InjectorTimer_ChannelByte_CopyFromConfig_0002e5f4;
 undefined *PTR_NoOp_Return_2c048_0002e5f8;
 undefined *PTR_NoOp_Return_2c04c_0002e5fc;
-undefined *PTR_VVT_TO6A_TargetZero_SetOrApply_0002e600;
+undefined *PTR_InjectorTimer_Target0_SetOrApply_0002e600;
 undefined *PTR_NoOp_Return_2c056_0002e604;
 undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_0002e608;
 pointer PTR_MultiChannelClampedValue_ResetSlotPrimary_0002E60C;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0002e610;
 pointer PTR_MultiChannelClampedValue_ResetSlotGroupA_0002E614;
 pointer PTR_MultiChannelClampedValue_ResetSlotGroupB_0002E618;
-undefined *PTR_VVT_IatLoadPhaseWindow_OutputSelect_Update_0002e61c;
-undefined *PTR_VVT_ChannelOutput_RateLimited_Update_0002e620;
-undefined *PTR_VVT_ChannelOutput_Filtered_Update_0002e624;
-undefined *PTR_VVT_ChannelAdaptiveEnableTimer_Update_0002e628;
-undefined *PTR_VVT_ChannelAdaptiveWindowFlags_Update_0002e62c;
-undefined *PTR_VVT_ChannelAdaptiveOutput_Update_0002e630;
-undefined *PTR_VVT_ChannelAdaptiveCompletionTimer_Update_0002e634;
-undefined *PTR_VVT_ChannelEnableConditions_Update_0002e638;
-undefined *PTR_VVT_ChannelCorrectionOutput_Update_0002e63c;
-undefined *PTR_VVT_ChannelFilteredDelta_Update_0002e640;
-undefined *PTR_VVT_ChannelWindowOutOfRangeFlag_Update_0002e644;
-undefined *PTR_VVT_ChannelOutOfRangeCorrection_Update_0002e648;
-undefined *PTR_VVT_ChannelTransientFlags_Update_0002e64c;
-undefined *PTR_VVT_ChannelBaseTable_TrimOrRecover_Update_0002e650;
-undefined *PTR_VVT_ChannelGainProduct_Update_0002e654;
+undefined *PTR_EGR_IatLoadPhaseWindow_OutputSelect_Update_0002e61c;
+undefined *PTR_EGR_ChannelOutput_RateLimited_Update_0002e620;
+undefined *PTR_EGR_ChannelOutput_Filtered_Update_0002e624;
+undefined *PTR_EGR_ChannelAdaptiveEnableTimer_Update_0002e628;
+undefined *PTR_EGR_ChannelAdaptiveWindowFlags_Update_0002e62c;
+undefined *PTR_EGR_ChannelAdaptiveOutput_Update_0002e630;
+undefined *PTR_EGR_ChannelAdaptiveCompletionTimer_Update_0002e634;
+undefined *PTR_EGR_ChannelEnableConditions_Update_0002e638;
+undefined *PTR_EGR_ChannelCorrectionOutput_Update_0002e63c;
+undefined *PTR_EGR_ChannelFilteredDelta_Update_0002e640;
+undefined *PTR_EGR_ChannelWindowOutOfRangeFlag_Update_0002e644;
+undefined *PTR_EGR_ChannelOutOfRangeCorrection_Update_0002e648;
+undefined *PTR_EGR_ChannelTransientFlags_Update_0002e64c;
+undefined *PTR_EGR_ChannelBaseTable_TrimOrRecover_Update_0002e650;
+undefined *PTR_EGR_ChannelGainProduct_Update_0002e654;
 undefined *PTR_VVT_ChannelModel_ClampAndUpdate_0002e658;
-undefined *PTR_VVT_ChannelScaledBaseline_Update_0002e65c;
-undefined *PTR_VVT_ChannelBaselineDeltaFilter_Update_0002e660;
-undefined *PTR_VVT_ChannelBaselineTrim_Update_0002e664;
-undefined *PTR_VVT_ChannelGlobalEnableGate_Update_0002e668;
-undefined *PTR_VVT_ChannelPrimaryEnableConditions_Update_0002e66c;
-undefined *PTR_VVT_ChannelSeedEnableConditions_Update_0002e670;
-undefined *PTR_VVT_ChannelProductTargetDuty_Update_0002e674;
-undefined *PTR_VVT_TO6A_ChannelConfigVariants_Load_0002e678;
-undefined *PTR_VVT_TO6A_ConfigEntryA_StateMachine_Update_0002e67c;
-undefined *PTR_VVT_TO6A_ConfigEntryB_StateMachine_Update_0002e680;
-undefined *PTR_VVT_TO6A_ConfigEntryC_StateMachine_Update_0002e684;
-undefined *PTR_VVT_TO6A_ChannelRequestAggregate_Update_0002e688;
-undefined *PTR_VVT_TO6A_ChannelTargetScaled_Apply_0002e68c;
-undefined *PTR_VVT_TO6A_ChannelDurationCounters_Update_0002e690;
-undefined *PTR_VVT_ChannelTarget_ClampPositive_0002e694;
-undefined *PTR_VVT_ChannelMovingAverageAndDelta_Update_0002e698;
-undefined *PTR_VVT_ChannelPositiveDeltaFilter_Update_0002e69c;
+undefined *PTR_EGR_ChannelScaledBaseline_Update_0002e65c;
+undefined *PTR_EGR_ChannelBaselineDeltaFilter_Update_0002e660;
+undefined *PTR_EGR_ChannelBaselineTrim_Update_0002e664;
+undefined *PTR_EGR_ChannelGlobalEnableGate_Update_0002e668;
+undefined *PTR_EGR_ChannelPrimaryEnableConditions_Update_0002e66c;
+undefined *PTR_EGR_ChannelSeedEnableConditions_Update_0002e670;
+undefined *PTR_EGR_ChannelProductOutput_Update_0002e674;
+undefined *PTR_InjectorTimer_ChannelConfigVariants_Load_0002e678;
+undefined *PTR_InjectorTimer_ConfigEntryA_StateMachine_Update_0002e67c;
+undefined *PTR_InjectorTimer_ConfigEntryB_StateMachine_Update_0002e680;
+undefined *PTR_InjectorTimer_ConfigEntryC_StateMachine_Update_0002e684;
+undefined *PTR_InjectorTimer_ChannelRequestAggregate_Update_0002e688;
+undefined *PTR_InjectorTimer_ChannelTargetScaled_Apply_0002e68c;
+undefined *PTR_InjectorTimer_ChannelDurationCounters_Update_0002e690;
+undefined *PTR_InjectorTimer_ChannelTarget_ClampPositive_0002e694;
+undefined *PTR_EGR_ChannelMovingAverageAndDelta_Update_0002e698;
+undefined *PTR_EGR_ChannelPositiveDeltaFilter_Update_0002e69c;
 undefined *PTR_VVT_ChannelCommand_RateLimited_0002e73c;
 undefined *PTR_PTR_0002e740;
 undefined *PTR_VVT_ChannelModel_OutputBeforeDutyProduct_0002e744;
@@ -9419,7 +9439,7 @@ undefined *PTR_FuelDisplay_InputWindowAvg_0002e86c;
 undefined *PTR_EngineSpeed_RPM_Filtered_0002e870;
 undefined *PTR_DAT_0002e874;
 undefined *PTR_DAT_0002e878;
-undefined *PTR_DAT_0002e880;
+undefined *PTR_SubsystemA_TransientPulse_WindowedOutput_0002e880;
 undefined *PTR_DAT_0002e884;
 undefined *PTR_DAT_0002e88c;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_0002e890;
@@ -9471,7 +9491,7 @@ undefined *PTR_DAT_0002ecb4;
 undefined *PTR_DAT_0002ecb8;
 undefined *PTR_DAT_0002ecbc;
 undefined *PTR_DAT_0002ecc0;
-undefined *PTR_DAT_0002ecc4;
+undefined *PTR_SubsystemA_LearnCommand_Delta_0002ecc4;
 undefined *PTR_EngineSpeed_RPM_Filtered_0002ecc8;
 undefined *PTR_DAT_0002eccc;
 undefined *PTR_DAT_0002ecd0;
@@ -9861,25 +9881,25 @@ undefined *PTR_SubsystemA_PrimaryEnable_NoOpF_00030504;
 undefined *PTR_SubsystemA_PrimaryEnable_NoOpG_00030508;
 undefined *PTR_SubsystemA_PrimaryEnable_NoOpH_0003050c;
 undefined *PTR_InfoDisplay_StatusBit40_MAFDtcPair_Reset_00030510;
-undefined *PTR_SubsystemA_DTC31_State_Reset_00030514;
+undefined *PTR_P1510_State_Reset_00030514;
 undefined *PTR_InfoDisplay_StatusBit04_SampledPair_SubsystemABlendSnapshot_Init_00030518;
 undefined *PTR_InfoDisplay_StatusBit04_SampledPair_NoOpA_0003051c;
-undefined *PTR_InfoDisplay_StatusBit04_SampledPair_Reset_00030520;
+undefined *PTR_CMP_P0340_SampledPair_Reset_00030520;
 undefined *PTR_SubsystemA_PrimaryEnable_Prereq_NoOp_00030524;
-undefined *PTR_SubsystemA_PrimaryEnable_PrereqState_Init_00030528;
+undefined *PTR_CatalystMonitor_P0420_State_Init_00030528;
 undefined *PTR_SubsystemA_PrimaryEnable_PrereqCounter_Reset_0003052c;
-undefined *PTR_SubsystemA_PrimaryEnable_PrereqState_Reset_00030530;
-undefined *PTR_SubsystemA_PrimaryEnable_PrereqTail_Reset_00030534;
-undefined *PTR_InfoDisplay_StatusBit04_SubsystemABlendThreshold_Reset_00030538;
+undefined *PTR_CatalystMonitor_P0420_State_Reset_00030530;
+undefined *PTR_CatalystMonitor_P0420_TailCounters_Reset_00030534;
+undefined *PTR_CKP_P0335_ProcessedStatus_Reset_00030538;
 undefined *PTR_SubsystemA_CommandBlend_SeededIatLoad_TableSelectSnapshot_Reset_0003053c;
 undefined *PTR_SubsystemA_CommandBlend_SeededIatLoad_SecondarySnapshot_Reset_00030540;
 undefined *PTR_SubsystemA_CommandBlend_SeededIatLoad_PrimarySnapshot_Reset_00030544;
 undefined *PTR_SubsystemA_CommandBlend_SeededIatLoad_ResetWithShared_00030548;
 undefined *PTR_SubsystemA_CommandBlend_SeededIatLoad_Counters_Reset_0003054c;
 undefined *PTR_SubsystemA_PrimaryEnable_PreNoOp_00030550;
-undefined *PTR_SubsystemA_DTC1C_ResponseWindow_ResetState_00030554;
-undefined *PTR_SubsystemA_DTC1D_ResponseWindow_ResetState_00030558;
-undefined *PTR_SubsystemA_DTC29_State_Reset_0003055c;
+undefined *PTR_FuelSystem_P0171_Lean_ResponseWindow_ResetState_00030554;
+undefined *PTR_FuelSystem_P0172_Rich_ResponseWindow_ResetState_00030558;
+undefined *PTR_IdleControl_P0505_State_Reset_0003055c;
 undefined *PTR_SubsystemA_PrimaryEnable_PreStateResetA_00030560;
 undefined *PTR_SharedDiagAggregate_PhaseState_Reset_00030564;
 undefined *PTR_InfoDisplay_StatusBit04_SampledPair_NoOpC_00030568;
@@ -9891,26 +9911,26 @@ undefined *PTR_DiagWindowGroup35D_Latches_Reset_0003057c;
 undefined *PTR_DiagWindowGroup35D_State_Reset_00030580;
 undefined *PTR_DiagWindowGroup365_State_Reset_00030584;
 undefined *PTR_SubsystemA_PrimaryEnable_PreStateResetB_00030588;
-undefined *PTR_SubsystemA_DTC2E_MapBaseline_ResetAndCapture_0003058c;
+undefined *PTR_PressureModel_P2227_Baseline_ResetAndCapture_0003058c;
 undefined *PTR_OBD04_ClearDTC_NoOp_00030590;
-undefined *PTR_SubsystemA_DTC2E_MapWindow_ResetState_00030594;
+undefined *PTR_PressureModel_P2227_WindowState_Reset_00030594;
 undefined *PTR_SubsystemA_PrimaryEnable_PreStateResetC_00030598;
-undefined *PTR_SubsystemA_DTC26_WindowState_Reset_0003059c;
+undefined *PTR_EVAP_Purge_P0443_Reset_0003059c;
 undefined *PTR_NoOp_Return_46678_000305a0;
-undefined *PTR_SubsystemA_MAPThresholdDiag_ResetState_000305a4;
+undefined *PTR_HO2S2_P0140_ResetState_000305a4;
 undefined *PTR_DiagWindowGroup367_State_Reset_000305a8;
 undefined *PTR_OBD04_ClearDTC_StateResetA_000305ac;
 undefined *PTR_OBD04_ClearDTC_StateResetB_000305b0;
 undefined *PTR_OBD04_ClearDTC_StateResetC_000305b4;
-undefined *PTR_SubsystemA_DTC2B_DirectReport_SetFail_000305b8;
+undefined *PTR_ECU_P0602_DirectReport_SetFail_000305b8;
 undefined *PTR_NoOp_Return_42560_000305bc;
 undefined *PTR_InfoDisplay_FrameCounter_Reset_000305c0;
-undefined *PTR_InfoDisplay_StatusBit01_Dtc1011Pair_Reset_000305c4;
+undefined *PTR_TPS_P0122_P0123_StatusPair_Reset_000305c4;
 undefined *PTR_SubsystemA_PrimaryEnable_PreStateResetD_000305c8;
-undefined *PTR_ECTSensor_AN28_DTC0D0E_RawRange_Reset_000305cc;
+undefined *PTR_ECTSensor_AN28_StatusDTC0D0E_AndInfoDisplayBit10_Reset_000305cc;
 undefined *PTR_OBD04_ClearDTC_PreNoOpA_000305d0;
 undefined *PTR_OBD04_ClearDTC_PreNoOpB_000305d4;
-undefined *PTR_InfoDisplay_StatusBit01_SubsystemASeedDeltaPair_Reset_000305d8;
+undefined *PTR_TPS_P0121_ProcessedDeltaPair_Reset_000305d8;
 undefined *PTR_NoOp_Return_36a0c_000305dc;
 undefined *PTR_DiagWindowGroup36A_StateA_Reset_000305e0;
 undefined *PTR_DiagWindowGroup36A_StateB_Reset_000305e4;
@@ -9920,12 +9940,12 @@ undefined *PTR_InfoDisplay_ResetWord_42e28_000305f0;
 undefined *PTR_InfoDisplay_Slot_ResetB_000305f4;
 undefined *PTR_CoolingFanRelay1_PE4_P0480_ResetDiagState_000305f8;
 undefined *PTR_SubsystemA_FlowDiag_ResetDebounceState_00030608;
-undefined *PTR_SubsystemA_MAPResponseDiag_ResetBaselineState_0003060c;
-undefined *PTR_SubsystemA_MAPResponseDiag_ResetDebounceState_00030610;
-undefined *PTR_SubsystemA_MAPResponseDiag_ResetSummaryFlags_00030614;
+undefined *PTR_MAP_P0106_ResetBaselineState_0003060c;
+undefined *PTR_MAP_P0106_ResetDebounceState_00030610;
+undefined *PTR_MAP_P0106_ResetSummaryFlags_00030614;
 undefined *PTR_SubsystemA_NextDiag_ClearEnableFlag_00030618;
 undefined *PTR_SubsystemA_NextDiag_ResetBaselineState_0003061c;
-undefined *PTR_SubsystemA_DeltaDiag_ResetSummaryFlags_DTC0C_00030620;
+undefined *PTR_IAT_P0111_ResetSummaryFlags_00030620;
 undefined *PTR_ECTSensor_AN28_P0116_ClearEnableFlag_00030624;
 pointer PTR_EGR_CoilDiag_ClearEnableFlag_000305fc;
 undefined *PTR_ECTSensor_AN28_P0116_ResetDebounceState_00030628;
@@ -9951,103 +9971,103 @@ undefined *PTR_SubsystemA_EnableGate_CommandBlendWindowPair_Update_00030914;
 undefined *PTR_SubsystemA_EnableGate_EctWindowFlag_Update_00030918;
 undefined *PTR_SubsystemA_EnableGate_EctHysteresisWindow_Update_0003091c;
 undefined *PTR_SubsystemA_EnableGate_ControlRampBlendWindow_Update_00030920;
-undefined *PTR_SubsystemA_DTC31_StateDebounceAndReport_00030924;
-undefined *PTR_SubsystemA_DTC30_StateDebounceAndReport_00030928;
-undefined *PTR_SubsystemA_DTC2F_CommandBlendInhibit_DebounceAndReport_0003092c;
+undefined *PTR_P1510_StateDebounceAndReport_00030924;
+undefined *PTR_StarterControl_P0617_StateDebounceAndReport_00030928;
+undefined *PTR_StarterControl_P0616_StateDebounceAndReport_0003092c;
 undefined *PTR_InfoDisplay_StatusBit04_SampledPair_SubsystemABlendSnapshot_MinUpdate_00030930;
-undefined *PTR_SubsystemA_DTC28_SeededLoadWindow_DebounceAndReport_00030934;
-undefined *PTR_SubsystemA_DTC29_StateDebounceAndReport_00030944;
+undefined *PTR_VehicleSpeed_P0500_DebounceAndReport_00030934;
+undefined *PTR_IdleControl_P0505_StateDebounceAndReport_00030944;
 undefined *PTR_VVT_TPD1042F_P0010_PJ10_TI9A_DebounceAndReport_00030948;
-undefined *PTR_SubsystemA_DTC17_18_ThresholdPair_DebounceAndReport_0003094c;
-undefined *PTR_SubsystemA_DTC1A_1B_ThresholdPair_DebounceAndReport_00030950;
-undefined *PTR_SubsystemA_DTC2E_EnableGate_UpdateFromSeededLoadWindow_00030954;
-undefined *PTR_SubsystemA_DTC2E_AccumulatorAndReport_Update_00030958;
-undefined *PTR_SubsystemA_MAPThresholdDiag_CheckPreconditions_0003095c;
-undefined *PTR_SubsystemA_MAPThresholdDiag_DebounceAndReportDTC19_00030960;
-undefined *PTR_SubsystemA_DTC3B_3C_3D_EnableGate_UpdateFromRampBlend_00030964;
-undefined *PTR_SubsystemA_DTC3D_InputCluster_Report_00030968;
-undefined *PTR_SubsystemA_DTC3C_InputCluster_Report_0003096c;
-undefined *PTR_SubsystemA_DTC3B_InputCluster_Report_00030970;
+undefined *PTR_HO2S1_Heater_PD0_P0031_P0032_DebounceAndReport_0003094c;
+undefined *PTR_HO2S2_Heater_PD4_P0037_P0038_DebounceAndReport_00030950;
+undefined *PTR_PressureModel_P2227_EnableGate_UpdateFromSeededLoadWindow_00030954;
+undefined *PTR_PressureModel_P2227_AccumulatorAndReport_Update_00030958;
+undefined *PTR_HO2S2_P0140_CheckPreconditions_0003095c;
+undefined *PTR_HO2S2_AN7_P0140_NoActivity_DebounceAndReport_00030960;
+undefined *PTR_OEM_P1674_P1675_P1676_EnableGate_UpdateFromRampBlend_00030964;
+undefined *PTR_OEM_P1676_DebounceAndReport_00030968;
+undefined *PTR_OEM_P1675_DebounceAndReport_0003096c;
+undefined *PTR_OEM_P1674_DebounceAndReport_00030970;
 undefined *PTR_CoolingFanAux_PE11_P0481_SetArmingProtectedStatusAfterDelay_00030974;
-undefined *PTR_CoolingFanAux_PE11_P0481_OutputFeedbackDebounceAndReport_00030978;
+undefined *PTR_CoolingFanRelay23_PE9_P0481_DebounceAndReport_00030978;
 undefined *PTR_CoolingFanRelay1_PE4_P0480_OutputFeedbackDebounceAndReport_0003097c;
-undefined *PTR_SubsystemA_DTC25_EnableGate_UpdateFromSeededLoadWindow_00030980;
-undefined *PTR_SubsystemA_PrimarySecondaryEnableGate_UpdateFromWindows_00030984;
-undefined *PTR_SubsystemA_DTC25_AccumulatorAndReport_Update_00030988;
-undefined *PTR_SubsystemA_DTC22_23_StableInputWindow_Update_0003098c;
-undefined *PTR_SubsystemA_DTC22_23_EnableGate_UpdateFromSeedWindow_00030990;
-undefined *PTR_SubsystemA_DTC22_23_BaselineCapture_Update_00030994;
-undefined *PTR_SubsystemA_DTC22_23_AccumulatorAndReport_Update_00030998;
-undefined *PTR_SubsystemA_DTC13_14_15_EnableGate_UpdateFromAirLoadWindows_0003099c;
-undefined *PTR_SubsystemA_DTC13_14_15_MinMaxSample_Update_000309a0;
-undefined *PTR_SubsystemA_DTC13_14_15_ThresholdCrossingCounters_Update_000309a4;
-undefined *PTR_SubsystemA_DTC13_14_15_TransitionRateAccumulator_Update_000309a8;
-undefined *PTR_SubsystemA_DTC13_14_15_AccumulatorAndReport_Update_000309ac;
-undefined *PTR_InfoDisplay_StatusBit01_SubsystemASeedDelta_EnableGate_Update_000309b0;
+undefined *PTR_Catalyst_P0420_EnableGate_UpdateFromRpmLoadWindow_00030980;
+undefined *PTR_CatalystMonitor_P0420_PreconditionGate_UpdateFromOperatingWindows_00030984;
+undefined *PTR_Catalyst_P0420_AccumulatorAndReport_Update_00030988;
+undefined *PTR_EGR_P0402_ExcessiveFlow_DebouncePath_Update_0003098c;
+undefined *PTR_EGR_P0401_P0402_EnableGate_Update_00030990;
+undefined *PTR_EGR_P0401_InsufficientFlow_DebounceAndReport_00030994;
+undefined *PTR_EGR_P0402_ExcessiveFlow_DebounceAndReport_00030998;
+undefined *PTR_HO2S1_P0131_P0132_P0133_EnableGate_UpdateFromOperatingWindows_0003099c;
+undefined *PTR_HO2S1_P0131_P0132_P0133_MinMaxSample_Update_000309a0;
+undefined *PTR_HO2S1_P0131_P0132_P0133_ThresholdCrossingCounters_Update_000309a4;
+undefined *PTR_HO2S1_P0131_P0132_P0133_TransitionRateAccumulator_Update_000309a8;
+undefined *PTR_HO2S1_P0131_P0132_P0133_AccumulatorAndReport_Update_000309ac;
+undefined *PTR_TPS_P0121_EnableGate_UpdateFromProcessedDeltaWindow_000309b0;
 undefined *PTR_InfoDisplay_StatusBit01_SubsystemASeedDelta_TableLimit_Update_000309b4;
-undefined *PTR_InfoDisplay_StatusBit01_SubsystemASeedDeltaPair_Update_000309b8;
-undefined *PTR_VVT_DTC02_03_P0011_P0012_EnableGate_Update_000309bc;
+undefined *PTR_TPS_P0121_ProcessedDeltaPair_DebounceAndReport_000309b8;
+undefined *PTR_VVT_P0011_P0012_EnableGate_Update_000309bc;
 undefined *PTR_VVT_P0011_AdvanceResponse_DebounceAndReport_000309c0;
 undefined *PTR_VVT_P0012_RetardResponse_DebounceAndReport_000309c4;
-undefined *PTR_SubsystemA_FlowDiag_DebounceAndReportDTC6_000309c8;
+undefined *PTR_MAF_P0101_FlowPerformance_DebounceAndReport_000309c8;
 pointer PTR_EGR_CoilDiag_CheckPreconditions_00030938;
 pointer PTR_EGR_CoilDiag_DebounceAggregator_0003093c;
 pointer PTR_EGR_CoilDiag_ReportDTC24_00030940;
-undefined *PTR_InfoDisplay_StatusBit40_MAFDtcPair_Update_000309cc;
-undefined *PTR_Diag_DTC1E_1F_InitStatus_DebounceAndReport_000309d0;
-undefined *PTR_IAT_DTC2C_2D_ModeStatus_DebounceAndReport_000309d4;
-undefined *PTR_InfoDisplay_StatusBit01_Dtc1011Pair_Update_000309d8;
-undefined *PTR_MAP_DTC07_08_RawStatus_DebounceAndReport_000309dc;
-undefined *PTR_SubsystemA_DTC33_StateDebounceAndReport_000309e0;
-undefined *PTR_SubsystemA_MAPResponseDiag_UpdateBaselineDelta_000309e4;
-undefined *PTR_SubsystemA_MAPResponseDiag_DebounceDeltaAndTemp_000309e8;
-undefined *PTR_SubsystemA_MAPResponseDiag_ReportDTC9_000309ec;
+undefined *PTR_MAF_P0102_P0103_SignalStatus_DebounceAndReport_000309cc;
+undefined *PTR_KnockSensor_P0327_P0328_DebounceAndReport_000309d0;
+undefined *PTR_IAT_P2228_P2229_ModeStatus_DebounceAndReport_000309d4;
+undefined *PTR_TPS_P0122_P0123_StatusPair_DebounceAndReport_000309d8;
+undefined *PTR_MAP_P0107_P0108_RawStatus_DebounceAndReport_000309dc;
+undefined *PTR_ECU_P1603_StateDebounceAndReport_000309e0;
+undefined *PTR_MAP_P0106_BaselineDelta_Update_000309e4;
+undefined *PTR_MAP_P0106_DebounceDeltaAndTemp_Update_000309e8;
+undefined *PTR_MAP_P0106_RangePerformance_Report_000309ec;
 undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_00030bb4;
-undefined *PTR_InfoDisplay_StatusBit04_SubsystemABlendThreshold_Update_00030bb8;
+undefined *PTR_CKP_P0335_ProcessedStatus_DebounceAndReport_00030bb8;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030bbc;
-undefined *PTR_SubsystemA_DTC16_EnableGate_UpdateFromLoadIatSeedRequest_00030bc0;
-undefined *PTR_SubsystemA_DTC16_EctWindow_DebounceAndReport_00030bc4;
-undefined *PTR_SubsystemA_DTC1C_1D_EnableGate_UpdateFromLoadIatWindows_00030bc8;
-undefined *PTR_SubsystemA_DTC1C_TempDeltaWindow_DebounceAndReport_00030bcc;
-undefined *PTR_SubsystemA_DTC1D_TempDeltaWindow_DebounceAndReport_00030bd0;
-undefined *PTR_Diag_DTC35_36_FilteredReferencePair_Update_00030bd4;
-undefined *PTR_Diag_DTC35_36_PreconditionCounters_Update_00030bd8;
-undefined *PTR_Diag_DTC35_36_StateManager_Update_00030bdc;
-undefined *PTR_SubsystemA_DTC22_23_SeedDeltaTrack_Update_00030be0;
+undefined *PTR_HO2S1_P0134_NoActivity_EnableGate_UpdateFromLoadIatSeedRequest_00030bc0;
+undefined *PTR_HO2S1_P0134_NoActivity_DebounceAndReport_00030bc4;
+undefined *PTR_FuelSystem_P0171_P0172_EnableGate_UpdateFromLoadIatWindows_00030bc8;
+undefined *PTR_FuelSystem_P0171_Lean_DebounceAndReport_00030bcc;
+undefined *PTR_FuelSystem_P0172_Rich_DebounceAndReport_00030bd0;
+undefined *PTR_HO2S2_P0137_P0138_FilteredReferencePair_Update_00030bd4;
+undefined *PTR_HO2S2_P0137_P0138_PreconditionCounters_Update_00030bd8;
+undefined *PTR_HO2S2_P0137_P0138_StateManagerAndReport_Update_00030bdc;
+undefined *PTR_EGR_P0401_InsufficientFlow_DebouncePath_Update_00030be0;
 undefined *PTR_KnockWindow_StatusDTC0A0B_DebounceAndReport_00030be4;
-undefined *PTR_ECTSensor_AN28_DTC0D0E_RawRangeDebounceAndReport_Update_00030be8;
-undefined *PTR_SubsystemA_DTC26_WindowState_DebounceAndReport_00030bec;
-undefined *PTR_SubsystemA_DeltaDiag_CheckPreconditions_DTC0C_00030bf0;
-undefined *PTR_SubsystemA_DeltaDiag_UpdateFilteredBaselines_DTC0C_00030bf4;
-undefined *PTR_SubsystemA_DeltaDiag_ReportDTC0C_00030bf8;
+undefined *PTR_ECTSensor_AN28_StatusDTC0D0E_AndInfoDisplayBit10_Update_00030be8;
+undefined *PTR_EVAP_Purge_P0443_DebounceAndReport_00030bec;
+undefined *PTR_IAT_P0111_CheckPreconditions_00030bf0;
+undefined *PTR_IAT_P0111_UpdateFilteredBaselines_00030bf4;
+undefined *PTR_IAT_P0111_Report_00030bf8;
 undefined *PTR_EGR_DTC2B_DirectReport_SetFail_Thunk_00030bfc;
-undefined *PTR_SubsystemA_DTC2A_StateDebounceAndReport_00030c00;
-undefined *PTR_SubsystemA_DTC25_ThresholdWindowAccumulator_Update_00030c04;
-undefined *PTR_SubsystemA_DTC25_CounterPair_Update_00030c08;
-undefined *PTR_ECTSensor_AN28_P0116_CheckOBDGate_00030c0c;
-undefined *PTR_ECTSensor_AN28_P0116_ModelWarmupCounter_Update_00030c10;
-undefined *PTR_ECTSensor_AN28_P0116_ReportRangePerformanceDTC_00030c14;
-undefined *PTR_SubsystemA_DTC2A_StateScanAndLatch_Update_00030c18;
-undefined *PTR_InfoDisplay_StatusBit04_SampledPair_EnableGate_UpdateFromSubsystemAPhaseInputs_00030c1c;
-undefined *PTR_InfoDisplay_StatusBit04_SampledPair_Update_00030c20;
+undefined *PTR_ECU_P0601_StateDebounceAndReport_00030c00;
+undefined *PTR_Catalyst_P0420_ThresholdWindowAccumulator_Update_00030c04;
+undefined *PTR_CatalystMonitor_P0420_CounterPair_Update_00030c08;
+undefined *PTR_ECTSensor_AN28_P0116_CheckPreconditions_00030c0c;
+undefined *PTR_ECTSensor_AN28_P0116_DebounceThreshold_Update_00030c10;
+undefined *PTR_ECTSensor_AN28_P0116_Report_00030c14;
+undefined *PTR_ECU_P0601_StateScanAndLatch_Update_00030c18;
+undefined *PTR_CMP_P0340_SampledPair_EnableGate_Update_00030c1c;
+undefined *PTR_CMP_P0340_SampledPair_DebounceAndReport_00030c20;
 undefined *PTR_InfoDisplay_StatusBit04_SampledPair_FullStateResetAndClearEvents_00030c24;
 undefined *PTR_CoolingFanAux_PE11_P0481_ClearArmingProtectedStatus_00030c28;
-undefined *PTR_DiagRunner_SubsystemADTC27_ProtectedStatusCheck_Wrapped_00030c2c;
-undefined *PTR_DAT_00030dac;
-undefined *PTR_DAT_00030db0;
-undefined *PTR_DAT_00030db4;
-undefined *PTR_DAT_00030db8;
-undefined *PTR_DAT_00030dbc;
-undefined *PTR_DAT_00030dc0;
-undefined *PTR_DAT_00030dc4;
-undefined *PTR_DAT_00030dc8;
+undefined *PTR_CoolingFanRelay23_PE9_P0481_ProtectedStatusCheck_Wrapped_00030c2c;
+undefined *PTR_KnockSensor_P0327_NormalDebouncedFlag_00030dac;
+undefined *PTR_KnockSensor_P0327_FaultDebouncedFlag_00030db0;
+undefined *PTR_KnockSensor_P0327_NormalDebounceCounter_00030db4;
+undefined *PTR_KnockSensor_P0327_FaultDebounceCounter_00030db8;
+undefined *PTR_KnockSensor_P0328_NormalDebouncedFlag_00030dbc;
+undefined *PTR_KnockSensor_P0328_FaultDebouncedFlag_00030dc0;
+undefined *PTR_KnockSensor_P0328_NormalDebounceCounter_00030dc4;
+undefined *PTR_KnockSensor_P0328_FaultDebounceCounter_00030dc8;
 undefined *PTR_AddUint16AndSaturateToFFFE_00030dd4;
-undefined *PTR_InjectorPhaseControl_InitPendingFlag_00030dcc;
+undefined *PTR_KnockSensor_AN21_RangeState_LowOkHigh_00030dcc;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00030dd0;
 undefined *PTR_DTC_IsOBDRelevantOrActive_00030dd8;
-undefined *PTR_DAT_00030ddc;
-undefined *PTR_DAT_00030de0;
-undefined *PTR_DAT_00030de4;
+undefined *PTR_KnockSensor_P0327_P0328_NormalDebounceLimit_00030ddc;
+undefined *PTR_KnockSensor_P0327_LowFaultDebounceLimit_00030de0;
+undefined *PTR_KnockSensor_P0328_HighFaultDebounceLimit_00030de4;
 undefined *PTR_DAT_00030f8c;
 undefined *PTR_DAT_00030f90;
 undefined *PTR_DAT_00030f94;
@@ -10195,7 +10215,7 @@ undefined *PTR_EngineSpeed_RPM_Filtered_00031ac8;
 undefined *PTR_MAP_data_float_0_00031acc;
 undefined *PTR_ECTSensor_AN28_CelsiusStage1_00031ad0;
 pointer PTR_SubsystemA_CommandBlend_ActiveFlag_00031ad4;
-undefined *PTR_DAT_00031ad8;
+undefined *PTR_P0300_DTC0_ThresholdFlagB_00031ad8;
 undefined *PTR_DAT_00031ae0;
 undefined *PTR_DAT_00031ae4;
 undefined *PTR_DAT_00031aec;
@@ -10333,28 +10353,28 @@ undefined *PTR_DAT_00032374;
 undefined *PTR_AddUint16AndSaturateToFFFE_00032378;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_0003237c;
 undefined *PTR_MAP_data_float_0_00032538;
-undefined *PTR_DAT_00032540;
-undefined *PTR_DAT_0003253c;
+undefined *PTR_PressureModel_P2227_BaselineAveragePhaseFlag_00032540;
+undefined *PTR_PressureModel_P2227_MapBaseline_0003253c;
 undefined *PTR_InputBitPair_DebouncedState_00032544;
-undefined *PTR_DAT_00032548;
-undefined *PTR_DAT_0003254c;
-undefined *PTR_DAT_00032550;
-undefined *PTR_DAT_00032554;
-undefined *PTR_DAT_00032558;
+undefined *PTR_PressureModel_P2227_InputBitPairState_Snapshot_00032548;
+undefined *PTR_PressureModel_P2227_PassFlag_0003254c;
+undefined *PTR_PressureModel_P2227_FailFlag_00032550;
+undefined *PTR_PressureModel_P2227_FailCounter_00032554;
+undefined *PTR_PressureModel_P2227_PassCounter_00032558;
 undefined *PTR_FloatDivideWithLimits_0003255c;
 undefined *PTR_DTC_IsOBDRelevantOrActive_00032560;
-undefined *PTR_DAT_00032564;
+undefined *PTR_PressureModel_P2227_EnableWindowThresholdA_00032564;
 undefined *PTR_EngineSpeed_RPM_Filtered_00032568;
-undefined *PTR_DAT_0003256c;
+undefined *PTR_PressureModel_P2227_EnableWindowThresholdB_0003256c;
 undefined *PTR_FuelDisplay_InputWindowAvg_00032570;
-undefined *PTR_DAT_00032574;
+undefined *PTR_PressureModel_P2227_EnableFlag_00032574;
 undefined *PTR_IATSensor_AN29_TempValueUsed_00032578;
 undefined *PTR_AbsFloatDifference_0003257c;
-undefined *PTR_DAT_00032580;
-undefined *PTR_DAT_00032584;
-undefined *PTR_DAT_00032588;
+undefined *PTR_PressureModel_P2227_FailWindowThresholdA_00032580;
+undefined *PTR_PressureModel_P2227_FailWindowThresholdB_00032584;
+undefined *PTR_PressureModel_P2227_FailCounterThresholdPair_00032588;
 undefined *PTR_AddUint16AndSaturateToFFFE_0003258c;
-undefined *PTR_DAT_00032590;
+undefined *PTR_PressureModel_P2227_PassCounterThresholdPair_00032590;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00032594;
 undefined *PTR_DAT_00032790;
 undefined *PTR_DAT_00032794;
@@ -10478,54 +10498,54 @@ short DAT_00032f92;
 undefined *PTR_LAB_0000fffc+1_00032f9c;
 undefined *PTR_PhaseFrontend_ModeTransfer_SendAndReadResponse_00032fcc;
 undefined *PTR_PhaseFrontend_ResponseMode2_Bit7Low_State_00032fd0;
-undefined *PTR_DAT_00033020;
-undefined *PTR_DAT_00033024;
-undefined *PTR_DAT_00033028;
+undefined *PTR_IgnitionPhaseOutputAngle_Slot2_Snapshot_00033020;
+undefined *PTR_IgnitionPhaseOutputAngle_Slot1_Snapshot_00033024;
+undefined *PTR_IgnitionPhaseOutputAngle_Slot0_Snapshot_00033028;
 undefined *PTR_DAT_0003302c;
-undefined *PTR_DAT_00033030;
-undefined *PTR_DAT_00033034;
+undefined *PTR_IgnitionPhaseCommandBlend_ClampedOutput_00033030;
+undefined *PTR_IgnitionPhaseOutputAngle_Slot3_Snapshot_00033034;
 undefined *PTR_DAT_00033038;
 undefined *PTR_DAT_0003303c;
 undefined *PTR_DAT_00033040;
 undefined *PTR_DAT_00033044;
-undefined *PTR_DAT_00033078;
 undefined *PTR_DAT_0003307c;
-undefined *PTR_DAT_00033080;
+pointer PTR_SubsystemA_ControlRampBlend_RequestEnableMirror;
+pointer PTR_SubsystemA_ControlRampBlend_RequestEnableFlag;
 undefined *PTR_DAT_00033104;
 undefined *PTR_DAT_00033108;
 undefined *PTR_DAT_0003310c;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00033100;
 undefined *PTR_CommandBlend_RequestFlag_00033110;
-undefined *PTR_DAT_00033114;
+pointer PTR_SubsystemA_ControlRampBlend_RequestFlagPrev;
 undefined *PTR_DAT_0003311c;
-undefined *PTR_DAT_00033120;
 undefined *PTR_EngineSpeed_RPM_Filtered_00033124;
+pointer PTR_SubsystemA_ControlRampBlend_RequestFlag_MinRpmThreshold;
 pointer PTR_SubsystemA_ControlRampBlend_RequestFlag_00033118;
-undefined *PTR_DAT_000331b8;
-undefined *PTR_DAT_000331bc;
-undefined *PTR_DAT_000331c0;
-undefined *PTR_DAT_000331c4;
+pointer PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagB;
+pointer PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagA;
+pointer PTR_SubsystemA_ControlRampBlend_RequestWindow_Counter;
+pointer PTR_SubsystemA_ControlRampBlend_RequestWindow_StateAboveRpm;
 undefined *PTR_EngineSpeed_RPM_Filtered_000331c8;
 undefined2 DAT_000331b6;
-undefined *PTR_DAT_000331cc;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_000331d0;
 undefined *PTR_Interpolate1D_ReturnU8_000331e0;
-undefined *PTR_DAT_000331e4;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000331d4;
 pointer PTR_Desc_SubsystemA_ControlRampBlend_RequestWindow_TableA_000331d8;
 pointer PTR_Desc_SubsystemA_ControlRampBlend_RequestWindow_TableB_000331dc;
+pointer PTR_SubsystemA_ControlRampBlend_RequestWindow_RpmHighThreshold;
+pointer PTR_SubsystemA_ControlRampBlend_RequestWindow_RpmLowThreshold;
 undefined *PTR_DAT_0003321c;
 pointer PTR_SubsystemA_SeededLoadWindow_ModeState_Code_00033218;
 undefined *PTR_ProtectedDiagStatusByteTable_Base_00033220;
 undefined *PTR_ProtectedStatusBytePair_ReadValidatedValueOrDefault_00033224;
 undefined *PTR_DTC_ReportState_ResetAllLatchedStates_Thunk_00033370;
-undefined *PTR_SubsystemA_LocalLatchGate_SetAndCommit_00033374;
+undefined *PTR_MIL_PD13_Request_SetAndDispatch_00033374;
 undefined *PTR_NoOp_EgrSharedState_ResetAll_00033378;
 undefined *PTR_SubsystemA_LocalProtectedState_Reset_0003337c;
 undefined *PTR_SubsystemA_SecondaryEnableMode_Update_00033380;
 undefined *PTR_DTC_ShortRecord_SlotIndexB_IsOneFlag_Update_00033384;
 undefined *PTR_DTC_ShortRecord_SlotIndexA_IsOneFlag_Update_00033388;
-undefined *PTR_DTC1C1D_AbsentFlags_Update_0003338c;
+undefined *PTR_FuelSystem_P0171_P0172_AbsentFlags_Update_0003338c;
 undefined *PTR_DTC_StatusCollectedIdFlagTables_ClearAll_00033390;
 undefined *PTR_NoOp_Return_00033394;
 undefined *PTR_DTC_ReportState_ClearAllIdUpdatedFlags_00033398;
@@ -10536,13 +10556,13 @@ undefined *PTR_DTC_StatusCollectedIdFlagTables_UpdateFromMasks_000333a8;
 undefined *PTR_SubsystemA_CommandBlendNormalizedFactor_Update_000333ac;
 undefined *PTR_DTC_ShortRecord_SlotIndexB_IsOneFlag_Update_000333b0;
 undefined *PTR_DTC_ShortRecord_SlotIndexA_IsOneFlag_Update_000333b4;
-undefined *PTR_DTC1C1D_AbsentFlags_Update_000333b8;
-undefined *PTR_SubsystemA_LocalLatchGate_UpdateFromDtcStatus_000333bc;
+undefined *PTR_FuelSystem_P0171_P0172_AbsentFlags_Update_000333b8;
+undefined *PTR_MIL_PD13_Request_UpdateFromDtcStatusAndDispatch_000333bc;
 undefined *PTR_SubsystemA_InhibitDelayAndProtectedAggregates_Update_000333c0;
 undefined *PTR_DTC_ReportState_SubsystemAInhibitDelay_ClearSelectedIds_000333c4;
 undefined *PTR_SubsystemA_LocalProtectedStateAndMirror_ResetAll_000333c8;
 undefined *PTR_ProtectedDiagStatusByteTable_ResetAll_000333cc;
-undefined *PTR_SubsystemA_OutputMirrorBit_Sync_000333d0;
+undefined *PTR_MIL_PD13_OutputBit_ApplyProtected_000333d0;
 undefined *PTR_SubsystemA_LocalProtectedState_AnyInvalid_Critical_000333d4;
 undefined *PTR_DiagStatusAggregate_AnyEgrProtectedStateInvalid_000333d8;
 undefined *PTR_DAT_00033524;
@@ -10706,78 +10726,78 @@ undefined *PTR_VVT_TPD1042F_Diag_PJ10_State_00033da0;
 undefined *PTR_VVT_P0010_NoTI9AEdgeFaultTicks_125_00033da4;
 undefined *PTR_VVT_P0010_PJ10HighNoDeltaFaultTicks_125_00033da8;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00033dac;
-undefined *PTR_DAT_00033f94;
-undefined *PTR_DAT_00033f9c;
-undefined *PTR_DAT_00033f98;
-undefined *PTR_DAT_00033fa0;
-undefined *PTR_DAT_00033fa8;
-undefined *PTR_DAT_00033fb0;
+undefined *PTR_CatalystMonitor_P0420_InputA_DeltaSampleCounter_00033f94;
+undefined *PTR_CatalystMonitor_P0420_InputA_DeltaAbs_00033f9c;
+undefined *PTR_CatalystMonitor_P0420_InputB_DeltaSampleCounter_00033f98;
+undefined *PTR_CatalystMonitor_P0420_InputB_DeltaAbs_00033fa0;
+undefined *PTR_CatalystMonitor_P0420_InputA_PreviousSample_00033fa8;
+undefined *PTR_CatalystMonitor_P0420_InputB_PreviousSample_00033fb0;
 undefined *PTR_DAT_00033fb4;
-undefined *PTR_DAT_00033fb8;
-undefined *PTR_DAT_00033fbc;
-undefined *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_00033fc0;
-undefined *PTR_DAT_00033fc8;
+undefined *PTR_CatalystMonitor_P0420_SwitchStatePrevious_00033fb8;
+undefined *PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldCounter_00033fbc;
+undefined *PTR_CatalystMonitor_P0420_PrerequisiteFlagC_00033fc0;
+undefined *PTR_CatalystMonitor_P0420_PreconditionStableCounter_00033fc8;
 pointer PTR_SubsystemA_EnablePrecondition_InputA_00033fa4;
 pointer PTR_SubsystemA_EnablePrecondition_InputB_00033fac;
 pointer PTR_SubsystemA_SecondaryEnable_InhibitFlagA_00033fc4;
-undefined *PTR_DAT_00033fcc;
-undefined *PTR_DAT_00033fd4;
-undefined *PTR_DAT_00033fd0;
-undefined *PTR_DAT_00033fdc;
-undefined *PTR_DAT_00033fe0;
-undefined *PTR_DAT_00033fe4;
+undefined *PTR_CatalystMonitor_P0420_RearO2ActivityRejectCounter_00033fcc;
+undefined *PTR_CatalystMonitor_P0420_RearO2SwitchThreshold_0p45_00033fd4;
+undefined *PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlag_00033fd0;
+undefined *PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlagPrev_00033fdc;
+undefined *PTR_CatalystMonitor_P0420_SwitchStatePreviousForActivity_00033fe0;
+undefined *PTR_CatalystMonitor_P0420_ActivitySamplingEnableFlag_00033fe4;
 undefined *PTR_DAT_00033fe8;
-undefined *PTR_DAT_00033fec;
-undefined *PTR_DAT_00033ff0;
-undefined *PTR_DAT_00033ff4;
-undefined *PTR_DAT_00033ff8;
-undefined *PTR_DAT_00033ffc;
-undefined *PTR_DAT_00034000;
-undefined *PTR_DAT_00034004;
-undefined *PTR_DAT_00034008;
+undefined *PTR_CatalystMonitor_P0420_ActivitySampleCountdown_00033fec;
+undefined *PTR_CatalystMonitor_P0420_ActivitySampleCounter_00033ff0;
+undefined *PTR_CatalystMonitor_P0420_ActivityWeightedCounter_00033ff4;
+undefined *PTR_CatalystMonitor_P0420_ActivityWindowInputSum_00033ff8;
+undefined *PTR_CatalystMonitor_P0420_ResettableCounterB_00033ffc;
+undefined *PTR_CatalystMonitor_P0420_ResettableFloatSumB_00034000;
+undefined *PTR_CatalystMonitor_P0420_ResetHoldFlag_00034004;
+undefined *PTR_CatalystMonitor_P0420_RearO2WindowReadyFlag_00034008;
 undefined *PTR_DAT_0003400c;
-undefined *PTR_DAT_00034010;
-undefined *PTR_DAT_00034014;
-undefined *PTR_DAT_00034018;
-undefined *PTR_DAT_0003401c;
-undefined *PTR_DAT_00034020;
-undefined *PTR_DAT_00034024;
-undefined *PTR_DAT_00034028;
-undefined *PTR_DAT_0003402c;
-undefined *PTR_DAT_00034030;
-undefined *PTR_DAT_00034034;
-undefined *PTR_DAT_00034038;
-undefined *PTR_DAT_0003403c;
-undefined *PTR_DAT_00034040;
-undefined *PTR_DAT_00034044;
-undefined *PTR_DAT_00034048;
-undefined *PTR_DAT_0003404c;
-undefined *PTR_DAT_00034050;
-undefined *PTR_DAT_00034054;
+undefined *PTR_CatalystMonitor_P0420_FailCounterSnapshot_00034010;
+undefined *PTR_CatalystMonitor_P0420_PassCounterSnapshot_00034014;
+undefined *PTR_CatalystMonitor_P0420_LowStateDurationCounter_00034018;
+undefined *PTR_CatalystMonitor_P0420_LowStateActiveFlag_0003401c;
+undefined *PTR_CatalystMonitor_P0420_HighStateDurationCounter_00034020;
+undefined *PTR_CatalystMonitor_P0420_HighStateActiveFlag_00034024;
+undefined *PTR_CatalystMonitor_P0420_SwitchEventCounter_00034028;
+undefined *PTR_CatalystMonitor_P0420_RuntimeReadyFlag_0003402c;
+undefined *PTR_CatalystMonitor_P0420_RuntimeReadyFlagSnapshot_00034030;
+undefined *PTR_CatalystMonitor_P0420_WindowSampleCountdown_00034034;
+undefined *PTR_CatalystMonitor_P0420_ComparisonIndex_00034038;
+undefined *PTR_CatalystMonitor_P0420_RatioOrIndexValue_0003403c;
+undefined *PTR_CatalystMonitor_P0420_FailLatch_00034040;
+undefined *PTR_CatalystMonitor_P0420_PassLatch_00034044;
+undefined *PTR_CatalystMonitor_P0420_WindowCounterB_00034048;
+undefined *PTR_CatalystMonitor_P0420_RatioFloatValue_0003404c;
+undefined *PTR_CatalystMonitor_P0420_WindowCounterA_00034050;
+undefined *PTR_CatalystMonitor_P0420_DtcReportStateSnapshot_00034054;
 undefined *PTR_LAB_0000fffe+1_00034058;
-undefined *PTR_DAT_0003405c;
+undefined *PTR_CatalystMonitor_P0420_ComparisonIndexSnapshot_0003405c;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteB_ImmediateThresholdInput_00033fd8;
-undefined *PTR_DAT_00034060;
-undefined *PTR_DAT_00034064;
+undefined *PTR_CatalystMonitor_P0420_ResetCounterA_00034060;
+undefined *PTR_CatalystMonitor_P0420_EnableDelayCounter_00034064;
 undefined *PTR_IATSensor_AN29_TempValueUsed_00034068;
 undefined4 DAT_0003406c;
 undefined *PTR_FloatDivideWithLimits_00034070;
-undefined *PTR_DAT_00034074;
+undefined *PTR_CatalystMonitor_P0420_EnableThresholdOffset_0p35_00034074;
 undefined *PTR_EngineSpeed_RPM_Filtered_00034078;
 undefined *PTR_DAT_0003407c;
 undefined *PTR_Interpolate2D_float_WithTransform_00034094;
-undefined *PTR_DAT_00034098;
+undefined *PTR_CatalystMonitor_P0420_EnableThreshold2D_00034098;
 undefined *PTR_CommandModel_StageActiveFlag_0003409c;
 undefined *PTR_DTC_ReportState_DTC25_UpdatedFlag_000340a0;
-undefined *PTR_DAT_000340a4;
+undefined *PTR_CatalystMonitor_P0420_EnableGateFlag_000340a4;
 undefined *PTR_DTC_IsOBDRelevantOrActive_000340a8;
-undefined *PTR_DAT_000340ac;
-undefined *PTR_DAT_000340b0;
+undefined *PTR_CatalystMonitor_P0420_PendingDtcEnableLimit_Alt_000340ac;
+undefined *PTR_CatalystMonitor_P0420_PendingDtcEnableLimit_Normal_000340b0;
 undefined *PTR_DAT_000340b4;
-undefined *PTR_DAT_000340b8;
-undefined *PTR_DAT_000340bc;
-undefined *PTR_DAT_000342a8;
-undefined *PTR_DAT_000342ac;
+undefined *PTR_CatalystMonitor_P0420_RearO2DiagnosticThresholdMax_Alt_000340b8;
+undefined *PTR_CatalystMonitor_P0420_RearO2DiagnosticThresholdMax_Normal_000340bc;
+undefined *PTR_CatalystMonitor_P0420_FailLatch_000342a8;
+undefined *PTR_CatalystMonitor_P0420_PassLatch_000342ac;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00034080;
 pointer PTR_Desc_SubsystemA_DTC25_ThresholdWindow_TableB_00034084;
 pointer PTR_Desc_SubsystemA_DTC25_ThresholdWindow_TableC_00034088;
@@ -10792,192 +10812,192 @@ undefined *PTR_FuelDisplay_InputWindowAvg_000342bc;
 pointer PTR_SubsystemA_CommandBlend_CommandRampOutput_Current_000342c0;
 undefined *PTR_DAT_000342c4;
 pointer PTR_SubsystemA_SecondaryEnable_InhibitFlagA_00034310;
-undefined *PTR_DAT_000342c8;
+undefined *PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldCounter_000342c8;
 pointer PTR_SubsystemA_SecondaryEnable_ElapsedCounter_00034328;
-undefined *PTR_DAT_000342cc;
+undefined *PTR_CatalystMonitor_P0420_SwitchStatePrevious_000342cc;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00034338;
-undefined *PTR_DAT_000342d4;
+undefined *PTR_CatalystMonitor_P0420_RearO2WindowReadyFlag_000342d4;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000344e4;
-undefined *PTR_DAT_000342d8;
-undefined *PTR_DAT_000342dc;
-undefined *PTR_DAT_000342e0;
-undefined *PTR_DAT_000342e4;
-undefined *PTR_DAT_000342e8;
-undefined *PTR_DAT_000342ec;
-undefined *PTR_DAT_000342f0;
+undefined *PTR_CatalystMonitor_P0420_SwitchStateChangeCounter_000342d8;
+undefined *PTR_CatalystMonitor_P0420_LowStateCurrentDuration_000342dc;
+undefined *PTR_CatalystMonitor_P0420_HighStateCurrentDuration_000342e0;
+undefined *PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_000342e4;
+undefined *PTR_CatalystMonitor_P0420_InputA_DeltaSampleCounter_000342e8;
+undefined *PTR_CatalystMonitor_P0420_InputA_DeltaSamplePeriod_000342ec;
+undefined *PTR_CatalystMonitor_P0420_InputA_PreviousSample_000342f0;
 undefined *PTR_AbsFloatDifference_000342f4;
-undefined *PTR_DAT_000342f8;
-undefined *PTR_DAT_000342fc;
-undefined *PTR_DAT_00034300;
-undefined *PTR_DAT_00034304;
-undefined *PTR_DAT_00034308;
-undefined *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_0003430c;
-undefined *PTR_DAT_00034314;
-undefined *PTR_DAT_00034318;
+undefined *PTR_CatalystMonitor_P0420_InputA_DeltaAbs_000342f8;
+undefined *PTR_CatalystMonitor_P0420_InputB_DeltaSampleCounter_000342fc;
+undefined *PTR_CatalystMonitor_P0420_InputB_DeltaSamplePeriod_00034300;
+undefined *PTR_CatalystMonitor_P0420_InputB_PreviousSample_00034304;
+undefined *PTR_CatalystMonitor_P0420_InputB_DeltaAbs_00034308;
+undefined *PTR_CatalystMonitor_P0420_PrerequisiteFlagC_0003430c;
+undefined *PTR_CatalystMonitor_P0420_PreconditionStableCounter_00034314;
+undefined *PTR_CatalystMonitor_P0420_EnableGateFlag_00034318;
 undefined *PTR_DAT_0003431c;
-undefined *PTR_DAT_00034320;
-undefined *PTR_DAT_00034324;
-undefined *PTR_DAT_0003432c;
-undefined *PTR_DAT_00034330;
-undefined *PTR_DAT_00034334;
-undefined *PTR_DAT_0003433c;
-undefined *PTR_DAT_00034340;
-undefined *PTR_DAT_00034344;
-undefined *PTR_DAT_00034348;
-undefined *PTR_DAT_0003434c;
-undefined *PTR_DAT_000344e0;
-undefined *PTR_DAT_000344e8;
-undefined *PTR_DAT_000344ec;
+undefined *PTR_CatalystMonitor_P0420_PreconditionDelay_Alt_00034320;
+undefined *PTR_CatalystMonitor_P0420_PreconditionDelay_Normal_00034324;
+undefined *PTR_CatalystMonitor_P0420_RearO2ActivityAccumulator_0003432c;
+undefined *PTR_CatalystMonitor_P0420_RearO2ActivityAccumulatorMin_Alt_00034330;
+undefined *PTR_CatalystMonitor_P0420_RearO2ActivityAccumulatorMin_Normal_00034334;
+undefined *PTR_CatalystMonitor_P0420_RpmMin_AltBlend_0003433c;
+undefined *PTR_CatalystMonitor_P0420_RpmMin_Alt_00034340;
+undefined *PTR_CatalystMonitor_P0420_RpmMin_NormalBlend_00034344;
+undefined *PTR_CatalystMonitor_P0420_RpmMin_Normal_00034348;
+undefined *PTR_CatalystMonitor_P0420_RpmMax_AltBlend_0003434c;
+undefined *PTR_CatalystMonitor_P0420_RpmMax_Alt_000344e0;
+undefined *PTR_CatalystMonitor_P0420_RpmMax_NormalBlend_000344e8;
+undefined *PTR_CatalystMonitor_P0420_RpmMax_Normal_000344ec;
 undefined *PTR_DAT_000344f0;
-undefined *PTR_DAT_000344f4;
-undefined *PTR_DAT_000344f8;
-undefined *PTR_DAT_000344fc;
-undefined *PTR_DAT_00034500;
-undefined *PTR_DAT_00034504;
-undefined *PTR_DAT_00034508;
-undefined *PTR_DAT_0003450c;
-undefined *PTR_DAT_00034510;
-undefined *PTR_DAT_00034514;
-undefined *PTR_DAT_00034518;
-undefined *PTR_DAT_0003451c;
-undefined *PTR_DAT_00034520;
-undefined *PTR_DAT_00034524;
-undefined *PTR_DAT_00034528;
-undefined *PTR_DAT_0003452c;
-undefined *PTR_DAT_00034530;
-undefined *PTR_DAT_00034534;
-undefined *PTR_DAT_00034538;
-undefined *PTR_DAT_0003453c;
-undefined *PTR_DAT_00034540;
-undefined *PTR_DAT_00034544;
-undefined *PTR_DAT_00034548;
-undefined *PTR_DAT_0003454c;
-undefined *PTR_DAT_00034550;
-undefined *PTR_DAT_00034554;
-undefined *PTR_DAT_00034558;
-undefined *PTR_DAT_0003455c;
-undefined *PTR_DAT_00034560;
-undefined *PTR_DAT_00034564;
+undefined *PTR_CatalystMonitor_P0420_LoadMin_AltBlend_000344f4;
+undefined *PTR_CatalystMonitor_P0420_LoadMin_Alt_000344f8;
+undefined *PTR_CatalystMonitor_P0420_LoadMin_NormalBlend_000344fc;
+undefined *PTR_CatalystMonitor_P0420_LoadMin_Normal_00034500;
+undefined *PTR_CatalystMonitor_P0420_LoadMax_AltBlend_00034504;
+undefined *PTR_CatalystMonitor_P0420_LoadMax_Alt_00034508;
+undefined *PTR_CatalystMonitor_P0420_LoadMax_NormalBlend_0003450c;
+undefined *PTR_CatalystMonitor_P0420_LoadMax_Normal_00034510;
+undefined *PTR_CatalystMonitor_P0420_WindowInputMin_Alt_00034514;
+undefined *PTR_CatalystMonitor_P0420_WindowInputMin_Normal_00034518;
+undefined *PTR_CatalystMonitor_P0420_WindowInputMax_Alt_0003451c;
+undefined *PTR_CatalystMonitor_P0420_WindowInputMax_Normal_00034520;
+undefined *PTR_CatalystMonitor_P0420_InputADeltaMax_Alt_00034524;
+undefined *PTR_CatalystMonitor_P0420_InputADeltaMax_Normal_00034528;
+undefined *PTR_CatalystMonitor_P0420_InputA_DeltaAbs_0003452c;
+undefined *PTR_CatalystMonitor_P0420_InputBDeltaMax_Alt_00034530;
+undefined *PTR_CatalystMonitor_P0420_InputBDeltaMax_Normal_00034534;
+undefined *PTR_CatalystMonitor_P0420_InputB_DeltaAbs_00034538;
+undefined *PTR_CatalystMonitor_P0420_CommandRampMinA_0003453c;
+undefined *PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_00034540;
+undefined *PTR_CatalystMonitor_P0420_SwitchDurationMidLow_00034544;
+undefined *PTR_CatalystMonitor_P0420_SwitchDurationMidHigh_00034548;
+undefined *PTR_CatalystMonitor_P0420_RearO2WindowReadyFlag_0003454c;
+undefined *PTR_CatalystMonitor_P0420_CommandRampMinB_00034550;
+undefined *PTR_CatalystMonitor_P0420_SwitchDurationAltLow_00034554;
+undefined *PTR_CatalystMonitor_P0420_SwitchDurationAltHigh_00034558;
+undefined *PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldCounter_0003455c;
+undefined *PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldRequired_00034560;
+undefined *PTR_CatalystMonitor_P0420_PreconditionStableCountRequired_00034564;
 undefined *PTR_IATSensor_AN29_TempValueUsed_0003475c;
 undefined *PTR_EngineSpeed_RPM_Filtered_00034760;
 undefined *PTR_DAT_00034764;
 undefined *PTR_Desc_EGR_DTC25_SeededLoadEnableGate_TableA_00034774;
 undefined *PTR_Interpolate2D_float_WithTransform_0003477c;
-undefined *PTR_DAT_00034780;
-undefined *PTR_DAT_00034784;
+undefined *PTR_CatalystMonitor_P0420_SelectedEnableThreshold2D_00034780;
+undefined *PTR_CatalystMonitor_P0420_RearO2ActivityRejectCounter_00034784;
 pointer PTR_SubsystemA_EnablePrecondition_InputA_00034758;
-undefined *PTR_DAT_00034788;
+undefined *PTR_CatalystMonitor_P0420_RearO2ActivityAccumulator_00034788;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00034768;
-undefined *PTR_DAT_00034794;
+undefined *PTR_CatalystMonitor_P0420_RearO2ActivityRejectLimit_00034794;
 pointer PTR_Desc_SubsystemA_DTC25_ThresholdWindow_TableB_0003476c;
 undefined *PTR_AddUint16AndSaturateToFFFE_00034798;
 pointer PTR_Desc_SubsystemA_DTC25_ThresholdWindow_TableC_00034770;
-undefined *PTR_DAT_000347a0;
+undefined *PTR_CatalystMonitor_P0420_ECTMinForActivityDecay_000347a0;
 pointer PTR_Desc_SubsystemA_DTC25_ThresholdWindow_TableA_00034778;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_000347a4;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_0003478c;
-undefined *PTR_DAT_000347a8;
+undefined *PTR_CatalystMonitor_P0420_ActivityWindowDecayStep_000347a8;
 pointer PTR_SubsystemA_EnablePrecondition_InputB_00034790;
-undefined *PTR_DAT_000347ac;
+undefined *PTR_CatalystMonitor_P0420_InputAForDecayTableMax_000347ac;
 pointer PTR_SubsystemA_EnableSharedInhibitFlag_0003479c;
-undefined *PTR_DAT_000347b0;
+undefined *PTR_CatalystMonitor_P0420_ActivityDecayStepDefault_000347b0;
 pointer PTR_SubsystemA_CommandBlend_TableInput_000347b4;
 undefined *PTR_Interpolate2D_ReturnU16_000347bc;
 pointer PTR_Desc_SubsystemA_DTC25_ThresholdWindow_TableD_000347b8;
-undefined *PTR_DAT_000347c0;
+undefined *PTR_CatalystMonitor_P0420_ActivityWeightedCounterMax_000347c0;
 undefined *PTR_DAT_000347c4;
 undefined *PTR_Interpolate1D_ToUint16_000347cc;
-undefined *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_000347d4;
-undefined *PTR_DAT_000347d0;
-undefined *PTR_DAT_000347d8;
-undefined *PTR_DAT_000347dc;
-undefined *PTR_DAT_000347e0;
-undefined *PTR_DAT_000347e4;
-undefined *PTR_DAT_000347e8;
-undefined *PTR_DAT_000347ec;
+undefined *PTR_CatalystMonitor_P0420_PrerequisiteFlagC_000347d4;
+undefined *PTR_CatalystMonitor_P0420_ActivityWindowOffsetByInputA_000347d0;
+undefined *PTR_CatalystMonitor_P0420_ResetHoldFlag_000347d8;
+undefined *PTR_CatalystMonitor_P0420_ActivitySamplingEnableFlag_000347dc;
+undefined *PTR_CatalystMonitor_P0420_ActivitySampleCounter_000347e0;
+undefined *PTR_CatalystMonitor_P0420_ActivityWindowInputSum_000347e4;
+undefined *PTR_CatalystMonitor_P0420_ActivityWeightedCounter_000347e8;
+undefined *PTR_CatalystMonitor_P0420_ActivitySampleCountdown_000347ec;
 undefined *PTR_DAT_000347f0;
-undefined *PTR_DAT_000347f4;
-undefined *PTR_DAT_000347f8;
-undefined *PTR_DAT_000347fc;
-undefined *PTR_DAT_00034800;
+undefined *PTR_CatalystMonitor_P0420_SwitchStatePreviousForActivity_000347f4;
+undefined *PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_000347f8;
+undefined *PTR_CatalystMonitor_P0420_ActivitySampleCount_Alt_000347fc;
+undefined *PTR_CatalystMonitor_P0420_ActivitySampleCount_Normal_00034800;
 pointer PTR_Desc_SubsystemA_DTC25_AccumulatorReport_TableA_000347c8;
-undefined *PTR_DAT_000349ac;
+undefined *PTR_CatalystMonitor_P0420_ActivitySampleCount_Normal_000349ac;
 undefined *PTR_Math_Unknown_0735C_000349b0;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteB_ImmediateThresholdInput_00034a00;
-undefined *PTR_DAT_000349b4;
+undefined *PTR_CatalystMonitor_P0420_ResettableCounterB_000349b4;
 pointer PTR_Desc_SubsystemA_DTC25_AccumulatorReport_TableB_00034c90;
-undefined *PTR_DAT_000349b8;
+undefined *PTR_CatalystMonitor_P0420_ActivitySampleCount_Alt_000349b8;
 undefined *PTR_FloatMulAccumulate_U16_000349bc;
 undefined *PTR_FloatDivideWithLimits_000349c0;
-undefined *PTR_DAT_000349c4;
-undefined *PTR_DAT_000349c8;
+undefined *PTR_CatalystMonitor_P0420_ResettableFloatSumB_000349c4;
+undefined *PTR_CatalystMonitor_P0420_ResetHoldFlag_000349c8;
 undefined *PTR_LAB_0000fffe+1_000349cc;
-undefined *PTR_DAT_000349d0;
+undefined *PTR_CatalystMonitor_P0420_ActivitySamplingEnableFlag_000349d0;
 undefined *PTR_DAT_000349d4;
-undefined *PTR_DAT_000349d8;
+undefined *PTR_CatalystMonitor_P0420_ResetCounterA_000349d8;
 undefined *PTR_DAT_000349dc;
-undefined *PTR_DAT_000349e0;
-undefined *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_000349e4;
+undefined *PTR_CatalystMonitor_P0420_RearO2WindowReadyFlag_000349e0;
+undefined *PTR_CatalystMonitor_P0420_PrerequisiteFlagC_000349e4;
 undefined *PTR_DAT_000349e8;
 undefined *PTR_DAT_000349ec;
-undefined *PTR_DAT_000349f0;
-undefined *PTR_DAT_000349f4;
+undefined *PTR_CatalystMonitor_P0420_ReportSampleCount_Alt_000349f0;
+undefined *PTR_CatalystMonitor_P0420_ActivityWindowOffsetByInputA_000349f4;
 undefined *PTR_DAT_000349f8;
-undefined *PTR_DAT_000349fc;
-undefined *PTR_DAT_00034a04;
-undefined *PTR_DAT_00034a08;
-undefined *PTR_DAT_00034a0c;
-undefined *PTR_DAT_00034a10;
-undefined *PTR_DAT_00034a14;
-undefined *PTR_DAT_00034a18;
-undefined *PTR_DAT_00034a1c;
-undefined *PTR_DAT_00034a20;
-undefined *PTR_DAT_00034a24;
-undefined *PTR_DAT_00034a28;
+undefined *PTR_CatalystMonitor_P0420_RearO2SwitchThreshold_0p45_000349fc;
+undefined *PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlag_00034a04;
+undefined *PTR_CatalystMonitor_P0420_SwitchEventCounter_00034a08;
+undefined *PTR_CatalystMonitor_P0420_HighStateDurationCounter_00034a0c;
+undefined *PTR_CatalystMonitor_P0420_LowStateDurationCounter_00034a10;
+undefined *PTR_CatalystMonitor_P0420_SwitchStatePreviousForActivity_00034a14;
+undefined *PTR_CatalystMonitor_P0420_FailCounterSnapshot_00034a18;
+undefined *PTR_CatalystMonitor_P0420_LowStateActiveFlag_00034a1c;
+undefined *PTR_CatalystMonitor_P0420_PassCounterSnapshot_00034a20;
+undefined *PTR_CatalystMonitor_P0420_HighStateActiveFlag_00034a24;
+undefined *PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlagPrev_00034a28;
 undefined *PTR_DAT_00034a2c;
-undefined *PTR_DAT_00034a30;
-undefined *PTR_DAT_00034c34;
-undefined *PTR_DAT_00034c38;
-undefined *PTR_DAT_00034c3c;
-undefined *PTR_DAT_00034c40;
-undefined *PTR_DAT_00034c44;
-undefined *PTR_DAT_00034c48;
-undefined *PTR_DAT_00034c4c;
-undefined *PTR_DAT_00034c50;
-undefined *PTR_DAT_00034c54;
-undefined *PTR_DAT_00034c58;
+undefined *PTR_CatalystMonitor_P0420_RuntimeReadyFlag_00034a30;
+undefined *PTR_CatalystMonitor_P0420_FailCounterSnapshot_00034c34;
+undefined *PTR_CatalystMonitor_P0420_PassCounterSnapshot_00034c38;
+undefined *PTR_CatalystMonitor_P0420_RuntimeReadyFlag_00034c3c;
+undefined *PTR_CatalystMonitor_P0420_LowStateActiveFlag_00034c40;
+undefined *PTR_CatalystMonitor_P0420_HighStateActiveFlag_00034c44;
+undefined *PTR_CatalystMonitor_P0420_WindowSampleCountdown_00034c48;
+undefined *PTR_CatalystMonitor_P0420_RatioFloatValue_00034c4c;
+undefined *PTR_CatalystMonitor_P0420_WindowCounterA_00034c50;
+undefined *PTR_CatalystMonitor_P0420_WindowCounterB_00034c54;
+undefined *PTR_CatalystMonitor_P0420_EnableDelayCounter_00034c58;
 undefined *PTR_DAT_00034c5c;
-undefined *PTR_DAT_00034c60;
-undefined *PTR_DAT_00034c64;
-undefined *PTR_DAT_00034c6c;
-undefined *PTR_DAT_00034c68;
+undefined *PTR_CatalystMonitor_P0420_RuntimeReadyFlagSnapshot_00034c60;
+undefined *PTR_CatalystMonitor_P0420_SwitchStatePreviousForActivity_00034c64;
+undefined *PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_00034c6c;
+undefined *PTR_CatalystMonitor_P0420_ActivityWindowOffsetByInputA_00034c68;
 undefined *PTR_LAB_0000fffe+1_00034c70;
 undefined *PTR_DAT_00034c74;
-undefined *PTR_DAT_00034c78;
+undefined *PTR_CatalystMonitor_P0420_ReportSampleCount_Normal_00034c78;
 undefined *PTR_Math_Unknown_0735C_00034c7c;
-undefined *PTR_DAT_00034c80;
+undefined *PTR_CatalystMonitor_P0420_ComparisonIndex_00034c80;
 undefined *PTR_FloatMulAccumulate_U16_00034c84;
 undefined *PTR_FloatDivideWithLimits_00034c88;
-undefined *PTR_DAT_00034c8c;
+undefined *PTR_CatalystMonitor_P0420_RatioOrIndexValue_00034c8c;
 undefined *PTR_Interpolate1D_ToUint16_00034c94;
-undefined *PTR_DAT_00034c98;
-undefined *PTR_DAT_00034c9c;
-undefined *PTR_DAT_00034ca0;
-undefined *PTR_DAT_00034ca4;
-undefined *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_00034ca8;
+undefined *PTR_CatalystMonitor_P0420_ThresholdIndex_00034c98;
+undefined *PTR_CatalystMonitor_P0420_PassLatch_00034c9c;
+undefined *PTR_CatalystMonitor_P0420_FailLatch_00034ca0;
+undefined *PTR_CatalystMonitor_P0420_ComparisonIndexSnapshot_00034ca4;
+undefined *PTR_CatalystMonitor_P0420_PrerequisiteFlagC_00034ca8;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00034cac;
-undefined *PTR_DAT_00034cb0;
-undefined *PTR_DAT_00034cb4;
+undefined *PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlag_00034cb0;
+undefined *PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlagPrev_00034cb4;
 undefined *PTR_DTC_ReportState_DTC25_UpdatedFlag_00034cb8;
-undefined *PTR_DAT_00034cbc;
-undefined *PTR_DAT_00034cc0;
-undefined *PTR_DAT_00034cc4;
-undefined *PTR_DAT_00034cc8;
-undefined *PTR_DAT_00034d0c;
-undefined *PTR_DAT_00034d10;
+undefined *PTR_CatalystMonitor_P0420_DtcReportStateSnapshot_00034cbc;
+undefined *PTR_CatalystMonitor_P0420_ResettableCounterB_00034cc0;
+undefined *PTR_CatalystMonitor_P0420_ResettableFloatSumB_00034cc4;
+undefined *PTR_CatalystMonitor_P0420_ResetHoldFlag_00034cc8;
+undefined *PTR_CatalystMonitor_P0420_ResetCounterA_00034d0c;
+undefined *PTR_CatalystMonitor_P0420_ResetHoldFlag_00034d10;
 undefined *PTR_AddUint16AndSaturateToFFFE_00034d14;
-undefined *PTR_DAT_00034d18;
-undefined *PTR_DAT_00034d1c;
+undefined *PTR_CatalystMonitor_P0420_EnableDelayCounter_00034d18;
+undefined *PTR_CatalystMonitor_P0420_WindowCounterA_00034d1c;
 undefined *PTR_InfoDisplay_StatusByte_Bit04_SourceB_00034df4;
 undefined *PTR_DAT_00034df8;
 undefined *PTR_DAT_00034dfc;
@@ -11002,11 +11022,11 @@ undefined *PTR_DAT_0003504c;
 undefined *PTR_DAT_00035054;
 undefined *PTR_ACCompressorRelay_PE10_CommandRequest_00035058;
 undefined *PTR_DAT_0003505c;
-undefined *PTR_DAT_00035060;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_00035060;
 undefined *PTR_DAT_00035064;
-undefined *PTR_DAT_00035068;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_00035068;
 undefined *PTR_DAT_0003506c;
-undefined *PTR_DAT_00035070;
+undefined *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00035070;
 undefined *PTR_DAT_00035074;
 undefined *PTR_CoolingFanRelay1_PE4_CommandRequest_00035078;
 undefined *PTR_DAT_0003507c;
@@ -11062,9 +11082,9 @@ undefined *PTR_DAT_00035304;
 undefined *PTR_DAT_00035308;
 undefined *PTR_DAT_0003530c;
 undefined *PTR_ACCompressorRelay_PE10_CommandRequest_00035314;
-undefined *PTR_DAT_0003531c;
-undefined *PTR_DAT_00035318;
-undefined *PTR_DAT_00035320;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_0003531c;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_00035318;
+undefined *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00035320;
 undefined *PTR_CoolingFanRelay1_PE4_CommandRequest_00035324;
 undefined *PTR_CoolingFanRelay2Relay3_PE9_CommandRequest_00035328;
 undefined *PTR_CoolingFanAux_PE11_CommandRequest_0003532c;
@@ -11073,7 +11093,7 @@ undefined *PTR_DAT_00035334;
 undefined *PTR_ValueInDeltaRange_00035338;
 undefined *PTR_DAT_0003533c;
 undefined *PTR_DAT_00035340;
-undefined *PTR_DAT_00035344;
+undefined *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00035344;
 undefined *PTR_DAT_00035348;
 undefined *PTR_DAT_0003534c;
 undefined *PTR_DAT_00035350;
@@ -11226,43 +11246,43 @@ undefined *PTR_DAT_00035d28;
 undefined *PTR_DAT_00035d2c;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00035d30;
 pointer PTR_SubsystemA_CommandBlend_IndexFilteredInput_Output_00035c2c;
-undefined *PTR_DAT_00035f1c;
-undefined *PTR_DAT_00035f18;
-undefined *PTR_DAT_00035f20;
-undefined *PTR_DAT_00035f24;
-undefined *PTR_DAT_00035f28;
-undefined *PTR_DAT_00035f2c;
-undefined *PTR_DAT_00035f30;
+undefined *PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_00035f1c;
+undefined *PTR_HO2S1_DTC_LastWorkingVoltageForDelta_00035f18;
+undefined *PTR_HO2S1_DTC_EnableWindowCounter_00035f20;
+undefined *PTR_HO2S1_DTC_EnableWindowAccumulatorA_00035f24;
+undefined *PTR_HO2S1_DTC_EnableWindowFaultLatch_00035f28;
+undefined *PTR_HO2S1_DTC_EnableWindowAccumulatorB_00035f2c;
+undefined *PTR_HO2S1_DTC_SamplePeriodCounter_00035f30;
 pointer PTR_SubsystemA_EnablePrecondition_InputB_00035f14;
-undefined *PTR_DAT_00035f34;
-undefined *PTR_DAT_00035f38;
-undefined *PTR_DAT_00035f3c;
-undefined *PTR_DAT_00035f40;
-undefined *PTR_DAT_00035f44;
-undefined *PTR_DAT_00035f48;
-undefined *PTR_DAT_00035f4c;
-undefined *PTR_DAT_00035f50;
-undefined *PTR_DAT_00035f54;
-undefined *PTR_DAT_00035f58;
-undefined *PTR_DAT_00035f5c;
-undefined *PTR_DAT_00035f64;
-undefined *PTR_DAT_00035f68;
+undefined *PTR_HO2S1_DTC_SampleDeltaAbs_00035f34;
+undefined *PTR_HO2S1_DTC13_P0131_FailLatch_00035f38;
+undefined *PTR_HO2S1_DTC13_P0131_PassLatch_00035f3c;
+undefined *PTR_HO2S1_DTC14_P0132_FailLatch_00035f40;
+undefined *PTR_HO2S1_DTC14_P0132_PassLatch_00035f44;
+undefined *PTR_HO2S1_DTC15_P0133_FailLatch_00035f48;
+undefined *PTR_HO2S1_DTC15_P0133_PassLatch_00035f4c;
+undefined *PTR_HO2S1_DTC_ReportWindowCounter_00035f50;
+undefined *PTR_HO2S1_DTC_HighSideCrossingCounterSnapshot_00035f54;
+undefined *PTR_HO2S1_DTC_LowSideCrossingCounterSnapshot_00035f58;
+undefined *PTR_HO2S1_DTC_TransitionRateSnapshot_00035f5c;
+undefined *PTR_HO2S1_DTC_WindowMinVoltage_00035f64;
+undefined *PTR_HO2S1_DTC_WindowMaxVoltage_00035f68;
 pointer PTR_SubsystemA_CommandBlend_IndexFilteredInput_Output_00035f60;
-undefined *PTR_DAT_00035f6c;
+undefined *PTR_HO2S1_DTC_ReferenceCenterVoltage_00035f6c;
 undefined *PTR_DAT_00035f70;
 undefined *PTR_DAT_00035f74;
-undefined *PTR_DAT_00035f78;
-undefined *PTR_DAT_00035f7c;
+undefined *PTR_HO2S1_DTC_BelowThresholdFlag_00035f78;
+undefined *PTR_HO2S1_DTC_AboveThresholdFlag_00035f7c;
 undefined *PTR_DAT_00035f80;
-undefined *PTR_DAT_00035f84;
-undefined *PTR_DAT_00035f88;
-undefined *PTR_DAT_00035f8c;
-undefined *PTR_DAT_00035f90;
+undefined *PTR_HO2S1_DTC_LowSideCrossingCounterMin_00035f84;
+undefined *PTR_HO2S1_DTC_HighSideCrossingCounterMin_00035f88;
+undefined *PTR_HO2S1_DTC_LowSideCrossingCounter_00035f8c;
+undefined *PTR_HO2S1_DTC_HighSideCrossingCounter_00035f90;
 undefined *PTR_DAT_00035f94;
-undefined *PTR_DAT_00035fa0;
-undefined *PTR_DAT_00035f98;
-undefined *PTR_DAT_00035f9c;
-undefined *PTR_DAT_00035fa4;
+undefined *PTR_HO2S1_DTC_TransitionCount_00035fa0;
+undefined *PTR_HO2S1_DTC_LastSwitchState_00035f98;
+undefined *PTR_HO2S1_DTC_TransitionAccumulatedTime_00035f9c;
+undefined *PTR_HO2S1_DTC_TransitionRateValue_00035fa4;
 undefined *PTR_EngineSpeed_RPM_Filtered_00035fa8;
 undefined *PTR_IATSensor_AN29_TempValueUsed_00035fac;
 undefined *PTR_FuelDisplay_InputWindowAvg_00035fb4;
@@ -11270,28 +11290,28 @@ undefined4 DAT_00035fb8;
 undefined *PTR_FloatDivideWithLimits_00035fbc;
 undefined *PTR_DAT_00035fc0;
 undefined *PTR_AbsFloatDifference_00035fc8;
-undefined *PTR_DAT_00035fcc;
+undefined *PTR_HO2S1_DTC_EnableThresholdByLoadA_00035fcc;
 undefined *PTR_Interpolate1D_WithTransform_00035fd4;
-undefined *PTR_DAT_00035fdc;
+undefined *PTR_HO2S1_DTC_EnableThresholdByLoadB_00035fdc;
 undefined *PTR_Interpolate2D_float_WithTransform_00035fec;
 undefined *PTR_AddUint16AndSaturateToFFFE_00035ff8;
-undefined *PTR_DAT_00035ff0;
+undefined *PTR_HO2S1_DTC_EnableThreshold2D_00035ff0;
 undefined *PTR_DTC_ReportState_IdUpdatedFlagTable_00035ff4;
 undefined *PTR_DAT_00035ffc;
 undefined *PTR_DAT_00036000;
 undefined *PTR_DAT_00036004;
 undefined *PTR_DAT_00036008;
 undefined *PTR_DAT_0003600c;
-undefined *PTR_DAT_000361c8;
+undefined *PTR_HO2S1_DTC_SamplePeriodCounter_000361c8;
 undefined *PTR_DAT_000361cc;
-undefined *PTR_DAT_000361d0;
+undefined *PTR_HO2S1_DTC_LastWorkingVoltageForDelta_000361d0;
 undefined *PTR_AbsFloatDifference_000361d4;
-undefined *PTR_DAT_000361d8;
+undefined *PTR_HO2S1_DTC_SampleDeltaAbs_000361d8;
 undefined *PTR_DTC_IsOBDRelevantOrActive_000361dc;
-undefined *PTR_DAT_000361e0;
-undefined *PTR_DAT_000361e4;
+undefined *PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_000361e0;
+undefined *PTR_HO2S1_DTC_EnableWindowCounter_000361e4;
 undefined *PTR_CommandModel_StageActiveFlag_000361e8;
-undefined *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_000361ec;
+undefined *PTR_CatalystMonitor_P0420_PrerequisiteFlagC_000361ec;
 undefined *PTR_DAT_000361f0;
 undefined *PTR_DAT_000361f4;
 undefined *PTR_DAT_000361f8;
@@ -11300,7 +11320,7 @@ undefined *PTR_DAT_00036204;
 undefined *PTR_DAT_00036208;
 undefined *PTR_DAT_0003620c;
 undefined *PTR_DAT_00036210;
-undefined *PTR_DAT_00036214;
+undefined *PTR_HO2S1_DTC_EnableThreshold2D_00036214;
 pointer PTR_SubsystemA_CommandBlend_FilteredOutput_Current_00035fb0;
 undefined *PTR_DAT_00036218;
 pointer PTR_SubsystemA_SeededIatLoad_SecondaryDelta_00035fc4;
@@ -11316,60 +11336,60 @@ undefined *PTR_DAT_00036230;
 pointer PTR_Desc_SubsystemA_DTC13_16_LoadIatSeedWindow_TableB_00035fe8;
 undefined *PTR_DAT_00036234;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00036200;
-undefined *PTR_DAT_00036238;
+undefined *PTR_HO2S1_DTC_EnableWindowFaultLatch_00036238;
 pointer PTR_SubsystemA_CommandBlend_CommandRampOutput_Current_00036224;
 undefined *PTR_DAT_0003623c;
-undefined *PTR_DAT_00036240;
-undefined *PTR_DAT_00036244;
-undefined *PTR_DAT_00036248;
-undefined *PTR_DAT_0003624c;
-undefined *PTR_DAT_00036250;
-undefined *PTR_DAT_00036254;
-undefined *PTR_DAT_00036434;
-undefined *PTR_DAT_00036438;
-undefined *PTR_DAT_0003643c;
+undefined *PTR_HO2S1_DTC13_P0131_FailLatch_00036240;
+undefined *PTR_HO2S1_DTC13_P0131_PassLatch_00036244;
+undefined *PTR_HO2S1_DTC14_P0132_FailLatch_00036248;
+undefined *PTR_HO2S1_DTC14_P0132_PassLatch_0003624c;
+undefined *PTR_HO2S1_DTC15_P0133_FailLatch_00036250;
+undefined *PTR_HO2S1_DTC15_P0133_PassLatch_00036254;
+undefined *PTR_HO2S1_DTC_ReferenceCenterVoltage_00036434;
+undefined *PTR_HO2S1_DTC_ReportWindowCounter_00036438;
+undefined *PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_0003643c;
 undefined *PTR_DAT_00036440;
 undefined *PTR_DAT_00036444;
-undefined *PTR_DAT_00036448;
-undefined *PTR_DAT_0003644c;
-undefined *PTR_DAT_00036450;
-undefined *PTR_DAT_00036454;
+undefined *PTR_HO2S1_DTC_HighFaultThresholdVoltage_00036448;
+undefined *PTR_HO2S1_DTC13_P0131_PassLatch_0003644c;
+undefined *PTR_HO2S1_DTC13_P0131_FailLatch_00036450;
+undefined *PTR_HO2S1_DTC_WindowMaxVoltage_00036454;
 undefined *PTR_DAT_00036458;
-undefined *PTR_DAT_0003645c;
-undefined *PTR_DAT_00036460;
-undefined *PTR_DAT_00036468;
-undefined *PTR_DAT_00036464;
-undefined *PTR_DAT_0003646c;
-undefined *PTR_DAT_00036470;
-undefined *PTR_DAT_00036474;
+undefined *PTR_HO2S1_DTC_LowFaultThresholdVoltage_0003645c;
+undefined *PTR_HO2S1_DTC14_P0132_PassLatch_00036460;
+undefined *PTR_HO2S1_DTC_WindowMinVoltage_00036468;
+undefined *PTR_HO2S1_DTC14_P0132_FailLatch_00036464;
+undefined *PTR_HO2S1_DTC15_P0133_PassLatch_0003646c;
+undefined *PTR_HO2S1_DTC15_P0133_FailLatch_00036470;
+undefined *PTR_HO2S1_DTC_LowSideCrossingCounterMin_00036474;
 undefined *PTR_DAT_00036478;
-undefined *PTR_DAT_0003647c;
+undefined *PTR_HO2S1_DTC_HighSideCrossingCounterMin_0003647c;
 undefined *PTR_DAT_00036480;
-undefined *PTR_DAT_00036484;
+undefined *PTR_HO2S1_DTC_TransitionRateValue_00036484;
 undefined *PTR_DAT_00036488;
-undefined *PTR_DAT_0003648c;
-undefined *PTR_DAT_00036490;
-undefined *PTR_DAT_00036494;
+undefined *PTR_HO2S1_DTC_HighSideCrossingCounterSnapshot_0003648c;
+undefined *PTR_HO2S1_DTC_LowSideCrossingCounterSnapshot_00036490;
+undefined *PTR_HO2S1_DTC_TransitionRateSnapshot_00036494;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00036498;
 undefined *PTR_AddUint16AndSaturateToFFFE_0003649c;
 pointer PTR_SubsystemA_CommandBlend_IndexFilteredInput_Output_000364a0;
 undefined *PTR_DAT_000364a4;
 undefined *PTR_DAT_000364a8;
-undefined *PTR_DAT_000364ac;
-undefined *PTR_DAT_000364b0;
-undefined *PTR_DAT_000365a4;
-undefined *PTR_DAT_000365a8;
-undefined *PTR_DAT_000365ac;
-undefined *PTR_DAT_000365b0;
-undefined *PTR_DAT_000365b4;
+undefined *PTR_HO2S1_DTC_BelowThresholdFlag_000364ac;
+undefined *PTR_HO2S1_DTC_AboveThresholdFlag_000364b0;
+undefined *PTR_HO2S1_DTC_HighSideCrossingCounterMin_000365a4;
+undefined *PTR_HO2S1_DTC_LowSideCrossingCounterMin_000365a8;
+undefined *PTR_HO2S1_DTC_LowSideCrossingCounter_000365ac;
+undefined *PTR_HO2S1_DTC_HighSideCrossingCounter_000365b0;
+undefined *PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_000365b4;
 undefined *PTR_DAT_000365b8;
 undefined *PTR_AddUint16AndSaturateToFFFE_000365bc;
 undefined *PTR_DAT_000365c0;
-undefined *PTR_DAT_000365c4;
-undefined *PTR_DAT_000365c8;
-undefined *PTR_DAT_000365cc;
-undefined *PTR_DAT_000365d0;
-undefined *PTR_DAT_000365d4;
+undefined *PTR_HO2S1_DTC_TransitionCount_000365c4;
+undefined *PTR_HO2S1_DTC_TransitionAccumulatedTime_000365c8;
+undefined *PTR_HO2S1_DTC_TransitionRateValue_000365cc;
+undefined *PTR_HO2S1_DTC_LastSwitchState_000365d0;
+undefined *PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_000365d4;
 undefined *PTR_Math_Unknown_0735C_000365d8;
 undefined *PTR_DAT_0003679c;
 undefined *PTR_DAT_000367a0;
@@ -11478,25 +11498,25 @@ undefined *PTR_DAT_00036eac;
 undefined *PTR_DAT_00036eb0;
 undefined *PTR_DAT_00036eb4;
 undefined *PTR_OBD04_ClearDTCStateFlag_00036eb8;
-undefined *PTR_DAT_00036ebc;
-undefined *PTR_DAT_00036ec0;
+undefined *PTR_P0300_DTC0_ThresholdFlagA_00036ebc;
+undefined *PTR_P0300_DTC0_ThresholdFlagB_00036ec0;
 pointer PTR_SubsystemA_SeededLoadWindow_ConfigDwordHexad_Slot0_00036ec4;
-undefined *PTR_DAT_00036efc;
+undefined *PTR_P0300_Emission1000Rev_WindowCounter_00036efc;
 short DAT_00036ef6;
-undefined *PTR_DAT_00036f00;
+undefined *PTR_P0300_DTC0_ThresholdFlagA_00036f00;
 short DAT_00036ef8;
-undefined *PTR_DAT_00036f04;
-undefined *PTR_DAT_00036fbc;
-undefined *PTR_DAT_00036fc0;
-undefined *PTR_DAT_00036fc4;
-undefined *PTR_DAT_00036fc8;
-undefined *PTR_DAT_00036fcc;
-undefined *PTR_DAT_00036fd0;
-undefined *PTR_DAT_00036fd4;
+undefined *PTR_P0300_DTC0_ThresholdFlagB_00036f04;
+undefined *PTR_P0300_CatalystDamage200Rev_ThresholdWord_00036fbc;
+undefined *PTR_P0300_DTC0_FailFlag_00036fc0;
+undefined *PTR_P0300_DTC0_PassFlag_00036fc4;
+undefined *PTR_P0300_DTC0_ProtectedSlotFlagA_00036fc8;
+undefined *PTR_P0300_DTC0_ProtectedSlotFlagB_00036fcc;
+undefined *PTR_P0300_DTC0_ProtectedSlotFlagC_00036fd0;
+undefined *PTR_P0300_DTC0_ProtectedSlotFlagD_00036fd4;
 undefined *PTR_DTC_ReportState_Dtc0ClearPayloadSource_00036fd8;
-undefined *PTR_DAT_00036fdc;
-undefined *PTR_DAT_00036fe0;
-undefined *PTR_DAT_00036fe4;
+undefined *PTR_P0300_DTC0_PayloadSourceShadow_00036fdc;
+undefined *PTR_P0300_CatalystDamage200Rev_SelectedThresholdWord_00036fe0;
+undefined *PTR_P0300_CatalystDamage200Rev_WindowCounter_00036fe4;
 short DAT_00036fb8;
 undefined *PTR_DAT_00036fe8;
 undefined *PTR_StatusPrep_DualMaskedValue_SmoothedB_00036fec;
@@ -11511,22 +11531,22 @@ undefined *PTR_DAT_000370d8;
 undefined *PTR_FloatMulAccumulate_U16_000370e0;
 undefined4 DAT_000370dc;
 undefined *PTR_IndexFromFloat_Clamped_1_000370e4;
-undefined *PTR_DAT_000370e8;
-undefined *PTR_DAT_00037104;
-undefined *PTR_DAT_000370ec;
+undefined *PTR_P0300_DTC0_ProtectedSlotFlagB_000370e8;
+undefined *PTR_P0300_CatalystDamage200Rev_ThresholdWord_00037104;
+undefined *PTR_P0300_DTC0_ProtectedSlotFlagA_000370ec;
 undefined *PTR_DTC_ReportState_Dtc0ClearPayloadSource_000370f0;
-undefined *PTR_DAT_000370f4;
-undefined *PTR_DAT_000370f8;
-undefined *PTR_DAT_000370fc;
-undefined *PTR_DAT_00037108;
+undefined *PTR_P0300_DTC0_FailFlag_000370f4;
+undefined *PTR_P0300_DTC0_PassFlag_000370f8;
+undefined *PTR_P0300_DTC0_ProtectedSlotFlagD_000370fc;
+undefined *PTR_P0300_CatalystDamage200Rev_WindowThreshold_00037108;
 undefined *PTR_DAT_0003710c;
-undefined *PTR_DAT_00037110;
-undefined *PTR_DAT_00037114;
+undefined *PTR_P0300_DTC0_ProtectedSlotFlagC_00037110;
+undefined *PTR_P0300_DTC0_PayloadSourceShadow_00037114;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00037118;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00037184;
-undefined *PTR_DAT_00037188;
-undefined *PTR_DAT_0003718c;
-undefined *PTR_DAT_000371a4;
+undefined *PTR_P0300_CatalystDamage200Rev_SelectedThresholdWord_00037188;
+undefined *PTR_P0300_DTC0_ProtectedSlotFlagC_0003718c;
+undefined *PTR_P0300_CatalystDamage200Rev_WindowThreshold_000371a4;
 undefined2 DAT_00037180;
 undefined *PTR_DAT_000371a8;
 undefined *PTR_DAT_000371ac;
@@ -11556,7 +11576,7 @@ pointer PTR_SubsystemA_SeededLoadWindow_Dtc1_ProtectedSlotThreshold_A_000373a4;
 pointer PTR_SubsystemA_SeededLoadWindow_ProtectedSlotCounter_Dtc0_000373a8;
 pointer PTR_SubsystemA_SeededLoadWindow_ProtectedSlotCounter_Dtc1_000373ac;
 pointer PTR_SubsystemA_SeededLoadWindow_ProtectedSlotCounter_Aux_000373b0;
-undefined *PTR_DAT_000373b4;
+undefined *PTR_P0300_CatalystDamage200Rev_WindowCounter_000373b4;
 short DAT_000373a2;
 undefined *PTR_DAT_000373b8;
 undefined *PTR_DAT_000373c4;
@@ -11588,13 +11608,13 @@ undefined *PTR_DAT_00037600;
 undefined *PTR_DAT_00037604;
 undefined *PTR_InputBit1_DebouncedState_00037614;
 undefined *PTR_ACCompressorRelay_PE10_CommandRequest_0003761c;
-undefined *PTR_DAT_00037624;
-undefined *PTR_DAT_0003762c;
-undefined *PTR_DAT_00037634;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_00037624;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_0003762c;
+undefined *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00037634;
 undefined *PTR_CoolingFanRelay1_PE4_CommandRequest_0003763c;
 undefined *PTR_CoolingFanRelay2Relay3_PE9_CommandRequest_00037644;
 undefined *PTR_CoolingFanAux_PE11_CommandRequest_0003764c;
-undefined *PTR_DAT_0003765c;
+undefined *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_0003765c;
 pointer PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_State_000375f8;
 pointer PTR_SubsystemA_SeededLoadWindow_PrimaryInputGate_StateTimer_00037608;
 pointer PTR_SubsystemA_SeededLoadWindow_PrimaryInputGate_StateCounter_0003760c;
@@ -11652,11 +11672,11 @@ undefined *PTR_InputBit1_DebouncedState_0003799c;
 pointer PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagH_00037a04;
 undefined *PTR_ACCompressorRelay_PE10_CommandRequest_000379a0;
 pointer PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagI_00037a08;
-undefined *PTR_DAT_000379a4;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_000379a4;
 pointer PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagJ_00037a0c;
-undefined *PTR_DAT_000379a8;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_000379a8;
 pointer PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagK_00037a10;
-undefined *PTR_DAT_000379ac;
+undefined *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_000379ac;
 pointer PTR_SubsystemA_SeededLoadWindow_PrimaryInputGate_StateCounter_00037a14;
 undefined *PTR_CoolingFanRelay1_PE4_CommandRequest_000379b0;
 pointer PTR_SubsystemA_EnableSharedInhibitFlag_00037a1c;
@@ -11664,7 +11684,7 @@ undefined *PTR_CoolingFanRelay2Relay3_PE9_CommandRequest_000379b4;
 pointer PTR_SubsystemA_PrimaryEnable_QualifiedCounter_00037a28;
 undefined *PTR_CoolingFanAux_PE11_CommandRequest_000379b8;
 pointer PTR_SubsystemA_SeededLoadWindow_SelectedLoadCounter_00037bc8;
-undefined *PTR_DAT_000379c0;
+undefined *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_000379c0;
 pointer PTR_SubsystemA_SeededLoadWindow_PrimaryInputGate_Counter_00037bd0;
 undefined *PTR_MAP_IAT_SelectedCommitSlot0_000379c4;
 pointer PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_State_00037bd4;
@@ -11775,7 +11795,7 @@ pointer PTR_SubsystemA_SeededLoadWindow_Dtc1_ReportState_B_00038138;
 pointer PTR_SubsystemA_SeededLoadWindow_Dtc1_ReportState_C_0003813c;
 pointer PTR_SubsystemA_SeededLoadWindow_Dtc1_ReportState_D_00038140;
 pointer PTR_SubsystemA_SeededLoadWindow_Dtc1_ReportFlagA_00038148;
-undefined *PTR_DAT_00038150;
+undefined *PTR_P0300_Emission1000Rev_WindowCounter_00038150;
 short DAT_00038124;
 undefined *PTR_DAT_00038154;
 undefined *PTR_StatusPrep_DualMaskedValue_SmoothedB_00038158;
@@ -11788,7 +11808,7 @@ undefined *PTR_FloatMulAccumulate_U16_00038294;
 undefined4 DAT_00038290;
 undefined *PTR_IndexFromFloat_Clamped_1_00038298;
 undefined *PTR_DTC_ReportState_Dtc1ClearPayloadSource_000382b0;
-undefined *PTR_DAT_000382bc;
+undefined *PTR_P0300_Emission1000Rev_WindowThreshold_000382bc;
 undefined *PTR_DAT_000382c0;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_000382cc;
 pointer PTR_SubsystemA_SeededLoadWindow_ProtectedSlotCounter_Dtc1_00038164;
@@ -11923,7 +11943,7 @@ undefined *PTR_DAT_00038b4c;
 undefined *PTR_DAT_00038b50;
 undefined *PTR_DAT_00038b54;
 undefined *PTR_DAT_00038cb4;
-undefined *PTR_DAT_00038cb8;
+undefined *PTR_P0300_CatalystDamage200Rev_WindowThreshold_00038cb8;
 undefined *PTR_DAT_00038cbc;
 undefined *PTR_DAT_00038cc4;
 undefined *PTR_DAT_00038cc8;
@@ -12299,14 +12319,14 @@ pointer PTR_Desc_SubsystemA_SeededLoadWindow_TermD_Table01_0003a440;
 pointer PTR_Desc_SubsystemA_SeededLoadWindow_TermD_Table03_0003a44c;
 undefined *PTR_Desc_SubsystemA_SeededLoadWindow_TermD_Table05_0003a454;
 undefined *PTR_Desc_SubsystemA_SeededLoadWindow_TermD_Table08_0003a458;
-undefined *PTR_DAT_0003a4dc;
-undefined *PTR_DAT_0003a4e0;
+undefined *PTR_P0300_CatalystDamage200Rev_WindowCounter_0003a4dc;
+undefined *PTR_P0300_Emission1000Rev_WindowCounter_0003a4e0;
 short DAT_0003a4d8;
 pointer PTR_SubsystemA_SeededLoadWindow_StateFlags_0003a4e4;
 undefined *PTR_AddUint16AndSaturateToFFFE_0003a4e8;
 short DAT_0003a4da;
-undefined *PTR_DAT_0003a618;
-undefined *PTR_DAT_0003a61c;
+undefined *PTR_P0300_CatalystDamage200Rev_WindowThreshold_0003a618;
+undefined *PTR_P0300_Emission1000Rev_WindowThreshold_0003a61c;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_0003a620;
 undefined *PTR_DAT_0003a624;
 undefined *PTR_DAT_0003a628;
@@ -12337,10 +12357,10 @@ pointer PTR_SubsystemA_SeededLoadWindow_StateFlags_0003a678;
 undefined *PTR_FuelDisplay_InputWindowAvg_0003a710;
 undefined *PTR_DAT_0003a714;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_0003a728;
-undefined *PTR_DAT_0003a718;
+undefined *PTR_P0300_CatalystDamage200Rev_WindowThreshold_0003a718;
 short DAT_0003a70a;
 undefined *PTR_AddUint16AndSaturateToFFFE_0003a71c;
-undefined *PTR_DAT_0003a720;
+undefined *PTR_P0300_Emission1000Rev_WindowThreshold_0003a720;
 undefined *PTR_LAB_0000fffe+1_0003a724;
 undefined *PTR_DAT_0003a72c;
 undefined *PTR_DAT_0003a730;
@@ -13059,7 +13079,7 @@ undefined *PTR_DAT_00040318;
 undefined *PTR_DAT_0004031c;
 pointer PTR_SubsystemA_EnablePrecondition_InputB_00040308;
 undefined *PTR_Interpolate1D_WithTransform_00040320;
-undefined *PTR_DAT_00040324;
+undefined *PTR_PhaseFrontend_Mode2Bit08_DebouncedFlag_00040324;
 undefined *PTR_PTR_00040328;
 undefined *PTR_PTR_0004032c;
 undefined *PTR_LAB_00057c07+1_00040330;
@@ -13099,7 +13119,7 @@ undefined *PTR_DAT_00040560;
 undefined *PTR_DAT_00040564;
 undefined *PTR_DAT_000405c0;
 undefined2 DAT_000405bc;
-undefined *PTR_DAT_000405c4;
+undefined *PTR_IdleUpMode_Mode1Bit08_RequestFlagC_000405c4;
 undefined *PTR_DAT_000405c8;
 undefined *PTR_DAT_000405cc;
 undefined *PTR_AddBytesWithLimit_000405d0;
@@ -13230,15 +13250,15 @@ undefined *PTR_EGR_SeededLoadWindow_Dtc1_ReportWindowFlags_Reset_00040cf8;
 undefined *PTR_EGR_SeededLoadWindow_ProtectedWindowBanks_ClearAndMarkValid_00040cfc;
 undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_00040fb4;
 undefined *PTR_SubsystemA_PrimaryEnable_Prereq_NoOp_00040fb8;
-undefined *PTR_SubsystemA_PrimaryEnable_PrereqState_Init_00040fbc;
+undefined *PTR_CatalystMonitor_P0420_State_Init_00040fbc;
 undefined *PTR_SubsystemA_PrimaryEnable_PrereqCounter_Reset_00040fc0;
-undefined *PTR_SubsystemA_PrimaryEnable_PrereqState_Reset_00040fc4;
-undefined *PTR_SubsystemA_PrimaryEnable_PrereqTail_Reset_00040fc8;
+undefined *PTR_CatalystMonitor_P0420_State_Reset_00040fc4;
+undefined *PTR_CatalystMonitor_P0420_TailCounters_Reset_00040fc8;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00040fcc;
 undefined *PTR_SubsystemA_PrimaryEnable_PreNoOp_00040fd0;
-undefined *PTR_SubsystemA_DTC1C_ResponseWindow_ResetState_00040fd4;
-undefined *PTR_SubsystemA_DTC1D_ResponseWindow_ResetState_00040fd8;
-undefined *PTR_SubsystemA_DTC26_WindowState_Reset_00040fdc;
+undefined *PTR_FuelSystem_P0171_Lean_ResponseWindow_ResetState_00040fd4;
+undefined *PTR_FuelSystem_P0172_Rich_ResponseWindow_ResetState_00040fd8;
+undefined *PTR_EVAP_Purge_P0443_Reset_00040fdc;
 undefined *PTR_SubsystemA_PrimaryEnable_InputBState_Reset_00040fe0;
 undefined *PTR_DiagWindowGroup35D_Input_CopySnapshots_00040fe4;
 undefined *PTR_DiagWindowGroup35D_ThresholdFlags_Update_00040fe8;
@@ -13248,7 +13268,7 @@ undefined *PTR_InfoDisplay_StatusBit04_SampledPair_NoOpC_00040ff4;
 undefined *PTR_InfoDisplay_StatusBit04_SampledPair_Counters_Reset_00040ff8;
 undefined *PTR_DiagWindowGroup365_State_Reset_00040ffc;
 undefined *PTR_NoOp_Return_46678_00041000;
-undefined *PTR_SubsystemA_MAPThresholdDiag_ResetState_00041004;
+undefined *PTR_HO2S2_P0140_ResetState_00041004;
 undefined *PTR_Diag_ClearIdResponseState_A_00041008;
 undefined *PTR_Diag_ClearIdResponseState_B_0004100c;
 undefined *PTR_Diag_ClearResponseStateRegion_00041010;
@@ -13261,34 +13281,34 @@ undefined *PTR_SubsystemA_CommandBlend_SeededIatLoad_Counters_Reset_00041028;
 undefined *PTR_InfoDisplay_StatusBit40_MAFDtcPair_Reset_00041038;
 undefined *PTR_SubsystemA_FlowDiag_ResetDebounceState_0004103c;
 undefined *PTR_SubsystemA_PrimaryEnable_PreStateResetC_00041040;
-undefined *PTR_SubsystemA_MAPResponseDiag_ResetBaselineState_00041044;
-undefined *PTR_SubsystemA_MAPResponseDiag_ResetDebounceState_00041048;
-undefined *PTR_SubsystemA_MAPResponseDiag_ResetSummaryFlags_0004104c;
+undefined *PTR_MAP_P0106_ResetBaselineState_00041044;
+undefined *PTR_MAP_P0106_ResetDebounceState_00041048;
+undefined *PTR_MAP_P0106_ResetSummaryFlags_0004104c;
 undefined *PTR_SubsystemA_PrimaryEnable_PreStateResetD_00041050;
 undefined *PTR_SubsystemA_NextDiag_ClearEnableFlag_00041054;
 undefined *PTR_SubsystemA_NextDiag_ResetBaselineState_00041058;
-undefined *PTR_SubsystemA_DeltaDiag_ResetSummaryFlags_DTC0C_0004105c;
-undefined *PTR_ECTSensor_AN28_DTC0D0E_RawRange_Reset_00041060;
+undefined *PTR_IAT_P0111_ResetSummaryFlags_0004105c;
+undefined *PTR_ECTSensor_AN28_StatusDTC0D0E_AndInfoDisplayBit10_Reset_00041060;
 undefined *PTR_ECTSensor_AN28_P0116_ClearEnableFlag_00041064;
 undefined *PTR_ECTSensor_AN28_P0116_ResetDebounceState_00041068;
 undefined *PTR_ECTSensor_AN28_P0116_ResetReportFlags_0004106c;
 undefined *PTR_OBD04_ClearDTC_PreNoOpA_00041070;
 undefined *PTR_OBD04_ClearDTC_PreNoOpB_00041074;
-undefined *PTR_InfoDisplay_StatusBit01_SubsystemASeedDeltaPair_Reset_00041078;
-undefined *PTR_InfoDisplay_StatusBit01_Dtc1011Pair_Reset_0004107c;
-undefined *PTR_SubsystemA_DTC2E_MapBaseline_ResetAndCapture_00041080;
+undefined *PTR_TPS_P0121_ProcessedDeltaPair_Reset_00041078;
+undefined *PTR_TPS_P0122_P0123_StatusPair_Reset_0004107c;
+undefined *PTR_PressureModel_P2227_Baseline_ResetAndCapture_00041080;
 undefined *PTR_OBD04_ClearDTC_NoOp_00041084;
 undefined *PTR_EGR_CoilDiag_ClearEnableFlag_0004102c;
-undefined *PTR_SubsystemA_DTC2E_MapWindow_ResetState_00041088;
+undefined *PTR_PressureModel_P2227_WindowState_Reset_00041088;
 undefined *PTR_EGR_CoilDiag_ResetDebounceState_00041030;
 undefined *PTR_SubsystemA_PrimaryEnable_PreStateResetB_0004108c;
 undefined *PTR_EGR_CoilDiag_ResetSummaryFlags_00041034;
 undefined *PTR_InfoDisplay_StatusBit04_SampledPair_SubsystemABlendSnapshot_Init_00041090;
 undefined *PTR_InfoDisplay_StatusBit04_SampledPair_NoOpA_00041094;
-undefined *PTR_InfoDisplay_StatusBit04_SampledPair_Reset_00041098;
-undefined *PTR_InfoDisplay_StatusBit04_SubsystemABlendThreshold_Reset_0004109c;
+undefined *PTR_CMP_P0340_SampledPair_Reset_00041098;
+undefined *PTR_CKP_P0335_ProcessedStatus_Reset_0004109c;
 undefined *PTR_OBD04_ClearDTC_StateResetA_000410a0;
-undefined *PTR_SubsystemA_DTC29_State_Reset_000410a4;
+undefined *PTR_IdleControl_P0505_State_Reset_000410a4;
 undefined *PTR_NoOp_Return_36a0c_000410a8;
 undefined *PTR_DiagWindowGroup36A_StateA_Reset_000410ac;
 undefined *PTR_DiagWindowGroup36A_StateB_Reset_000410b0;
@@ -13296,7 +13316,7 @@ undefined *PTR_SharedDiagAggregate_PhaseState_Reset_000410b4;
 undefined *PTR_SubsystemA_PrimaryEnable_PreStateResetA_000410b8;
 undefined *PTR_OBD04_ClearDTC_StateResetB_000410bc;
 undefined *PTR_OBD04_ClearDTC_StateResetC_000410c0;
-undefined *PTR_SubsystemA_DTC31_State_Reset_000410c4;
+undefined *PTR_P1510_State_Reset_000410c4;
 undefined *PTR_NoOp_Return_42560_000410c8;
 undefined *PTR_InfoDisplay_FrameCounter_Reset_000410cc;
 undefined *PTR_InfoDisplay_State_ResetGroupC_00041144;
@@ -13307,24 +13327,24 @@ undefined *PTR_CoolingFanRelay1_PE4_P0480_ResetDiagState_00041154;
 undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_00041158;
 undefined *PTR_CoolingFanAux_PE11_P0481_ClearArmingProtectedStatus_0004115c;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00041160;
-undefined *PTR_DAT_0004123c;
+undefined *PTR_MIL_PD13_RequestState_0004123c;
 undefined *PTR_CommandTable_Execute_00041240;
 undefined *PTR_DTC_Main16_GetByte07_ByDTC_00041244;
 undefined *PTR_DAT_00041248;
-undefined *PTR_DAT_0004124c;
-undefined *PTR_DAT_00041250;
+undefined *PTR_MIL_PD13_BlinkCounter_0004124c;
+undefined *PTR_MIL_DTCMain16_Byte07_LastSample_00041250;
 undefined *PTR_AddBytesWithLimit_00041254;
-undefined *PTR_DAT_00041258;
+undefined *PTR_MIL_PD13_BlinkState_00041258;
 undefined *PTR_DAT_0004125c;
 undefined *PTR_DAT_00041260;
 short DAT_000412ac;
 undefined *PTR_DTC_Main16_CollectDTCsByStatusAndMask_000412b0;
 undefined *PTR_DAT_000412b4;
 undefined *PTR_CommandTable_Execute_000412bc;
-undefined *PTR_DAT_000412b8;
+undefined *PTR_MIL_DTCMain16_Byte07_LastSample_000412b8;
 pointer PTR_SubsystemA_EnableSharedInhibitFlag_00041264;
-undefined *PTR_DAT_000412fc;
-undefined *PTR_DAT_00041300;
+undefined *PTR_MIL_PD13_RequestState_000412fc;
+undefined *PTR_MIL_PD13_OutputStateLatched_00041300;
 short DAT_000412f4;
 undefined *PTR_SetPrivilegedSR_00041304;
 short DAT_000412f6;
@@ -13362,7 +13382,7 @@ undefined *PTR_SubsystemA_LocalProtectedState_Reset_000416c0;
 undefined *PTR_DTC_ReportState_ResetAllLatchedStates_Thunk_000416c4;
 undefined *PTR_DTC_ShortRecord_SlotIndexB_IsOneFlag_Update_000416c8;
 undefined *PTR_DTC_ShortRecord_SlotIndexA_IsOneFlag_Update_000416cc;
-undefined *PTR_DTC1C1D_AbsentFlags_Update_000416d0;
+undefined *PTR_FuelSystem_P0171_P0172_AbsentFlags_Update_000416d0;
 undefined *PTR_DTC_StatusCollectedIdFlagTables_ClearAll_000416d4;
 undefined *PTR_NoOp_Return_000416d8;
 undefined *PTR_DTC_ReportState_ClearAllIdUpdatedFlags_000416dc;
@@ -13465,27 +13485,27 @@ undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_00042540;
 pointer PTR_GroupA_DiagSaturatingByteCounter_Increment;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00042548;
 undefined *PTR_EgrDTC2A_StateScan_DispatchLoop_0004254c;
-undefined *PTR_DAT_0004261c;
-undefined *PTR_DAT_00042620;
-undefined *PTR_DAT_00042624;
-undefined *PTR_DAT_00042628;
-undefined *PTR_DAT_0004262c;
+undefined *PTR_ECU_P0601_FailFlag_0004261c;
+undefined *PTR_ECU_P0601_PassFlag_00042620;
+undefined *PTR_ECU_P0601_StateScanCompleteFlag_00042624;
+undefined *PTR_ECU_P0601_StateScanEnableByte_00042628;
+undefined *PTR_ECU_P0601_StateSampleByIndex_0004262c;
 short DAT_00042618;
-undefined *PTR_DAT_00042630;
+undefined *PTR_ECU_P0601_StateIndexDescriptorTable_00042630;
 undefined *PTR_DTC_IsOBDRelevantOrActive_00042634;
-undefined *PTR_DAT_00042638;
+undefined *PTR_ECU_P0601_StateLatchByIndex_00042638;
 undefined *PTR_DTC_IsOBDRelevantOrActive_00042728;
-undefined *PTR_DAT_0004272c;
-undefined *PTR_DAT_00042730;
+undefined *PTR_ECU_P0601_StateScanCompleteFlag_0004272c;
+undefined *PTR_ECU_P0601_FailFlag_00042730;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00042734;
-undefined *PTR_DAT_00042738;
-undefined *PTR_DAT_0004273c;
-undefined *PTR_DAT_00042740;
-undefined *PTR_DAT_00042744;
+undefined *PTR_ECU_P0601_PassFlag_00042738;
+undefined *PTR_ECU_P0601_StateIndexDescriptorTable_0004273c;
+undefined *PTR_ECU_P0601_StateSampleByIndex_00042740;
+undefined *PTR_ECU_P0601_StateLatchByIndex_00042744;
 undefined *PTR_Service12F_RequestStart_IfIdle_00042748;
 undefined *PTR_Service12F_State_ReadAndMaybeClear_0004274c;
-undefined *PTR_DAT_00042768;
-undefined *PTR_DAT_0004276c;
+undefined *PTR_ECU_P0602_FailFlag_00042768;
+undefined *PTR_ECU_P0602_PassFlag_0004276c;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00042770;
 undefined *PTR_DAT_0004284c;
 undefined *PTR_DAT_00042850;
@@ -13615,7 +13635,7 @@ short DAT_0004309a;
 undefined *PTR_ModifyRegisterBits_000430a8;
 undefined *PTR_RestorePrivilegedSR_000430ac;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_000430f0;
-undefined *PTR_ECTGauge_PF5_CommandPercent_000430f8;
+undefined *PTR_ECT_GAUGE_CMD_000430f8;
 float ECTGauge_PF5_CommandFallback_ColdOrDiag_5pct;
 float ECTGauge_PF5_CommandLinear_LowLimit_C_minus40;
 float ECTGauge_PF5_CommandLinear_HighLimit_C_120;
@@ -13629,7 +13649,7 @@ undefined *PTR_SharedSchedulerGate_ReadMaskedSrLevel_00043158;
 undefined *PTR_ECTGauge_PF5_CommandFromCoolant_Update_0004315c;
 undefined *PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00043160;
 undefined *PTR_ECTGauge_PF5_OutputIndex_UpdateNoPinDrive_00043164;
-undefined *PTR_ECTGauge_PF5_CommandPercent_00043218;
+undefined *PTR_ECT_GAUGE_CMD_00043218;
 undefined *PTR_IndexFromFloat_Clamped_1_00043220;
 undefined *PTR_ECTGauge_PF5_DutyIndexRaw_00043224;
 undefined *PTR_SetPrivilegedSR_00043228;
@@ -13644,10 +13664,10 @@ undefined4 ECTGauge_PF5_DutyIndex_Divisor_100;
 undefined *PTR_DAT_00043430;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00043434;
 pointer PTR_SubsystemA_CommandBlend_TableSelectFlag_00043438;
-undefined *PTR_DAT_0004343c;
-undefined *PTR_DAT_00043440;
-undefined *PTR_DAT_00043444;
-undefined *PTR_DAT_00043448;
+undefined *PTR_Cal_PhaseFrontend_Mode2Bit10_Enable_0004343c;
+undefined *PTR_PhaseFrontend_Mode2Bit10_InvertedRawFlag_00043440;
+undefined *PTR_PhaseFrontend_Mode2_ResponseStableByte_00043444;
+undefined *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00043448;
 undefined *PTR_LAB_00043454;
 undefined *PTR_Interpolate1D_ToUint16_00043458;
 undefined *PTR_DAT_0004345c;
@@ -13658,69 +13678,69 @@ undefined *PTR_DAT_0004346c;
 undefined *PTR_AddBytesWithLimit_00043470;
 pointer PTR_SubsystemA_PrimaryEnable_QualifiedCounter_0004344c;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteB_Input_00043450;
-undefined *PTR_DAT_00043474;
-undefined *PTR_DAT_00043478;
-undefined *PTR_DAT_0004347c;
-undefined *PTR_DAT_00043480;
+undefined *PTR_Cal_PhaseFrontend_Mode0Bit10_Enable_00043474;
+undefined *PTR_PhaseFrontend_Mode0Bit10_InvertedRawFlag_00043478;
+undefined *PTR_PhaseFrontend_Mode0_ResponseStableWord_0004347c;
+undefined *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00043480;
 undefined *PTR_DAT_00043484;
 undefined *PTR_DAT_00043488;
 undefined *PTR_DAT_0004348c;
 undefined *PTR_DAT_00043490;
-undefined *PTR_DAT_00043494;
-undefined *PTR_DAT_00043498;
-undefined *PTR_DAT_0004349c;
+undefined *PTR_Cal_PhaseFrontend_Mode1Bit20_IdleUp_Enable_00043494;
+undefined *PTR_PhaseFrontend_Mode1Bit20_RawIdleUpFlag_00043498;
+undefined *PTR_PhaseFrontend_Mode1_ResponseStableByte_0004349c;
 undefined *PTR_DAT_000434a0;
 undefined *PTR_DAT_000434a4;
-undefined *PTR_DAT_00043694;
-undefined *PTR_DAT_00043698;
-undefined *PTR_DAT_0004369c;
-undefined *PTR_DAT_000436a0;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_00043694;
+undefined *PTR_IdleUpMode_Mode1Bit20_DebouncedAnyFlag_00043698;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_0004369c;
+undefined *PTR_Cal_PhaseFrontend_Mode1Bit20_IdleUp_Enable_000436a0;
 undefined *PTR_AddBytesWithLimit_000436a4;
-undefined *PTR_DAT_000436a8;
-undefined *PTR_DAT_000436ac;
+undefined *PTR_IdleUpMode_DebounceCounterA_On_000436a8;
+undefined *PTR_PhaseFrontend_Mode1Bit20_RawIdleUpFlag_000436ac;
 undefined *PTR_DAT_000436b0;
-undefined *PTR_DAT_000436b4;
+undefined *PTR_IdleUpMode_DebounceCounterA_Off_000436b4;
 undefined *PTR_DAT_000436b8;
-undefined *PTR_DAT_000436bc;
+undefined *PTR_IdleUpMode_DebounceCounterB_On_000436bc;
 undefined *PTR_DAT_000436c0;
 undefined *PTR_DAT_000436c4;
-undefined *PTR_DAT_000436c8;
+undefined *PTR_IdleUpMode_DebounceCounterB_Off_000436c8;
 undefined *PTR_DAT_000436cc;
 undefined *PTR_DAT_000436d0;
 undefined *PTR_DAT_000436d4;
-undefined *PTR_DAT_000436d8;
+undefined *PTR_IdleUpMode_DebounceCounterC_On_000436d8;
 undefined *PTR_DAT_000436dc;
 undefined *PTR_DAT_000436e0;
-undefined *PTR_DAT_000436e4;
-undefined *PTR_DAT_000436e8;
-undefined *PTR_DAT_000436ec;
+undefined *PTR_PhaseFrontend_DisabledRequest_RawFlag_000436e4;
+undefined *PTR_PhaseFrontend_DisabledRequest_DebouncedFlag_000436e8;
+undefined *PTR_Cal_PhaseFrontend_DisabledRequest_Enable_000436ec;
 undefined *PTR_DAT_000436f0;
 undefined *PTR_DAT_000436f4;
 undefined *PTR_DAT_000436fc;
 undefined *PTR_DAT_00043700;
 pointer PTR_SubsystemA_EnableSharedInhibitFlag_000436f8;
-undefined *PTR_DAT_00043704;
-undefined *PTR_DAT_00043708;
-undefined *PTR_DAT_0004370c;
-undefined *PTR_DAT_00043710;
+undefined *PTR_Cal_PhaseFrontend_Mode1Bit08_IdleUp_Enable_00043704;
+undefined *PTR_PhaseFrontend_Mode1Bit08_RawFlag_00043708;
+undefined *PTR_PhaseFrontend_Mode1_ResponseStableByte_0004370c;
+undefined *PTR_IdleUpMode_Mode1Bit08_RequestFlagC_00043710;
 undefined *PTR_DAT_00043874;
 undefined *PTR_DAT_00043878;
-undefined *PTR_DAT_0004387c;
+undefined *PTR_PhaseFrontend_Mode1Bit08_RawFlag_0004387c;
 undefined *PTR_DAT_00043880;
 undefined *PTR_AddBytesWithLimit_00043884;
 undefined *PTR_DAT_00043888;
-undefined *PTR_DAT_0004388c;
-undefined *PTR_DAT_00043890;
-undefined *PTR_DAT_00043894;
-undefined *PTR_DAT_00043898;
+undefined *PTR_Cal_PhaseFrontend_Mode2Bit08_Enable_0004388c;
+undefined *PTR_PhaseFrontend_Mode2Bit08_InvertedRawFlag_00043890;
+undefined *PTR_PhaseFrontend_Mode2_ResponseStableByte_00043894;
+undefined *PTR_PhaseFrontend_Mode2Bit08_DebouncedFlag_00043898;
 undefined *PTR_DAT_0004389c;
 undefined *PTR_DAT_000438a0;
 undefined *PTR_DAT_000438a4;
 undefined *PTR_DAT_000438a8;
-undefined *PTR_DAT_000438ac;
-undefined *PTR_DAT_000438b0;
-undefined *PTR_DAT_000438b4;
-undefined *PTR_DAT_000438b8;
+undefined *PTR_Cal_PhaseFrontend_Mode1Bit40_Enable_000438ac;
+undefined *PTR_PhaseFrontend_Mode1Bit40_InvertedRawFlag_000438b0;
+undefined *PTR_PhaseFrontend_Mode1_ResponseStableByte_000438b4;
+undefined *PTR_PhaseFrontend_Mode1Bit40_DebouncedFlag_000438b8;
 undefined *PTR_DAT_000438bc;
 undefined *PTR_DAT_000438c0;
 undefined *PTR_DAT_000438c4;
@@ -13774,14 +13794,14 @@ undefined *PTR_DAT_00043c60;
 undefined *PTR_DAT_00043c64;
 undefined *PTR_DAT_00043c68;
 undefined *PTR_DAT_00043c6c;
-undefined *PTR_DAT_00043c70;
+undefined *PTR_SubsystemA_PrereqA_WindowRampOutput_00043c70;
 undefined *PTR_DAT_00043c78;
 undefined *PTR_DAT_00043c7c;
 undefined *PTR_DAT_00043c80;
 undefined *PTR_MaxFloat_00043c84;
 undefined *PTR_DAT_00043c88;
 undefined *PTR_MinFloat_00043c8c;
-undefined *PTR_DAT_00043d3c;
+undefined *PTR_SubsystemA_ModeByte3To10_SelectedOutput_00043d3c;
 undefined *PTR_DAT_00043d44;
 undefined *PTR_DAT_00043d4c;
 undefined *PTR_DAT_00043d50;
@@ -13796,9 +13816,9 @@ undefined *PTR_DAT_00043d68;
 undefined *PTR_DAT_00043d6c;
 undefined *PTR_MaxFloat_00043d70;
 undefined *PTR_IMMO_PE7_Indicator_ApplyOutputState_00043eac;
-undefined *PTR_IMMO_IndicatorAndPacket_ServiceBundle_Sub_3_00043eb0;
-undefined *PTR_IMMO_PacketReader_00043eb8;
-undefined *PTR_IMMO_IndicatorAndPacket_ServiceBundle_Sub_4_00043ec0;
+undefined *PTR_IMMO_ResetP1620_P1621_P1623_AndClearP1622_Bundle_00043eb0;
+undefined *PTR_IMMO_PacketReader_Thunk_00043eb8;
+undefined *PTR_IMMO_ServiceBundle_NoOpAfterPacket_00043ec0;
 undefined *PTR_NoOp_IMMO_IndicatorAndPacket_Service_00043ec4;
 undefined *PTR_IMMO_IndicatorAndPacket_ServiceTail_NoOpB_00043ec8;
 undefined *PTR_IMMO_IndicatorAndPacket_ServiceTail_NoOpA_00043ecc;
@@ -13821,15 +13841,15 @@ pointer PTR_IMMO_StatusSlotsLoadAndSequenceValidate_00043F04;
 pointer PTR_IMMO_SessionSupervisor_Update_00043F08;
 undefined *PTR_ByteCounterSingle_IncrementWithLimit_00043f0c;
 pointer PTR_QuadStateBytes_ClearWhenFlagSet_00043F10;
-undefined *PTR_DAT_0004402c;
+undefined *PTR_IMMO_StatusRequestCounter_0004402c;
 undefined *PTR_AddBytesWithLimit_00044030;
-undefined *PTR_DAT_00044034;
+undefined *PTR_IMMO_RangeRewriteOperation_ActiveFlag_00044034;
 undefined *PTR_Gate20_ToggleAndCheck_00044038;
-undefined *PTR_DAT_0004403c;
+undefined *PTR_IMMO_DTC39_FailLatchedFlag_0004403c;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00044048;
-undefined *PTR_DAT_00044040;
-undefined *PTR_DAT_00044044;
-undefined *PTR_DAT_0004404c;
+undefined *PTR_IMMO_DTC39_NormalStateFlag_00044040;
+undefined *PTR_IMMO_DTC39_FaultStateFlag_00044044;
+undefined *PTR_IMMO_IOChannelInitializedFlag_0004404c;
 undefined *PTR_ServiceSeq_Mode4_ExecuteA_00044054;
 int DAT_00044050;
 int DAT_00044058;
@@ -13844,12 +13864,12 @@ short DAT_0004416a;
 undefined *PTR_ModifyRegisterBits_00044174;
 undefined *PTR_RestorePrivilegedSR_00044178;
 pointer PTR_ImmoStatusForIndicator_0004416C;
-undefined *PTR_IMMO_DTC39_ReportClearState_0004417c;
-undefined *PTR_IMMO_RangeRewriteOperation_CompletionAndDTC39Monitor_00044194;
+undefined *PTR_IMMO_P1622_ReportNormalState_0004417c;
+undefined *PTR_IMMO_P1622_RangeRewriteCompletionAndMonitor_00044194;
 float DAT_000441a0;
 undefined *PTR_BytePairToggle_Consume_0004435c;
 undefined *PTR_BytePairToggle_Arm_00044360;
-undefined *PTR_IMMO_DTC39_ReportClearState_00044394;
+undefined *PTR_IMMO_P1622_ReportNormalState_00044394;
 pointer PTR_IMMO_SessionSupervisorForcedResetBatchByteN_000443C4;
 pointer PTR_IMMO_SessionSupervisorFinalPairByteB_000443E4;
 pointer PTR_IMMO_SessionSupervisorForcedResetBatchByteM_000443C0;
@@ -13896,7 +13916,7 @@ pointer PTR_IMMO_SessionSupervisorForcedResetBatchByteD_0004439C;
 pointer PTR_IMMO_SessionSupervisorResetTogglePairA_Complement_00044358;
 pointer PTR_IMMO_SessionSupervisorThresholdPathSelectFlag_00044378;
 pointer PTR_IMMO_SessionSupervisorForcedResetBatchByteC_00044398;
-undefined *PTR_IMMO_RangeRewriteOperation_CompletionAndDTC39Monitor_000445b8;
+undefined *PTR_IMMO_P1622_RangeRewriteCompletionAndMonitor_000445b8;
 pointer PTR_IMMO_RequestSequenceIndexedWritePending_000445C4;
 pointer PTR_IMMO_RequestSequenceOpcode12WritePending_000445C0;
 pointer PTR_IMMO_RequestSequenceSelectedWordWritePending_000445CC;
@@ -13935,7 +13955,7 @@ pointer PTR_IMMO_RequestSequenceWriteSlot12PostClearByteD_00044620;
 pointer PTR_IMMO_RequestSequenceWriteSlot12PostClearByteA_00044614;
 pointer PTR_IMMO_RequestSequenceWriteSlot12PostClearByteC_0004461C;
 pointer PTR_IMMO_RequestSequenceWriteSlot12PostClearByteB_00044618;
-undefined *PTR_ImmoStatusForIndicator_00044754;
+undefined *PTR_IMMO_PE7_IndicatorOutputState_00044754;
 pointer PTR_IMMO_IndicatorRequestFlag_00044758;
 undefined *PTR_AddBytesWithLimit_00044764;
 undefined *PTR_SetPrivilegedSR_00044850;
@@ -13971,7 +13991,7 @@ pointer PTR_IMMO_PacketFetchSendStateB_000449F4;
 pointer PTR_IMMO_StatusRequestBusyFlag_00044A14;
 pointer PTR_IMMO_StatusRequestActiveLatch_00044A18;
 pointer PTR_IMMO_StatusRequestGateResultFlag_00044A1C;
-undefined *PTR_IMMO_RangeRewriteOperation_CompletionAndDTC39Monitor_00044a40;
+undefined *PTR_IMMO_P1622_RangeRewriteCompletionAndMonitor_00044a40;
 pointer PTR_IMMO_StatusRequestToggleComplement_00044A3C;
 pointer PTR_IMMO_StatusRequestToggleValue_00044A38;
 pointer PTR_IMMO_StatusRequestQualifierEnable_00044A24;
@@ -14068,9 +14088,9 @@ pointer PTR_IMMO_BufferIndexLatchReadyFlag_0004514C;
 pointer PTR_IMMO_BufferIndexToggleBusyFlag_00045148;
 pointer PTR_IMMO_BufferIndexAdvanceArmPending_00045154;
 pointer PTR_IMMO_BufferIndexConsumeAckPending_00045150;
-undefined *PTR_DAT_00045378;
-undefined *PTR_DAT_00045380;
-undefined *PTR_DAT_00045384;
+undefined *PTR_IMMO_RequestSequenceOpCompleteFlag_00045378;
+undefined *PTR_IMMO_RangeRewriteOperation_ActiveFlag_00045380;
+undefined *PTR_IMMO_BufferWordRangeWrite_PostWindowClearFlag_00045384;
 undefined *PTR_DAT_00045388;
 undefined *PTR_DAT_0004538c;
 undefined *PTR_IMMO_RangeRewriteOperation_StartByIndexAndValue_00045390;
@@ -14083,27 +14103,27 @@ undefined *PTR_DAT_0004546c;
 pointer PTR_IMMO_TailOpcodeReferenceWordB_000457A0;
 undefined *PTR_DAT_00045470;
 pointer PTR_IMMO_TailOpcodeCompareResultFlag_0004566C;
-undefined *PTR_DAT_00045478;
+undefined *PTR_IMMO_PacketFetchRxScratchBuffer_00045478;
 pointer PTR_IMMO_TailOpcodeReferenceWordB_MatchFlag_000457AC;
 pointer PTR_IMMO_TailOpcodeBusyFlag_00045574;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00045668;
 pointer PTR_IMMO_PacketDispatchResultByte_00045464;
 pointer PTR_IMMO_TailOpcodeReferenceWordC_MatchFlag_000457B4;
-undefined *PTR_DAT_000459e8;
+undefined *PTR_IMMO_SessionSupervisorThresholdPathSelectFlag_000459e8;
 pointer PTR_IMMO_TailOpcodeCompareState_00045670;
 uint DAT_000459d8;
 pointer PTR_IMMO_Opcode18_19SharedPacketBuffer_000459E4;
 pointer PTR_IMMO_EarlyHeaderEchoPair_00045474;
 pointer PTR_IMMO_TailOpcodeReferenceWordC_000457B0;
-undefined *PTR_DAT_000459dc;
+undefined *PTR_IMMO_SessionCounterC_000459dc;
 pointer PTR_IMMO_TailOpcodeImmediateErrorCode_0004557C;
-undefined *PTR_DAT_000459e0;
+undefined *PTR_IMMO_PacketFetchTxPayloadBuffer_000459e0;
 pointer PTR_IMMO_TailOpcodeDTC3ASetFlag_0004567C;
 uint DAT_000459f8;
 pointer PTR_IMMO_TailOpcodeDTC38ClearFlag_000457BC;
 uint DAT_000459fc;
 pointer PTR_IMMO_TailOpcodeStageValue_00045578;
-undefined *PTR_DAT_00045a14;
+undefined *PTR_IMMO_StatusFlagPairF_Value_00045a14;
 pointer PTR_IMMO_TailOpcodeDTC38SetFlag_000457B8;
 undefined4 DAT_IMMO_TailCompareLowWordMask_00045678;
 undefined2 DAT_IMMO_TailPrefilterSelectorA_00045564;
@@ -14460,20 +14480,20 @@ undefined *PTR_DAT_000471a4;
 undefined *PTR_DAT_000471a8;
 undefined *PTR_DAT_000471ac;
 undefined *PTR_DAT_000471b0;
-undefined *PTR_DAT_000471b4;
+undefined *PTR_CatalystMonitor_P0420_ComparisonIndexSnapshot_000471b4;
 undefined *PTR_DAT_000471b8;
-undefined *PTR_DAT_000471bc;
+undefined *PTR_P0300_CatalystDamage200Rev_SelectedThresholdWord_000471bc;
 undefined *PTR_DAT_000471c0;
 undefined *PTR_DAT_000471c8;
 undefined *PTR_DAT_000471cc;
 undefined *PTR_DAT_000471d0;
 undefined *PTR_DAT_000471d4;
 undefined *PTR_DAT_000471d8;
-undefined *PTR_DAT_000471dc;
+undefined *PTR_HO2S1_DTC_LowSideCrossingCounterSnapshot_000471dc;
 undefined *PTR_DAT_000471e0;
-undefined *PTR_DAT_000471e4;
+undefined *PTR_HO2S1_DTC_HighSideCrossingCounterSnapshot_000471e4;
 undefined *PTR_DAT_000471e8;
-undefined *PTR_DAT_000471ec;
+undefined *PTR_HO2S1_DTC_TransitionRateSnapshot_000471ec;
 undefined *PTR_DAT_000471f0;
 undefined *PTR_DAT_000471f4;
 undefined *PTR_DAT_000472f0;
@@ -14609,7 +14629,7 @@ undefined *PTR_DAT_000479f0;
 pointer PTR_SubsystemA_EnablePrecondition_InputA_000477d0;
 pointer PTR_SubsystemA_PrimaryEnable_ReadyFlag_000477d4;
 pointer PTR_SubsystemA_PrimaryEnable_QualifiedCounter_0004798c;
-undefined *PTR_DAT_00047b84;
+undefined *PTR_SubsystemA_CommandOutput_ProtectedValue_00047b84;
 undefined *PTR_ProtectedDword_ChecksumRepairOrFail_00047b88;
 undefined *PTR_ProtectedDword_WriteWithChecksumMirror_00047b8c;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_00047b90;
@@ -14644,8 +14664,8 @@ pointer PTR_SubsystemA_EnablePrecondition_InputA_00047b94;
 pointer PTR_SubsystemA_PrimaryEnable_ReadyFlag_00047ba0;
 pointer PTR_SubsystemA_SecondaryEnable_EctGate_00047bd4;
 pointer PTR_SubsystemA_SecondaryEnable_InputBGate_00047be0;
-undefined *PTR_DAT_00047cec;
-undefined *PTR_DAT_00047cf0;
+undefined *PTR_SubsystemA_CommandOutput_PeriodCounter_00047cec;
+undefined *PTR_SubsystemA_CommandOutput_FilteredState_00047cf0;
 undefined *PTR_DAT_00047cfc;
 undefined4 DAT_00047cf8;
 undefined *PTR_DAT_00047d00;
@@ -14658,8 +14678,8 @@ undefined *PTR_DAT_00047d14;
 pointer PTR_SubsystemA_PrimaryEnable_ReadyFlag_00047d24;
 undefined *PTR_DAT_00047d18;
 undefined *PTR_ClampFloat_00047d1c;
-undefined *PTR_DAT_00047d20;
-undefined *PTR_DAT_00047d28;
+undefined *PTR_SubsystemA_CommandOutput_ClampedOutput_00047d20;
+undefined *PTR_SubsystemA_CommandOutput_ProtectedValue_00047d28;
 undefined *PTR_ProtectedDword_WriteWithChecksumMirror_00047d2c;
 pointer PTR_SubsystemA_SecondaryEnable_TimerThreshold_00047d30;
 pointer PTR_SubsystemA_CommandBlend_ActiveFlag_00047d34;
@@ -14688,7 +14708,7 @@ undefined *PTR_DAT_00047f4c;
 undefined *PTR_DAT_00047f50;
 undefined *PTR_DAT_00047f54;
 undefined *PTR_DAT_00047f58;
-undefined *PTR_Desc_ECTGauge_PF5_CommandBase_FromInputWindow_Table_00047f60;
+undefined *PTR_Desc_ECT_Gauge_CommandBase_FromCoolant_Table_00047f60;
 undefined *PTR_Interpolate1D_WithTransform_00047f64;
 undefined *PTR_ECTGauge_CommandBase_TableTarget_00047f68;
 undefined *PTR_ECTGauge_CommandBase_RampedValue_00047f6c;
@@ -14847,7 +14867,7 @@ undefined *PTR_Interpolate1D_ToUint16_000489d0;
 pointer PTR_SubsystemA_PrimaryEnable_QualifiedCounter_000489dc;
 undefined *PTR_DAT_ffffc7b4+2_000489d4;
 undefined *PTR_DAT_000489d8;
-undefined *PTR_DAT_000489e0;
+undefined *PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_000489e0;
 undefined *PTR_DAT_000489e4;
 undefined *PTR_DAT_000489e8;
 undefined *PTR_DAT_000489f0;
@@ -14855,9 +14875,9 @@ undefined *PTR_DAT_000489f4;
 undefined *PTR_DAT_ffffc7bc+2_000489f8;
 pointer PTR_SubsystemA_ControlRampBlend_TableInput_000489ec;
 undefined *PTR_DAT_000489fc;
-undefined *PTR_DAT_00048a00;
+undefined *PTR_IdleUpMode_Mode1Bit20_DebouncedAnyFlag_00048a00;
 pointer PTR_SubsystemA_EnableSharedInhibitFlag_00048a10;
-undefined *PTR_DAT_00048a04;
+undefined *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00048a04;
 undefined *PTR_DAT_00048a08;
 undefined *PTR_InputBitPair_DebouncedState_00048a0c;
 undefined *PTR_AddUint16AndSaturateToFFFE_00048a18;
@@ -14873,7 +14893,7 @@ undefined *PTR_DAT_00048c00;
 undefined *PTR_DAT_00048c04;
 undefined *PTR_DAT_00048c08;
 undefined *PTR_DAT_ffffc7c0+1_00048c0c;
-undefined *PTR_DAT_00048c10;
+undefined *PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_00048c10;
 undefined *PTR_DAT_00048c14;
 undefined *PTR_DAT_00048c18;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00048a14;
@@ -15218,7 +15238,7 @@ undefined *PTR_DAT_0004a1c8;
 undefined *PTR_DAT_0004a208;
 undefined *PTR_InputBitPair_DebouncedState_0004a20c;
 word WORD_0004a206;
-undefined *PTR_DAT_0004a210;
+undefined *PTR_IdleUpMode_Mode1Bit08_RequestFlagC_0004a210;
 undefined *PTR_DAT_0004a214;
 undefined *PTR_DAT_0004a218;
 undefined *PTR_LAB_0004a430;
@@ -15319,38 +15339,38 @@ undefined *PTR_DAT_0004a9a4;
 undefined *PTR_DAT_0004a9a8;
 undefined *PTR_str_part_33920_68JD_0004a9ac;
 undefined *PTR_str_part_33920_68JC_0004a9b0;
-undefined *PTR_DAT_0004ab68;
-undefined *PTR_DAT_0004ab6c;
-undefined *PTR_DAT_0004ab70;
-undefined *PTR_DAT_0004ab74;
-undefined *PTR_DAT_0004ab78;
-undefined *PTR_DAT_0004ab7c;
-undefined *PTR_DAT_0004ab80;
-undefined *PTR_DAT_0004ab84;
-undefined *PTR_DAT_0004ab88;
-undefined *PTR_DAT_0004ab8c;
-undefined *PTR_DAT_0004ab90;
-undefined *PTR_DAT_0004ab94;
-undefined *PTR_DAT_0004ab98;
-undefined *PTR_DAT_0004ab9c;
-undefined *PTR_DAT_0004aba0;
-undefined *PTR_DAT_0004aba4;
-undefined *PTR_DAT_0004aba8;
-undefined *PTR_DAT_0004abac;
-undefined *PTR_DAT_0004abb0;
-undefined *PTR_DAT_0004abb4;
-undefined *PTR_DAT_0004abb8;
-undefined *PTR_DAT_0004abbc;
-undefined *PTR_DAT_0004abc0;
-undefined *PTR_DAT_0004abc4;
-undefined *PTR_DAT_0004abc8;
-undefined *PTR_DAT_0004abcc;
-undefined *PTR_DAT_0004abd0;
-undefined *PTR_DAT_0004abd4;
-undefined *PTR_DAT_0004abd8;
-undefined *PTR_DAT_0004abdc;
-undefined *PTR_DAT_0004abe0;
-undefined *PTR_DAT_0004abe4;
+undefined *PTR_HO2S2_DTC35_36_WindowMaxVoltage_0004ab68;
+undefined *PTR_HO2S2_DTC35_36_WindowMinVoltage_0004ab6c;
+undefined *PTR_HO2S2_DTC35_P0137_DebounceCounter_0004ab70;
+undefined *PTR_HO2S2_DTC36_P0138_DebounceCounter_0004ab74;
+undefined *PTR_HO2S2_DTC35_EnableLatch_0004ab78;
+undefined *PTR_HO2S2_DTC35_PreconditionLowCounter_0004ab7c;
+undefined *PTR_HO2S2_DTC35_PreconditionHighCounter_0004ab80;
+undefined *PTR_HO2S2_DTC35_36_EnableRuntimeCounter_0004ab84;
+undefined *PTR_HO2S2_DTC35_36_WindowSwing_0004ab88;
+undefined *PTR_HO2S2_DTC35_WindowSwingSnapshotFail_0004ab8c;
+undefined *PTR_HO2S2_DTC35_WindowSwingSnapshotPass_0004ab90;
+undefined *PTR_HO2S2_DTC35_MaxVoltageSnapshot_0004ab94;
+undefined *PTR_HO2S2_DTC35_MinVoltageSnapshot_0004ab98;
+undefined *PTR_HO2S2_DTC36_MinVoltageSnapshotFail_0004ab9c;
+undefined *PTR_HO2S2_DTC36_MinVoltageSnapshotPass_0004aba0;
+undefined *PTR_HO2S2_DTC35_FailLatch_0004aba4;
+undefined *PTR_HO2S2_DTC35_PassLatch_0004aba8;
+undefined *PTR_HO2S2_DTC36_FailLatch_0004abac;
+undefined *PTR_HO2S2_DTC36_FailLatchA_0004abb0;
+undefined *PTR_HO2S2_DTC36_PassLatch_0004abb4;
+undefined *PTR_HO2S2_DTC36_PassLatchA_0004abb8;
+undefined *PTR_HO2S2_DTC35_StateFailPrevious_0004abbc;
+undefined *PTR_HO2S2_DTC35_StatePassPrevious_0004abc0;
+undefined *PTR_HO2S2_DTC36_StateFailPrevious_0004abc4;
+undefined *PTR_HO2S2_DTC36_StatePassPrevious_0004abc8;
+undefined *PTR_HO2S2_DTC35_SwingFailFlag_0004abcc;
+undefined *PTR_HO2S2_DTC35_SwingPassFlag_0004abd0;
+undefined *PTR_HO2S2_DTC35_MaxLevelFlag_0004abd4;
+undefined *PTR_HO2S2_DTC35_MinLevelFlag_0004abd8;
+undefined *PTR_HO2S2_DTC35_DebounceExpiredFlag_0004abdc;
+undefined *PTR_HO2S2_DTC36_DebounceExpiredFlag_0004abe0;
+undefined *PTR_HO2S2_DTC36_MinReleaseFlag_0004abe4;
 undefined *PTR_DAT_0004abf0;
 undefined *PTR_MaxFloat_0004abf4;
 undefined *PTR_MinFloat_0004abf8;
@@ -15373,71 +15393,71 @@ undefined *PTR_DAT_0004ac40;
 undefined *PTR_DAT_0004ac44;
 undefined *PTR_DAT_0004ac48;
 undefined *PTR_AddUint16AndSaturateToFFFE_0004ac4c;
-undefined *PTR_DAT_0004ac50;
+undefined *PTR_HO2S2_DTC35_MaxVoltagePassThreshold_0p4_0004ac50;
 undefined *PTR_DAT_0004ae04;
 undefined *PTR_DAT_0004ae08;
-undefined *PTR_DAT_0004ae0c;
+undefined *PTR_HO2S2_DTC36_MinVoltageFailThreshold_0p95_0004ae0c;
 undefined *PTR_DAT_0004ae10;
 undefined *PTR_DAT_0004ae14;
-undefined *PTR_DAT_0004ae18;
+undefined *PTR_HO2S2_DTC35_PreconditionLowCounter_0004ae18;
 undefined *PTR_DAT_0004ae1c;
-undefined *PTR_DAT_0004ae20;
+undefined *PTR_HO2S2_DTC35_PreconditionHighCounter_0004ae20;
 undefined *PTR_DAT_0004ae24;
-undefined *PTR_DAT_0004ae28;
+undefined *PTR_HO2S2_DTC35_36_EnableRuntimeCounter_0004ae28;
 undefined *PTR_DAT_0004ae2c;
 undefined *PTR_DAT_0004ae30;
-undefined *PTR_DAT_0004ae34;
+undefined *PTR_HO2S2_DTC35_EnableLatch_0004ae34;
 pointer PTR_SubsystemA_CommandBlend_FilteredOutput_Current_0004abfc;
 pointer PTR_SubsystemA_EnablePrecondition_InputA_0004ac04;
 pointer PTR_SubsystemA_CommandBlend_TableInput_0004ac14;
 pointer PTR_SubsystemA_PrimaryEnable_ReadyFlag_0004ac18;
-undefined *PTR_DAT_0004ae38;
-undefined *PTR_DAT_0004ae3c;
-undefined *PTR_DAT_0004ae40;
-undefined *PTR_DAT_0004ae44;
-undefined *PTR_DAT_0004ae48;
-undefined *PTR_DAT_0004ae4c;
-undefined *PTR_DAT_0004ae50;
-undefined *PTR_DAT_0004ae54;
-undefined *PTR_DAT_0004ae58;
-undefined *PTR_DAT_0004ae5c;
-undefined *PTR_DAT_0004ae60;
-undefined *PTR_DAT_0004ae64;
-undefined *PTR_DAT_0004ae68;
-undefined *PTR_DAT_0004ae6c;
-undefined *PTR_DAT_0004ae70;
-undefined *PTR_DAT_0004ae74;
+undefined *PTR_HO2S2_DTC35_36_WindowMinVoltage_0004ae38;
+undefined *PTR_HO2S2_DTC35_36_WindowMaxVoltage_0004ae3c;
+undefined *PTR_HO2S2_DTC35_StateFailPrevious_0004ae40;
+undefined *PTR_HO2S2_DTC35_StatePassPrevious_0004ae44;
+undefined *PTR_HO2S2_DTC36_StateFailPrevious_0004ae48;
+undefined *PTR_HO2S2_DTC36_StatePassPrevious_0004ae4c;
+undefined *PTR_HO2S2_DTC35_36_WindowSwing_0004ae50;
+undefined *PTR_HO2S2_DTC35_36_MinSwingThreshold_0p2_0004ae54;
+undefined *PTR_HO2S2_DTC35_SwingFailFlag_0004ae58;
+undefined *PTR_HO2S2_DTC35_SwingPassFlag_0004ae5c;
+undefined *PTR_HO2S2_DTC35_WindowSwingSnapshotFail_0004ae60;
+undefined *PTR_HO2S2_DTC35_WindowSwingSnapshotPass_0004ae64;
+undefined *PTR_HO2S2_DTC35_MaxLevelFlag_0004ae68;
+undefined *PTR_HO2S2_DTC35_MaxVoltagePassThreshold_0p4_0004ae6c;
+undefined *PTR_HO2S2_DTC35_MinLevelFlag_0004ae70;
+undefined *PTR_HO2S2_DTC35_MinVoltageSnapshot_0004ae74;
 undefined *PTR_DTC_IsOBDRelevantOrActive_0004ae78;
-undefined *PTR_DAT_0004ae7c;
-undefined *PTR_DAT_0004ae80;
-undefined *PTR_DAT_0004ae84;
-undefined *PTR_DAT_0004ae88;
-undefined *PTR_DAT_0004ae8c;
-undefined *PTR_DAT_0004ae90;
-undefined *PTR_DAT_0004ae94;
-undefined *PTR_DAT_0004ae98;
-undefined *PTR_DAT_0004ae9c;
-undefined *PTR_DAT_0004afe8;
-undefined *PTR_DAT_0004afec;
-undefined *PTR_DAT_0004aff0;
-undefined *PTR_DAT_0004aff4;
-undefined *PTR_DAT_0004aff8;
-undefined *PTR_DAT_0004affc;
-undefined *PTR_DAT_0004b000;
-undefined *PTR_DAT_0004b004;
-undefined *PTR_DAT_0004b008;
-undefined *PTR_DAT_0004b00c;
-undefined *PTR_DAT_0004b010;
-undefined *PTR_DAT_0004b014;
-undefined *PTR_DAT_0004b018;
-undefined *PTR_DAT_0004b01c;
-undefined *PTR_DAT_0004b020;
-undefined *PTR_DAT_0004b024;
+undefined *PTR_HO2S2_DTC35_FailLatch_0004ae7c;
+undefined *PTR_HO2S2_DTC35_PassLatch_0004ae80;
+undefined *PTR_HO2S2_DTC35_P0137_DebounceCounter_0004ae84;
+undefined *PTR_HO2S2_DTC35_P0137_DebounceLimit_1250_0004ae88;
+undefined *PTR_HO2S2_DTC35_DebounceExpiredFlag_0004ae8c;
+undefined *PTR_HO2S2_DTC35_MaxVoltageSnapshot_0004ae90;
+undefined *PTR_HO2S2_DTC36_FailLatch_0004ae94;
+undefined *PTR_HO2S2_DTC36_FailLatchA_0004ae98;
+undefined *PTR_HO2S2_DTC36_DebounceExpiredFlag_0004ae9c;
+undefined *PTR_HO2S2_DTC36_P0138_DebounceCounter_0004afe8;
+undefined *PTR_HO2S2_DTC36_P0138_DebounceLimit_1250_0004afec;
+undefined *PTR_HO2S2_DTC36_FailLatch_0004aff0;
+undefined *PTR_HO2S2_DTC36_FailLatchA_0004aff4;
+undefined *PTR_HO2S2_DTC36_DebounceExpiredFlag_0004aff8;
+undefined *PTR_HO2S2_DTC35_SwingPassFlag_0004affc;
+undefined *PTR_HO2S2_DTC35_MinLevelFlag_0004b000;
+undefined *PTR_HO2S2_DTC36_PassLatchA_0004b004;
+undefined *PTR_HO2S2_DTC36_PassLatch_0004b008;
+undefined *PTR_HO2S2_DTC36_MinReleaseFlag_0004b00c;
+undefined *PTR_HO2S2_DTC36_MinVoltageReleaseThreshold_0p3_0004b010;
+undefined *PTR_HO2S2_DTC36_MinVoltageSnapshotFail_0004b014;
+undefined *PTR_HO2S2_DTC35_EnableLatch_0004b018;
+undefined *PTR_HO2S2_DTC36_MinVoltageSnapshotPass_0004b01c;
+undefined *PTR_HO2S2_DTC35_FailLatch_0004b020;
+undefined *PTR_HO2S2_DTC35_PassLatch_0004b024;
 undefined *PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_0004b028;
-undefined *PTR_DAT_0004b02c;
-undefined *PTR_DAT_0004b030;
-undefined *PTR_DAT_0004b034;
-undefined *PTR_DAT_0004b038;
+undefined *PTR_HO2S2_DTC35_StateFailPrevious_0004b02c;
+undefined *PTR_HO2S2_DTC35_StatePassPrevious_0004b030;
+undefined *PTR_HO2S2_DTC36_StateFailPrevious_0004b034;
+undefined *PTR_HO2S2_DTC36_StatePassPrevious_0004b038;
 undefined *PTR_CoolingFanRelay1_PE4_P0480_FaultDebouncedFlag_0004b138;
 undefined *PTR_CoolingFanRelay1_PE4_P0480_NormalDebouncedFlag_0004b13c;
 undefined *PTR_CoolingFanRelay1_PE4_P0480_FaultDebounceCounter_0004b140;
@@ -15454,7 +15474,7 @@ undefined *PTR_DAT_0004b220;
 undefined *PTR_ECTSensor_AN28_CelsiusValidated_0004b224;
 undefined *PTR_EngineSpeed_RPM_Filtered_0004b228;
 undefined *PTR_CommandBlend_PrimaryLoadWindowGateFlag_0004b22c;
-undefined *PTR_DAT_0004b234;
+undefined *PTR_SubsystemA_DTC34_EctLoadThresholdOutput_0004b234;
 undefined *PTR_DAT_0004b238;
 undefined *PTR_DAT_0004b23c;
 undefined *PTR_DAT_0004b240;
@@ -15710,7 +15730,7 @@ undefined *PTR_SharedDiagAggregate_StatusPair2022_AnyFlag_0004d1a0;
 undefined *PTR_Desc_Diag_LoadBasedThresholdFilter_TableC_0004d1a4;
 undefined *PTR_Interpolate1D_WithTransform_0004d1a8;
 undefined *PTR_DAT_0004d1ac;
-undefined *PTR_DAT_0004d1b0;
+undefined *PTR_SubsystemA_Diag_LoadBasedThresholdFilter_0004d1b0;
 undefined *PTR_DAT_0004d1b4;
 undefined *PTR_DAT_0004d1b8;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_0004d198;
@@ -15744,7 +15764,7 @@ undefined *PTR_FLOAT_0004d3c8;
 undefined *PTR_ClampFloat_0004d3d0;
 undefined4 DAT_0004d3cc;
 undefined *PTR_EngineSpeed_RPM_Filtered_0004d3d4;
-undefined *PTR_DAT_0004d3d8;
+undefined *PTR_IdleTargetRpm_SelectedFinal_0004d3d8;
 undefined *PTR_FLOAT_0004d3e4;
 undefined *PTR_FLOAT_0004d3e8;
 undefined *PTR_DAT_0004d3ec;
@@ -15841,8 +15861,8 @@ undefined4 DAT_0004de90;
 undefined *PTR_FuelDisplay_InputWindowAvg_Snapshot_0004de9c;
 undefined *PTR_DAT_0004de98;
 undefined *PTR_DAT_0004dea0;
-undefined *PTR_DAT_0004dea4;
-undefined *PTR_DAT_0004deb0;
+undefined *PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagB_0004dea4;
+undefined *PTR_IgnitionPhaseOutputAngle_Slot0_Snapshot_0004deb0;
 undefined4 DAT_0004dea8;
 undefined4 DAT_0004deac;
 undefined2 DAT_0004df58;
@@ -15860,7 +15880,7 @@ undefined *PTR_DAT_0004df90;
 undefined *PTR_DAT_0004df98;
 undefined *PTR_DAT_0004df9c;
 undefined4 DAT_0004dfa0;
-undefined *PTR_DAT_0004dfac;
+undefined *PTR_IdleTargetRpm_SelectedFinal_0004dfac;
 undefined *PTR_DAT_0004dfa4;
 undefined4 DAT_0004dfa8;
 undefined *PTR_DAT_0004dfb0;
@@ -16202,21 +16222,21 @@ undefined *PTR_DAT_0004f98c;
 undefined *PTR_DAT_0004f990;
 undefined *PTR_DAT_0004f994;
 undefined *PTR_CoolingFanRelay1_PE4_CommandRequest_0004f998;
-undefined *PTR_DAT_0004f99c;
+undefined *PTR_FuelPumpRelay_PJ7_CommandRequest_0004f99c;
 undefined *PTR_DAT_0004f9a0;
 undefined *PTR_DAT_0004f9a4;
-undefined *PTR_DAT_0004f9a8;
+undefined *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_0004f9a8;
 undefined *PTR_DAT_0004f9ac;
 undefined *PTR_InputBit1_DebouncedState_0004f9bc;
 undefined *PTR_DAT_0004f9c0;
-undefined *PTR_DAT_0004f9c4;
+undefined *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_0004f9c4;
 undefined *PTR_CoolingFanAux_PE11_CommandRequest_0004f9c8;
 undefined *PTR_ACCompressorRelay_PE10_OutputStateLatched_0004f9cc;
 undefined *PTR_DAT_0004f9d0;
 undefined *PTR_DAT_0004f9dc;
-undefined *PTR_DAT_0004f9e0;
-undefined *PTR_DAT_0004f9e4;
-undefined *PTR_DAT_0004f9e8;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_0004f9e0;
+undefined *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_0004f9e4;
+undefined *PTR_IdleUpMode_Mode1Bit08_RequestFlagC_0004f9e8;
 pointer PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_0004f9b0;
 pointer PTR_SubsystemA_TableSelectGate_RequestLatched_0004f9b4;
 pointer PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_0004f9b8;
@@ -16293,7 +16313,7 @@ undefined *PTR_DAT_00050090;
 undefined *PTR_DAT_00050094;
 undefined *PTR_DAT_0005016c;
 undefined *PTR_EGR_PrimaryEnable_DiagResetBatch_Gated_00050170;
-undefined *PTR_SubsystemA_DTC27_ProtectedStatus_Clear_Gated_00050174;
+undefined *PTR_CoolingFanRelay23_PE9_P0481_ProtectedStatus_Clear_Gated_00050174;
 undefined *PTR_SubsystemA_Snapshot_LockedRefresh_00050178;
 undefined *PTR_SubsystemA_Snapshot_LockedResetMinMax_0005017c;
 undefined *PTR_SubsystemA_SeededLoadWindow_SubBundleB_InitAll_Gated_00050180;
@@ -16797,24 +16817,24 @@ undefined *PTR_DAT_00052f08;
 undefined *PTR_DAT_00052f0c;
 undefined *PTR_DAT_00052f10;
 undefined *PTR_DAT_00052f14;
-undefined *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_00052f18;
-undefined *PTR_DAT_00052f1c;
-undefined *PTR_DAT_00052f20;
+undefined *PTR_CatalystMonitor_P0420_PrerequisiteFlagC_00052f18;
+undefined *PTR_CatalystMonitor_P0420_ComparisonIndex_00052f1c;
+undefined *PTR_CatalystMonitor_P0420_ThresholdIndex_00052f20;
 undefined *PTR_DAT_00052f24;
 undefined *PTR_ProtectedWord_WriteWithInverse_00052f28;
 undefined *PTR_DAT_00052f2c;
 undefined *PTR_DAT_ffff8b22+2_00052f30;
 undefined *PTR_ProtectedStatusBytePair_WriteValueWithComplement_00052f34;
-undefined *PTR_DAT_00052f3c;
+undefined *PTR_HO2S1_DTC_WindowMaxVoltage_00052f3c;
 undefined *PTR_IndexFromFloat_Clamped_1_00052f40;
 dword DWORD_00052f38;
-undefined *PTR_DAT_00052f44;
+undefined *PTR_HO2S1_DTC_HighFaultThresholdVoltage_00052f44;
 undefined *PTR_LAB_0000fffe+1_00052f48;
 undefined *PTR_DAT_00052f4c;
 undefined *PTR_DAT_00052f50;
 undefined *PTR_DAT_00052f54;
-undefined *PTR_DAT_00052f58;
-undefined *PTR_DAT_00052f5c;
+undefined *PTR_HO2S1_DTC_WindowMinVoltage_00052f58;
+undefined *PTR_HO2S1_DTC_LowFaultThresholdVoltage_00052f5c;
 undefined *PTR_AddUint16AndSaturateToFFFE_00052f60;
 undefined *PTR_DAT_00052f64;
 undefined *PTR_DAT_00052f68;
@@ -16845,57 +16865,57 @@ undefined *PTR_DAT_000531b4;
 undefined *PTR_DAT_000531b8;
 undefined *PTR_DAT_000531bc;
 undefined *PTR_DAT_000531c0;
-undefined *PTR_DAT_000531c4;
-undefined *PTR_DAT_000531cc;
+undefined *PTR_HO2S2_DTC35_DebounceExpiredFlag_000531c4;
+undefined *PTR_HO2S2_DTC35_36_WindowSwing_000531cc;
 undefined4 DAT_000531c8;
-undefined *PTR_DAT_000531d0;
-undefined *PTR_DAT_000531d4;
+undefined *PTR_HO2S2_DTC35_SwingFailFlag_000531d0;
+undefined *PTR_HO2S2_DTC35_36_MinSwingThreshold_0p2_000531d4;
 undefined *PTR_DAT_000531d8;
 undefined *PTR_DAT_000531dc;
 undefined *PTR_DAT_000531e0;
-undefined *PTR_DAT_000531e4;
-undefined *PTR_DAT_000531e8;
-undefined *PTR_DAT_000531ec;
+undefined *PTR_HO2S2_DTC35_MaxLevelFlag_000531e4;
+undefined *PTR_HO2S2_DTC35_MaxVoltageSnapshot_000531e8;
+undefined *PTR_HO2S2_DTC35_MaxVoltagePassThreshold_0p4_000531ec;
 undefined *PTR_DAT_000533e8;
 undefined *PTR_DAT_000533ec;
 undefined *PTR_DAT_000533f0;
-undefined *PTR_DAT_000533f4;
-undefined *PTR_DAT_000533f8;
+undefined *PTR_HO2S2_DTC35_P0137_DebounceCounter_000533f4;
+undefined *PTR_HO2S2_DTC35_P0137_DebounceLimit_1250_000533f8;
 undefined *PTR_DAT_000533fc;
 undefined *PTR_DAT_00053400;
 undefined *PTR_DAT_00053404;
-undefined *PTR_DAT_00053408;
-undefined *PTR_DAT_0005340c;
+undefined *PTR_HO2S2_DTC36_FailLatchA_00053408;
+undefined *PTR_HO2S2_DTC36_DebounceExpiredFlag_0005340c;
 undefined *PTR_IndexFromFloat_Clamped_1_00053418;
 undefined *PTR_ProtectedWord_ReadWithInverseFallback_00053410;
 undefined4 DAT_00053414;
-undefined *PTR_DAT_0005341c;
-undefined *PTR_DAT_00053420;
-undefined *PTR_DAT_00053424;
-undefined *PTR_DAT_00053428;
+undefined *PTR_HO2S2_DTC35_SwingPassFlag_0005341c;
+undefined *PTR_HO2S2_DTC35_WindowSwingSnapshotFail_00053420;
+undefined *PTR_HO2S2_DTC35_36_MinSwingThreshold_0p2_00053424;
+undefined *PTR_HO2S2_DTC35_WindowSwingSnapshotPass_00053428;
 undefined *PTR_LAB_0000fffe+1_0005342c;
 undefined *PTR_DAT_00053430;
 undefined *PTR_DAT_00053434;
 undefined *PTR_ProtectedWord_WriteWithInverse_00053438;
 undefined *PTR_DAT_0005343c;
 undefined *PTR_ProtectedStatusBytePair_WriteValueWithComplement_00053440;
-undefined *PTR_DAT_00053444;
-undefined *PTR_DAT_00053448;
-undefined *PTR_DAT_0005344c;
+undefined *PTR_HO2S2_DTC35_MinLevelFlag_00053444;
+undefined *PTR_HO2S2_DTC35_MinVoltageSnapshot_00053448;
+undefined *PTR_HO2S2_DTC36_MinVoltageFailThreshold_0p95_0005344c;
 undefined *PTR_DAT_00053450;
 undefined *PTR_DAT_00053454;
 undefined *PTR_DAT_00053458;
-undefined *PTR_DAT_0005345c;
-undefined *PTR_DAT_00053460;
+undefined *PTR_HO2S2_DTC36_P0138_DebounceCounter_0005345c;
+undefined *PTR_HO2S2_DTC36_P0138_DebounceLimit_1250_00053460;
 undefined *PTR_DAT_00053464;
 undefined *PTR_DAT_00053468;
 undefined *PTR_DAT_0005346c;
-undefined *PTR_DAT_00053470;
-undefined *PTR_DAT_00053474;
-undefined *PTR_DAT_00053668;
-undefined *PTR_DAT_0005366c;
-undefined *PTR_DAT_00053670;
-undefined *PTR_DAT_00053674;
+undefined *PTR_HO2S2_DTC36_MinVoltageSnapshotFail_00053470;
+undefined *PTR_HO2S2_DTC36_MinVoltageReleaseThreshold_0p3_00053474;
+undefined *PTR_HO2S2_DTC36_PassLatchA_00053668;
+undefined *PTR_HO2S2_DTC36_MinReleaseFlag_0005366c;
+undefined *PTR_HO2S2_DTC36_MinVoltageSnapshotPass_00053670;
+undefined *PTR_HO2S2_DTC36_MinVoltageReleaseThreshold_0p3_00053674;
 undefined *PTR_AddUint16AndSaturateToFFFE_00053678;
 undefined *PTR_DAT_0005367c;
 undefined *PTR_DAT_00053680;
@@ -16914,17 +16934,17 @@ undefined *PTR_DAT_000536b0;
 undefined *PTR_DAT_000536b4;
 undefined *PTR_DAT_000536b8;
 undefined *PTR_DAT_000536bc;
-undefined *PTR_DAT_000536c0;
+undefined *PTR_HO2S1_DTC_HighSideCrossingCounterMin_000536c0;
 undefined *PTR_DAT_000536c4;
 undefined *PTR_DAT_000536c8;
 undefined *PTR_DAT_000536cc;
 undefined *PTR_DAT_000536d0;
-undefined *PTR_DAT_000536d4;
+undefined *PTR_HO2S1_DTC_LowSideCrossingCounterMin_000536d4;
 undefined *PTR_DAT_000536d8;
 undefined *PTR_DAT_000536dc;
 undefined *PTR_DAT_000536e0;
 undefined *PTR_DAT_000536e4;
-undefined *PTR_DAT_000536e8;
+undefined *PTR_HO2S1_DTC_TransitionRateValue_000536e8;
 undefined *PTR_DAT_000536ec;
 undefined *PTR_DAT_000536f0;
 undefined *PTR_DAT_000536f4;
@@ -17340,8 +17360,8 @@ undefined DAT_0000001a;
 undefined4 DAT_00056be8;
 undefined4 DAT_00056e6c;
 undefined *PTR_WORD_00056fc8;
-float FLOAT_0006bfac;
 undefined4 LAB_00056f74;
+float AxisY_IdleControlPct_2D_TableD_Input;
 undefined LAB_0005706c;
 undefined LAB_0005707e+2;
 undefined LAB_00057094;
@@ -19741,7 +19761,7 @@ void OBD03_StateMachine_Tick_1(void)
   }
   else {
     Read_DWORD_00001fec();
-    SubsystemA_DTC_Dispatcher();
+    GenericDTC_Dispatcher();
     if (*PTR_DTC_ReportState_SubsystemAInhibitPrevFlag_00001b84 == '\x01') {
       *puVar1 = 6;
       goto LAB_00001b8c;
@@ -20096,10 +20116,10 @@ void DTC_ReportState_EgrInhibitPrevFlag_BuildPayload(void)
 
 
 
-// Top-level DTC dispatcher/decision block for the still-unresolved SubsystemA diagnostic path;
-// exact subsystem semantics remain unproven.
+// Top-level generic DTC dispatcher/decision block for a still-unresolved diagnostic path; exact
+// subsystem semantics remain unproven.
 
-uint SubsystemA_DTC_Dispatcher(void)
+uint GenericDTC_Dispatcher(void)
 
 {
   word wVar1;
@@ -20157,7 +20177,7 @@ uint SubsystemA_DTC_Dispatcher(void)
     if (uVar3 == 0x27) {
                     // WARNING: Could not recover jumptable at 0x0000213e. Too many branches
                     // WARNING: Treating indirect jump as call
-      uVar3 = (*(code *)PTR_LAB_000021a0)();
+      uVar3 = (*(code *)PTR_IgnitionPhaseCommandBlend_InhibitRampOutput_000021a0)();
       return uVar3;
     }
     if (uVar3 == 0x3e) {
@@ -20216,7 +20236,7 @@ LAB_000022c0:
     if (uVar4 == 0x27) {
                     // WARNING: Could not recover jumptable at 0x00002240. Too many branches
                     // WARNING: Treating indirect jump as call
-      uVar3 = (*(code *)PTR_LAB_000022a8)();
+      uVar3 = (*(code *)PTR_IgnitionPhaseCommandBlend_InhibitRampOutput_000022a8)();
       return uVar3;
     }
     if (uVar4 == 0x31) {
@@ -20736,7 +20756,7 @@ bool Read_SubsystemA_PrimaryEnable_PrerequisiteFlagC(int *param_1,int *param_2)
   int iVar2;
   int iVar3;
   
-  puVar1 = PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_000044e4;
+  puVar1 = PTR_CatalystMonitor_P0420_PrerequisiteFlagC_000044e4;
   iVar3 = (int)DAT_000044da;
   iVar2 = 0;
   while( true ) {
@@ -20776,7 +20796,8 @@ void KnockWindowEnable_Update(void)
   uVar2 = *(ushort *)PTR_KnockSensor_WindowedRawHeldValue_00005148;
   uVar3 = (*(code *)PTR_IndexFromFloat_Clamped_1_00005154)
                     (*(undefined4 *)PTR_O2Sensor1_AN6_ScaledVoltage_0000514c,DAT_00005150,0);
-  if ((((((*(ushort *)PTR_DAT_00005158 & 2) == 0) || ((*PTR_DAT_0000515c & 8) != 0)) ||
+  if ((((((*(ushort *)PTR_PhaseFrontend_Mode0_ResponseStableWord_00005158 & 2) == 0) ||
+        ((*PTR_PhaseFrontend_Mode2_ResponseStableByte_0000515c & 8) != 0)) ||
        ((int)(uint)uVar1 < (int)PTR_LAB_00005160)) ||
       (((int)PTR_LAB_00005164 < (int)(uint)uVar1 || ((int)(uint)uVar2 < (int)DAT_00005134)))) ||
      (((int)DAT_00005136 < (int)(uint)uVar2 ||
@@ -26324,6 +26345,23 @@ void Nop_096AE(void)
 
 
 
+void EnginePhaseEvent_OutputScheduler_Service(void)
+
+{
+  undefined4 uVar1;
+  
+  uVar1 = (*(code *)PTR_EnginePhaseEventQueue_PopByChannel_00009b5c)(0);
+  (*(code *)PTR_InjectorCylinderDispatch_SelectPathAndCompute_00009b60)(uVar1);
+  (*(code *)PTR_PhaseFrontend_RequestByCylinderAndUpdateDelta_00009b64)(uVar1);
+  (*(code *)PTR_InjectorChannel_PendingCommitCountdown_ServiceAll_00009b68)();
+  (*(code *)PTR_IgnitionCoilPairSlots_ServiceAll_00009b6c)();
+  (*(code *)PTR_MixedScheduler_GroupJ_InputAModelAndSeededPrecheck_Entry_00009b70)(uVar1);
+  (*(code *)PTR_Update_BYTE_ffffffdb_00009b08)();
+  return;
+}
+
+
+
 // WARNING: Type propagation algorithm not settling
 
 int CommandTable_Execute(uint param_1,uint param_2,undefined4 *param_3)
@@ -26722,7 +26760,7 @@ void GateOrQueue_05(undefined4 param_1)
     (*(code *)PTR_Queue_IncCounter_0000a418)(5);
     return;
   }
-  Queue_PushByChannel(0,param_1);
+  EnginePhaseEventQueue_PushByChannel(0,param_1);
   return;
 }
 
@@ -26738,7 +26776,7 @@ void GateOrQueue_06(undefined4 param_1)
     (*(code *)PTR_Queue_IncCounter_0000a418)(6);
     return;
   }
-  Queue_PushByChannel(1,param_1);
+  EnginePhaseEventQueue_PushByChannel(1,param_1);
   return;
 }
 
@@ -26869,7 +26907,7 @@ int CommandDispatch_02(undefined4 param_1)
 
 
 
-void Queue_PushByChannel(int param_1,undefined4 param_2)
+void EnginePhaseEventQueue_PushByChannel(int param_1,undefined4 param_2)
 
 {
   undefined *puVar1;
@@ -26887,7 +26925,7 @@ void Queue_PushByChannel(int param_1,undefined4 param_2)
 
 
 
-uint Queue_PopByChannel(int param_1)
+uint EnginePhaseEventQueue_PopByChannel(int param_1)
 
 {
   undefined *puVar1;
@@ -27287,23 +27325,23 @@ void SensorCluster_Init(void)
   *(undefined4 *)puVar4 = 0;
   fVar5 = FLOAT_0000acc0;
   *(float *)PTR_DAT_0000acc4 = FLOAT_0000acc0;
-  *(float *)PTR_DAT_0000acc8 = fVar5;
+  *(float *)PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000acc8 = fVar5;
   puVar4 = PTR_DAT_0000acd0;
   *PTR_DAT_0000accc = 0;
   *puVar4 = 0;
   puVar4 = PTR_DAT_0000acd8;
-  *PTR_DAT_0000acd4 = 0;
+  *PTR_PhaseFrontend_AN14_SlopeModeState_0000acd4 = 0;
   *puVar4 = 0;
   puVar4 = PTR_LAB_0000ace0;
-  *PTR_DAT_0000acdc = 0;
+  *PTR_PhaseFrontend_AN14_DrivePair_ModeFlag_0000acdc = 0;
   *(short *)puVar3 = (short)puVar4;
   *(undefined4 *)PTR_DAT_0000ace4 = 0;
   puVar3 = PTR_DAT_0000ace8;
   uVar6 = (*(code *)PTR_ProtectedDword_ReadWithChecksumFallback_0000acec)(0,puVar1);
   *(undefined4 *)puVar3 = uVar6;
   *puVar2 = 0;
-  *PTR_DAT_0000acf0 = 0;
-  *PTR_DAT_0000acf4 = (char)WORD_0000aca2;
+  *PTR_PhaseFrontend_AN14_DrivePair_ToggleCounter_0000acf0 = 0;
+  *PTR_PhaseFrontend_AN14_FilterTickCounter_0000acf4 = (char)WORD_0000aca2;
   return;
 }
 
@@ -27363,16 +27401,16 @@ void SensorCluster_ResetPrivileged(void)
 
 
 
-void AN14_Filter_Tick(void)
+void PhaseFrontend_AN14FeedbackFilter_TickAndUpdate(void)
 
 {
   undefined4 uVar1;
   
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_0000ae04)((int)(short)WORD_0000adf4);
-  if ((short)(ushort)(byte)*PTR_DAT_0000ae08 < (short)WORD_0000adf6) {
-    *PTR_DAT_0000ae08 = *PTR_DAT_0000ae08 + '\x01';
+  if ((short)(ushort)(byte)*PTR_PhaseFrontend_AN14_FilterTickCounter < (short)WORD_0000adf6) {
+    *PTR_PhaseFrontend_AN14_FilterTickCounter = *PTR_PhaseFrontend_AN14_FilterTickCounter + '\x01';
   }
-  AN14_Filter_Update();
+  PhaseFrontend_AN14FeedbackFilter_Update();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0000ae0c)(uVar1);
   return;
 }
@@ -27397,22 +27435,24 @@ uint SensorSlope_Estimate_Wrapper(void)
   
   puVar2 = PTR_DAT_0000b0d8;
   puVar1 = PTR_DAT_0000b0d4;
-  uVar6 = (uint)(byte)*PTR_DAT_0000b0dc;
+  uVar6 = (uint)(byte)*PTR_PhaseFrontend_AN14_SlopeModeState;
   if (uVar6 == 1) {
     uVar7 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_0000b0e0)((int)(short)WORD_0000b0d2)
     ;
     fVar9 = DAT_0000b0ec;
-    puVar4 = PTR_DAT_0000b0e8;
-    puVar3 = PTR_DAT_0000b0e4;
-    fVar10 = ((float)*(ushort *)PTR_DAT_0000b0e8 - (float)*(ushort *)PTR_DAT_0000b0e4) *
-             DAT_0000b0ec;
+    puVar4 = PTR_PhaseFrontend_AN14_DrivePair_CurrentSample;
+    puVar3 = PTR_PhaseFrontend_AN14_ResetCurrentSample;
+    fVar10 = ((float)*(ushort *)PTR_PhaseFrontend_AN14_DrivePair_CurrentSample -
+             (float)*(ushort *)PTR_PhaseFrontend_AN14_ResetCurrentSample) * DAT_0000b0ec;
     if (fVar10 < 0.0) {
       fVar10 = -fVar10;
     }
     *(float *)PTR_DAT_0000b0f0 = fVar10;
-    fVar12 = (((float)*(ushort *)puVar4 - (float)*(ushort *)PTR_DAT_0000b0f8) * fVar9) /
+    fVar12 = (((float)*(ushort *)puVar4 -
+              (float)*(ushort *)PTR_PhaseFrontend_AN14_DrivePair_PreviousSample) * fVar9) /
              *(float *)PTR_DAT_0000b0f4;
-    fVar11 = (((float)*(ushort *)puVar3 - (float)*(ushort *)PTR_DAT_0000b0fc) * fVar9) /
+    fVar11 = (((float)*(ushort *)puVar3 -
+              (float)*(ushort *)PTR_PhaseFrontend_AN14_ResetPreviousSample_0000b0fc) * fVar9) /
              *(float *)PTR_DAT_0000b0f4;
     fVar9 = fVar12 - fVar11;
     *(float *)puVar2 = fVar12;
@@ -27422,12 +27462,13 @@ uint SensorSlope_Estimate_Wrapper(void)
     }
     *(float *)PTR_DAT_0000b100 = fVar11;
     *(float *)puVar3 = fVar9;
-    puVar3 = PTR_DAT_0000b108;
+    puVar3 = PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000B108;
     if (fVar9 == 0.0) {
-      *(undefined4 *)PTR_DAT_0000b108 = DAT_0000b110;
+      *(undefined4 *)PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000B108 = DAT_0000b110;
     }
     else {
-      *(float *)PTR_DAT_0000b108 = fVar10 / fVar9 - *(float *)PTR_DAT_0000b10c;
+      *(float *)PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000B108 =
+           fVar10 / fVar9 - *(float *)PTR_DAT_0000b10c;
     }
     puVar5 = PTR_DAT_0000b118;
     if (*PTR_DAT_0000b114 == '\0') {
@@ -27471,7 +27512,7 @@ uint SensorSlope_Estimate_Wrapper(void)
 
 // WARNING: Removing unreachable block (ram,0x0000aef8)
 
-void AN14_Filter_Update(void)
+void PhaseFrontend_AN14FeedbackFilter_Update(void)
 
 {
   undefined *puVar1;
@@ -27489,8 +27530,8 @@ void AN14_Filter_Update(void)
   puVar2 = PTR_DAT_0000af60;
   puVar1 = PTR_DAT_0000af50;
   uVar8 = 0;
-  if ((byte)*PTR_DAT_0000af58 <= (byte)*PTR_DAT_0000af54) {
-    local_20 = *(ushort *)PTR_data_from_AN14_103_pin_0000af5c;
+  if ((byte)*PTR_DAT_0000af58 <= (byte)*PTR_PhaseFrontend_AN14_FilterTickCounter_0000AF54) {
+    local_20 = *(ushort *)PTR_PhaseFrontend_AN14_RawAdc;
     if ((uint)*(ushort *)PTR_DAT_0000af68 + (uint)*(ushort *)PTR_DAT_0000af6c < (uint)local_20) {
       local_20 = *(short *)PTR_DAT_0000af68 + *(short *)PTR_DAT_0000af6c;
     }
@@ -27504,7 +27545,8 @@ void AN14_Filter_Update(void)
          (float)*(ushort *)puVar4 * *(float *)PTR_DAT_0000af70 * (float)DWORD_0000af78;
     puVar4 = PTR_DAT_0000af8c;
     if ((((byte)*PTR_DAT_0000af64 < (byte)*PTR_DAT_0000af7c) && (*PTR_DAT_0000af80 == '\x01')) &&
-       (*(float *)PTR_DAT_0000af88 <= *(float *)PTR_DAT_0000af84)) {
+       (*(float *)PTR_DAT_0000af88 <=
+        *(float *)PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000AF84)) {
       *puVar3 = *puVar3 + '\x01';
       *(float *)puVar4 = *(float *)puVar4 + *(float *)puVar1;
       uVar5 = (*(code *)PTR_ClampFloat_0000af98)
@@ -27530,7 +27572,7 @@ void AN14_Filter_Update(void)
 
 
 
-uint SensorSlope_Estimate(void)
+uint PhaseFrontend_AN14FeedbackSlopeAndDirection_Estimate(void)
 
 {
   undefined *puVar1;
@@ -27548,22 +27590,24 @@ uint SensorSlope_Estimate(void)
   
   puVar2 = PTR_DAT_0000b0d8;
   puVar1 = PTR_DAT_0000b0d4;
-  uVar6 = (uint)(byte)*PTR_DAT_0000b0dc;
+  uVar6 = (uint)(byte)*PTR_PhaseFrontend_AN14_SlopeModeState;
   if (uVar6 == 1) {
     uVar7 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_0000b0e0)((int)(short)WORD_0000b0d2)
     ;
     fVar9 = DAT_0000b0ec;
-    puVar4 = PTR_DAT_0000b0e8;
-    puVar3 = PTR_DAT_0000b0e4;
-    fVar10 = ((float)*(ushort *)PTR_DAT_0000b0e8 - (float)*(ushort *)PTR_DAT_0000b0e4) *
-             DAT_0000b0ec;
+    puVar4 = PTR_PhaseFrontend_AN14_DrivePair_CurrentSample;
+    puVar3 = PTR_PhaseFrontend_AN14_ResetCurrentSample;
+    fVar10 = ((float)*(ushort *)PTR_PhaseFrontend_AN14_DrivePair_CurrentSample -
+             (float)*(ushort *)PTR_PhaseFrontend_AN14_ResetCurrentSample) * DAT_0000b0ec;
     if (fVar10 < 0.0) {
       fVar10 = -fVar10;
     }
     *(float *)PTR_DAT_0000b0f0 = fVar10;
-    fVar12 = (((float)*(ushort *)puVar4 - (float)*(ushort *)PTR_DAT_0000b0f8) * fVar9) /
+    fVar12 = (((float)*(ushort *)puVar4 -
+              (float)*(ushort *)PTR_PhaseFrontend_AN14_DrivePair_PreviousSample) * fVar9) /
              *(float *)PTR_DAT_0000b0f4;
-    fVar11 = (((float)*(ushort *)puVar3 - (float)*(ushort *)PTR_DAT_0000b0fc) * fVar9) /
+    fVar11 = (((float)*(ushort *)puVar3 -
+              (float)*(ushort *)PTR_PhaseFrontend_AN14_ResetPreviousSample_0000b0fc) * fVar9) /
              *(float *)PTR_DAT_0000b0f4;
     fVar9 = fVar12 - fVar11;
     *(float *)puVar2 = fVar12;
@@ -27573,12 +27617,13 @@ uint SensorSlope_Estimate(void)
     }
     *(float *)PTR_DAT_0000b100 = fVar11;
     *(float *)puVar3 = fVar9;
-    puVar3 = PTR_DAT_0000b108;
+    puVar3 = PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000B108;
     if (fVar9 == 0.0) {
-      *(undefined4 *)PTR_DAT_0000b108 = DAT_0000b110;
+      *(undefined4 *)PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000B108 = DAT_0000b110;
     }
     else {
-      *(float *)PTR_DAT_0000b108 = fVar10 / fVar9 - *(float *)PTR_DAT_0000b10c;
+      *(float *)PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000B108 =
+           fVar10 / fVar9 - *(float *)PTR_DAT_0000b10c;
     }
     puVar5 = PTR_DAT_0000b118;
     if (*PTR_DAT_0000b114 == '\0') {
@@ -27620,39 +27665,42 @@ uint SensorSlope_Estimate(void)
 
 
 
-void DrivePair_ToggleAndSync(void)
+void PhaseFrontend_AN14FeedbackDrivePair_ToggleAndSync(void)
 
 {
   undefined *puVar1;
   undefined2 *puVar2;
   
-  puVar1 = PTR_DAT_0000b22c;
-  *PTR_DAT_0000b22c = *PTR_DAT_0000b22c + '\x01';
+  puVar1 = PTR_PhaseFrontend_AN14_DrivePair_ToggleCounter;
+  *PTR_PhaseFrontend_AN14_DrivePair_ToggleCounter =
+       *PTR_PhaseFrontend_AN14_DrivePair_ToggleCounter + '\x01';
   if (1 < (byte)*puVar1) {
     *puVar1 = 0;
   }
   if (*puVar1 == '\0') {
     puVar2 = (undefined2 *)(int)(short)WORD_0000b214;
-    *(undefined2 *)PTR_DAT_0000b230 = *puVar2;
-    *(undefined2 *)PTR_DAT_0000b234 = puVar2[-0x10];
-    if (*(float *)PTR_DAT_0000b23c < *(float *)PTR_DAT_0000b238) {
-      if (*(float *)PTR_DAT_0000b23c + *(float *)PTR_DAT_0000b244 < *(float *)PTR_DAT_0000b238) {
-        *PTR_DAT_0000b240 = 0;
+    *(undefined2 *)PTR_PhaseFrontend_AN14_DrivePair_CurrentSample_0000B230 = *puVar2;
+    *(undefined2 *)PTR_PhaseFrontend_AN14_DrivePair_PreviousSample_0000B234 = puVar2[-0x10];
+    if (*(float *)PTR_DAT_0000b23c <
+        *(float *)PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000B238) {
+      if (*(float *)PTR_DAT_0000b23c + *(float *)PTR_DAT_0000b244 <
+          *(float *)PTR_PhaseFrontend_AN14_FilteredOrSlopeEstimate_0000B238) {
+        *PTR_PhaseFrontend_AN14_DrivePair_ModeFlag = 0;
       }
     }
     else {
-      *PTR_DAT_0000b240 = 1;
+      *PTR_PhaseFrontend_AN14_DrivePair_ModeFlag = 1;
     }
     (*(code *)PTR_PhaseFrontend_ModeTransfer_SetDrivePair_0000b248)(0);
-    DrivePair_ApplyByMode(*PTR_DAT_0000b240);
-    *PTR_DAT_0000b24c = 0;
+    PhaseFrontend_AN14FeedbackDrivePair_ApplyByMode(*PTR_PhaseFrontend_AN14_DrivePair_ModeFlag);
+    *PTR_PhaseFrontend_AN14_DrivePair_ResetLatch = 0;
   }
   return;
 }
 
 
 
-void DrivePair_ApplyByMode(char param_1)
+void PhaseFrontend_AN14FeedbackDrivePair_ApplyByMode(char param_1)
 
 {
   undefined *puVar1;
@@ -27663,17 +27711,17 @@ void DrivePair_ApplyByMode(char param_1)
   short sVar6;
   undefined4 local_20 [2];
   
-  sVar3 = *(short *)PTR_DAT_0000b250;
+  sVar3 = *(short *)PTR_Cal_AN14_DrivePair_Mode0CompareA_16_0000b250;
   iVar2 = (int)sVar3;
   if (param_1 == '\0') {
     iVar4 = iVar2;
-    iVar2 = (int)*(short *)PTR_DAT_0000b254;
+    iVar2 = (int)*(short *)PTR_Cal_AN14_DrivePair_Mode0CompareB_45_0000b254;
     sVar5 = sVar3;
     sVar3 = 0;
   }
   else {
     sVar5 = 0;
-    iVar4 = (int)*(short *)PTR_DAT_0000b2ec;
+    iVar4 = (int)*(short *)PTR_Cal_AN14_DrivePair_Mode1CompareA_5_0000b2ec;
   }
   (*(code *)PTR_SetPrivilegedSR_0000b2f0)(local_20,(int)(short)WORD_0000b2da);
   puVar1 = PTR_WriteWordToRegisterPrivileged_0000b2f4;
@@ -27683,25 +27731,26 @@ void DrivePair_ApplyByMode(char param_1)
   (*(code *)puVar1)((int)(short)WORD_0000b2e2,iVar4);
   *(short *)(int)(short)WORD_0000b2e4 = sVar3 + sVar6;
   (*(code *)puVar1)((int)(short)WORD_0000b2e6,1);
-  *(short *)(int)(short)WORD_0000b2e8 = sVar6 + *(short *)PTR_DAT_0000b2f8;
+  *(short *)(int)(short)WORD_0000b2e8 =
+       sVar6 + *(short *)PTR_Cal_AN14_DrivePair_EndOffset_14_0000b2f8;
   (*(code *)PTR_RestorePrivilegedSR_0000b2fc)(local_20[0]);
   return;
 }
 
 
 
-void DrivePair_ResetState(void)
+void PhaseFrontend_AN14FeedbackDrivePair_ResetState(void)
 
 {
   undefined2 *puVar1;
   
-  if (*PTR_DAT_0000b300 == '\0') {
+  if (*PTR_PhaseFrontend_AN14_DrivePair_ResetLatch_0000B300 == '\0') {
     puVar1 = (undefined2 *)(int)(short)WORD_0000b2ea;
-    *(undefined2 *)PTR_DAT_0000b304 = *puVar1;
-    *(undefined2 *)PTR_DAT_0000b308 = puVar1[-0x10];
-    *PTR_DAT_0000b30c = 1;
+    *(undefined2 *)PTR_PhaseFrontend_AN14_ResetCurrentSample_0000B304 = *puVar1;
+    *(undefined2 *)PTR_PhaseFrontend_AN14_ResetPreviousSample_0000B308 = puVar1[-0x10];
+    *PTR_PhaseFrontend_AN14_SlopeModeState_0000B30C = 1;
   }
-  *PTR_DAT_0000b310 = 0;
+  *PTR_PhaseFrontend_AN14_FilterTickCounter_0000B310 = 0;
   return;
 }
 
@@ -28007,21 +28056,22 @@ void KnockSensor_WindowedRawInterpolateAndRange_Update(void)
 // Copies the direct AN21 knock ADC sample into the filtered/raw working value before running the
 // shared knock scaling path.
 
-void KnockSensor_AN21_FilteredRaw_UpdateWithRawCopy(void)
+void BatteryVoltage_FilteredVolts_InitFromRaw(void)
 
 {
   undefined *puVar1;
   ushort uVar2;
   
-  *(undefined2 *)PTR_KnockSensor_AN21_FilteredRawAdc_0000b730 =
-       *(undefined2 *)PTR_KnockSensor_AN21_RawAdc_0000b72c;
+  *(undefined2 *)PTR_BatteryVoltage_FilteredRawAdc_0000b730 =
+       *(undefined2 *)PTR_BatteryVoltage_RawAdc_0000b72c;
   uVar2 = (*(code *)PTR_Read_FLOAT_000057c4_0000b738)
-                    (*(undefined2 *)PTR_KnockSensor_AN21_RawAdc_0000b72c,
-                     *(undefined2 *)PTR_KnockSensor_AN21_FilteredRawAdc_0000b730,
-                     (int)*(short *)PTR_DAT_0000b734);
-  puVar1 = PTR_KnockSensor_AN21_FilteredRawAdc_0000b730;
-  *(float *)PTR_SharedWindowScaleValue_0000b744 =
-       ((float)uVar2 / DAT_0000b73c) * *(float *)PTR_DAT_0000b740;
+                    (*(undefined2 *)PTR_BatteryVoltage_RawAdc_0000b72c,
+                     *(undefined2 *)PTR_BatteryVoltage_FilteredRawAdc_0000b730,
+                     (int)*(short *)PTR_BatteryVoltage_FilterCoeff_0000b734);
+  puVar1 = PTR_BatteryVoltage_FilteredRawAdc_0000b730;
+  *(float *)PTR_BatteryVoltage_FilteredVolts_0000b744 =
+       ((float)uVar2 / DAT_0000b73c) * *(float *)PTR_BatteryVoltage_AdcToVoltScaleFactor_20_0000b740
+  ;
   *(ushort *)puVar1 = uVar2;
   return;
 }
@@ -28031,19 +28081,20 @@ void KnockSensor_AN21_FilteredRaw_UpdateWithRawCopy(void)
 // Filters/scales the AN21 knock ADC sample against the previous knock raw value and updates the
 // shared window scale value.
 
-void KnockSensor_AN21_FilteredRawToSharedScale_Update(void)
+void BatteryVoltage_FilteredVolts_Update(void)
 
 {
   undefined *puVar1;
   ushort uVar2;
   
   uVar2 = (*(code *)PTR_Read_FLOAT_000057c4_0000b738)
-                    (*(undefined2 *)PTR_KnockSensor_AN21_RawAdc_0000b72c,
-                     *(undefined2 *)PTR_KnockSensor_AN21_FilteredRawAdc_0000b730,
-                     (int)*(short *)PTR_DAT_0000b734);
-  puVar1 = PTR_KnockSensor_AN21_FilteredRawAdc_0000b730;
-  *(float *)PTR_SharedWindowScaleValue_0000b744 =
-       ((float)uVar2 / DAT_0000b73c) * *(float *)PTR_DAT_0000b740;
+                    (*(undefined2 *)PTR_BatteryVoltage_RawAdc_0000b72c,
+                     *(undefined2 *)PTR_BatteryVoltage_FilteredRawAdc_0000b730,
+                     (int)*(short *)PTR_BatteryVoltage_FilterCoeff_0000b734);
+  puVar1 = PTR_BatteryVoltage_FilteredRawAdc_0000b730;
+  *(float *)PTR_BatteryVoltage_FilteredVolts_0000b744 =
+       ((float)uVar2 / DAT_0000b73c) * *(float *)PTR_BatteryVoltage_AdcToVoltScaleFactor_20_0000b740
+  ;
   *(ushort *)puVar1 = uVar2;
   return;
 }
@@ -28507,12 +28558,12 @@ uint PhaseFrontend_ModeTransfer_Service(void)
   if (*PTR_DAT_0000be54 == '\0') {
     uVar1 = (uint)(byte)*PTR_DAT_0000be5c;
     if (uVar1 == 1) {
-      uVar1 = (*(code *)PTR_DrivePair_ToggleAndSync_0000be60)();
+      uVar1 = (*(code *)PTR_PhaseFrontend_AN14FeedbackDrivePair_ToggleAndSync_0000be60)();
       return uVar1;
     }
   }
   else {
-    uVar1 = (*(code *)PTR_DrivePair_ResetState_0000be64)();
+    uVar1 = (*(code *)PTR_PhaseFrontend_AN14FeedbackDrivePair_ResetState_0000be64)();
     *PTR_DAT_0000be54 = 0;
   }
   return uVar1;
@@ -30991,7 +31042,7 @@ void IgnitionCoilPairSlots_ResetAll(void)
     puVar3 = puVar3 + 1;
     puVar4 = puVar4 + 6;
   } while (bVar2 < 2);
-  IgnitionCoilPairBaseTiming_Update();
+  IgnitionCoilPair_BaseDwellWord_UpdateFromTable();
   return;
 }
 
@@ -31095,10 +31146,10 @@ void IgnitionCoilPairSlots_ServiceAll(void)
 
 // Thunk/alias into the ignition coil pair base timing update path.
 
-void IgnitionCoilPairBaseTiming_Update_Thunk(void)
+void IgnitionCoilPairDwell_ByRPM_BatteryVoltage_Update_Thunk(void)
 
 {
-  IgnitionCoilPairBaseTiming_Update();
+  IgnitionCoilPair_BaseDwellWord_UpdateFromTable();
   return;
 }
 
@@ -31270,7 +31321,7 @@ void IgnitionCoilPairSlot_ArmCompareWindow(byte param_1)
 // Updates the shared ignition coil pair base timing value from the calibrated source conversion
 // helper.
 
-void IgnitionCoilPairBaseTiming_Update(void)
+void IgnitionCoilPair_BaseDwellWord_UpdateFromTable(void)
 
 {
   undefined2 uVar1;
@@ -31278,7 +31329,7 @@ void IgnitionCoilPairBaseTiming_Update(void)
   uVar1 = (*(code *)PTR_InjectorPhaseRequest_BaseTimingConvertHelper)
                     (*(undefined4 *)PTR_InjectorPhaseRequest_BaseTimingCalibrationA,
                      *(undefined4 *)PTR_InjectorPhaseRequest_BaseTimingCalibrationB,
-                     PTR_Desc_InjectorPhaseRequest_BaseTiming_Table_0000e610);
+                     PTR_Desc_IgnitionCoilPair_Dwell_ByRPM_BatteryVoltage_Table_0000e610);
   *(undefined2 *)PTR_InjectorPhaseRequest_BaseTimingWord = uVar1;
   return;
 }
@@ -33236,7 +33287,7 @@ void O2Heater_PD0_PD4_EnableOutputs(void)
                     // кислорода
   (*(code *)PTR_ModifyRegisterBits_0000febc)(iVar4,1);
   puVar2 = PTR_RestorePrivilegedSR_0000fec4;
-  PTR_O2_Heater1_StateFlags_0000fec0[10] = 1;
+  PTR_HO2S1_Heater_PD0_StateFlags_0000fec0[10] = 1;
   (*(code *)puVar2)(auStack_14[0]);
   iVar3 = (int)DAT_0000feac;
   *(undefined4 *)PTR_O2Heater2_PD4_ControlOutput_0000fec8 = 0;
@@ -33245,7 +33296,7 @@ void O2Heater_PD0_PD4_EnableOutputs(void)
                     // кислорода
   (*(code *)puVar1)(iVar4,0x10,1);
   puVar1 = PTR_RestorePrivilegedSR_0000fec4;
-  PTR_O2_Heater2_StateFlags_0000fecc[10] = 1;
+  PTR_HO2S2_Heater_PD4_StateFlags_0000fecc[10] = 1;
   (*(code *)puVar1)(local_18);
   return;
 }
@@ -33272,9 +33323,9 @@ void O2Heater_PD0_PD4_OutputState_Update(void)
   uStack_18 = (*(code *)PTR_FixedPointMultiplyWithSaturation_0000fed0)
                         (*(undefined4 *)PTR_O2Heater1_PD0_ControlOutput_0000feb4,iVar4);
   (*(code *)PTR_SetPrivilegedSR_0000feb8)(&uStack_1c,(int)DAT_0000feac);
-  puVar3 = PTR_O2_Heater1_StateFlags_0000fec0;
+  puVar3 = PTR_HO2S1_Heater_PD0_StateFlags_0000fec0;
   iVar5 = (int)DAT_0000feae;
-  *(undefined2 *)PTR_O2_Heater1_StateFlags_0000fec0 = 0;
+  *(undefined2 *)PTR_HO2S1_Heater_PD0_StateFlags_0000fec0 = 0;
   puVar3[10] = 0;
   puVar2 = PTR_ModifyRegisterBits_0000febc;
   *(undefined2 *)(puVar3 + 8) = uStack_18;
@@ -33293,8 +33344,8 @@ void O2Heater_PD0_PD4_OutputState_Update(void)
   uStack_18 = (*(code *)PTR_FixedPointMultiplyWithSaturation_0000fed0)
                         (*(undefined4 *)PTR_O2Heater2_PD4_ControlOutput_0000fec8,iVar4);
   (*(code *)PTR_SetPrivilegedSR_0000feb8)(&local_20,(int)DAT_0000feac);
-  puVar3 = PTR_O2_Heater2_StateFlags_0000fecc;
-  *(undefined2 *)PTR_O2_Heater2_StateFlags_0000fecc = 0;
+  puVar3 = PTR_HO2S2_Heater_PD4_StateFlags_0000fecc;
+  *(undefined2 *)PTR_HO2S2_Heater_PD4_StateFlags_0000fecc = 0;
   puVar3[10] = 0;
   *(undefined2 *)(puVar3 + 8) = uStack_18;
   *(short *)(puVar3 + 4) = sVar1;
@@ -33323,9 +33374,9 @@ void O2Heater1_PD0_BaseTemperature_Copy(void)
   undefined2 uVar1;
   undefined *puVar2;
   
-  puVar2 = PTR_O2_Heater1_StateFlags_0000fec0;
+  puVar2 = PTR_HO2S1_Heater_PD0_StateFlags_0000fec0;
   uVar1 = DAT_0000feb0;
-  *(undefined2 *)(PTR_O2_Heater1_StateFlags_0000fec0 + 4) = DAT_0000feb0;
+  *(undefined2 *)(PTR_HO2S1_Heater_PD0_StateFlags_0000fec0 + 4) = DAT_0000feb0;
   *(undefined2 *)(puVar2 + 0x10) = uVar1;
   return;
 }
@@ -33346,16 +33397,16 @@ uint O2Heater_PD0_PD4_ApplyScaledDutyByChannel(float param_1,uint param_2)
   iVar3 = (int)(param_1 * DAT_0000ff30);
   if (uVar2 == 0) {
     *(int *)PTR_O2Heater1_PD0_ControlOutput_0000ff34 = iVar3;
-    puVar1 = PTR_O2_Heater1_StateFlags_0000ff38;
+    puVar1 = PTR_HO2S1_Heater_PD0_StateFlags_0000ff38;
     uVar2 = (*(code *)PTR_FixedPointMultiplyWithSaturation_0000ff3c)
-                      (iVar3,*(undefined2 *)(PTR_O2_Heater1_StateFlags_0000ff38 + 4));
+                      (iVar3,*(undefined2 *)(PTR_HO2S1_Heater_PD0_StateFlags_0000ff38 + 4));
     *(short *)(puVar1 + 8) = (short)uVar2;
   }
   else if (uVar2 == 1) {
     *(int *)(PTR_O2Heater1_PD0_ControlOutput_0000ff34 + 4) = iVar3;
-    puVar1 = PTR_O2_Heater2_StateFlags_0000ff40;
+    puVar1 = PTR_HO2S2_Heater_PD4_StateFlags_0000ff40;
     uVar2 = (*(code *)PTR_FixedPointMultiplyWithSaturation_0000ff3c)
-                      (iVar3,*(undefined2 *)(PTR_O2_Heater2_StateFlags_0000ff40 + 4));
+                      (iVar3,*(undefined2 *)(PTR_HO2S2_Heater_PD4_StateFlags_0000ff40 + 4));
     *(short *)(puVar1 + 8) = (short)uVar2;
   }
   return uVar2;
@@ -33369,8 +33420,8 @@ int O2_HeaterState_ResetRegions(void)
   undefined2 *puVar1;
   undefined2 *puVar2;
   
-  puVar2 = (undefined2 *)(PTR_O2_Heater1_StateFlags_0000ff64 + 0x30);
-  puVar1 = (undefined2 *)PTR_O2_Heater1_StateFlags_0000ff64;
+  puVar2 = (undefined2 *)(PTR_HO2S1_Heater_PD0_StateFlags_0000ff64 + 0x30);
+  puVar1 = (undefined2 *)PTR_HO2S1_Heater_PD0_StateFlags_0000ff64;
   do {
     *puVar1 = 0;
     *(undefined1 *)(puVar1 + 5) = 1;
@@ -33388,18 +33439,18 @@ void PhaseFrontend_ResponseCache_Init(void)
   undefined *puVar2;
   undefined1 uVar3;
   
-  puVar2 = PTR_DAT_00010024;
+  puVar2 = PTR_PhaseFrontend_Mode0_ResponseStableWord_00010024;
   uVar1 = *(undefined2 *)(int)DAT_0001001c;
-  *(undefined2 *)PTR_DAT_00010020 = uVar1;
+  *(undefined2 *)PTR_PhaseFrontend_Mode0_ResponseRawWord_00010020 = uVar1;
   *(undefined2 *)puVar2 = uVar1;
   uVar3 = (*(code *)PTR_PhaseFrontend_ModeTransfer_SendAndReadResponse_00010028)(1);
-  *PTR_DAT_0001002c = uVar3;
-  *PTR_DAT_00010030 = uVar3;
+  *PTR_PhaseFrontend_Mode1_ResponseRawByte_0001002c = uVar3;
+  *PTR_PhaseFrontend_Mode1_ResponseStableByte_00010030 = uVar3;
   uVar3 = (*(code *)PTR_PhaseFrontend_ModeTransfer_SendAndReadResponse_00010028)(2);
-  *PTR_DAT_00010034 = uVar3;
-  *PTR_DAT_00010038 = uVar3;
-  *(undefined4 *)PTR_DAT_0001003c = 0;
-  *(undefined4 *)PTR_DAT_00010040 = 0;
+  *PTR_PhaseFrontend_Mode2_ResponseRawByte_00010034 = uVar3;
+  *PTR_PhaseFrontend_Mode2_ResponseStableByte_00010038 = uVar3;
+  *(undefined4 *)PTR_PhaseFrontend_ExtendedResponseRawDword_0001003c = 0;
+  *(undefined4 *)PTR_PhaseFrontend_ExtendedResponseStableDword_00010040 = 0;
   return;
 }
 
@@ -33414,24 +33465,32 @@ void PhaseFrontend_ResponseCache_Update(void)
   byte bVar4;
   uint uVar5;
   
-  puVar2 = PTR_DAT_00010020;
+  puVar2 = PTR_PhaseFrontend_Mode0_ResponseRawWord_00010020;
   uVar1 = *(ushort *)(int)DAT_0001001c;
-  *(ushort *)PTR_DAT_00010024 =
-       (*(ushort *)PTR_DAT_00010020 | uVar1) & *(ushort *)PTR_DAT_00010024 |
-       *(ushort *)PTR_DAT_00010020 & uVar1;
+  *(ushort *)PTR_PhaseFrontend_Mode0_ResponseStableWord_00010024 =
+       (*(ushort *)PTR_PhaseFrontend_Mode0_ResponseRawWord_00010020 | uVar1) &
+       *(ushort *)PTR_PhaseFrontend_Mode0_ResponseStableWord_00010024 |
+       *(ushort *)PTR_PhaseFrontend_Mode0_ResponseRawWord_00010020 & uVar1;
   *(ushort *)puVar2 = uVar1;
   bVar4 = (*(code *)PTR_PhaseFrontend_ModeTransfer_SendAndReadResponse_00010028)(1);
-  puVar3 = PTR_DAT_0001002c;
+  puVar3 = PTR_PhaseFrontend_Mode1_ResponseRawByte_0001002c;
   puVar2 = PTR_PhaseFrontend_ModeTransfer_SendAndReadResponse_00010028;
-  *PTR_DAT_00010030 = (*PTR_DAT_0001002c | bVar4) & *PTR_DAT_00010030 | *PTR_DAT_0001002c & bVar4;
+  *PTR_PhaseFrontend_Mode1_ResponseStableByte_00010030 =
+       (*PTR_PhaseFrontend_Mode1_ResponseRawByte_0001002c | bVar4) &
+       *PTR_PhaseFrontend_Mode1_ResponseStableByte_00010030 |
+       *PTR_PhaseFrontend_Mode1_ResponseRawByte_0001002c & bVar4;
   *puVar3 = bVar4;
   bVar4 = (*(code *)puVar2)(2);
-  puVar2 = PTR_DAT_00010034;
-  *PTR_DAT_00010038 = (*PTR_DAT_00010034 | bVar4) & *PTR_DAT_00010038 | *PTR_DAT_00010034 & bVar4;
+  puVar2 = PTR_PhaseFrontend_Mode2_ResponseRawByte_00010034;
+  *PTR_PhaseFrontend_Mode2_ResponseStableByte_00010038 =
+       (*PTR_PhaseFrontend_Mode2_ResponseRawByte_00010034 | bVar4) &
+       *PTR_PhaseFrontend_Mode2_ResponseStableByte_00010038 |
+       *PTR_PhaseFrontend_Mode2_ResponseRawByte_00010034 & bVar4;
   *puVar2 = bVar4;
-  puVar2 = PTR_DAT_0001003c;
-  uVar5 = *(uint *)PTR_DAT_0001003c;
-  *(uint *)PTR_DAT_00010040 = uVar5 & *(uint *)PTR_DAT_00010040 | uVar5;
+  puVar2 = PTR_PhaseFrontend_ExtendedResponseRawDword_0001003c;
+  uVar5 = *(uint *)PTR_PhaseFrontend_ExtendedResponseRawDword_0001003c;
+  *(uint *)PTR_PhaseFrontend_ExtendedResponseStableDword_00010040 =
+       uVar5 & *(uint *)PTR_PhaseFrontend_ExtendedResponseStableDword_00010040 | uVar5;
   *(uint *)puVar2 = uVar5;
   return;
 }
@@ -33638,7 +33697,10 @@ void InjectorOutputWindow_RuntimeCompare_Update(void)
 
 
 
-ushort * InjectorOutputWindow_AN15Sample_UpdateFilteredScaledValue_NoCopy(void)
+// Updates the filtered/scaled AN15 status source without copying the raw sample first; derives a
+// three-state low/ok/high range result used by the P0122/P0123 diagnostic path.
+
+ushort * AN15_StatusSource_UpdateFilteredScaledValue_NoCopy(void)
 
 {
   ushort uVar1;
@@ -33684,10 +33746,10 @@ ushort * InjectorOutputWindow_AN15Sample_UpdateFilteredScaledValue_NoCopy(void)
 
 
 
-// Updates the filtered AN15 sample used by the injector output-window support block and derives a
-// scaled floating-point value plus range state.
+// Filters the AN15 status source, applies raw-sample reject logic, computes the scaled value, and
+// derives the low/ok/high range state later consumed by P0122/P0123 diagnostics.
 
-ushort * InjectorOutputWindow_AN15Sample_UpdateFilteredScaledValue(void)
+ushort * AN15_StatusSource_UpdateFilteredScaledValue(void)
 
 {
   ushort uVar1;
@@ -34241,10 +34303,10 @@ LAB_00010ae4:
 
 
 
-// Initializes the injector timer shadow-register block, pulses the latch control bit, and waits for
-// the hardware-ready flag to acknowledge the update.
+// Initializes the ControlRampTimerShadow compare-register block, pulses the hardware latch, and
+// waits for the timer-shadow ready status.
 
-void InjectorTimerShadowRegisters_InitializeAndLatch(void)
+void ControlRampTimerShadow_InitializeAndLatch(void)
 
 {
   undefined *puVar1;
@@ -34278,7 +34340,7 @@ void InjectorTimerShadowRegisters_InitializeAndLatch(void)
 // Writes a scaled injector timer value into the shadow-register block and commits the updated
 // register set under privileged access.
 
-void InjectorTimerShadowRegisters_UpdateScaledValue(void)
+void ControlRampTimerShadow_UpdateScaledValue(void)
 
 {
   short sVar1;
@@ -34310,7 +34372,7 @@ void InjectorTimerShadowRegisters_UpdateScaledValue(void)
 
 // Writes the base injector timer pair into the shadow-register block under privileged access.
 
-void InjectorTimerShadowRegisters_WriteBasePair(void)
+void Injector_TO8_Timer8CompareRegisters_WriteBasePair(void)
 
 {
   undefined2 uVar1;
@@ -34326,10 +34388,10 @@ void InjectorTimerShadowRegisters_WriteBasePair(void)
 
 
 
-// Stores an immediate control-ramp input value, recomputes the clamped output when no staged
-// request is active, and updates the scaled timer shadow register.
+// Stores an immediate ControlRampTimerShadow input, recomputes the clamped output when no staged
+// request is pending, and updates the scaled compare shadow register.
 
-void FuelMixture_ControlRamp_UpdateImmediate(undefined4 param_1)
+void ControlRampTimerShadow_UpdateImmediate(undefined4 param_1)
 
 {
   undefined *puVar1;
@@ -34341,7 +34403,7 @@ void FuelMixture_ControlRamp_UpdateImmediate(undefined4 param_1)
   *(undefined4 *)PTR_FuelMixture_ControlRamp_ImmediateInput = param_1;
   if (*puVar1 == '\0') {
     uVar2 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00010c80)(0x10);
-    iVar3 = FuelMixture_ControlRamp_ComputeClampedValue();
+    iVar3 = ControlRampTimerShadow_ComputeClampedValue();
     puVar1 = PTR_InjectorTimerShadow_BasePairShadow;
     *(int *)PTR_FuelMixture_ControlRamp_OutputImmediate = iVar3;
     uVar4 = (*(code *)PTR_FixedPointMultiplyWithSaturation_00010c6c)(iVar3,*(undefined2 *)puVar1);
@@ -34354,26 +34416,26 @@ void FuelMixture_ControlRamp_UpdateImmediate(undefined4 param_1)
 
 
 
-// Arms the deferred control-ramp service and stores the selector that chooses the staged ramp
-// endpoint order.
+// Arms the deferred ControlRampTimerShadow service and stores the selector that chooses which
+// staged ramp sample ordering to apply.
 
-void FuelMixture_ControlRamp_Request(undefined1 param_1)
+void ControlRampTimerShadow_RequestStagedUpdate(undefined1 param_1)
 
 {
   undefined *puVar1;
   
-  puVar1 = PTR_FuelMixture_ControlRamp_RequestSelector;
-  *PTR_FuelMixture_ControlRamp_RequestPendingFlag = 1;
+  puVar1 = PTR_Injector_TO8_PulseScaleControl_RequestSelector;
+  *PTR_Injector_TO8_PulseScaleControl_RequestPendingFlag = 1;
   *puVar1 = param_1;
   return;
 }
 
 
 
-// Consumes a pending control-ramp request, recomputes the clamped staged output, and updates the
-// scaled timer shadow register.
+// Consumes a pending ControlRampTimerShadow request, recomputes the staged clamped output, and
+// updates the scaled compare shadow register.
 
-void FuelMixture_ControlRamp_ApplyRequestedSample(void)
+void ControlRampTimerShadow_ApplyRequestedSample(void)
 
 {
   undefined *puVar1;
@@ -34382,11 +34444,11 @@ void FuelMixture_ControlRamp_ApplyRequestedSample(void)
   undefined2 uVar4;
   
   puVar1 = PTR_SharedSchedulerGate_ReadMaskedSrLevel_00010d94;
-  if (*PTR_FuelMixture_ControlRamp_RequestPendingFlag != '\0') {
-    *PTR_FuelMixture_ControlRamp_RequestPendingFlag = 0;
+  if (*PTR_Injector_TO8_PulseScaleControl_RequestPendingFlag != '\0') {
+    *PTR_Injector_TO8_PulseScaleControl_RequestPendingFlag = 0;
     uVar2 = (*(code *)puVar1)(0x10);
-    iVar3 = FuelMixture_ControlRamp_ComputeClampedValue();
-    *(int *)PTR_FuelMixture_ControlRamp_OutputStaged = iVar3;
+    iVar3 = ControlRampTimerShadow_ComputeClampedValue();
+    *(int *)PTR_Injector_TO8_PulseScaleControl_OutputImmediate = iVar3;
     uVar4 = (*(code *)PTR_FixedPointMultiplyWithSaturation_00010da0)
                       (iVar3,*(undefined2 *)PTR_FuelMixture_ControlRamp_StagedScaleInput);
     *(undefined2 *)(int)FuelMixture_ControlRamp_StagedScaledCompareReg = uVar4;
@@ -34401,20 +34463,20 @@ void FuelMixture_ControlRamp_ApplyRequestedSample(void)
 // Services the staged control-ramp state while a request is active, or clears both ramp counters
 // when no request is pending.
 
-void FuelMixture_ControlRamp_ServiceOrClear(void)
+void ControlRampTimerShadow_ServiceOrClear(void)
 
 {
   undefined *puVar1;
   undefined4 uVar2;
   
   uVar2 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00010d94)(0x10);
-  puVar1 = PTR_FuelMixture_ControlRamp_FallCounter;
-  if (*PTR_FuelMixture_ControlRamp_RequestPendingFlag == '\0') {
-    *(undefined2 *)PTR_FuelMixture_ControlRamp_RiseCounter = 0;
+  puVar1 = PTR_Injector_TO8_PulseScaleControl_FallCounter;
+  if (*PTR_Injector_TO8_PulseScaleControl_RequestPendingFlag == '\0') {
+    *(undefined2 *)PTR_Injector_TO8_PulseScaleControl_RiseCounter = 0;
     *(undefined2 *)puVar1 = 0;
   }
   else {
-    FuelMixture_ControlRamp_AdvanceStagedState();
+    ControlRampTimerShadow_AdvanceStagedState();
   }
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00010da4)(uVar2);
   return;
@@ -34425,7 +34487,7 @@ void FuelMixture_ControlRamp_ServiceOrClear(void)
 // Advances the two 8-tick staged-ramp counters, selects the active endpoint, and refreshes the
 // scaled timer shadow register.
 
-void FuelMixture_ControlRamp_AdvanceStagedState(void)
+void ControlRampTimerShadow_AdvanceStagedState(void)
 
 {
   undefined *puVar1;
@@ -34434,32 +34496,32 @@ void FuelMixture_ControlRamp_AdvanceStagedState(void)
   undefined2 uVar4;
   int iVar5;
   
-  puVar2 = PTR_FuelMixture_ControlRamp_FallCounter;
-  puVar1 = PTR_FuelMixture_ControlRamp_RiseCounter;
-  iVar5 = *(int *)PTR_FuelMixture_ControlRamp_EndpointA;
-  if (*(ushort *)PTR_FuelMixture_ControlRamp_RiseCounter < 8) {
-    iVar3 = *(int *)PTR_FuelMixture_ControlRamp_EndpointB;
-    if (*PTR_FuelMixture_ControlRamp_RequestSelector == '\0') {
+  puVar2 = PTR_Injector_TO8_PulseScaleControl_FallCounter;
+  puVar1 = PTR_Injector_TO8_PulseScaleControl_RiseCounter;
+  iVar5 = *(int *)Injector_TO8_PulseScaleControl_EndpointA_OutputMaxPtr;
+  if (*(ushort *)PTR_Injector_TO8_PulseScaleControl_RiseCounter < 8) {
+    iVar3 = *(int *)Injector_TO8_PulseScaleControl_EndpointB_OutputMinPtr;
+    if (*PTR_Injector_TO8_PulseScaleControl_RequestSelector == '\0') {
       iVar3 = iVar5;
     }
     iVar5 = iVar3;
-    *(short *)PTR_FuelMixture_ControlRamp_RiseCounter =
-         *(short *)PTR_FuelMixture_ControlRamp_RiseCounter + 1;
+    *(short *)PTR_Injector_TO8_PulseScaleControl_RiseCounter =
+         *(short *)PTR_Injector_TO8_PulseScaleControl_RiseCounter + 1;
   }
-  else if (*(ushort *)PTR_FuelMixture_ControlRamp_FallCounter < 8) {
-    if (*PTR_FuelMixture_ControlRamp_RequestSelector == '\0') {
-      iVar5 = *(int *)PTR_FuelMixture_ControlRamp_EndpointB;
+  else if (*(ushort *)PTR_Injector_TO8_PulseScaleControl_FallCounter < 8) {
+    if (*PTR_Injector_TO8_PulseScaleControl_RequestSelector == '\0') {
+      iVar5 = *(int *)Injector_TO8_PulseScaleControl_EndpointB_OutputMinPtr;
     }
-    *(short *)PTR_FuelMixture_ControlRamp_FallCounter =
-         *(short *)PTR_FuelMixture_ControlRamp_FallCounter + 1;
+    *(short *)PTR_Injector_TO8_PulseScaleControl_FallCounter =
+         *(short *)PTR_Injector_TO8_PulseScaleControl_FallCounter + 1;
   }
   else {
-    *PTR_FuelMixture_ControlRamp_RequestPendingFlag = 0;
+    *PTR_Injector_TO8_PulseScaleControl_RequestPendingFlag = 0;
     *(undefined2 *)puVar1 = 0;
     *(undefined2 *)puVar2 = 0;
-    iVar5 = FuelMixture_ControlRamp_ComputeClampedValue();
+    iVar5 = ControlRampTimerShadow_ComputeClampedValue();
   }
-  *(int *)PTR_FuelMixture_ControlRamp_OutputStaged = iVar5;
+  *(int *)PTR_Injector_TO8_PulseScaleControl_OutputImmediate = iVar5;
   uVar4 = (*(code *)PTR_FixedPointMultiplyWithSaturation_00010da0)
                     (iVar5,*(undefined2 *)PTR_FuelMixture_ControlRamp_StagedScaleInput);
   *(undefined2 *)(int)FuelMixture_ControlRamp_StagedScaledCompareReg = uVar4;
@@ -34471,7 +34533,7 @@ void FuelMixture_ControlRamp_AdvanceStagedState(void)
 // Computes the clamped control-ramp output from the current position, transform contexts, endpoint
 // values, and configured output min/max.
 
-int FuelMixture_ControlRamp_ComputeClampedValue(void)
+int ControlRampTimerShadow_ComputeClampedValue(void)
 
 {
   undefined *puVar1;
@@ -34483,32 +34545,33 @@ int FuelMixture_ControlRamp_ComputeClampedValue(void)
   int iVar7;
   int iVar8;
   
-  puVar2 = PTR_FuelMixture_ControlRamp_PositionThreshold;
-  puVar1 = PTR_FuelMixture_ControlRamp_OutputBase;
-  iVar8 = *(int *)PTR_FuelMixture_ControlRamp_PositionInput;
-  if (iVar8 < *(int *)PTR_FuelMixture_ControlRamp_PositionThreshold) {
+  puVar2 = Injector_TO8_PulseScaleControl_PositionThresholdPtr;
+  puVar1 = Injector_TO8_PulseScaleControl_OutputBasePtr;
+  iVar8 = *(int *)PTR_Injector_TO8_PulseScaleControl_ImmediateInput;
+  if (iVar8 < *(int *)Injector_TO8_PulseScaleControl_PositionThresholdPtr) {
     iVar3 = (*(code *)PTR_Read_Interpolate1D_Int32_00010e60)
-                      (PTR_FuelMixture_ControlRamp_LowerTransformContext);
+                      (Injector_TO8_PulseScaleControl_LowerTransformContextPtr);
     iVar7 = *(int *)puVar2;
     iVar6 = *(int *)puVar1 - iVar3;
   }
   else {
     iVar6 = (*(code *)PTR_Read_Interpolate1D_Int32_00010e60)
-                      (PTR_FuelMixture_ControlRamp_UpperTransformContext,
-                       (int)(*(float *)PTR_SharedWindowScaleValue_ForControlRamp *
-                            FuelMixture_ControlRamp_PositionScale));
+                      (Injector_TO8_PulseScaleControl_UpperTransformContextPtr,
+                       (int)(*(float *)PTR_SharedWindowScaleValue_ForInjectorTO8PulseScale *
+                            Injector_TO8_PulseScaleControl_PositionScale));
     iVar3 = *(int *)puVar1;
     iVar6 = iVar6 - *(int *)puVar1;
     iVar5 = *(int *)puVar2;
-    iVar7 = (int)FuelMixture_ControlRamp_PositionFullScale - iVar5;
+    iVar7 = (int)Injector_TO8_PulseScaleControl_PositionFullScale - iVar5;
     iVar8 = iVar8 - iVar5;
   }
   uVar4 = (*(code *)PTR_FixedPointMultiplyWithSaturation_00010e6c)(iVar6,iVar8);
   iVar6 = (*(code *)PTR_SignedDivide32_LongDivision_00010e70)(uVar4,iVar7);
-  iVar8 = *(int *)PTR_FuelMixture_ControlRamp_OutputMin;
+  iVar8 = *(int *)Injector_TO8_PulseScaleControl_EndpointB_MinClampPtr;
   iVar6 = iVar6 + iVar3;
-  if ((iVar8 <= iVar6) && (iVar8 = iVar6, *(int *)PTR_FuelMixture_ControlRamp_OutputMax < iVar6)) {
-    iVar8 = *(int *)PTR_FuelMixture_ControlRamp_OutputMax;
+  if ((iVar8 <= iVar6) &&
+     (iVar8 = iVar6, *(int *)Injector_TO8_PulseScaleControl_EndpointA_MaxClampPtr < iVar6)) {
+    iVar8 = *(int *)Injector_TO8_PulseScaleControl_EndpointA_MaxClampPtr;
   }
   return iVar8;
 }
@@ -34655,7 +34718,7 @@ void Injector_TO8A_TO8D_TimingLatch_CaptureAndClearPendingBit(void)
 // Samples the AN23 analog input used by the fuel-mixture block, stores the latest raw value, and
 // classifies it into low/normal/high range states.
 
-void FuelMixture_AnalogInput_ClassifyRange(void)
+void KnockSensor_AN21_ClassifyRawRange(void)
 
 {
   ushort uVar1;
@@ -37671,7 +37734,7 @@ void NoOp_Return_143e0(void)
 
 // Updates the SubsystemA command-blend window flags from the current staged mode/state inputs.
 
-void EGR_CommandBlend_WindowFlags_Update(void)
+void IgnitionPhaseCommandBlend_WindowFlags_Update(void)
 
 {
   undefined *puVar1;
@@ -37707,11 +37770,11 @@ void EGR_CommandBlend_WindowFlags_Update(void)
   }
   if (fVar8 < *(float *)puVar2) {
     if (fVar8 < fVar4) {
-      *PTR_DAT_00014544 = 0;
+      *PTR_IgnitionPhaseCommandBlend_WindowFlag_VvtDelta_00014544 = 0;
     }
   }
   else {
-    *PTR_DAT_00014544 = 1;
+    *PTR_IgnitionPhaseCommandBlend_WindowFlag_VvtDelta_00014544 = 1;
   }
   if (fVar10 < *(float *)puVar1) {
     if (fVar10 < fVar6) {
@@ -37723,11 +37786,11 @@ void EGR_CommandBlend_WindowFlags_Update(void)
   }
   if (fVar7 < *(float *)PTR_DAT_0001453c) {
     if (fVar7 < fVar5) {
-      *PTR_DAT_0001454c = 0;
+      *PTR_IgnitionPhaseCommandBlend_WindowFlag_SecondaryInput_0001454c = 0;
     }
   }
   else {
-    *PTR_DAT_0001454c = 1;
+    *PTR_IgnitionPhaseCommandBlend_WindowFlag_SecondaryInput_0001454c = 1;
   }
   return;
 }
@@ -37779,7 +37842,7 @@ void GaugeFlagPacket_EctFuel_Update(void)
 
 
 
-void EGR_CommandBlend_InhibitRamp_Update(void)
+void IgnitionPhaseCommandBlend_InhibitRamp_Update(void)
 
 {
   char cVar1;
@@ -37854,19 +37917,19 @@ void EGR_CommandBlend_InhibitRamp_Update(void)
   else if (*puVar6 == '\x01') {
     uVar10 = (*(code *)PTR_Interpolate2D_float_WithTransform_00014868)
                        (fVar13,fVar12,PTR_Desc_SubsystemA_CommandBlend_InhibitRamp_TableB_00014864);
-    *(undefined4 *)PTR_LAB_0001486c = uVar10;
+    *(undefined4 *)PTR_IgnitionPhaseCommandBlend_InhibitRampOutput_0001486c = uVar10;
     fVar11 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00014878)
                               (*(undefined4 *)PTR_IATSensor_AN29_TempValueUsed_00014870,
                                PTR_Desc_SubsystemA_CommandBlend_InhibitRamp_Map_00014874);
-    *(float *)PTR_DAT_0001487c = fVar11;
-    *(float *)puVar7 = *(float *)PTR_LAB_0001486c + fVar11;
+    *(float *)PTR_IgnitionPhaseCommandBlend_InhibitRampIatAdder_0001487c = fVar11;
+    *(float *)puVar7 = *(float *)PTR_IgnitionPhaseCommandBlend_InhibitRampOutput_0001486c + fVar11;
   }
   return;
 }
 
 
 
-void EGR_CommandBlend_MapBlendAndOffset_Update(void)
+void IgnitionPhaseCommandBlend_MapBlendAndOffset_Update(void)
 
 {
   char cVar1;
@@ -37904,7 +37967,7 @@ void EGR_CommandBlend_MapBlendAndOffset_Update(void)
   fVar12 = *(float *)PTR_DAT_000148a8 + DAT_000148a4;
   fVar18 = *(float *)PTR_DAT_000148b0 + DAT_000148ac;
   fVar13 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00014878)(fVar21,PTR_LAB_000148b8);
-  puVar5 = PTR_DAT_000148c0;
+  puVar5 = PTR_IgnitionPhaseCommandBlend_WindowFlag_VvtDelta_000148c0;
   puVar3 = PTR_DAT_000148a0;
   *(float *)puVar4 = fVar13;
   fVar13 = fVar13 + DAT_000148bc;
@@ -37935,14 +37998,15 @@ void EGR_CommandBlend_MapBlendAndOffset_Update(void)
   }
   if (fVar17 < *(float *)PTR_DAT_000148b0) {
     if (fVar17 < fVar18) {
-      *PTR_DAT_000148cc = 0;
+      *PTR_IgnitionPhaseCommandBlend_WindowFlag_SecondaryInput_000148cc = 0;
     }
   }
   else {
-    *PTR_DAT_000148cc = 1;
+    *PTR_IgnitionPhaseCommandBlend_WindowFlag_SecondaryInput_000148cc = 1;
   }
   puVar4 = PTR_Interpolate2D_float_WithTransform_00014ac4;
-  if ((((*puVar3 == '\0') && (*PTR_DAT_00014ac8 == '\x01')) &&
+  if ((((*puVar3 == '\0') &&
+       (*PTR_IgnitionPhaseCommandBlend_WindowFlag_SecondaryInput_00014ac8 == '\x01')) &&
       (*PTR_SubsystemA_EnableSharedInhibitFlag_00014acc == '\0')) &&
      (*(ushort *)PTR_DAT_00014ad4 <=
       *(ushort *)PTR_SubsystemA_PrimaryEnable_QualifiedCounter_00014ad0)) {
@@ -38164,8 +38228,9 @@ LAB_00014d08:
     *pfVar10 = fVar13;
     *(float *)puVar3 = (*(float *)puVar9 + fVar13) - fVar12;
   }
-  else if (((*PTR_VVT_ChannelControl_EnabledFlag_00014dc8 == '\0') || (*PTR_DAT_00014dcc == '\x01'))
-          || (*PTR_DAT_00014dd0 == '\x01')) {
+  else if (((*PTR_VVT_ChannelControl_EnabledFlag_00014dc8 == '\0') ||
+           (*PTR_IgnitionPhaseCommandBlend_WindowFlag_VvtDelta_00014dcc == '\x01')) ||
+          (*PTR_DAT_00014dd0 == '\x01')) {
     if (*PTR_DAT_00014dc4 == '\0') {
       fVar13 = (float)(*(code *)puVar4)(uVar20,fVar21,
                                         PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_Table15_00014dd4
@@ -38194,7 +38259,7 @@ LAB_00014d08:
       fVar13 = (float)(*(code *)puVar4)(uVar20,fVar21,
                                         PTR_Desc_SubsystemA_CommandBlend_MapBlendOffset_Table17_00014e34
                                        );
-      *(float *)PTR_DAT_00014e38 = fVar13;
+      *(float *)PTR_IgnitionPhaseCommandBlend_BaseMapOutput_00014e38 = fVar13;
       fVar15 = *(float *)PTR_DAT_00014e3c;
     }
     *(float *)puVar3 = (fVar15 + fVar13) - fVar12;
@@ -38208,7 +38273,7 @@ LAB_00014e14:
 
 
 
-void EGR_ControlRamp_DecayAndClamp_Update(void)
+void IgnitionPhaseControlRamp_DecayAndClamp_Update(void)
 
 {
   char cVar1;
@@ -38232,11 +38297,11 @@ void EGR_ControlRamp_DecayAndClamp_Update(void)
   
   fVar13 = *(float *)PTR_EngineSpeed_RPM_Filtered_00014fc4;
   cVar1 = *PTR_DAT_00014fc8;
-  fVar16 = fVar13 - *(float *)PTR_DAT_00014fc0;
+  fVar16 = fVar13 - *(float *)PTR_IdleTargetRpm_SelectedFinal_00014fc0;
   cVar2 = *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00014fcc;
   fStack_2c = *(float *)PTR_DAT_00014fd0;
-  *(float *)PTR_DAT_00014fd4 = *(float *)PTR_DAT_00014fc0 - fVar13;
-  fVar17 = *(float *)PTR_DAT_00014fd8;
+  *(float *)PTR_DAT_00014fd4 = *(float *)PTR_IdleTargetRpm_SelectedFinal_00014fc0 - fVar13;
+  fVar17 = *(float *)PTR_IgnitionPhaseControlRamp_Output_00014fd8;
   if (((*PTR_SubsystemA_EnableSharedInhibitFlag_00014fdc == '\x01') ||
       (*PTR_SubsystemA_EnableSharedInhibitFlag_00014fe0 == '\x01')) || (*PTR_DAT_00014fe4 != '\0'))
   {
@@ -38259,7 +38324,7 @@ void EGR_ControlRamp_DecayAndClamp_Update(void)
                         (*(undefined4 *)PTR_SubsystemA_PrimaryEnable_PrerequisiteB_Input_00015008,
                          PTR_Desc_SubsystemA_ControlRamp_DecayClamp_TableA_0001500c);
       *(ushort *)PTR_DAT_00015014 = uVar9;
-      puVar4 = PTR_DAT_00015038;
+      puVar4 = PTR_IgnitionPhaseControlRamp_EnablePathFlag_00015038;
       uVar3 = *(ushort *)PTR_SubsystemA_PrimaryEnable_QualifiedCounter_00015018;
       if (uVar3 < uVar9) {
         if (((*PTR_SubsystemA_CommandBlend_SeedRequestFlag_00015020 != '\0') ||
@@ -38272,12 +38337,13 @@ void EGR_ControlRamp_DecayAndClamp_Update(void)
                   *(float *)PTR_DAT_00015048 ||
                  (*(float *)PTR_DAT_0001504c <=
                   *(float *)PTR_SubsystemA_CommandBlend_TableInput_00015034)))))) ||
-              (*(float *)PTR_DAT_00015054 <= *(float *)PTR_DAT_00015050)) ||
+              (*(float *)PTR_IgnitionPhaseCommandBlend_ClampedOutput_00015054 <=
+               *(float *)PTR_DAT_00015050)) ||
              (*PTR_SubsystemA_CommandBlend_SeedRequestFlag_00015020 != '\x01')) {
-            *PTR_DAT_00015038 = 0;
+            *PTR_IgnitionPhaseControlRamp_EnablePathFlag_00015038 = 0;
           }
           else {
-            *PTR_DAT_00015038 = 1;
+            *PTR_IgnitionPhaseControlRamp_EnablePathFlag_00015038 = 1;
           }
           puVar5 = PTR_Interpolate1D_WithTransform_00015058;
           fVar13 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00015058)
@@ -38308,7 +38374,7 @@ void EGR_ControlRamp_DecayAndClamp_Update(void)
           *(float *)puVar7 = fVar15;
           *(float *)PTR_DAT_0001528c = fVar11;
           fVar13 = (float)(*(code *)puVar5)(*(undefined4 *)PTR_DAT_00015290,puVar8);
-          *(float *)PTR_DAT_00015298 = fVar13;
+          *(float *)PTR_IgnitionPhaseControlRamp_TableE_Output_00015298 = fVar13;
           if (*puVar4 == '\x01') {
             if (fVar16 < *(float *)PTR_DAT_0001529c) {
               if (fVar16 < *(float *)PTR_DAT_000152a4) {
@@ -38337,7 +38403,7 @@ void EGR_ControlRamp_DecayAndClamp_Update(void)
 LAB_00015100:
   uVar12 = (*(code *)PTR_ClampFloat_000152b4)(fVar17,0,fStack_2c);
   puVar4 = PTR_DAT_000152bc;
-  *(undefined4 *)PTR_DAT_000152b8 = uVar12;
+  *(undefined4 *)PTR_IgnitionPhaseControlRamp_Output_000152b8 = uVar12;
   *(float *)puVar4 = fStack_2c;
   return;
 }
@@ -38379,7 +38445,7 @@ void nothing_114(void)
 
 
 
-void EGR_CommandBlend_Integrator_Update(void)
+void IgnitionPhaseCommandBlend_Integrator_Update(void)
 
 {
   ushort uVar1;
@@ -38401,36 +38467,39 @@ void EGR_CommandBlend_Integrator_Update(void)
       ((*(float *)PTR_DAT_000152ec <= fVar6 ||
        (*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_000152f0 != '\0')))) ||
      ((*(float *)PTR_FuelDisplay_InputWindowAvg_000152f8 < *(float *)PTR_DAT_000152f4 ||
-      (*(float *)PTR_DAT_00015300 <= *(float *)PTR_DAT_000152fc)))) {
+      (*(float *)PTR_IgnitionPhaseCommandBlend_ClampedOutput_00015300 <= *(float *)PTR_DAT_000152fc)
+      ))) {
     *PTR_DAT_000152e0 = 0;
   }
   else {
     *PTR_DAT_000152e0 = 1;
   }
-  puVar3 = PTR_DAT_00015304;
+  puVar3 = PTR_IgnitionPhaseCommandBlend_IntegratorOutput_00015304;
   uVar7 = 0;
   if (((*PTR_SubsystemA_EnableSharedInhibitFlag_00015308 == '\x01') ||
       (*PTR_SubsystemA_EnableSharedInhibitFlag_0001530c == '\x01')) || (*PTR_DAT_00015310 != '\0'))
   {
-    *(undefined4 *)PTR_DAT_00015304 = 0;
+    *(undefined4 *)PTR_IgnitionPhaseCommandBlend_IntegratorOutput_00015304 = 0;
   }
   else {
     if (*puVar2 == '\0') {
-      fVar6 = *(float *)PTR_DAT_00015304 - *(float *)PTR_DAT_00015314;
+      fVar6 = *(float *)PTR_IgnitionPhaseCommandBlend_IntegratorOutput_00015304 -
+              *(float *)PTR_DAT_00015314;
     }
     else {
       uVar5 = (*(code *)PTR_Interpolate2D_float_WithTransform_00015324)
                         (*(undefined4 *)PTR_ECTSensor_AN28_CelsiusValidated_0001531c,
                          *(undefined4 *)PTR_ECT_TableOutput_MafBlendSnapshotA_00015318,
                          PTR_Desc_SubsystemA_CommandBlend_Integrator_TableC_00015320);
-      *(undefined4 *)PTR_DAT_00015328 = uVar5;
+      *(undefined4 *)PTR_IgnitionPhaseCommandBlend_IntegratorTableC_Output_00015328 = uVar5;
       fVar6 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00015334)
                                (*(undefined4 *)
                                  PTR_SubsystemA_CommandBlend_SeededIatLoad_SecondaryInput_0001532c,
                                 PTR_Desc_SubsystemA_CommandBlend_Integrator_TableB_00015330);
-      *(float *)PTR_DAT_00015338 = fVar6;
+      *(float *)PTR_IgnitionPhaseCommandBlend_IntegratorTableB_Output_00015338 = fVar6;
       puVar2 = PTR_DAT_00015340;
-      *(float *)PTR_DAT_0001533c = *(float *)PTR_DAT_00015328 * fVar6;
+      *(float *)PTR_DAT_0001533c =
+           *(float *)PTR_IgnitionPhaseCommandBlend_IntegratorTableC_Output_00015328 * fVar6;
       fVar6 = *(float *)puVar3 + *(float *)puVar2;
     }
     *(float *)puVar3 = fVar6;
@@ -38459,10 +38528,12 @@ void nothing_112(void)
 
 
 
-void EGR_CommandBlend_TotalOutput_Update(void)
+void IgnitionPhaseCommandBlend_TotalOutput_Update(void)
 
 {
-  *(float *)PTR_DAT_00015344 = *(float *)PTR_DAT_000152b8 + *(float *)PTR_DAT_00015304;
+  *(float *)PTR_IgnitionPhaseCommandBlend_TotalOutput_00015344 =
+       *(float *)PTR_IgnitionPhaseControlRamp_Output_000152b8 +
+       *(float *)PTR_IgnitionPhaseCommandBlend_IntegratorOutput_00015304;
   return;
 }
 
@@ -38484,7 +38555,7 @@ void nothing_110(void)
 
 
 
-void EGR_ControlRamp_PhaseThresholdFlag_Update(void)
+void IgnitionPhaseControlRamp_PhaseThresholdFlag_Update(void)
 
 {
   undefined *puVar1;
@@ -38549,7 +38620,7 @@ void nothing_105(void)
 
 
 
-void EGR_ControlRamp_EnableWindowAndCounters_Update(void)
+void IgnitionPhaseControlRamp_EnableWindowAndCounters_Update(void)
 
 {
   char cVar1;
@@ -38590,7 +38661,8 @@ void EGR_ControlRamp_EnableWindowAndCounters_Update(void)
   else {
     cVar5 = *PTR_DAT_00015524;
   }
-  if ((*PTR_DAT_0001552c == '\x01') && (*PTR_DAT_00015530 == '\0')) {
+  if ((*PTR_DAT_0001552c == '\x01') &&
+     (*PTR_IgnitionPhaseControlRamp_EnableWindowFlag_00015530 == '\0')) {
     *PTR_DAT_00015528 = 0;
     *PTR_DAT_00015534 = 0;
   }
@@ -38599,7 +38671,7 @@ void EGR_ControlRamp_EnableWindowAndCounters_Update(void)
               (fVar11 < *(float *)PTR_DAT_0001553c)) &&
              ((*PTR_DAT_00015500 == '\0' && (*(float *)PTR_DAT_000154fc <= fVar10)))))) &&
            (*(float *)PTR_DAT_00015540 <= *(float *)PTR_ECTSensor_AN28_CelsiusValidated_00015544))
-          && (*PTR_DAT_00015530 == '\0')) {
+          && (*PTR_IgnitionPhaseControlRamp_EnableWindowFlag_00015530 == '\0')) {
     if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_0001551c == '\0') {
       uVar4 = *PTR_DAT_00015550;
     }
@@ -38642,8 +38714,8 @@ void EGR_ControlRamp_EnableWindowAndCounters_Update(void)
     uVar4 = (*(code *)PTR_AddBytesWithLimit_0001570c)((int)(char)*PTR_DAT_00015570,1);
     *puVar2 = uVar4;
   }
-  puVar2 = PTR_DAT_00015710;
-  *PTR_DAT_00015714 = *PTR_DAT_00015710;
+  puVar2 = PTR_IgnitionPhaseControlRamp_EnableWindowFlag_00015710;
+  *PTR_DAT_00015714 = *PTR_IgnitionPhaseControlRamp_EnableWindowFlag_00015710;
   if (((*puVar3 != 0) && (*puVar2 == '\0')) &&
      ((((byte)*PTR_DAT_00015718 <= (byte)*PTR_DAT_0001571c &&
        (*(float *)PTR_DAT_00015720 <= *(float *)PTR_SubsystemA_EnablePrecondition_InputB_00015724))
@@ -38673,7 +38745,8 @@ void ECT_GAUGE_CommandEnable_TimerAndStagePrep(void)
   undefined4 uVar6;
   
   uVar6 = *(undefined4 *)PTR_EngineSpeed_RPM_Filtered_00015734;
-  if ((*PTR_DAT_00015714 == '\0') && (*PTR_DAT_00015710 == '\x01')) {
+  if ((*PTR_DAT_00015714 == '\0') &&
+     (*PTR_IgnitionPhaseControlRamp_EnableWindowFlag_00015710 == '\x01')) {
     if (*(float *)PTR_DAT_00015738 <= *(float *)PTR_ECTSensor_AN28_CelsiusValidated_0001573c) {
       puVar2 = PTR_Desc_ECT_Gauge_TimerStage_TableD_00015754;
       if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00015740 != '\0') {
@@ -38690,7 +38763,7 @@ void ECT_GAUGE_CommandEnable_TimerAndStagePrep(void)
     }
     puVar2 = PTR_DAT_0001575c;
     uVar5 = 0;
-    *(undefined4 *)PTR_DAT_00015758 = uVar3;
+    *(undefined4 *)PTR_IgnitionPhaseControlRamp_HoldAccumulator_00015758 = uVar3;
     *puVar2 = 1;
     uVar3 = DAT_00015760;
     fVar4 = (float)(*(code *)PTR_MulAdd_f32_u8_1_00015768)
@@ -38700,7 +38773,7 @@ void ECT_GAUGE_CommandEnable_TimerAndStagePrep(void)
     *PTR_DAT_00015778 = uVar1;
   }
   puVar2 = PTR_DAT_0001577c;
-  if (*PTR_DAT_00015710 == '\x01') {
+  if (*PTR_IgnitionPhaseControlRamp_EnableWindowFlag_00015710 == '\x01') {
     uVar1 = (*(code *)PTR_AddBytesWithLimit_0001570c)((int)(char)*PTR_DAT_0001577c,1);
     *puVar2 = uVar1;
   }
@@ -38712,7 +38785,7 @@ void ECT_GAUGE_CommandEnable_TimerAndStagePrep(void)
 
 
 
-void EGR_ControlRamp_HoldAccumulator_Update(void)
+void IgnitionPhaseControlRamp_HoldAccumulator_Update(void)
 
 {
   undefined *puVar1;
@@ -38720,10 +38793,11 @@ void EGR_ControlRamp_HoldAccumulator_Update(void)
   float fVar3;
   float fVar4;
   
-  puVar2 = PTR_DAT_00015758;
-  puVar1 = PTR_DAT_00015710;
-  fVar4 = *(float *)PTR_DAT_00015758;
-  if ((*PTR_DAT_0001575c == '\x01') && (*PTR_DAT_00015710 == '\x01')) {
+  puVar2 = PTR_IgnitionPhaseControlRamp_HoldAccumulator_00015758;
+  puVar1 = PTR_IgnitionPhaseControlRamp_EnableWindowFlag_00015710;
+  fVar4 = *(float *)PTR_IgnitionPhaseControlRamp_HoldAccumulator_00015758;
+  if ((*PTR_DAT_0001575c == '\x01') &&
+     (*PTR_IgnitionPhaseControlRamp_EnableWindowFlag_00015710 == '\x01')) {
     if (*PTR_DAT_00015780 == '\x01') {
       if ((byte)*PTR_DAT_00015778 < (byte)*PTR_DAT_0001577c) {
         fVar3 = *(float *)PTR_DAT_0001578c;
@@ -38748,7 +38822,7 @@ void EGR_ControlRamp_HoldAccumulator_Update(void)
 
 
 
-void EGR_CommandBlend_BalanceValue_Update(void)
+void IgnitionPhaseCommandBlend_BalanceValue_Update(void)
 
 {
   undefined *puVar1;
@@ -38757,12 +38831,18 @@ void EGR_CommandBlend_BalanceValue_Update(void)
   char cVar4;
   undefined4 uVar5;
   
+                    // BalanceTarget = BaseMapOutput + ModeTableOutput - PhaseTableOutput. If
+                    // RequestWindow_OutputFlagB is clear, BalanceValue is forced to a fixed
+                    // fallback constant. Otherwise it blends toward BalanceTarget using one of two
+                    // rates depending on whether WindowedOutputMax is near zero.
   uVar5 = DAT_0001594c;
-  cVar4 = (*(code *)PTR_ValueInDeltaRange_00015954)(*(undefined4 *)PTR_DAT_00015950,0,DAT_0001594c);
-  puVar3 = PTR_DAT_0001596c;
-  puVar2 = PTR_DAT_00015968;
-  puVar1 = PTR_DAT_00015958;
-  *(float *)PTR_DAT_00015958 =
+  cVar4 = (*(code *)PTR_ValueInDeltaRange_00015954)
+                    (*(undefined4 *)PTR_SubsystemA_CommandBlend_WindowedOutputMax_00015950,0,
+                     DAT_0001594c);
+  puVar3 = PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagB_0001596c;
+  puVar2 = PTR_IgnitionPhaseCommandBlend_BalanceValue_00015968;
+  puVar1 = PTR_IgnitionPhaseCommandBlend_BalanceTarget_00015958;
+  *(float *)PTR_IgnitionPhaseCommandBlend_BalanceTarget_00015958 =
        (*(float *)PTR_DAT_00015960 + *(float *)PTR_DAT_0001595c) - *(float *)PTR_DAT_00015964;
   if (*puVar3 == '\0') {
     *(undefined4 *)puVar2 = *(undefined4 *)PTR_DAT_00015970;
@@ -38785,34 +38865,42 @@ void EGR_CommandBlend_BalanceValue_Update(void)
 
 
 
-void EGR_CommandBlend_BalanceValue_Reset(void)
+void IgnitionPhaseCommandBlend_BalanceValue_Reset(void)
 
 {
-  *(undefined4 *)PTR_DAT_00015968 = *(undefined4 *)PTR_DAT_00015970;
+  *(undefined4 *)PTR_IgnitionPhaseCommandBlend_BalanceValue_00015968 =
+       *(undefined4 *)PTR_DAT_00015970;
   return;
 }
 
 
 
-void EGR_CommandBlend_BalanceValue_Reset_Alias(void)
+void IgnitionPhaseCommandBlend_BalanceValue_Reset_Alias(void)
 
 {
-  *(undefined4 *)PTR_DAT_00015968 = *(undefined4 *)PTR_DAT_00015970;
+  *(undefined4 *)PTR_IgnitionPhaseCommandBlend_BalanceValue_00015968 =
+       *(undefined4 *)PTR_DAT_00015970;
   return;
 }
 
 
 
-void EGR_CommandBlend_ResidualSum_Update(void)
+void IgnitionPhaseCommandBlend_ResidualSum_Update(void)
 
 {
-  *(float *)PTR_DAT_000159ac =
-       ((((((((((*(float *)PTR_DAT_00015994 + *(float *)PTR_DAT_00015990) -
-               *(float *)PTR_DAT_00015998) + *(float *)PTR_DAT_0001599c) -
-             *(float *)PTR_DAT_00015950) - *(float *)PTR_DAT_000159a0) - *(float *)PTR_DAT_000159a4)
-          - *(float *)PTR_DAT_000159a8) - *(float *)PTR_DAT_00015980) -
-        *(float *)PTR_ECTGauge_CommandBase_RampedValue_00015984) - *(float *)PTR_DAT_00015988) -
-       *(float *)PTR_DAT_0001598c;
+  *(float *)PTR_IgnitionPhaseCommandBlend_ResidualSum_000159ac =
+       ((((((((((*(float *)PTR_SubsystemA_LearnCommand_Delta_00015994 +
+                *(float *)PTR_IgnitionPhaseCommandBlend_ModeTableOutput_00015990) -
+               *(float *)PTR_IgnitionPhaseCommandBlend_TotalOutput_00015998) +
+              *(float *)PTR_IgnitionPhaseCommandBlend_EctMafPhaseProduct_0001599c) -
+             *(float *)PTR_SubsystemA_CommandBlend_WindowedOutputMax_00015950) -
+            *(float *)PTR_IgnitionPhasePrimaryEnable_DecayCommand_000159a0) -
+           *(float *)PTR_SubsystemA_TransientPulse_WindowedOutput_000159a4) -
+          *(float *)PTR_SubsystemA_ModeByte3To10_SelectedOutput_000159a8) -
+         *(float *)PTR_SubsystemA_PrereqA_WindowRampOutput_00015980) -
+        *(float *)PTR_ECTGauge_CommandBase_RampedValue_00015984) -
+       *(float *)PTR_SubsystemA_DTC34_EctLoadThresholdOutput_00015988) -
+       *(float *)PTR_SubsystemA_Diag_LoadBasedThresholdFilter_0001598c;
   return;
 }
 
@@ -38834,13 +38922,15 @@ void nothing_103(void)
 
 
 
-void EGR_CommandBlend_LimitsAndPhaseTable_Update(void)
+void IgnitionPhaseCommandBlend_LimitsByRPM_Update(void)
 
 {
   char cVar1;
   undefined4 uVar2;
   
-  cVar1 = (*(code *)PTR_ValueInDeltaRange_00015954)(*(undefined4 *)PTR_DAT_00015950,0,DAT_0001594c);
+  cVar1 = (*(code *)PTR_ValueInDeltaRange_00015954)
+                    (*(undefined4 *)PTR_SubsystemA_CommandBlend_WindowedOutputMax_00015950,0,
+                     DAT_0001594c);
   if (*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_000159b4 == '\x01') {
     *(undefined4 *)PTR_DAT_000159b0 = *(undefined4 *)PTR_DAT_000159b8;
   }
@@ -38878,7 +38968,7 @@ void nothing_101(void)
 
 
 
-void EGR_CommandBlend_OutputClamp_Update(void)
+void IgnitionPhaseCommandBlend_OutputClamp_Update(void)
 
 {
   undefined *puVar1;
@@ -38889,25 +38979,27 @@ void EGR_CommandBlend_OutputClamp_Update(void)
   cVar3 = (*(code *)PTR_ValueInDeltaRange_00015954)(*(undefined4 *)PTR_DAT_0001595c,0,DAT_0001594c);
   puVar2 = PTR_DAT_000159d8;
   puVar1 = PTR_DAT_000159d4;
-  *(float *)PTR_DAT_000159d4 = *(float *)PTR_DAT_00015968 + *(float *)PTR_DAT_000159ac;
+  *(float *)PTR_DAT_000159d4 =
+       *(float *)PTR_IgnitionPhaseCommandBlend_BalanceValue_00015968 +
+       *(float *)PTR_IgnitionPhaseCommandBlend_ResidualSum_000159ac;
   if ((*puVar2 == '\x01') ||
      ((((*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_000159b4 == '\x01' && (cVar3 == '\0')) &&
        (*(float *)PTR_EngineSpeed_RPM_Filtered_000159c4 < FLOAT_000159dc)) &&
-      (*PTR_DAT_000159e0 == '\x01')))) {
+      (*PTR_PhaseFrontend_Mode2Bit08_DebouncedFlag_000159e0 == '\x01')))) {
     uVar4 = *(undefined4 *)PTR_DAT_00015970;
   }
   else if (*PTR_DAT_000159e4 == '\x01') {
     uVar4 = *(undefined4 *)PTR_DAT_000159e8;
   }
-  else if (*PTR_DAT_000159ec == '\x01') {
-    uVar4 = *(undefined4 *)PTR_DAT_000159f0;
+  else if (*PTR_IgnitionPhaseControlRamp_EnableWindowFlag_000159ec == '\x01') {
+    uVar4 = *(undefined4 *)PTR_IgnitionPhaseControlRamp_HoldAccumulator_000159f0;
   }
   else {
     uVar4 = *(undefined4 *)puVar1;
   }
   uVar4 = (*(code *)PTR_ClampFloat_000159f4)
                     (uVar4,*(undefined4 *)PTR_DAT_000159b0,*(undefined4 *)PTR_DAT_000159d0);
-  *(undefined4 *)PTR_DAT_000159f8 = uVar4;
+  *(undefined4 *)PTR_IgnitionPhaseCommandBlend_ClampedOutput_000159f8 = uVar4;
   return;
 }
 
@@ -38946,7 +39038,7 @@ void EGR_PrimaryEnable_FlagSnapshot_Update(void)
 
 
 
-void EGR_PrimaryEnable_DecayCommand_Update(void)
+void IgnitionPhasePrimaryEnable_DecayCommand_Update(void)
 
 {
   char cVar1;
@@ -38965,9 +39057,9 @@ void EGR_PrimaryEnable_DecayCommand_Update(void)
   cVar2 = *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00015b08;
   uVar6 = *(undefined4 *)PTR_DAT_00015b10;
   cVar5 = (*(code *)PTR_ValueInDeltaRange_00015b14)(uVar6,0,DAT_00015b0c);
-  puVar4 = PTR_DAT_00015b18;
+  puVar4 = PTR_IgnitionPhasePrimaryEnable_DecayCommand_00015b18;
   if (cVar1 == '\x01') {
-    *(undefined4 *)PTR_DAT_00015b18 = uVar7;
+    *(undefined4 *)PTR_IgnitionPhasePrimaryEnable_DecayCommand_00015b18 = uVar7;
   }
   else {
     if (((cVar2 == '\x01') &&
@@ -38993,7 +39085,7 @@ void EGR_PrimaryEnable_DecayCommand_Update(void)
       }
     }
     if (bVar3) {
-      *(undefined4 *)PTR_DAT_00015b18 = uVar6;
+      *(undefined4 *)PTR_IgnitionPhasePrimaryEnable_DecayCommand_00015b18 = uVar6;
     }
     else {
       if ((cVar2 != '\x01') || (fVar8 < *(float *)PTR_DAT_00015b24)) {
@@ -39002,7 +39094,9 @@ void EGR_PrimaryEnable_DecayCommand_Update(void)
       else {
         fVar8 = *(float *)PTR_DAT_00015b40;
       }
-      uVar6 = (*(code *)PTR_MaxFloat_00015b48)(*(float *)PTR_DAT_00015b18 - fVar8,uVar7);
+      uVar6 = (*(code *)PTR_MaxFloat_00015b48)
+                        (*(float *)PTR_IgnitionPhasePrimaryEnable_DecayCommand_00015b18 - fVar8,
+                         uVar7);
       *(undefined4 *)puVar4 = uVar6;
     }
   }
@@ -39038,7 +39132,7 @@ void nothing_95(void)
 
 
 
-void EGR_ModeFlags_Snapshot_Update(void)
+void IgnitionPhaseModeFlags_Snapshot_Update(void)
 
 {
   *PTR_DAT_00015c30 = *PTR_SubsystemA_SeededLoadWindow_ModeState_Code_00015c2c;
@@ -39048,7 +39142,7 @@ void EGR_ModeFlags_Snapshot_Update(void)
 
 
 
-void EGR_CommandBlend_OffsetSums_Update(void)
+void IgnitionPhaseSnapshotOffsetSums_Update(void)
 
 {
   undefined *puVar1;
@@ -39057,7 +39151,8 @@ void EGR_CommandBlend_OffsetSums_Update(void)
   
   puVar1 = PTR_DAT_00015c3c;
   if (*PTR_DAT_00015c40 == '\0') {
-    *(undefined4 *)PTR_DAT_00015c3c = *(undefined4 *)PTR_DAT_00015c44;
+    *(undefined4 *)PTR_DAT_00015c3c =
+         *(undefined4 *)PTR_IgnitionPhaseCommandBlend_ClampedOutput_00015c44;
   }
   puVar2 = PTR_DAT_00015c50;
   *(float *)PTR_DAT_00015c4c = *(float *)PTR_DAT_00015c48 + *(float *)puVar1;
@@ -39071,7 +39166,7 @@ void EGR_CommandBlend_OffsetSums_Update(void)
 
 
 
-void EGR_ModeTransitionFlags_Update(void)
+void IgnitionPhaseModeTransitionFlags_Update(void)
 
 {
   char cVar1;
@@ -39106,13 +39201,13 @@ void nothing_94(void)
 
 
 
-void EGR_EnablePrecondition_WindowFlags_Update(void)
+void IgnitionPhaseEnablePrecondition_WindowFlags_Update(void)
 
 {
   float fVar1;
   float fVar2;
   
-  fVar2 = *(float *)PTR_DAT_00015e4c;
+  fVar2 = *(float *)PTR_IgnitionPhaseCommandBlend_TotalOutput_00015e4c;
   fVar1 = *(float *)PTR_DAT_00015e50;
   if (*(float *)PTR_SubsystemA_EnablePrecondition_InputB_00015e48 < *(float *)PTR_DAT_00015e54) {
     if (*(float *)PTR_SubsystemA_EnablePrecondition_InputB_00015e48 <
@@ -39144,7 +39239,7 @@ void EGR_EnablePrecondition_WindowFlags_Update(void)
 
 
 
-void EGR_EnablePrecondition_RateLimit_Update(void)
+void IgnitionPhaseEnablePrecondition_RateLimit_Update(void)
 
 {
   char cVar1;
@@ -39160,7 +39255,7 @@ void EGR_EnablePrecondition_RateLimit_Update(void)
   
   fVar10 = *(float *)PTR_EngineSpeed_RPM_Filtered_00015e78;
   fVar6 = *(float *)PTR_SubsystemA_EnablePrecondition_InputB_00015e48;
-  fVar8 = *(float *)PTR_DAT_00015e4c;
+  fVar8 = *(float *)PTR_IgnitionPhaseCommandBlend_TotalOutput_00015e4c;
   fVar9 = *(float *)PTR_DAT_00015e50;
   if (*(float *)PTR_DAT_00015e80 <= *(float *)PTR_FuelDisplay_InputWindowAvg_00015e84) {
     uVar5 = *(undefined4 *)PTR_DAT_00015e8c;
@@ -39229,7 +39324,7 @@ void EGR_EnablePrecondition_RateLimit_Update(void)
       uVar5 = (*(code *)puVar2)(uVar5,uVar4);
     }
   }
-  *(undefined4 *)PTR_DAT_00015ed8 = uVar5;
+  *(undefined4 *)PTR_IgnitionPhaseCommandBlend_ModeTableOutput_00015ed8 = uVar5;
   *PTR_DAT_00015edc = cVar1;
   return;
 }
@@ -39328,14 +39423,15 @@ void nothing_88(void)
 
 
 
-void Read_MaxFloat(void)
+void SubsystemA_CommandBlend_WindowedOutputMax_Update(void)
 
 {
   undefined4 uVar1;
   
   uVar1 = (*(code *)PTR_MaxFloat_000160d4)
-                    (*(undefined4 *)PTR_DAT_000160d0,*(undefined4 *)PTR_DAT_000160cc);
-  *(undefined4 *)PTR_DAT_000160d8 = uVar1;
+                    (*(undefined4 *)PTR_SubsystemA_CommandBlend_CommitSlot4WindowOutput_000160d0,
+                     *(undefined4 *)PTR_SubsystemA_EnablePrecondition_WindowedOutput_000160cc);
+  *(undefined4 *)PTR_SubsystemA_CommandBlend_WindowedOutputMax_000160d8 = uVar1;
   return;
 }
 
@@ -39348,15 +39444,17 @@ void MaxFloat_Wrapper(void)
   undefined *puVar2;
   undefined4 uVar3;
   
-  puVar2 = PTR_DAT_000160d0;
+  puVar2 = PTR_SubsystemA_CommandBlend_CommitSlot4WindowOutput_000160d0;
   cVar1 = *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_000160b8;
-  if ((*(float *)PTR_DAT_000160d0 - *(float *)PTR_DAT_000160dc <= *(float *)PTR_DAT_000160e0) ||
+  if ((*(float *)PTR_SubsystemA_CommandBlend_CommitSlot4WindowOutput_000160d0 -
+       *(float *)PTR_DAT_000160dc <= *(float *)PTR_DAT_000160e0) ||
      ((*PTR_DAT_000160bc == '\0' && (cVar1 == '\x01')))) {
-    *(undefined4 *)PTR_DAT_000160d0 = 0;
+    *(undefined4 *)PTR_SubsystemA_CommandBlend_CommitSlot4WindowOutput_000160d0 = 0;
   }
   else {
     uVar3 = (*(code *)PTR_MaxFloat_000160d4)
-                      (*(float *)PTR_DAT_000160d0 - *(float *)PTR_DAT_000160dc,0);
+                      (*(float *)PTR_SubsystemA_CommandBlend_CommitSlot4WindowOutput_000160d0 -
+                       *(float *)PTR_DAT_000160dc,0);
     *(undefined4 *)puVar2 = uVar3;
   }
   *PTR_DAT_000160bc = cVar1;
@@ -39365,7 +39463,7 @@ void MaxFloat_Wrapper(void)
 
 
 
-uint ECT_GAUGE_CommandEnableTimerAndLocalStagePrep_Bundle_Sub_1(void)
+uint SubsystemA_CommandBlend_CommitSlot4WindowOutput_Update(void)
 
 {
   char cVar1;
@@ -39378,7 +39476,9 @@ uint ECT_GAUGE_CommandEnableTimerAndLocalStagePrep_Bundle_Sub_1(void)
   float fVar7;
   
   fVar7 = *(float *)PTR_EngineSpeed_RPM_Filtered_000160e4;
-  uVar2 = (*(code *)PTR_ValueInDeltaRange_000160ec)(*(undefined4 *)PTR_DAT_000160d0,0,DAT_000160e8);
+  uVar2 = (*(code *)PTR_ValueInDeltaRange_000160ec)
+                    (*(undefined4 *)PTR_SubsystemA_CommandBlend_CommitSlot4WindowOutput_000160d0,0,
+                     DAT_000160e8);
   cVar1 = *PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000160f0;
   if (cVar1 == '\0') {
     fVar6 = *(float *)PTR_DAT_000160f8;
@@ -39402,7 +39502,8 @@ LAB_00015fe0:
     uVar5 = 1;
   }
   uVar3 = uVar2;
-  if ((*PTR_DAT_0001610c == '\0') && (uVar3 = uVar5, uVar5 == 1)) {
+  if ((*PTR_SubsystemA_CommandBlend_CommitSlot4WindowQualifiedPrev_0001610c == '\0') &&
+     (uVar3 = uVar5, uVar5 == 1)) {
     if (cVar1 == '\0') {
       fVar6 = *(float *)PTR_DAT_00016114;
     }
@@ -39418,23 +39519,24 @@ LAB_00015fe0:
       }
       if ((((fVar7 < fVar6) &&
            (*(float *)PTR_DAT_00016120 <= *(float *)PTR_ECTSensor_AN28_CelsiusValidated_00016124))
-          && ((uVar2 & 0xff) == 0)) && (*PTR_DAT_00016128 == '\0')) {
+          && ((uVar2 & 0xff) == 0)) &&
+         (*PTR_SubsystemA_CommandBlend_TableSelectGateFlag_00016128 == '\0')) {
         puVar4 = PTR_Desc_ECT_Gauge_CommandEnable_TableB_00016134;
         if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000160f0 != '\0') {
           puVar4 = PTR_Desc_ECT_Gauge_CommandEnable_TableA_00016130;
         }
         uVar3 = (*(code *)PTR_Interpolate1D_WithTransform_00016138)
                           (*(undefined4 *)PTR_MAP_IAT_SelectedCommitSlot4_0001612c,puVar4);
-        puVar4 = PTR_DAT_0001613c;
-        *(undefined4 *)PTR_DAT_000160d0 = extraout_fr0;
+        puVar4 = PTR_SubsystemA_CommandBlend_CommitSlot4WindowActiveFlag_0001613c;
+        *(undefined4 *)PTR_SubsystemA_CommandBlend_CommitSlot4WindowOutput_000160d0 = extraout_fr0;
         *puVar4 = 1;
         goto LAB_0001605c;
       }
     }
   }
-  *PTR_DAT_0001613c = 0;
+  *PTR_SubsystemA_CommandBlend_CommitSlot4WindowActiveFlag_0001613c = 0;
 LAB_0001605c:
-  *PTR_DAT_0001610c = (char)uVar5;
+  *PTR_SubsystemA_CommandBlend_CommitSlot4WindowQualifiedPrev_0001610c = (char)uVar5;
   return uVar3;
 }
 
@@ -39460,15 +39562,15 @@ void EGR_EnablePrecondition_WindowedTableOutput_Update(void)
   uVar3 = (*(code *)PTR_Interpolate1D_WithTransform_00016138)
                     (fVar8,PTR_Desc_SubsystemA_EnablePrecondition_WindowedOutput_TableA_00016140);
   puVar2 = PTR_DAT_0001614c;
-  *(undefined4 *)PTR_DAT_00016144 = uVar3;
-  puVar1 = PTR_DAT_00016148;
+  *(undefined4 *)PTR_SubsystemA_EnablePrecondition_SecondaryInputThreshold_00016144 = uVar3;
+  puVar1 = PTR_SubsystemA_EnablePrecondition_SecondaryInputGateFlag_00016148;
   if (*(float *)puVar2 - *(float *)PTR_DAT_00016150 <= fVar6) {
     if (*(float *)puVar2 <= fVar6) {
-      *PTR_DAT_00016148 = 1;
+      *PTR_SubsystemA_EnablePrecondition_SecondaryInputGateFlag_00016148 = 1;
     }
   }
   else {
-    *PTR_DAT_00016148 = 0;
+    *PTR_SubsystemA_EnablePrecondition_SecondaryInputGateFlag_00016148 = 0;
   }
   if (*(float *)PTR_DAT_000162a4 - *(float *)PTR_DAT_000162a8 <= fVar4) {
     if (*(float *)PTR_DAT_000162a4 <= fVar4) {
@@ -39478,8 +39580,9 @@ void EGR_EnablePrecondition_WindowedTableOutput_Update(void)
   else {
     *PTR_DAT_000162a0 = 0;
   }
-  if (*(float *)PTR_DAT_000162b0 + DAT_000162b4 <= fVar7) {
-    if (*(float *)PTR_DAT_000162b0 <= fVar7) {
+  if (*(float *)PTR_SubsystemA_EnablePrecondition_SecondaryInputThreshold_000162b0 + DAT_000162b4 <=
+      fVar7) {
+    if (*(float *)PTR_SubsystemA_EnablePrecondition_SecondaryInputThreshold_000162b0 <= fVar7) {
       *PTR_DAT_000162ac = 1;
     }
   }
@@ -39516,10 +39619,10 @@ void EGR_EnablePrecondition_WindowedTableOutput_Update(void)
       ))) {
     uVar3 = (*(code *)PTR_Interpolate1D_WithTransform_000162dc)
                       (fVar8,PTR_Desc_SubsystemA_EnablePrecondition_WindowedOutput_TableB_000162d8);
-    *(undefined4 *)PTR_DAT_000162e0 = uVar3;
+    *(undefined4 *)PTR_SubsystemA_EnablePrecondition_WindowedOutput_000162e0 = uVar3;
   }
   else {
-    *(undefined4 *)PTR_DAT_000162e0 = 0;
+    *(undefined4 *)PTR_SubsystemA_EnablePrecondition_WindowedOutput_000162e0 = 0;
   }
   puVar1 = PTR_DAT_000162e4;
   *(undefined4 *)PTR_DAT_000162e8 = *(undefined4 *)PTR_DAT_000162e4;
@@ -39536,7 +39639,7 @@ void EGR_CommandBlend_TableSelectGate_Update(void)
   
   if (*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_000162f0 == '\x01') {
 LAB_00016288:
-    *PTR_DAT_000162ec = 0;
+    *PTR_SubsystemA_CommandBlend_TableSelectGateFlag_000162ec = 0;
   }
   else {
     if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000162f4 == '\0') {
@@ -39555,8 +39658,8 @@ LAB_00016288:
       if (*(float *)PTR_SubsystemA_CommandBlend_SeededIatLoad_SecondaryInput_0001630c < fVar1)
       goto LAB_00016288;
     }
-    if (*PTR_DAT_00016310 == '\x01') {
-      *PTR_DAT_000162ec = 1;
+    if (*PTR_SubsystemA_CommandBlend_CommitSlot4WindowActiveFlag_00016310 == '\x01') {
+      *PTR_SubsystemA_CommandBlend_TableSelectGateFlag_000162ec = 1;
     }
   }
   return;
@@ -39572,7 +39675,7 @@ void nothing_87(void)
 
 
 
-void EGR_CommandBlend_PhaseTableOutput_Update(void)
+void IgnitionPhaseCommandBlend_PhaseTableOutput_Update(void)
 
 {
   undefined *puVar1;
@@ -39581,11 +39684,16 @@ void EGR_CommandBlend_PhaseTableOutput_Update(void)
   float fVar4;
   undefined4 uVar5;
   
+                    // PhaseTableOutput first computes an RPM-based InputB threshold. If
+                    // PrerequisiteFlagA is set, or EnablePrecondition_InputB is above that
+                    // threshold, it outputs a TableInput-based correction from MapC. Otherwise it
+                    // uses MapB; in this ROM MapC is effectively zero and MapB provides a positive
+                    // correction at higher TableInput.
   puVar1 = PTR_Interpolate1D_WithTransform_00016364;
   fVar4 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00016364)
                            (*(undefined4 *)PTR_EngineSpeed_RPM_Filtered_00016360,
                             PTR_Desc_SubsystemA_CommandBlend_PhaseTableOutput_MapA_00016368);
-  *(float *)PTR_DAT_0001636c = fVar4;
+  *(float *)PTR_IgnitionPhaseCommandBlend_PhaseTableInputB_ThresholdByRPM_0001636c = fVar4;
   puVar2 = PTR_DAT_00016370;
   puVar3 = PTR_Desc_SubsystemA_CommandBlend_PhaseTableOutput_MapC_0001637c;
   if ((*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00016378 == '\x01') ||
@@ -39611,13 +39719,17 @@ void nothing_86(void)
 
 
 
-void EGR_CommandBlend_ModeTableOutput_Update(void)
+void IgnitionPhaseCommandBlend_ModeTableOutput_Update(void)
 
 {
   undefined *puVar1;
   undefined *puVar2;
   undefined4 uVar3;
   
+                    // ModeTableOutput is an ECT-based correction. With PrerequisiteFlagA active it
+                    // uses MapA (cold correction). Otherwise it uses MapB below the hot thresholds
+                    // and MapC above them; in this ROM MapB is effectively zero while MapC applies
+                    // a hot-temperature retard.
   puVar1 = PTR_DAT_000163e0;
   if (*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_000163e4 == '\x01') {
     uVar3 = (*(code *)PTR_Interpolate1D_WithTransform_000163dc)
@@ -39654,16 +39766,19 @@ void nothing_84(void)
 
 
 
-void EGR_CommandBlend_EctMafPhaseProduct_Update(void)
+void IgnitionPhaseCommandBlend_EctMafPhaseProduct_Update(void)
 
 {
   undefined *puVar1;
   undefined4 uVar2;
   float fVar3;
   
+                    // EctMafPhaseProduct = ECTFactor * LoadRpmFactor. It is disabled by
+                    // PrerequisiteFlagA or above an ECT cutoff, otherwise an ECT-based 1D factor is
+                    // multiplied by a 2D blend-input vs RPM factor.
   if ((*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00016468 != '\0') ||
      (*(float *)PTR_DAT_0001646c <= *(float *)PTR_ECTSensor_AN28_CelsiusValidated_00016464)) {
-    *(undefined4 *)PTR_DAT_00016498 = 0;
+    *(undefined4 *)PTR_IgnitionPhaseCommandBlend_EctMafPhaseProduct_00016498 = 0;
   }
   else {
     puVar1 = PTR_Desc_SubsystemA_CommandBlend_EctMafPhaseProduct_TableB_00016478;
@@ -39671,29 +39786,33 @@ void EGR_CommandBlend_EctMafPhaseProduct_Update(void)
       puVar1 = PTR_Desc_SubsystemA_CommandBlend_EctMafPhaseProduct_TableA_00016474;
     }
     uVar2 = (*(code *)PTR_Interpolate1D_WithTransform_0001647c)(puVar1);
-    *(undefined4 *)PTR_DAT_00016480 = uVar2;
+    *(undefined4 *)PTR_IgnitionPhaseCommandBlend_EctMafPhaseProduct_ECTFactor_00016480 = uVar2;
     fVar3 = (float)(*(code *)PTR_Interpolate2D_float_WithTransform_00016490)
                              (*(undefined4 *)PTR_ECT_TableOutput_MafBlendSnapshotA_00016488,
                               *(undefined4 *)PTR_EngineSpeed_RPM_Filtered_00016484,
                               PTR_Desc_SubsystemA_CommandBlend_EctMafPhaseProduct_TableC_0001648c);
-    *(float *)PTR_DAT_00016494 = fVar3;
-    *(float *)PTR_DAT_00016498 = *(float *)PTR_DAT_00016480 * fVar3;
+    *(float *)PTR_IgnitionPhaseCommandBlend_EctMafPhaseProduct_LoadRpmFactor_00016494 = fVar3;
+    *(float *)PTR_IgnitionPhaseCommandBlend_EctMafPhaseProduct_00016498 =
+         *(float *)PTR_IgnitionPhaseCommandBlend_EctMafPhaseProduct_ECTFactor_00016480 * fVar3;
   }
   return;
 }
 
 
 
-// Runs a broad sparse snapshot/no-op bundle in the top-level service loop, including the DTC34
+// Runs a broad sparse snapshot/no-op bundle in the top-level service loop, including the P0480
 // enable-state snapshot hook and several placeholder callbacks.
 
 void MixedSnapshotNoOpBundle_DiagState(void)
 
 {
+                    // Runs a broad sparse snapshot/no-op bundle in the top-level service loop,
+                    // including the P0480 enable-state snapshot hook and several placeholder
+                    // callbacks.
   (*(code *)PTR_SubsystemA_ControlRampBlend_NoOpD_000165ac)();
   (*(code *)PTR_SubsystemA_ControlRampBlend_NoOpC_000165b0)();
   (*(code *)PTR_MixedSnapshotNoOpBundle_DiagState_Sub_5_000165b4)();
-  (*(code *)PTR_EGR_CommandBlend_BalanceValue_Reset_000165b8)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_BalanceValue_Reset_000165b8)();
   (*(code *)PTR_nothing_104_000165bc)();
   (*(code *)PTR_nothing_102_000165c0)();
   (*(code *)PTR_nothing_100_000165c4)();
@@ -39721,10 +39840,10 @@ void MixedSnapshotNoOpBundle_DiagState(void)
   (*(code *)PTR_nothing_92_0001661c)();
   (*(code *)PTR_nothing_91_00016620)();
   (*(code *)PTR_nothing_98_00016624)();
-  (*(code *)PTR_EGR_ControlRamp_PhaseThresholdFlag_Update_00016628)();
+  (*(code *)PTR_IgnitionPhaseControlRamp_PhaseThresholdFlag_Update_00016628)();
   (*(code *)PTR_nothing_109_0001662c)();
   (*(code *)PTR_nothing_108_00016630)();
-  (*(code *)PTR_SubsystemA_DTC34_EnableState_Snapshot_A_00016634)();
+  (*(code *)PTR_CoolingFanRelay1_PE4_P0480_EnableState_Snapshot_A_00016634)();
   (*(code *)PTR_NoOp_Return_2e768_00016638)();
   (*(code *)PTR_nothing_83_0001663c)();
   (*(code *)PTR_MixedSnapshotNoOpBundle_DiagState_Sub_2_00016640)();
@@ -39740,9 +39859,9 @@ void MixedSnapshotNoOpBundle_DiagState(void)
 
 
 
-// Large fixed subgroup-A packet that repeatedly brackets helper batches with the shared 0x10
-// critical-section enter/leave pair and contains visible anchors in
-// SubsystemA_DTC34_EnableState_Snapshot_B and ECT_GAUGE_EnableFlags_UpdatePrimaryThresholds.
+// Large fixed subgroup-A packet that brackets helper batches with the shared 0x10 critical-section
+// pair and contains visible anchors in cooling-fan P0480 enable-state snapshot and ECT gauge enable
+// flags.
 
 void MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket(void)
 
@@ -39751,6 +39870,9 @@ void MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket(void)
   undefined *puVar2;
   undefined4 uVar3;
   
+                    // Large fixed subgroup-A packet that brackets helper batches with the shared
+                    // 0x10 critical-section pair and contains visible anchors in cooling-fan P0480
+                    // enable-state snapshot and ECT gauge enable flags.
   puVar1 = PTR_SharedSchedulerGate_ReadMaskedSrLevel_00016828;
   uVar3 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00016828)(0x10);
   (*(code *)PTR_SubsystemA_ControlRampBlend_RequestCounters_Reset_0001682c)();
@@ -39758,7 +39880,7 @@ void MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket(void)
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00016830)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_GaugeFlagPacket_EctFuel_Update_00016834)();
-  (*(code *)PTR_EGR_CommandBlend_WindowFlags_Update_00016838)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_WindowFlags_Update_00016838)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_EGR_LearnEnable_WindowFlags_Update_0001683c)();
@@ -39776,7 +39898,7 @@ void MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket(void)
   (*(code *)PTR_nothing_110_0001685c)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_EnablePrecondition_WindowFlags_Update_00016860)();
+  (*(code *)PTR_IgnitionPhaseEnablePrecondition_WindowFlags_Update_00016860)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_nothing_84_00016864)();
@@ -39797,7 +39919,7 @@ void MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket(void)
   (*(code *)PTR_nothing_105_00016888)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC34_EnableState_Snapshot_B_0001688c)();
+  (*(code *)PTR_CoolingFanRelay1_PE4_P0480_EnableState_Snapshot_B_0001688c)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_EGR_TableSelectGate_RampState_Reset_00016890)();
@@ -39813,14 +39935,14 @@ void MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket(void)
   (*(code *)PTR_MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket_Sub_4_000168a0)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_CommandBlend_BalanceValue_Reset_Alias_000168a4)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_BalanceValue_Reset_Alias_000168a4)();
   (*(code *)PTR_nothing_103_000168a8)();
   (*(code *)PTR_nothing_101_000168ac)();
   (*(code *)PTR_nothing_99_000168b0)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_nothing_95_000168b4)();
-  (*(code *)PTR_EGR_ModeFlags_Snapshot_Update_000168b8)();
+  (*(code *)PTR_IgnitionPhaseModeFlags_Snapshot_Update_000168b8)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_SubsystemA_ControlRampBlend_NoOpB_000168bc)();
@@ -39842,7 +39964,7 @@ void ProtectedPair_GroupJ_ParamDrivenStateUpdateB(char param_1)
   undefined4 uVar1;
   
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00016828)(0x10);
-  (*(code *)PTR_EGR_ModeTransitionFlags_Update_000168c4)();
+  (*(code *)PTR_IgnitionPhaseModeTransitionFlags_Update_000168c4)();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00016830)(uVar1);
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00016828)(0x10);
   (*(code *)PTR_PhaseSlotMaskAndMode_Update_000168c8)((int)param_1);
@@ -39853,89 +39975,92 @@ void ProtectedPair_GroupJ_ParamDrivenStateUpdateB(char param_1)
 
 
 
-// Mixed Group-K batch that updates local mode/threshold state around the DTC34 block, the mode-byte
-// 3..10 select-or-decay worker, ECT gauge command terms, and one trailing load-threshold diagnostic
-// filter path.
+// Mixed Group-K batch that updates local mode/threshold state around the P0480 block, mode-byte
+// select/decay workers, ECT gauge command terms, and one trailing load-threshold diagnostic filter
+// path.
 
-void MixedScheduler_GroupK_DTC34GaugeDiagAndModeBundle(void)
+void MixedScheduler_GroupK_P0480GaugeDiagAndModeBundle(void)
 
 {
   undefined *puVar1;
   undefined *puVar2;
   undefined4 uVar3;
   
+                    // Mixed Group-K batch that updates local mode/threshold state around the P0480
+                    // block, mode-byte select/decay workers, ECT gauge command terms, and one
+                    // trailing load-threshold diagnostic filter path.
   puVar1 = PTR_SharedSchedulerGate_ReadMaskedSrLevel_00016b80;
   uVar3 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00016b80)(0x10);
   (*(code *)PTR_SubsystemA_ControlRampBlend_RequestWindow_Update_00016b84)();
   puVar2 = PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00016b88;
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00016b88)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_CommandBlend_InhibitRamp_Update_00016b8c)();
-  (*(code *)PTR_EGR_CommandBlend_MapBlendAndOffset_Update_00016b90)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_InhibitRamp_Update_00016b8c)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_MapBlendAndOffset_Update_00016b90)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_EGR_LearnEnable_Conditions_Update_00016b94)();
   (*(code *)PTR_EGR_LearnCommand_ScaledProtectedOutput_Update_00016b98)();
   (*(code *)PTR_EGR_LearnRatio_ProtectedFiltered_Update_00016b9c)();
   (*(code *)PTR_EGR_LearnCommand_BaseValue_Update_00016ba0)();
-  (*(code *)PTR_EGR_LearnCommand_Delta_Update_00016ba4)();
+  (*(code *)PTR_SubsystemA_LearnCommand_Delta_Update_00016ba4)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_GroupK_DTC34_GaugeDiagAndMode_Update_00016ba8)();
+  (*(code *)PTR_SubsystemA_PrereqA_WindowRampOutput_Update_00016ba8)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_ControlRamp_DecayAndClamp_Update_00016bac)();
-  (*(code *)PTR_EGR_CommandBlend_Integrator_Update_00016bb0)();
-  (*(code *)PTR_EGR_CommandBlend_TotalOutput_Update_00016bb4)();
+  (*(code *)PTR_IgnitionPhaseControlRamp_DecayAndClamp_Update_00016bac)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_Integrator_Update_00016bb0)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_TotalOutput_Update_00016bb4)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_EnablePrecondition_RateLimit_Update_00016bb8)();
+  (*(code *)PTR_IgnitionPhaseEnablePrecondition_RateLimit_Update_00016bb8)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_CommandBlend_EctMafPhaseProduct_Update_00016bbc)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_EctMafPhaseProduct_Update_00016bbc)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_MaxFloat_Wrapper_00016bc0)();
   (*(code *)PTR_EGR_EnablePrecondition_WindowedTableOutput_Update_00016bc4)();
-  (*(code *)PTR_Read_MaxFloat_00016bc8)();
+  (*(code *)PTR_SubsystemA_CommandBlend_WindowedOutputMax_Update_00016bc8)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_PrimaryEnable_DecayCommand_Update_00016bcc)();
+  (*(code *)PTR_IgnitionPhasePrimaryEnable_DecayCommand_Update_00016bcc)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_ControlRamp_HoldAccumulator_Update_00016bd0)();
+  (*(code *)PTR_IgnitionPhaseControlRamp_HoldAccumulator_Update_00016bd0)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC34_ThresholdValue_UpdateFromECTAndLoad_00016bd4)();
+  (*(code *)PTR_SubsystemA_DTC34_EctLoadThresholdOutput_Update_00016bd4)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_EGR_TableSelectGate_RampState_Update_00016bd8)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_ModeByte3To10_SelectOrDecayToZero_Update_00016bdc)();
+  (*(code *)PTR_SubsystemA_ModeByte3To10_SelectedOutput_Update_00016bdc)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_ECT_GAUGE_CommandEnable_Evaluate_00016be0)();
   (*(code *)PTR_ECT_GAUGE_CommandBase_UpdateFromCoolant_00016be4)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_Diag_LoadBasedThresholdFilter_Update_00016be8)();
+  (*(code *)PTR_SubsystemA_Diag_LoadBasedThresholdFilter_Update_00016be8)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_CommandBlend_BalanceValue_Update_00016bec)();
-  (*(code *)PTR_EGR_CommandBlend_ResidualSum_Update_00016bf0)();
-  (*(code *)PTR_EGR_CommandBlend_LimitsAndPhaseTable_Update_00016bf4)();
-  (*(code *)PTR_EGR_CommandBlend_OutputClamp_Update_00016bf8)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_BalanceValue_Update_00016bec)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_ResidualSum_Update_00016bf0)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_LimitsByRPM_Update_00016bf4)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_OutputClamp_Update_00016bf8)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_CommandBlend_OffsetSums_Update_00016bfc)();
+  (*(code *)PTR_IgnitionPhaseSnapshotOffsetSums_Update_00016bfc)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_SubsystemA_ControlRampBlend_TableSelectSnapshot_Copy_00016c00)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_PhaseSlot_GlobalFlag_Clear_00016c04)();
-  (*(code *)PTR_PhaseSlot_AllOutputs_Recalculate_00016c08)();
+  (*(code *)PTR_PhaseSlot_DwellOffsetCorrectionCache_UpdateAll_00016c08)();
   (*(code *)PTR_PhaseSlot_RequestEnable_All_00016c0c)();
   (*(code *)puVar2)(uVar3);
   return;
@@ -39999,15 +40124,15 @@ void ECT_GAUGE_CommandEnableTimerAndLocalStagePrep_Bundle(void)
   (*(code *)PTR_EGR_SeedRequest_ClearOrCount_00016c28)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_ECT_GAUGE_CommandEnableTimerAndLocalStagePrep_Bundle_Sub_1_00016c2c)();
+  (*(code *)PTR_SubsystemA_CommandBlend_CommitSlot4WindowOutput_Update_00016c2c)();
   (*(code *)PTR_EGR_CommandBlend_TableSelectGate_Update_00016c30)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_ControlRamp_EnableWindowAndCounters_Update_00016c34)();
+  (*(code *)PTR_IgnitionPhaseControlRamp_EnableWindowAndCounters_Update_00016c34)();
   (*(code *)PTR_ECT_GAUGE_CommandEnable_TimerAndStagePrep_00016c38)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_TransientPulse_WindowAndTimer_Update_00016c3c)();
+  (*(code *)PTR_SubsystemA_TransientPulse_WindowAndTimer_Update_00016c3c)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_ECT_GAUGE_CommandEnableTimer_Update_00016c40)();
@@ -40019,26 +40144,28 @@ void ECT_GAUGE_CommandEnableTimerAndLocalStagePrep_Bundle(void)
 
 
 
-// Protected Group-E maintenance bundle for SubsystemA local state; it runs the mode-table,
-// phase-table, DTC34 enable-timer, and table-select timer helpers.
+// Protected service bundle for cooling fan relay 1 P0480 enable/local-state maintenance.
 
-void SubsystemA_DTC34_EnableAndLocalState_ServiceProtected(void)
+void CoolingFanRelay1_PE4_P0480_EnableAndLocalState_ServiceProtected(void)
 
 {
   undefined *puVar1;
   undefined *puVar2;
   undefined4 uVar3;
   
+                    // Protected Group-E maintenance bundle for cooling-fan relay 1 P0480 local
+                    // state; it runs mode-table, phase-table, P0480 enable-timer, and table-select
+                    // timer helpers.
   puVar1 = PTR_SharedSchedulerGate_ReadMaskedSrLevel_00016b80;
   uVar3 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00016b80)(0x10);
-  (*(code *)PTR_EGR_CommandBlend_ModeTableOutput_Update_00016c44)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_ModeTableOutput_Update_00016c44)();
   puVar2 = PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00016b88;
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00016b88)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_EGR_CommandBlend_PhaseTableOutput_Update_00016c48)();
+  (*(code *)PTR_IgnitionPhaseCommandBlend_PhaseTableOutput_Update_00016c48)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC34_EnableTimer_Update_00016c4c)();
+  (*(code *)PTR_CoolingFanRelay1_PE4_P0480_EnableTimer_Update_00016c4c)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_EGR_TableSelectGate_Timer_Update_00016c50)();
@@ -40425,11 +40552,13 @@ void MixedScheduler_GroupA_CoilDisplayImmoTail_Entry(void)
 
 
 
-// Dispatch-entry thunk for the mixed scheduler Group-B DTC2A plus IMMO service triplet.
+// Dispatch-entry thunk for the mixed scheduler Group-B P0601 plus IMMO service triplet.
 
-void MixedScheduler_GroupB_DTC2AAndImmoTriplet_Entry(void)
+void MixedScheduler_GroupB_P0601AndImmoTriplet_Entry(void)
 
 {
+                    // Dispatch-entry thunk for mixed scheduler Group-B P0601 plus IMMO service
+                    // triplet.
   (*(code *)PTR_MixedScheduler_GroupB_SubsystemADTC2AAndImmoTriplet_00017234)();
   return;
 }
@@ -40648,7 +40777,7 @@ void ECT_GAUGE_PWM_Update(void)
   (*(code *)PTR_MixedProtectedScheduler_SeedAndState_ServiceBundle_0001752c)();
   (*(code *)PTR_O2_Heater_SharedNormalizedRatio_ServiceBundle_00017530)();
   (*(code *)PTR_O2_Heater1_ServiceBundle_00017534)();
-  (*(code *)PTR_O2_Heater2_ServiceBundle_00017538)();
+  (*(code *)PTR_HO2S2_Heater_PD4_ServiceBundle_00017538)();
   (*(code *)PTR_O2_Heater2_CommandWordAndGpioCommit_ServiceBundle_0001753C)();
   (*(code *)PTR_O2_Heater2_ServiceTail_NoOpBundle_00017540)();
   (*(code *)PTR_MixedPreFan_NoOpTailDispatcher_00017544)();
@@ -40659,7 +40788,7 @@ void ECT_GAUGE_PWM_Update(void)
   (*(code *)PTR_SubsystemA_DiagAndInfoDisplay_ResetBundle_00017558)();
   (*(code *)PTR_SubsystemA_SeededLoadWindow_ServiceBundle_0001755C)();
   (*(code *)PTR_DiagResetRunner_SubsystemASharedState_ResetAll_00017560)();
-  (*(code *)PTR_ECTGauge_PF5_CommandAndOutput_UpdateApp_00017564)();
+  (*(code *)PTR_ECTGauge_PF5_PWM_UpdateApp_00017564)();
   (*(code *)PTR_ECT_GAUGE_Output_Disable_00017568)();
   (*(code *)PTR_NoOp_Thunk_400ec_0001756c)();
   (*(code *)PTR_ECT_GAUGE_PWM_Output_ResetHook_00017570)();
@@ -40675,7 +40804,7 @@ void ECT_GAUGE_PWM_Update(void)
 void ECT_GAUGE_ServiceDispatcher_SubgroupA(void)
 
 {
-  (*(code *)PTR_SubsystemA_DTC2A_StateScanAndLatch_ServiceProtected_00017584)();
+  (*(code *)PTR_ECU_P0601_StateScanAndLatch_ServiceProtected_00017584)();
   (*(code *)PTR_ReportFourSlotPayload_ServiceProtected_00017588)();
   (*(code *)PTR_ProtectedSingleCall_WordPairTableBuildAndDispatch_0001758C)();
   (*(code *)PTR_ECT_GAUGE_ServiceDispatcher_SubgroupA_NoOpA_00017590)();
@@ -40786,13 +40915,15 @@ void MixedScheduler_GroupA_CoilDisplayImmoTail(void)
 
 
 
-// Runs the Group-B triplet: wrapped DTC2A state scan, a larger local SubsystemA DTC2A
-// status-refresh/aggregate bundle, and IMMO packet-reader service.
+// Runs the Group-B triplet: wrapped P0601 state scan, local ECU P0601 status-refresh/aggregate
+// bundle, and IMMO packet-reader service.
 
-void MixedScheduler_GroupB_DTC2AAndImmoTriplet(void)
+void MixedScheduler_GroupB_P0601AndImmoTriplet(void)
 
 {
-  (*(code *)PTR_DiagRunner_SubsystemADTC2A_StateScan_Wrapped_00017884)();
+                    // Runs the Group-B triplet: wrapped P0601 state scan, local ECU P0601
+                    // status-refresh/aggregate bundle, and IMMO packet-reader service.
+  (*(code *)PTR_ECU_P0601_StateScan_Wrapped_00017884)();
   (*(code *)PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_00017888)();
   (*(code *)PTR_IMMO_PacketReader_ServiceProtected_0001788c)();
   return;
@@ -40844,15 +40975,17 @@ void MixedScheduler_GroupD_StageBAndDiagTail(void)
 
 
 
-// Runs the Group-E mixed scheduler bundle: pre-control state prep, SubsystemA control-model and
-// command-output updates, DTC34/local state maintenance, cooling-fan and ECT-gauge protected
-// batches, fan coordination, PD10 signal-generator update, ECT-gauge output/PWM work, info-display
-// diagnostics, a seeded-load helper, stage-C gauge dispatch, and the protected IMMO session
-// supervisor.
+// Runs the Group-E mixed scheduler bundle: control-model/output work, P0480 local-state
+// maintenance, cooling-fan and ECT-gauge batches, fan coordination, PD10 signal-generator update,
+// info-display diagnostics, and protected IMMO session supervisor.
 
 void MixedScheduler_GroupE_CoolingFanSignalGaugeDiagImmoBundle(void)
 
 {
+                    // Runs the Group-E mixed scheduler bundle: control-model/output work, P0480
+                    // local-state maintenance, cooling-fan and ECT-gauge batches, fan coordination,
+                    // PD10 signal-generator update, info-display diagnostics, and protected IMMO
+                    // session supervisor.
   (*(code *)PTR_ProtectedSingleCall_GroupE_PreSubsystemAControlStateUpdate_000178E4)();
   (*(code *)PTR_SubsystemA_ControlModelAndCommandOutput_ServiceBundle_000178e8)();
   (*(code *)PTR_SubsystemA_DTC34_EnableAndLocalState_ServiceProtected_000178EC)();
@@ -40866,7 +40999,7 @@ void MixedScheduler_GroupE_CoolingFanSignalGaugeDiagImmoBundle(void)
   (*(code *)PTR_ECT_GAUGE_Output_UpdateAtomic_0001790c)();
   (*(code *)PTR_ECT_GAUGE_OutputTail_ProtectedSingle_00017910)();
   (*(code *)PTR_ECT_GAUGE_PWM_Output_UpdateLocked_00017914)();
-  (*(code *)PTR_DiagRunner_SubsystemAInfoDisplay_DTC1C1D_DTC3536_Group_00017918)();
+  (*(code *)PTR_DiagRunner_FuelTrimP0171P0172_HO2S2P0137P0138_Group_00017918)();
   (*(code *)PTR_SubsystemA_SeededLoadWindow_SubBundleA_PairUpdate2_0001791c)();
   (*(code *)PTR_MixedScheduler_GroupE_NoOpTail_00017920)();
   (*(code *)PTR_ECT_GAUGE_ServiceDispatcher_RunStageC_00017924)();
@@ -40921,13 +41054,15 @@ void MixedScheduler_GroupG_StatusPrepStageDTailAndDiagResets(void)
 
 
 
-// Runs the group-H mixed scheduler bundle: the enable-window delta-scaled output tail dispatch, the
-// O2 heater 1 prerequisite-B duty path, the O2 heater 2 prerequisite-B duty path, the SubsystemA
-// delta diagnostic DTC0C group, and the SubsystemA local latch-gate reset/update helper.
+// Runs the Group-H mixed scheduler bundle: enable-window delta output tail, HO2S1 heater duty path,
+// HO2S2 heater duty path, IAT P0111 diagnostic group, and a local latch-gate helper.
 
 void MixedScheduler_GroupH_O2HeaterDeltaDiagAndLatch(void)
 
 {
+                    // Runs the Group-H mixed scheduler bundle: enable-window delta output tail,
+                    // HO2S1 heater duty path, HO2S2 heater duty path, IAT P0111 diagnostic group,
+                    // and a local latch-gate helper.
   (*(code *)PTR_MixedScheduler_GroupH_SingleLockedDispatchTail_00017974)();
   (*(code *)PTR_MixedScheduler_GroupH_DoubleBatchWrapper_A_00017978)();
   (*(code *)PTR_MixedScheduler_GroupH_DoubleBatchWrapper_B_0001797C)();
@@ -40941,7 +41076,7 @@ void MixedScheduler_GroupH_O2HeaterDeltaDiagAndLatch(void)
 void DiagRunner_EgrGroup_DispatchThunk(void)
 
 {
-  (*(code *)PTR_DiagRunner_SubsystemADTC2A2B_DTC25_Group_00017988)();
+  (*(code *)PTR_DiagRunner_ECU_P0601_P0602_CatalystP0420_Group_00017988)();
                     // WARNING: Could not recover jumptable at 0x000177ea. Too many branches
                     // WARNING: Treating indirect jump as call
   (*(code *)PTR_LAB_0001798c)();
@@ -40950,16 +41085,16 @@ void DiagRunner_EgrGroup_DispatchThunk(void)
 
 
 
-// Runs the Group-I mixed scheduler bundle: one structural single-call wrapper, command-output
-// learned-trim and enable-timer service, the mixed cooling-fan ramp pair, multichannel
-// clamped-value sub-bundle C, seed-request window counters, a flag-gated saturating-counter
-// service, model diagnostic DTC0F, seeded-load sub-bundle-B single update C, an
-// inhibit-delay/selected-ID reset helper, a no-op tail slot, and the IMMO status-quad clear
-// service.
+// Runs the Group-I mixed scheduler bundle: command-output learned trim, mixed cooling-fan ramp
+// pair, seed-request counters, P0116 model diagnostic, inhibit-delay selected-ID reset, and IMMO
+// status-quad clear service.
 
 void MixedScheduler_GroupI_OutputFanRampModelDiagAndImmo(void)
 
 {
+                    // Runs the Group-I mixed scheduler bundle: command-output learned trim, mixed
+                    // cooling-fan ramp pair, seed-request counters, P0116 model diagnostic,
+                    // inhibit-delay selected-ID reset, and IMMO status-quad clear service.
   (*(code *)PTR_MixedScheduler_GroupI_SingleLockedWrapper_A_00017990)();
   (*(code *)PTR_SubsystemA_CommandOutput_LearnedTrimAndEnableTimer_ServiceProtected_00017994)();
   (*(code *)PTR_MixedProtectedServiceBundle_CoolingFanRampPair_00017998)();
@@ -41191,7 +41326,7 @@ void SubsystemA_CommandBlend_IatModeCalibrations_ApplyAndDispatch(void)
   undefined4 *puVar6;
   
   puVar1 = PTR_IATSensor_AN29_ModeFlag_00017bcc;
-  if ((DAT_00017bc2 & *(ushort *)PTR_DAT_00017bd0) == 0) {
+  if ((DAT_00017bc2 & *(ushort *)PTR_PhaseFrontend_Mode0_ResponseStableWord_00017bd0) == 0) {
     *PTR_IATSensor_AN29_ModeFlag_00017bcc = 1;
   }
   else {
@@ -41239,7 +41374,8 @@ void PhaseSlotMaskAndMode_Update(void)
   ushort uVar1;
   undefined1 uVar2;
   
-  if ((*PTR_DAT_00017d08 == '\x01') || (*PTR_DAT_00017d0c == '\x01')) {
+  if ((*PTR_SubsystemA_ControlRampBlend_RequestEnableMirror_00017d08 == '\x01') ||
+     (*PTR_IMMO_StatusQuadByteD_00017d0c == '\x01')) {
     uVar1 = (ushort)PTR_LAB_0000fffe_1_00017d10;
   }
   else {
@@ -41254,14 +41390,14 @@ void PhaseSlotMaskAndMode_Update(void)
       uVar1 = uVar1 | 8;
     }
   }
-  *(ushort *)PTR_DAT_00017d24 = uVar1;
-  if (*PTR_DAT_00017d28 == '\x01') {
+  *(ushort *)PTR_PhaseSlot_SelectedMaskWord_00017d24 = uVar1;
+  if (*PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagB_00017d28 == '\x01') {
     uVar2 = 2;
   }
   else {
     uVar2 = 1;
   }
-  *PTR_DAT_00017d2c = uVar2;
+  *PTR_PhaseSlot_SelectedMode_00017d2c = uVar2;
   return;
 }
 
@@ -41273,8 +41409,8 @@ int PhaseSlotMask_ReadOrDefault(void)
   undefined *puVar1;
   
   puVar1 = PTR_LAB_0000fffe_1_00017d10;
-  if (*PTR_DAT_00017d2c != '\0') {
-    puVar1 = (undefined *)(int)*(short *)PTR_DAT_00017d24;
+  if (*PTR_PhaseSlot_SelectedMode_00017d2c != '\0') {
+    puVar1 = (undefined *)(int)*(short *)PTR_PhaseSlot_SelectedMaskWord_00017d24;
   }
   return (int)puVar1;
 }
@@ -41286,8 +41422,8 @@ int PhaseSlotMode_ReadOrFallback(void)
 {
   int iVar1;
   
-  iVar1 = (int)(char)*PTR_DAT_00017d2c;
-  if (*PTR_DAT_00017d2c == '\0') {
+  iVar1 = (int)(char)*PTR_PhaseSlot_SelectedMode_00017d2c;
+  if (*PTR_PhaseSlot_SelectedMode_00017d2c == '\0') {
     iVar1 = (*(code *)PTR_PhaseSlot_ModeRaw_Read_00017d30)();
   }
   return iVar1;
@@ -41330,10 +41466,11 @@ uint PhaseSlot_OutputValue_Update(char *param_1)
   else if (uVar1 == 1) {
     if (*PTR_SharedDiagAggregate_PhaseState2RequestFlag_00017e28 == '\0') {
       uVar1 = (uint)(byte)param_1[0xd];
-      pfVar2 = (float *)PTR_DAT_00017e2c;
-      if (((uVar1 == 0) || (pfVar2 = (float *)PTR_DAT_00017e30, uVar1 == 1)) ||
-         ((pfVar2 = (float *)PTR_DAT_00017e34, uVar1 == 2 ||
-          (pfVar2 = (float *)PTR_DAT_00017e38, uVar1 == 3)))) {
+      pfVar2 = (float *)PTR_IgnitionPhaseOutputAngle_Slot0_Snapshot_00017e2c;
+      if (((uVar1 == 0) ||
+          (pfVar2 = (float *)PTR_IgnitionPhaseOutputAngle_Slot1_Snapshot_00017e30, uVar1 == 1)) ||
+         ((pfVar2 = (float *)PTR_IgnitionPhaseOutputAngle_Slot2_Snapshot_00017e34, uVar1 == 2 ||
+          (pfVar2 = (float *)PTR_IgnitionPhaseOutputAngle_Slot3_Snapshot_00017e38, uVar1 == 3)))) {
         *(int *)(param_1 + 0x18) = (int)((*pfVar2 + DAT_00017e20) * DAT_00017e24);
       }
     }
@@ -41342,8 +41479,8 @@ uint PhaseSlot_OutputValue_Update(char *param_1)
       fVar5 = DAT_00017e24;
       fVar3 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00017e44)
                                (*(undefined4 *)PTR_EngineSpeed_RPM_Filtered_00017e3c,
-                                PTR_Desc_PhaseSlot_OutputValue_Map_00017e40);
-      *(float *)PTR_DAT_00017e48 = fVar3;
+                                PTR_Desc_IgnitionPhaseOutputAngle_ByRPM_Table_00017e40);
+      *(float *)PTR_IgnitionPhaseOutputAngle_FromRPM_00017e48 = fVar3;
       uVar1 = (uint)(byte)param_1[0xd];
       if ((((uVar1 == 0) || (uVar1 == 1)) || (uVar1 == 2)) || (uVar1 == 3)) {
         *(int *)(param_1 + 0x18) = (int)((fVar3 + fVar4) * fVar5);
@@ -41358,34 +41495,34 @@ uint PhaseSlot_OutputValue_Update(char *param_1)
 bool PhaseSlot_GlobalEnable_IsSet(void)
 
 {
-  return *PTR_DAT_00017e4c == '\x01';
+  return *PTR_PhaseSlot_GlobalEnableFlag_00017e4c == '\x01';
 }
 
 
 
-int PhaseSlot_MaskShifted_Read(void)
+int IgnitionCoilPair_BaseDwellWord_X16_Read(void)
 
 {
-  return (uint)*(ushort *)PTR_DAT_00017e50 << 4;
+  return (uint)*(ushort *)PTR_IgnitionCoilPair_BaseDwellWord_00017e50 << 4;
 }
 
 
 
-int PhaseSlot_TableScaledValue_Calculate(void)
+int PhaseSlot_DwellOffsetCorrection_ByRPM_Calculate(void)
 
 {
   float fVar1;
   
   fVar1 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00017e44)
                            (*(undefined4 *)PTR_EngineSpeed_RPM_Filtered_00017e3c,
-                            PTR_Desc_PhaseSlot_TableScaledValue_Map_00017e54);
-  *(float *)PTR_DAT_00017e58 = fVar1;
+                            PTR_Desc_PhaseSlot_DwellOffsetCorrection_ByRPM_00017e54);
+  *(float *)PTR_PhaseSlot_DwellOffsetCorrection_FromRPM_00017e58 = fVar1;
   return (int)(fVar1 * DAT_00017e5c);
 }
 
 
 
-void PhaseSlot_AllOutputs_Recalculate(void)
+void PhaseSlot_DwellOffsetCorrectionCache_UpdateAll(void)
 
 {
   byte bVar1;
@@ -41396,14 +41533,14 @@ void PhaseSlot_AllOutputs_Recalculate(void)
   byte *pbVar6;
   uint uVar7;
   
-  puVar2 = PTR_DAT_00017e60;
+  puVar2 = PTR_PhaseSlot_DwellOffsetCorrectionWordCache_ByOutputIndex_00017e60;
   uVar4 = (uint)DAT_00017e1e;
   uVar5 = uVar4 + 0x38;
   for (; uVar4 < uVar5; uVar4 = uVar4 + 0x1c) {
     for (uVar7 = uVar4 + 0xc; uVar7 < uVar4 + 0x1c; uVar7 = uVar7 + 0x10) {
       for (pbVar6 = (byte *)(uVar7 + 2); pbVar6 < (byte *)(uVar7 + 4); pbVar6 = pbVar6 + 1) {
         bVar1 = *pbVar6;
-        iVar3 = PhaseSlot_TableScaledValue_Calculate();
+        iVar3 = PhaseSlot_DwellOffsetCorrection_ByRPM_Calculate();
         *(int *)(puVar2 + (uint)bVar1 * 4) = iVar3;
       }
     }
@@ -41416,7 +41553,7 @@ void PhaseSlot_AllOutputs_Recalculate(void)
 void PhaseSlot_GlobalFlag_Set(void)
 
 {
-  *PTR_DAT_00017eb8 = 1;
+  *PTR_PhaseSlot_GlobalEnableFlag_00017eb8 = 1;
   return;
 }
 
@@ -41425,7 +41562,7 @@ void PhaseSlot_GlobalFlag_Set(void)
 void PhaseSlot_GlobalFlag_Clear(void)
 
 {
-  *PTR_DAT_00017eb8 = 0;
+  *PTR_PhaseSlot_GlobalEnableFlag_00017eb8 = 0;
   return;
 }
 
@@ -41434,7 +41571,7 @@ void PhaseSlot_GlobalFlag_Clear(void)
 void PhaseSlot_GlobalFlag_Set_Alias(void)
 
 {
-  *PTR_DAT_00017eb8 = 1;
+  *PTR_PhaseSlot_GlobalEnableFlag_00017eb8 = 1;
   return;
 }
 
@@ -41450,16 +41587,16 @@ void PhaseSlot_State_InitAll(void)
   int iVar5;
   undefined1 *puVar6;
   
-  puVar2 = PTR_DAT_0001800c;
-  puVar1 = PTR_DAT_00018008;
+  puVar2 = PTR_PhaseSlot_InitRequestFlag_0001800c;
+  puVar1 = PTR_PhaseSlot_SelectedMaskWord_00018008;
   iVar4 = 0;
-  *PTR_DAT_00018004 = 1;
+  *PTR_PhaseSlot_SelectedMode_00018004 = 1;
   *(undefined2 *)puVar1 = 0;
   *puVar2 = 1;
-  puVar1 = PTR_DAT_00018010;
+  puVar1 = PTR_PhaseSlot_Config_BaseStepBySlot_00018010;
   iVar5 = (int)DAT_00018002;
   do {
-    puVar2 = PTR_DAT_00018014;
+    puVar2 = PTR_PhaseSlot_Config_OutputIdAndMaskIndexPairs_00018014;
     puVar6 = (undefined1 *)(iVar4 * 0x1c + iVar5);
     *puVar6 = 0;
     puVar6[1] = 0;
@@ -41483,7 +41620,7 @@ void PhaseSlot_State_InitAll(void)
     *(undefined4 *)(iVar3 + 0x14) = 0;
     *(undefined4 *)(iVar3 + 0x18) = 0;
   } while (iVar4 < 2);
-  (*(code *)PTR_PhaseSlot_AllOutputs_Recalculate_00018018)();
+  (*(code *)PTR_PhaseSlot_DwellOffsetCorrectionCache_UpdateAll_00018018)();
   return;
 }
 
@@ -41498,14 +41635,15 @@ void WordPairTable2x1C_BuildAndDispatch(void)
   int iVar4;
   int iVar5;
   
-  puVar1 = PTR_DAT_00018014;
+  puVar1 = PTR_PhaseSlot_Config_OutputIdAndMaskIndexPairs_00018014;
   iVar3 = 0;
   iVar4 = (int)DAT_00018002;
   do {
     iVar5 = iVar3 * 0x1c + iVar4;
     *(char *)(iVar5 + 8) = (char)iVar3;
     iVar2 = 0;
-    *(undefined4 *)(iVar5 + 4) = *(undefined4 *)(PTR_DAT_00018010 + iVar3 * 4);
+    *(undefined4 *)(iVar5 + 4) =
+         *(undefined4 *)(PTR_PhaseSlot_Config_BaseStepBySlot_00018010 + iVar3 * 4);
     do {
       *(undefined *)(iVar5 + 0xe + iVar2) = puVar1[iVar2 * 2 + iVar3 * 4];
       *(undefined *)(iVar5 + 0x10 + iVar2) = (puVar1 + iVar2 * 2 + iVar3 * 4)[1];
@@ -41513,16 +41651,16 @@ void WordPairTable2x1C_BuildAndDispatch(void)
     } while (iVar2 < 2);
     iVar3 = iVar3 + 1;
   } while (iVar3 < 2);
-  (*(code *)PTR_PhaseSlot_AllOutputs_Recalculate_00018018)();
+  (*(code *)PTR_PhaseSlot_DwellOffsetCorrectionCache_UpdateAll_00018018)();
   return;
 }
 
 
 
-void PhaseSlot_AllOutputs_Recalculate(void)
+void PhaseSlot_DwellOffsetCorrectionCache_UpdateAll(void)
 
 {
-  (*(code *)PTR_PhaseSlot_AllOutputs_Recalculate_00018018)();
+  (*(code *)PTR_PhaseSlot_DwellOffsetCorrectionCache_UpdateAll_00018018)();
   return;
 }
 
@@ -41560,10 +41698,10 @@ void PhaseSlot_StepService_UpdateAll(byte param_1)
   }
   pcVar15 = (char *)(int)DAT_0001811a;
   iVar16 = uVar12 * DAT_00018120;
-  if (*PTR_DAT_00018124 == '\x01') {
-    *PTR_DAT_00018124 = 0;
-    *PTR_DAT_0001812c = 1;
-    *(undefined2 *)PTR_DAT_00018130 = 0;
+  if (*PTR_PhaseSlot_InitRequestFlag_00018124 == '\x01') {
+    *PTR_PhaseSlot_InitRequestFlag_00018124 = 0;
+    *PTR_PhaseSlot_SelectedMode_0001812c = 1;
+    *(undefined2 *)PTR_PhaseSlot_SelectedMaskWord_00018130 = 0;
     for (pcVar10 = pcVar15; iVar13 = DAT_00018134, pcVar10 < pcVar15 + 0x38;
         pcVar10 = pcVar10 + 0x1c) {
       *pcVar10 = '\0';
@@ -41607,14 +41745,14 @@ void PhaseSlot_StepService_UpdateAll(byte param_1)
     PhaseSlot_ResyncAllToCurrentStep();
   }
   bVar8 = (*(code *)PTR_PhaseSlotMode_ReadOrFallback_000182b8)();
-  if (bVar8 != *PTR_DAT_000182bc) {
+  if (bVar8 != *PTR_PhaseSlot_SelectedMode_000182bc) {
     PhaseSlot_ModeChange_Apply(iVar16,PTR_LAB_000182c0[bVar8]);
-    *PTR_DAT_000182bc = bVar8;
+    *PTR_PhaseSlot_SelectedMode_000182bc = bVar8;
   }
   uVar7 = (*(code *)PTR_PhaseSlotMask_ReadOrDefault_000182c4)();
-  if (uVar7 != *(ushort *)PTR_DAT_000182c8) {
+  if (uVar7 != *(ushort *)PTR_PhaseSlot_SelectedMaskWord_000182c8) {
     PhaseSlot_MaskChange_Apply(iVar16,uVar7);
-    *(ushort *)PTR_DAT_000182c8 = uVar7;
+    *(ushort *)PTR_PhaseSlot_SelectedMaskWord_000182c8 = uVar7;
   }
   pcVar10 = pcVar15 + 0x38;
   do {
@@ -41624,11 +41762,12 @@ void PhaseSlot_StepService_UpdateAll(byte param_1)
     iVar13 = PhaseSlot_TimeDeltaForward(iVar16,*(int *)(pcVar15 + 4));
     if (DAT_000182cc <= iVar13) {
       pcVar15[9] = 0xb < (byte)*PTR_DAT_000182d0;
-      for (pcVar11 = pcVar15 + 0xc; puVar4 = PTR_LAB_000182d4, puVar3 = PTR_DAT_000182bc,
-          pcVar11 < pcVar15 + 0x1c; pcVar11 = pcVar11 + 0x10) {
+      for (pcVar11 = pcVar15 + 0xc; puVar4 = PTR_LAB_000182d4,
+          puVar3 = PTR_PhaseSlot_SelectedMode_000182bc, pcVar11 < pcVar15 + 0x1c;
+          pcVar11 = pcVar11 + 0x10) {
         pcVar11[6] = '\0';
         *pcVar11 = pcVar11[(byte)pcVar15[9] + 2];
-        puVar3 = PTR_DAT_000182c8;
+        puVar3 = PTR_PhaseSlot_SelectedMaskWord_000182c8;
         pcVar11[1] = pcVar11[(byte)pcVar15[9] + 4];
         pcVar11[7] = (*(ushort *)(puVar4 + (uint)(byte)pcVar11[1] * 2) & *(ushort *)puVar3) != 0;
       }
@@ -41691,15 +41830,15 @@ void PhaseSlot_ResyncAllToCurrentStep(void)
   iVar13 = uVar8 * DAT_000183d8;
   uVar6 = (*(code *)PTR_PhaseSlotMode_ReadOrFallback_000183dc)();
   puVar1 = PTR_PhaseSlotMask_ReadOrDefault_000183e4;
-  *PTR_DAT_000183e0 = uVar6;
+  *PTR_PhaseSlot_SelectedMode_000183e0 = uVar6;
   uVar5 = (*(code *)puVar1)();
   pcVar9 = (char *)(int)DAT_000183d0;
-  *(undefined2 *)PTR_DAT_000183e8 = uVar5;
+  *(undefined2 *)PTR_PhaseSlot_SelectedMaskWord_000183e8 = uVar5;
   iVar2 = DAT_000183ec;
   pcVar10 = pcVar9 + 0x38;
   for (; pcVar9 < pcVar10; pcVar9 = pcVar9 + 0x1c) {
     iVar3 = PhaseSlot_TimeDeltaForward(iVar13,*(int *)(pcVar9 + 4));
-    *pcVar9 = PTR_LAB_000183f0[(byte)*PTR_DAT_000183e0];
+    *pcVar9 = PTR_LAB_000183f0[(byte)*PTR_PhaseSlot_SelectedMode_000183e0];
     iVar4 = PhaseSlot_WrapDeltaFromStep(iVar2 - iVar3);
     pcVar9[9] = iVar2 <= iVar4;
     (*(code *)PTR_PhaseSlot_OutputValue_Update_000183f4)(pcVar9);
@@ -41710,8 +41849,8 @@ void PhaseSlot_ResyncAllToCurrentStep(void)
       }
       *pcVar12 = pcVar12[(byte)pcVar9[9] + 2];
       pcVar12[1] = pcVar12[(byte)pcVar9[9] + 4];
-      pcVar12[7] = (*(ushort *)(puVar1 + (uint)(byte)pcVar12[1] * 2) & *(ushort *)PTR_DAT_000183e8)
-                   != 0;
+      pcVar12[7] = (*(ushort *)(puVar1 + (uint)(byte)pcVar12[1] * 2) &
+                   *(ushort *)PTR_PhaseSlot_SelectedMaskWord_000183e8) != 0;
       pcVar12[6] = '\0';
     }
     cVar7 = (**(code **)(PTR_PTR_00018400 + *pcVar9 * 0x10))(pcVar9,iVar3);
@@ -41731,7 +41870,7 @@ void PhaseSlot_ResyncAllToCurrentStep(void)
 void PhaseSlot_InitRequest_Set(void)
 
 {
-  *PTR_DAT_000184f0 = 1;
+  *PTR_PhaseSlot_InitRequestFlag_000184f0 = 1;
   return;
 }
 
@@ -41764,7 +41903,7 @@ void PhaseSlot_ClearAllPendingIfIdle(void)
 int PhaseSlot_ModeRaw_Read(void)
 
 {
-  return (int)(char)*PTR_DAT_000184f8;
+  return (int)(char)*PTR_PhaseSlot_SelectedMode_000184f8;
 }
 
 
@@ -41993,6 +42132,116 @@ void PhaseSlot_CommitInactiveRequestsNearStep(int param_1)
 
 
 
+void PhaseSlot_IgnitionWrappedTargets_ScheduleAll(int param_1,int param_2)
+
+{
+  undefined *puVar1;
+  undefined *puVar2;
+  int iVar3;
+  char *pcVar4;
+  float fVar5;
+  
+  puVar2 = PTR_IgnitionCoilPairSlot_SetWrappedTarget_00018868;
+  puVar1 = PTR_PhaseSlot_StepDeltaFromCurrent_00018864;
+  fVar5 = DAT_0001886c;
+  for (pcVar4 = (char *)(param_1 + 0xc); pcVar4 < (char *)(param_1 + 0x1c); pcVar4 = pcVar4 + 0x10)
+  {
+    if ((pcVar4[7] == '\0') && (pcVar4[6] == '\0')) {
+      *(int *)(pcVar4 + 8) = *(int *)(pcVar4 + 0xc);
+      iVar3 = *(int *)(pcVar4 + 0xc) - param_2;
+      if (0 < iVar3) {
+        iVar3 = 0;
+      }
+      iVar3 = (*(code *)puVar1)(iVar3);
+      (*(code *)puVar2)((float)iVar3 / fVar5,(int)*pcVar4);
+      pcVar4[6] = '\x01';
+    }
+  }
+  *(undefined1 *)(param_1 + 1) = 1;
+  *(undefined1 *)(param_1 + 2) = 0;
+  return;
+}
+
+
+
+bool PhaseSlot_DeltaGreaterThanWindow_Check(undefined4 param_1,int param_2)
+
+{
+  return DAT_00018870 < param_2;
+}
+
+
+
+void PhaseSlot_IgnitionImmediateOrElapsedTargets_ScheduleAll(int param_1,int param_2)
+
+{
+  undefined *puVar1;
+  int iVar2;
+  byte *pbVar3;
+  float fVar4;
+  
+  puVar1 = PTR_PhaseSlot_StepDeltaFromCurrent_00018994;
+  fVar4 = DAT_00018998;
+  for (pbVar3 = (byte *)(param_1 + 0xc); pbVar3 < (byte *)(param_1 + 0x1c); pbVar3 = pbVar3 + 0x10)
+  {
+    if (pbVar3[7] == 0) {
+      *(undefined4 *)(pbVar3 + 8) = *(undefined4 *)(pbVar3 + 0xc);
+      if (pbVar3[6] == 1) {
+        iVar2 = *(int *)(pbVar3 + 8) - param_2;
+        if (0 < iVar2) {
+          iVar2 = 0;
+        }
+        iVar2 = (*(code *)puVar1)(iVar2);
+        *(float *)(PTR_DAT_0001899c + (uint)*pbVar3 * 8) = (float)iVar2 / fVar4;
+      }
+      else if (pbVar3[6] == 0) {
+        iVar2 = *(int *)(pbVar3 + 8) - param_2;
+        if (0 < iVar2) {
+          iVar2 = 0;
+        }
+        iVar2 = (*(code *)puVar1)(iVar2);
+        (*(code *)PTR_IgnitionCoilPairSlot_SetImmediateTargetAndStart_000189a0)
+                  ((float)iVar2 / fVar4,(int)(char)*pbVar3);
+        pbVar3[6] = 1;
+      }
+    }
+  }
+  *(undefined1 *)(param_1 + 1) = 1;
+  *(undefined1 *)(param_1 + 2) = 0;
+  return;
+}
+
+
+
+undefined4 PhaseSlot_CanScheduleBeforeCurrentWindow_Check(int param_1,int param_2)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  char *pcVar4;
+  
+  iVar3 = (int)DAT_00018990;
+  pcVar4 = (char *)(param_1 + 0xc);
+  while( true ) {
+    if ((char *)(param_1 + 0x1c) <= pcVar4) {
+      return 1;
+    }
+    if (param_2 <= *(int *)(pcVar4 + 0xc)) break;
+    iVar1 = (*(code *)PTR_PhaseSlot_DwellOffsetCorrection_ByRPM_Calculate_000189a4)((int)*pcVar4);
+    iVar2 = (*(code *)PTR_IgnitionCoilPair_BaseDwellWord_X16_Read_000189a8)((int)*pcVar4);
+    iVar1 = (*(code *)PTR_SignedDivide32_LongDivision_Helper_000189B0)
+                      (iVar2 + iVar1,*(undefined4 *)PTR_InjectorPhaseAccumulator_000189ac);
+    if (param_2 < iVar1 * iVar3 + *(int *)(pcVar4 + 0xc)) {
+      return 0;
+    }
+    pcVar4 = pcVar4 + 0x10;
+  }
+  return 0;
+}
+
+
+
 void nothing_75(void)
 
 {
@@ -42067,7 +42316,7 @@ bool InputBit0_InvertToFlagA_Update(void)
 {
   bool bVar1;
   
-  bVar1 = (*PTR_DAT_00018b08 & 1) == 0;
+  bVar1 = (*PTR_PhaseFrontend_Mode1_ResponseStableByte_00018b08 & 1) == 0;
   if (bVar1) {
     *PTR_DAT_00018b04 = 1;
   }
@@ -42116,7 +42365,7 @@ bool InputBit0_InvertToFlagB_Update(void)
 {
   bool bVar1;
   
-  bVar1 = (*PTR_DAT_00018b2c & 1) == 0;
+  bVar1 = (*PTR_PhaseFrontend_Mode2_ResponseStableByte_00018b2c & 1) == 0;
   if (bVar1) {
     *PTR_DAT_00018b28 = 1;
   }
@@ -42186,7 +42435,7 @@ void SubsystemA_ControlRampBlend_SharedScaleLatch_Update(void)
 
 {
   *(undefined4 *)PTR_SubsystemA_ControlRampBlend_SharedScaleLatch_00018ba0 =
-       *(undefined4 *)PTR_SharedWindowScaleValue_00018bac;
+       *(undefined4 *)PTR_BatteryVoltage_FilteredVolts_00018bac;
   return;
 }
 
@@ -42502,8 +42751,9 @@ void MixedScheduler_GroupK_SharedConfigServiceDispatch(void)
 
 
 
-// Service dispatch that refreshes MAP/MAF/EGR command-blend input state before pulsing the EGR coil
-// driver.
+// Service dispatch that refreshes MAP/MAF/SubsystemA command-blend input state before pulsing the
+// EGR PE12..PE15 coil driver. The direct EGR proof here is the final PE12..PE15 coil call; the
+// command-blend support path is kept neutral as SubsystemA.
 
 void EGR_CoilMonitorAndDrive_ServiceDispatch(void)
 
@@ -42538,32 +42788,34 @@ void EGR_CoilMonitorAndDrive_ServiceDispatch(void)
 
 
 
-// Runs a large SubsystemA DTC2A local status-refresh bundle with several protected update batches,
-// then finishes with the shared diagnostic status-bit aggregate update.
+// Runs the local ECU P0601 status-refresh bundle and then finishes with shared diagnostic status
+// aggregation.
 
-void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle(void)
+void ECU_P0601_LocalStatusRefreshAndAggregateBundle(void)
 
 {
   undefined *puVar1;
   undefined *puVar2;
   undefined4 uVar3;
   
+                    // Runs the local ECU P0601 status-refresh bundle and then finishes with shared
+                    // diagnostic status aggregation.
   puVar1 = PTR_SharedSchedulerGate_ReadMaskedSrLevel_000194a4;
   uVar3 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_000194a4)(0x10);
   (*(code *)PTR_EGR_DTC2A_LocalStatusRefreshAndAggregate_00019530)();
-  (*(code *)PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_1_00019534)();
-  (*(code *)PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_2_00019538)();
-  (*(code *)PTR_Read_AddBytesWithLimit_2_0001953c)();
-  (*(code *)PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_3_00019540)();
-  (*(code *)PTR_Read_AddBytesWithLimit_00019544)();
-  (*(code *)PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_4_00019548)();
-  (*(code *)PTR_AddBytesWithLimit_Wrapper_0001954c)();
-  (*(code *)PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_5_00019550)();
-  (*(code *)PTR_Read_AddBytesWithLimit_3_00019554)();
-  (*(code *)PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_6_00019558)();
-  (*(code *)PTR_Read_AddBytesWithLimit_4_0001955c)();
-  (*(code *)PTR_SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_7_00019560)();
-  (*(code *)PTR_Read_AddBytesWithLimit_1_00019564)();
+  (*(code *)PTR_PhaseFrontend_Mode2Bit10_DebouncedPrereq_Update_00019534)();
+  (*(code *)PTR_PhaseFrontend_Mode0Bit10_InvertRaw_Update_00019538)();
+  (*(code *)PTR_PhaseFrontend_Mode0Bit10_DebouncedComparison_Update_0001953c)();
+  (*(code *)PTR_PhaseFrontend_Mode1Bit20_Raw_Update_00019540)();
+  (*(code *)PTR_IdleUpMode_Mode1Bit20_DebouncedRequestAB_Update_00019544)();
+  (*(code *)PTR_PhaseFrontend_DisabledRequestRaw_Clear_00019548)();
+  (*(code *)PTR_PhaseFrontend_DisabledRequest_Debounce_Update_0001954c)();
+  (*(code *)PTR_PhaseFrontend_Mode1Bit08_Raw_Update_00019550)();
+  (*(code *)PTR_PhaseFrontend_Mode1Bit08_DebouncedIdleUpRequestC_Update_00019554)();
+  (*(code *)PTR_PhaseFrontend_Mode2Bit08_InvertRaw_Update_00019558)();
+  (*(code *)PTR_PhaseFrontend_Mode2Bit08_DebouncedFlag_Update_0001955c)();
+  (*(code *)PTR_PhaseFrontend_Mode1Bit40_InvertRaw_Update_00019560)();
+  (*(code *)PTR_PhaseFrontend_Mode1Bit40_DebouncedFlag_Update_00019564)();
   puVar2 = PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_000194b0;
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_000194b0)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
@@ -42681,7 +42933,7 @@ void AN23_SnapshotAndStatusPrepPair_ServiceProtected(void)
 {
   undefined4 uVar1;
   
-  *(undefined2 *)PTR_DAT_000198b0 = *(undefined2 *)PTR_data_from_AN23_112_pin_000198ac;
+  *(undefined2 *)PTR_DAT_000198b0 = *(undefined2 *)PTR_KnockSensor_AN21_RawAdc_000198ac;
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00019830)(0x10);
   (*(code *)PTR_InjectorTimer_ConfigBaseWord_Load_000198b4)();
   (*(code *)PTR_InjectorTimer_ConfigEntry0_Ptr_Load_000198b8)();
@@ -44057,7 +44309,7 @@ bool InputBitPair_StatusBit0_Update(void)
 {
   bool bVar1;
   
-  bVar1 = (*(ushort *)PTR_DAT_0001a7e8 & 1) != 0;
+  bVar1 = (*(ushort *)PTR_PhaseFrontend_Mode0_ResponseStableWord_0001a7e8 & 1) != 0;
   if (bVar1) {
     *PTR_InputBitPair_StatusBit0_0001a7e4 = 1;
   }
@@ -44393,7 +44645,7 @@ void SubsystemA_SeededLoadWindowAccumulator_CounterUpdate(void)
   float fVar10;
   
   fVar9 = *(float *)PTR_EngineSpeed_RPM_Filtered_0001ab6c;
-  fVar8 = *(float *)PTR_DAT_0001ab70;
+  fVar8 = *(float *)PTR_IdleTargetRpm_SelectedFinal_0001ab70;
   fVar10 = *(float *)PTR_ECTSensor_AN28_CelsiusValidated_0001ab48;
   uVar2 = *(ushort *)PTR_SubsystemA_PrimaryEnable_QualifiedCounter_0001ab54;
   fVar7 = *(float *)PTR_DAT_0001ab78;
@@ -44445,7 +44697,7 @@ void EGR_CommandBlend_TransientFlags_Update(void)
   puVar5 = PTR_SubsystemA_CommandBlend_TransientFlag_A_0001adb4;
   puVar4 = PTR_SubsystemA_CommandBlend_TransientCounter_A_0001adb0;
   cVar1 = *PTR_SubsystemA_CommandBlend_EnableFlag_0001ada4;
-  cVar2 = *PTR_DAT_0001ada8;
+  cVar2 = *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_0001ada8;
   cVar3 = *PTR_SubsystemA_TableSelectGate_RequestLatched_0001adac;
   if ((*PTR_SubsystemA_CommandBlend_EnableFlag_Previous_0001adb8 == '\0') && (cVar1 == '\x01')) {
     *PTR_SubsystemA_CommandBlend_TransientFlag_A_0001adb4 = 1;
@@ -44638,7 +44890,7 @@ void FuelDisplay_InputPhaseFilter_Update(void)
   puVar3 = PTR_FuelDisplay_InputPhaseFilter_Output_0001af3c;
   puVar2 = PTR_EngineSpeed_RPM_Filtered_0001af38;
   cVar1 = *PTR_SubsystemA_EnableSharedInhibitFlag_0001af60;
-  fVar8 = *(float *)PTR_DAT_0001af64;
+  fVar8 = *(float *)PTR_IdleTargetRpm_SelectedFinal_0001af64;
   if (cVar1 == '\x01') {
     *(undefined4 *)PTR_FuelDisplay_InputPhaseFilter_Output_0001af3c =
          *(undefined4 *)PTR_EngineSpeed_RPM_Filtered_0001af38;
@@ -44859,7 +45111,7 @@ bool IATSensor_AN29_ModeFlag_UpdateFromStatusMask(void)
 {
   bool bVar1;
   
-  bVar1 = (DAT_0001b20a & *(ushort *)PTR_DAT_0001b210) != 0;
+  bVar1 = (DAT_0001b20a & *(ushort *)PTR_PhaseFrontend_Mode0_ResponseStableWord_0001b210) != 0;
   if (bVar1) {
     *PTR_IATSensor_AN29_ModeFlag_0001b20c = 0;
   }
@@ -45891,7 +46143,7 @@ bool InputBit1_StatusBit_Update(void)
 {
   bool bVar1;
   
-  bVar1 = (*(ushort *)PTR_DAT_0001bfb8 & 2) != 0;
+  bVar1 = (*(ushort *)PTR_PhaseFrontend_Mode0_ResponseStableWord_0001bfb8 & 2) != 0;
   if (bVar1) {
     *PTR_InputBit1_StatusBit_0001bfb4 = 1;
   }
@@ -45972,7 +46224,8 @@ void ProtectedDword_1c1b8_WriteFromSource(void)
 
 {
   (*(code *)PTR_ProtectedDword_WriteWithChecksumMirror_0001c1bc)
-            (*(undefined4 *)PTR_DAT_0001c1b4,PTR_DAT_0001c1b8);
+            (*(undefined4 *)PTR_DAT_0001c1b4,
+             PTR_SubsystemA_SeededIatLoad_ProtectedLearnedBaseline_0001c1b8);
   return;
 }
 
@@ -45983,11 +46236,15 @@ bool ProtectedDword_1c1b8_ChecksumValid(void)
 {
   char cVar1;
   
-  cVar1 = (*(code *)PTR_ProtectedDword_ChecksumRepairOrFail_0001c1c0)(PTR_DAT_0001c1b8);
+  cVar1 = (*(code *)PTR_ProtectedDword_ChecksumRepairOrFail_0001c1c0)
+                    (PTR_SubsystemA_SeededIatLoad_ProtectedLearnedBaseline_0001c1b8);
   return cVar1 != '\0';
 }
 
 
+
+// Refreshes the current/buffered AN15 status-source snapshots together with neighboring auxiliary
+// snapshot values.
 
 void AN15_AndAuxSnapshots_Update(void)
 
@@ -45995,10 +46252,10 @@ void AN15_AndAuxSnapshots_Update(void)
   undefined *puVar1;
   undefined *puVar2;
   
-  puVar1 = PTR_DAT_0001c1cc;
+  puVar1 = PTR_AN15_StatusSource_FilteredSample_0001c1cc;
   *(undefined2 *)PTR_AN15_RawSample_Current_0001c1c8 =
-       *(undefined2 *)PTR_data_from_AN15_104_pin_0001c1c4;
-  puVar2 = PTR_DAT_0001c1d4;
+       *(undefined2 *)PTR_AN15_StatusSource_RawSample_0001c1c4;
+  puVar2 = PTR_AN15_StatusSource_ScaledValue_0001c1d4;
   *(undefined2 *)PTR_AN15_RawSample_Buffered_0001c1d0 = *(undefined2 *)puVar1;
   *(undefined4 *)PTR_SubsystemA_SeededIatLoad_SourceValue_Current_0001c1ac = *(undefined4 *)puVar2;
   return;
@@ -46030,7 +46287,8 @@ void EGR_SeededIatLoad_SecondaryDelta_Update(void)
   }
   else {
     fVar5 = (float)(*(code *)PTR_ProtectedDword_ReadWithChecksumFallback_0001c1ec)
-                             (*(undefined4 *)PTR_DAT_0001c1b4,PTR_DAT_0001c1b8);
+                             (*(undefined4 *)PTR_DAT_0001c1b4,
+                              PTR_SubsystemA_SeededIatLoad_ProtectedLearnedBaseline_0001c1b8);
     fVar5 = (float)(*(code *)PTR_MaxFloat_0001c1f0)
                              (*(float *)PTR_SubsystemA_SeededIatLoad_SourceValue_Current_0001c1ac -
                               fVar5,uVar6);
@@ -46071,11 +46329,11 @@ void EGR_ProtectedLearnedDelta_Update(void)
       *(float *)PTR_DAT_0001c208) {
     if (*(float *)PTR_SubsystemA_SeededIatLoad_SourceValue_Current_0001c1ac <
         *(float *)PTR_DAT_0001c208 + DAT_0001c20c) {
-      *PTR_DAT_0001c214 = 0;
+      *PTR_SubsystemA_SeededIatLoad_SourceAboveLearnThresholdFlag_0001c214 = 0;
     }
   }
   else {
-    *PTR_DAT_0001c214 = 1;
+    *PTR_SubsystemA_SeededIatLoad_SourceAboveLearnThresholdFlag_0001c214 = 1;
   }
   puVar6 = PTR_AN15_WindowUpperBound_Current_0001c1e0;
   puVar5 = PTR_AN15_WindowLowerBound_Current_0001c1d8;
@@ -46095,19 +46353,21 @@ void EGR_ProtectedLearnedDelta_Update(void)
   }
   puVar5 = PTR_ProtectedDword_ReadWithChecksumFallback_0001c1ec;
   fVar11 = (float)(*(code *)PTR_ProtectedDword_ReadWithChecksumFallback_0001c1ec)
-                            (*(undefined4 *)puVar4,PTR_DAT_0001c1b8);
+                            (*(undefined4 *)puVar4,
+                             PTR_SubsystemA_SeededIatLoad_ProtectedLearnedBaseline_0001c1b8);
   if (fVar11 < *(float *)puVar3) {
-    *PTR_DAT_0001c224 = 0;
+    *PTR_SubsystemA_ProtectedLearnedBaseline_AtOrAboveSnapshotFlag_0001c224 = 0;
   }
   else {
-    *PTR_DAT_0001c224 = 1;
+    *PTR_SubsystemA_ProtectedLearnedBaseline_AtOrAboveSnapshotFlag_0001c224 = 1;
   }
-  puVar7 = PTR_DAT_0001c230;
-  puVar6 = PTR_DAT_0001c228;
+  puVar7 = PTR_SubsystemA_ProtectedLearnedBaseline_UpdateWindowFlag_0001c230;
+  puVar6 = PTR_SubsystemA_ProtectedLearnedBaseline_RequestTransitionFlag_0001c228;
   puVar3 = PTR_ProtectedDword_WriteWithChecksumMirror_0001c1bc;
   if (*PTR_SharedDiagAggregate_StatusPair2022_AnyFlag_0001c22c == '\x01') {
     (*(code *)PTR_ProtectedDword_WriteWithChecksumMirror_0001c1bc)
-              (*(undefined4 *)puVar4,PTR_DAT_0001c1b8);
+              (*(undefined4 *)puVar4,PTR_SubsystemA_SeededIatLoad_ProtectedLearnedBaseline_0001c1b8)
+    ;
   }
   else {
     if (((((*PTR_InputBit1_DebouncedState_0001c234 != '\0') ||
@@ -46118,59 +46378,75 @@ void EGR_ProtectedLearnedDelta_Update(void)
          (*(ushort *)PTR_AN15_WindowUpperBound_Current_0001c1e0 <
           *(ushort *)PTR_AN15_RawSample_Buffered_0001c1d0)))) ||
        (*(float *)PTR_MAP_IAT_SelectedCommitSlot4_0001c244 < *(float *)PTR_DAT_0001c240)) {
-      *PTR_DAT_0001c230 = 0;
+      *PTR_SubsystemA_ProtectedLearnedBaseline_UpdateWindowFlag_0001c230 = 0;
     }
     else {
-      *PTR_DAT_0001c230 = 1;
+      *PTR_SubsystemA_ProtectedLearnedBaseline_UpdateWindowFlag_0001c230 = 1;
     }
-    if ((*puVar7 == '\x01') && (*PTR_DAT_0001c398 == '\0')) {
-      fVar11 = (float)(*(code *)puVar5)(*(undefined4 *)puVar4,PTR_DAT_0001c39c);
-      (*(code *)puVar3)(fVar11 + *(float *)PTR_DAT_0001c3a0,PTR_DAT_0001c39c);
-      *PTR_DAT_0001c398 = 1;
+    if ((*puVar7 == '\x01') &&
+       (*PTR_SubsystemA_ProtectedLearnedBaseline_InitDoneFlag_0001c398 == '\0')) {
+      fVar11 = (float)(*(code *)puVar5)(*(undefined4 *)puVar4,
+                                        PTR_SubsystemA_SeededIatLoad_ProtectedLearnedBaseline_0001c39c
+                                       );
+      (*(code *)puVar3)(fVar11 + *(float *)PTR_DAT_0001c3a0,
+                        PTR_SubsystemA_SeededIatLoad_ProtectedLearnedBaseline_0001c39c);
+      *PTR_SubsystemA_ProtectedLearnedBaseline_InitDoneFlag_0001c398 = 1;
     }
     else {
-      if ((cVar1 == '\0') && (*PTR_DAT_0001c3a4 == '\x01')) {
+      if ((cVar1 == '\0') &&
+         (*PTR_SubsystemA_SeededIatLoad_SourceAboveLearnThresholdFlag_0001c3a4 == '\x01')) {
         *puVar6 = 0;
       }
-      else if ((cVar1 == '\x01') && (*PTR_DAT_0001c3a4 == '\0')) {
+      else if ((cVar1 == '\x01') &&
+              (*PTR_SubsystemA_SeededIatLoad_SourceAboveLearnThresholdFlag_0001c3a4 == '\0')) {
         *puVar6 = 1;
       }
-      fVar11 = (float)(*(code *)puVar5)(*(undefined4 *)puVar4,PTR_DAT_0001c39c);
+      fVar11 = (float)(*(code *)puVar5)(*(undefined4 *)puVar4,
+                                        PTR_SubsystemA_SeededIatLoad_ProtectedLearnedBaseline_0001c39c
+                                       );
       if (((((*puVar7 == '\x01') &&
             (*(float *)PTR_SubsystemA_SeededIatLoad_SecondaryDelta_0001c3ac <
              *(float *)PTR_DAT_0001c3a8)) &&
-           (*(ushort *)PTR_DAT_0001c3b4 <= *(ushort *)PTR_DAT_0001c3b0)) &&
-          (*PTR_DAT_0001c3a4 == '\0')) ||
-         ((*PTR_DAT_0001c3b8 == '\0' && (*PTR_DAT_0001c3bc == '\x01')))) {
+           (*(ushort *)PTR_DAT_0001c3b4 <=
+            *(ushort *)PTR_SubsystemA_ProtectedLearnedBaseline_DecreaseCounter_0001c3b0)) &&
+          (*PTR_SubsystemA_SeededIatLoad_SourceAboveLearnThresholdFlag_0001c3a4 == '\0')) ||
+         ((*PTR_SubsystemA_ProtectedLearnedBaseline_RequestTransitionPrevFlag_0001c3b8 == '\0' &&
+          (*PTR_SubsystemA_ProtectedLearnedBaseline_RequestTransitionFlag_0001c3bc == '\x01')))) {
         fVar11 = *(float *)PTR_DAT_0001c3c0 + fVar11;
       }
       else if ((*puVar7 == '\x01') &&
-              ((*PTR_DAT_0001c3c4 == '\x01' && ((byte)*PTR_DAT_0001c3cc <= (byte)*PTR_DAT_0001c3c8))
-              )) {
+              ((*PTR_SubsystemA_ProtectedLearnedBaseline_AtOrAboveSnapshotFlag_0001c3c4 == '\x01' &&
+               ((byte)*PTR_DAT_0001c3cc <=
+                (byte)*PTR_SubsystemA_ProtectedLearnedBaseline_DecreaseCounterByte_0001c3c8)))) {
         fVar11 = (float)(*(code *)PTR_MaxFloat_0001c3d8)
                                   (fVar11 - *(float *)PTR_DAT_0001c3d0,
                                    *(undefined4 *)PTR_DAT_0001c3d4);
       }
-      (*(code *)puVar3)(fVar11,PTR_DAT_0001c39c);
+      (*(code *)puVar3)(fVar11,PTR_SubsystemA_SeededIatLoad_ProtectedLearnedBaseline_0001c39c);
     }
   }
-  puVar3 = PTR_DAT_0001c3c8;
-  if (*PTR_DAT_0001c3c4 == '\x01') {
-    uVar9 = (*(code *)PTR_AddBytesWithLimit_0001c3dc)((int)(char)*PTR_DAT_0001c3c8,1);
+  puVar3 = PTR_SubsystemA_ProtectedLearnedBaseline_DecreaseCounterByte_0001c3c8;
+  if (*PTR_SubsystemA_ProtectedLearnedBaseline_AtOrAboveSnapshotFlag_0001c3c4 == '\x01') {
+    uVar9 = (*(code *)PTR_AddBytesWithLimit_0001c3dc)
+                      ((int)(char)*
+                                  PTR_SubsystemA_ProtectedLearnedBaseline_DecreaseCounterByte_0001c3c8
+                       ,1);
     *puVar3 = uVar9;
   }
   else {
-    *PTR_DAT_0001c3c8 = 0;
+    *PTR_SubsystemA_ProtectedLearnedBaseline_DecreaseCounterByte_0001c3c8 = 0;
   }
-  puVar3 = PTR_DAT_0001c3b0;
-  if (*PTR_DAT_0001c3a4 == '\x01') {
-    uVar8 = (*(code *)PTR_AddUint16AndSaturateToFFFE_0001c3e0)((int)*(short *)PTR_DAT_0001c3b0,1);
+  puVar3 = PTR_SubsystemA_ProtectedLearnedBaseline_DecreaseCounter_0001c3b0;
+  if (*PTR_SubsystemA_SeededIatLoad_SourceAboveLearnThresholdFlag_0001c3a4 == '\x01') {
+    uVar8 = (*(code *)PTR_AddUint16AndSaturateToFFFE_0001c3e0)
+                      ((int)*(short *)
+                             PTR_SubsystemA_ProtectedLearnedBaseline_DecreaseCounter_0001c3b0,1);
     *(undefined2 *)puVar3 = uVar8;
   }
   else {
-    *(undefined2 *)PTR_DAT_0001c3b0 = 0;
+    *(undefined2 *)PTR_SubsystemA_ProtectedLearnedBaseline_DecreaseCounter_0001c3b0 = 0;
   }
-  *PTR_DAT_0001c3b8 = *puVar6;
+  *PTR_SubsystemA_ProtectedLearnedBaseline_RequestTransitionPrevFlag_0001c3b8 = *puVar6;
   return;
 }
 
@@ -47161,7 +47437,7 @@ char SubsystemA_ControlRamp_CommandBitmask_Update(void)
   char cVar1;
   ushort uVar2;
   
-  if ((*PTR_DAT_0001ce1c == '\x01') || (*PTR_DAT_0001ce20 == '\x01')) {
+  if ((*PTR_DAT_0001ce1c == '\x01') || (*PTR_IMMO_StatusQuadByteC_0001ce20 == '\x01')) {
     cVar1 = '\x01';
     uVar2 = (ushort)PTR_LAB_0000fffe_1_0001ce24;
   }
@@ -48181,7 +48457,7 @@ void SubsystemA_CommandBlend_SecondaryEnableThresholdAndEdge_Update(void)
   puVar3 = PTR_SecondaryEnable_BelowThresholdCounterThreshold_0001dfd4;
   *(ushort *)PTR_SecondaryEnable_AboveThresholdCounterThreshold_0001dfd0 = uVar7;
   *(ushort *)puVar3 = uVar8;
-  *(float *)PTR_DAT_0001dfd8 = fVar10;
+  *(float *)PTR_HO2S1_DTC_ReferenceCenterVoltage_0001dfd8 = fVar10;
   return;
 }
 
@@ -55434,16 +55710,17 @@ bool SubsystemA_ControlRampSubsystem_AnyCommandActive(void)
 void SubsystemA_ControlRamp_RequestSelectorOne(void)
 
 {
-  (*(code *)PTR_FuelMixture_ControlRamp_Request)(1);
+  (*(code *)PTR_Injector_TO8_PulseScaleControl_RequestStagedUpdate)(1);
   return;
 }
 
 
 
-// Updates the local control-ramp blend, handles staged request edges, clamps the result, converts
-// it, and commits it through FuelMixture_ControlRamp_UpdateImmediate.
+// Builds the final idle control-ramp output from lower/upper ramp targets and position, handles
+// request-edge staged updates, clamps/converts the result, and commits it through the
+// ControlRampTimerShadow path.
 
-void SubsystemA_ControlRampBlend_UpdateAndCommit(void)
+void IdleControlRamp_OutputBlendAndControlRampTimerCommit(void)
 
 {
   undefined *puVar1;
@@ -55458,11 +55735,11 @@ void SubsystemA_ControlRampBlend_UpdateAndCommit(void)
   
   if ((*PTR_SubsystemA_ControlRampBlend_RequestFlag == '\x01') &&
      (*PTR_SubsystemA_ControlRampBlend_RequestFlagLatched == '\0')) {
-    (*(code *)PTR_FuelMixture_ControlRamp_Request)(0);
+    (*(code *)PTR_Injector_TO8_PulseScaleControl_RequestStagedUpdate)(0);
   }
   else if ((*PTR_SubsystemA_ControlRampBlend_RequestFlag == '\0') &&
           (*PTR_SubsystemA_ControlRampBlend_RequestFlagLatched == '\x01')) {
-    (*(code *)PTR_FuelMixture_ControlRamp_ApplyRequestedSample)();
+    (*(code *)PTR_Injector_TO8_PulseScaleControl_ApplyRequestedSample)();
   }
   puVar6 = PTR_SubsystemA_ControlRampBlend_LowerTarget;
   puVar4 = PTR_SubsystemA_ControlRampBlend_OutputFloat;
@@ -55502,7 +55779,7 @@ void SubsystemA_ControlRampBlend_UpdateAndCommit(void)
                      SubsystemA_ControlRampBlend_ClampUpper);
   *(undefined4 *)puVar4 = uVar8;
   uVar8 = (*(code *)PTR_SubsystemA_ControlRampBlend_OutputConvertHelper)();
-  puVar1 = PTR_FuelMixture_ControlRamp_UpdateImmediate;
+  puVar1 = PTR_Injector_TO8_PulseScaleControl_UpdateImmediate;
   *(undefined4 *)PTR_SubsystemA_ControlRampBlend_ConvertedOutput = uVar8;
   (*(code *)puVar1)(uVar8);
   return;
@@ -55750,7 +56027,7 @@ LAB_00024a90:
         ((fVar6 < *(float *)PTR_DAT_00024c24 &&
          (*(ushort *)PTR_DAT_00024c28 <= *(ushort *)PTR_DAT_00024c08)))) ||
        (*(float *)PTR_EngineSpeed_RPM_Filtered_00024c2c <
-        *(float *)PTR_DAT_00024bfc - *(float *)PTR_DAT_00024bf8)) {
+        *(float *)PTR_IdleTargetRpm_SelectedFinal_00024bfc - *(float *)PTR_DAT_00024bf8)) {
       *PTR_DAT_00024c04 = 0;
     }
   }
@@ -56276,7 +56553,7 @@ void SubsystemA_CommandBlend_EntryLatchAndDecay_Update(void)
   undefined4 uVar7;
   float fVar8;
   
-  puVar3 = PTR_DAT_0002534c;
+  puVar3 = PTR_IdleTargetRpm_SelectedFinal_0002534c;
   puVar2 = PTR_DAT_00025348;
   puVar1 = PTR_DAT_00025344;
   puVar6 = PTR_DAT_00025340;
@@ -56609,7 +56886,7 @@ void SubsystemA_CommandBlend_SeededLoadMafEctProduct_Update(void)
 // Builds a masked blend-model product from a seeded-load 2D table, an ECT 1D table, and a selected
 // scale value.
 
-void SubsystemA_BlendModel_SeededLoadEctProductMasked_Update(void)
+void IgnitionPhaseBlendModel_SeededLoadEctProductMasked_Update(void)
 
 {
   undefined *puVar1;
@@ -56620,7 +56897,7 @@ void SubsystemA_BlendModel_SeededLoadEctProductMasked_Update(void)
   float fVar6;
   
   fVar3 = (float)(*(code *)PTR_Interpolate2D_float_WithTransform_000257b8)
-                           (*(undefined4 *)PTR_DAT_000257b0,
+                           (*(undefined4 *)PTR_IgnitionPhaseCommandBlend_TotalOutput_000257b0,
                             *(undefined4 *)PTR_EngineSpeed_RPM_Filtered_000257ac,PTR_LAB_000257b4);
   fVar4 = (float)(*(code *)PTR_Interpolate1D_WithTransform_000257c4)
                            (*(undefined4 *)PTR_ECTSensor_AN28_CelsiusValidated_000257bc,
@@ -56787,10 +57064,10 @@ void CoolingFanRelay1_CommandArbitration(void)
   byte bVar11;
   undefined4 uVar12;
   
-  cVar1 = *PTR_DAT_000259ec;
-  cVar2 = *PTR_DAT_000259f0;
+  cVar1 = *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_000259ec;
+  cVar2 = *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_000259f0;
   cVar3 = *PTR_CoolingFanRelay1_LogicalRequest_FromECTDiagShared_000259f8;
-  cVar4 = *PTR_DAT_000259f4;
+  cVar4 = *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_000259f4;
   uVar12 = *(undefined4 *)PTR_DAT_00025a00;
   cVar5 = *PTR_CoolingFanRelay2_LogicalRequest_FromECTDiagShared_000259fc;
   if ((((((cVar1 != '\x01') ||
@@ -57005,18 +57282,19 @@ void CoolingFanRelay2_CommandArbitration(void)
   undefined4 uVar4;
   
   uVar4 = *(undefined4 *)PTR_DAT_00025df4;
-  if ((((*PTR_DAT_00025de0 != '\x01') && (*PTR_DAT_00025de4 != '\x01')) &&
-      (*PTR_DAT_00025de8 != '\x01')) &&
+  if ((((*PTR_IdleUpMode_Mode1Bit20_RequestFlagA_00025de0 != '\x01') &&
+       (*PTR_IdleUpMode_Mode1Bit20_RequestFlagB_00025de4 != '\x01')) &&
+      (*PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00025de8 != '\x01')) &&
      ((*PTR_CoolingFanRelay1_LogicalRequest_FromECTDiagShared_00025dec != '\x01' &&
       (*PTR_CoolingFanRelay2_LogicalRequest_FromECTDiagShared_00025df0 != '\x01')))) {
     *(undefined4 *)PTR_DAT_00025df4 = 0;
     return;
   }
-  bVar3 = *PTR_DAT_00025de0 == '\x01';
-  if (*PTR_DAT_00025de4 == '\x01') {
+  bVar3 = *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_00025de0 == '\x01';
+  if (*PTR_IdleUpMode_Mode1Bit20_RequestFlagB_00025de4 == '\x01') {
     bVar3 = bVar3 | 2;
   }
-  if (*PTR_DAT_00025de8 == '\x01') {
+  if (*PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00025de8 == '\x01') {
     bVar3 = bVar3 | 4;
   }
   if (*PTR_CoolingFanRelay1_LogicalRequest_FromECTDiagShared_00025dec == '\x01') {
@@ -57215,7 +57493,7 @@ void SubsystemA_CommandBlend_FlagState_Snapshot(void)
 // Captures fan relay commands together with local command-blend enable/table-select state for later
 // mixed-condition evaluation.
 
-void CoolingFanAndSubsystemAFlagState_Snapshot(void)
+void IdleUpAndFanRequest_StateSnapshot_Update(void)
 
 {
   undefined1 uVar1;
@@ -57223,19 +57501,19 @@ void CoolingFanAndSubsystemAFlagState_Snapshot(void)
   undefined1 uVar3;
   undefined *puVar4;
   
-  uVar1 = *PTR_DAT_00026280;
+  uVar1 = *PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_00026280;
   uVar2 = *PTR_CoolingFanRelay1_LogicalRequest_FromECTDiagShared_00026284;
   uVar3 = *PTR_CoolingFanRelay2_LogicalRequest_FromECTDiagShared_00026288;
   *PTR_DAT_0002628c = *PTR_SubsystemA_CommandBlend_EnableFlag_00026270;
   *PTR_DAT_00026290 = *PTR_SubsystemA_CommandBlend_TableSelectFlag_00026278;
   puVar4 = PTR_DAT_000262a4;
-  *PTR_DAT_00026298 = *PTR_DAT_00026294;
-  *PTR_DAT_000262a0 = *PTR_DAT_0002629c;
+  *PTR_DAT_00026298 = *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00026294;
+  *PTR_DAT_000262a0 = *PTR_IdleUpMode_Mode1Bit08_RequestFlagC_0002629c;
   *(undefined4 *)PTR_DAT_000262a8 = *(undefined4 *)puVar4;
-  puVar4 = PTR_DAT_000262b0;
+  puVar4 = PTR_IdleUpMode_Snapshot_FanRelay1Request_000262b0;
   *PTR_DAT_000262ac = uVar1;
   *puVar4 = uVar2;
-  *PTR_DAT_000262b4 = uVar3;
+  *PTR_IdleUpMode_Snapshot_FanRelay2Request_000262b4 = uVar3;
   return;
 }
 
@@ -57314,7 +57592,7 @@ void NoOp_Return_2613a(void)
 void CoolingFan_FloatState_ShadowCopy(void)
 
 {
-  *(undefined4 *)PTR_DAT_000262f0 = *(undefined4 *)PTR_DAT_000262ec;
+  *(undefined4 *)PTR_IdleTargetRpm_SelectedFinal_000262f0 = *(undefined4 *)PTR_DAT_000262ec;
   return;
 }
 
@@ -57342,7 +57620,7 @@ void SubsystemA_CommandBlend_SeedWindow_PreconditionEvaluate(void)
   uVar10 = 0;
   cVar1 = *PTR_SubsystemA_CommandBlend_EnableFlag_00026270;
   cVar2 = *PTR_SubsystemA_CommandBlend_TableSelectFlag_00026278;
-  cVar3 = *PTR_DAT_00026294;
+  cVar3 = *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00026294;
   cVar4 = *PTR_SubsystemA_EnableSharedInhibitFlag_000262f4;
   cVar5 = *PTR_SubsystemA_StatusPrep_SecondaryLoadWindow_Flag_000262f8;
   uVar12 = *(undefined4 *)PTR_DAT_000262fc;
@@ -57364,7 +57642,7 @@ void SubsystemA_CommandBlend_SeedWindow_PreconditionEvaluate(void)
                   *(ushort *)PTR_DAT_00026320 && (*PTR_DAT_00026328 == '\0')))))) &&
            (((*(ushort *)PTR_SubsystemA_CommandBlend_EnableWindowCounterLimit_00026330 <=
               *(ushort *)PTR_DAT_0002632c && (cVar3 == '\0')) || (cVar3 == '\x01')))) &&
-          ((((*PTR_DAT_00026334 == '\0' &&
+          ((((*PTR_PhaseFrontend_DisabledRequest_DebouncedFlag_00026334 == '\0' &&
              (*PTR_DiagAggregate_ECT_DTC0D0E_AnyProtectedStatusSet_00026338 == '\0')) &&
             (*PTR_SharedDiagAggregate_StatusPair1416_AnyFlag_0002633c == '\0')) &&
            ((*PTR_SharedDiagAggregate_Status50_Flag_00026340 == '\0' && (*PTR_DAT_00026344 == '\0'))
@@ -57400,7 +57678,7 @@ void SubsystemA_CommandBlend_SeedWindow_PreconditionEvaluate(void)
 // Maintains the matrix of short debounce counters for cooling-fan request edges, relay command
 // transitions, and mixed SubsystemA/fan prerequisite states.
 
-void CoolingFan_RequestEdgeDebounceMatrix_Update(void)
+void IdleUpMode_EdgeDebounceMatrix_Update(void)
 
 {
   char cVar1;
@@ -57421,13 +57699,13 @@ void CoolingFan_RequestEdgeDebounceMatrix_Update(void)
   fVar13 = *(float *)PTR_DAT_00026518;
   cVar1 = *PTR_SubsystemA_CommandBlend_EnableFlag_0002651c;
   cVar2 = *PTR_SubsystemA_CommandBlend_TableSelectFlag_00026520;
-  cVar3 = *PTR_DAT_00026524;
-  cVar4 = *PTR_DAT_00026528;
-  cVar5 = *PTR_DAT_0002652c;
+  cVar3 = *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00026524;
+  cVar4 = *PTR_IdleUpMode_Mode1Bit08_RequestFlagC_00026528;
+  cVar5 = *PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_0002652c;
   cVar6 = *PTR_CoolingFanRelay1_LogicalRequest_FromECTDiagShared_00026530;
-  cVar7 = *PTR_DAT_00026538;
+  cVar7 = *PTR_IdleUpMode_TransitionDetectedFlag_00026538;
   cVar8 = *PTR_CoolingFanRelay2_LogicalRequest_FromECTDiagShared_00026534;
-  cVar9 = *PTR_DAT_0002653c;
+  cVar9 = *PTR_IdleUpMode_LatchedStableFlag_0002653c;
   sVar10 = (short)PTR_LAB_0000fffe_1_00026544;
   if (*PTR_DAT_00026548 == cVar1) {
     if (*(short *)PTR_DAT_00026540 != 0) {
@@ -57484,8 +57762,8 @@ void CoolingFan_RequestEdgeDebounceMatrix_Update(void)
   else if (*(short *)PTR_DAT_0002658c != 0) {
     *(short *)PTR_DAT_0002658c = *(short *)PTR_DAT_0002658c + sVar10;
   }
-  puVar12 = PTR_DAT_00026598;
-  if ((*PTR_DAT_00026598 == '\0') && (cVar7 == '\x01')) {
+  puVar12 = PTR_IdleUpMode_PrevTransitionDetectedFlag_00026598;
+  if ((*PTR_IdleUpMode_PrevTransitionDetectedFlag_00026598 == '\0') && (cVar7 == '\x01')) {
     *(undefined2 *)PTR_DAT_0002659c = *(undefined2 *)PTR_DAT_000265a0;
   }
   else if (*(short *)PTR_DAT_0002659c != 0) {
@@ -57497,37 +57775,37 @@ void CoolingFan_RequestEdgeDebounceMatrix_Update(void)
   else if (*(short *)PTR_DAT_000265a4 != 0) {
     *(short *)PTR_DAT_000265a4 = *(short *)PTR_DAT_000265a4 + sVar10;
   }
-  if ((*PTR_DAT_0002672c == '\0') && (cVar9 == '\x01')) {
+  if ((*PTR_IdleUpMode_PrevLatchedStableFlag_0002672c == '\0') && (cVar9 == '\x01')) {
     *(undefined2 *)PTR_DAT_00026728 = *(undefined2 *)PTR_DAT_00026730;
   }
   else if (*(short *)PTR_DAT_00026728 != 0) {
     *(short *)PTR_DAT_00026728 = *(short *)PTR_DAT_00026728 + sVar10;
   }
-  if ((*PTR_DAT_0002672c == '\x01') && (cVar9 == '\0')) {
+  if ((*PTR_IdleUpMode_PrevLatchedStableFlag_0002672c == '\x01') && (cVar9 == '\0')) {
     *(undefined2 *)PTR_DAT_00026734 = *(undefined2 *)PTR_DAT_00026738;
   }
   else if (*(short *)PTR_DAT_00026734 != 0) {
     *(short *)PTR_DAT_00026734 = *(short *)PTR_DAT_00026734 + sVar10;
   }
-  if ((*PTR_DAT_00026740 == '\0') && (cVar6 == '\x01')) {
+  if ((*PTR_IdleUpMode_Snapshot_FanRelay1Request_00026740 == '\0') && (cVar6 == '\x01')) {
     *(undefined2 *)PTR_DAT_0002673c = *(undefined2 *)PTR_DAT_00026744;
   }
   else if (*(short *)PTR_DAT_0002673c != 0) {
     *(short *)PTR_DAT_0002673c = *(short *)PTR_DAT_0002673c + sVar10;
   }
-  if ((*PTR_DAT_00026740 == '\x01') && (cVar6 == '\0')) {
+  if ((*PTR_IdleUpMode_Snapshot_FanRelay1Request_00026740 == '\x01') && (cVar6 == '\0')) {
     *(undefined2 *)PTR_DAT_00026748 = *(undefined2 *)PTR_DAT_0002674c;
   }
   else if (*(short *)PTR_DAT_00026748 != 0) {
     *(short *)PTR_DAT_00026748 = *(short *)PTR_DAT_00026748 + sVar10;
   }
-  if ((*PTR_DAT_00026754 == '\0') && (cVar8 == '\x01')) {
+  if ((*PTR_IdleUpMode_Snapshot_FanRelay2Request_00026754 == '\0') && (cVar8 == '\x01')) {
     *(undefined2 *)PTR_DAT_00026750 = *(undefined2 *)PTR_DAT_00026758;
   }
   else if (*(short *)PTR_DAT_00026750 != 0) {
     *(short *)PTR_DAT_00026750 = *(short *)PTR_DAT_00026750 + sVar10;
   }
-  if ((*PTR_DAT_00026754 == '\x01') && (cVar8 == '\0')) {
+  if ((*PTR_IdleUpMode_Snapshot_FanRelay2Request_00026754 == '\x01') && (cVar8 == '\0')) {
     *(undefined2 *)PTR_DAT_0002675c = *(undefined2 *)PTR_DAT_00026760;
   }
   else if (*(short *)PTR_DAT_0002675c != 0) {
@@ -57556,10 +57834,10 @@ void CoolingFan_RequestEdgeDebounceMatrix_Update(void)
   *PTR_DAT_0002693c = cVar4;
   *(float *)puVar11 = fVar13;
   *PTR_DAT_00026944 = cVar5;
-  *PTR_DAT_00026948 = cVar6;
-  *PTR_DAT_0002694c = cVar8;
+  *PTR_IdleUpMode_Snapshot_FanRelay1Request_00026948 = cVar6;
+  *PTR_IdleUpMode_Snapshot_FanRelay2Request_0002694c = cVar8;
   *puVar12 = cVar7;
-  *PTR_DAT_00026950 = cVar9;
+  *PTR_IdleUpMode_PrevLatchedStableFlag_00026950 = cVar9;
   return;
 }
 
@@ -57625,7 +57903,7 @@ LAB_00026864:
 
 // Updates the first shared ramp stage, constrained by blend position and ECT-dependent limits.
 
-void SubsystemA_PositionLimitedRamp_StageA_Update(void)
+void IdleControl_PositionLimitedRamp_StageA_Update(void)
 
 {
   undefined *puVar1;
@@ -57655,7 +57933,7 @@ void SubsystemA_PositionLimitedRamp_StageA_Update(void)
   }
   else if ((*PTR_SubsystemA_CommandBlend_SeedWindow_EnableFlag_00026968 == '\x01') &&
           (*PTR_DAT_000269b4 == '\0')) {
-    fVar5 = *(float *)PTR_DAT_000269b8;
+    fVar5 = *(float *)PTR_IdleTargetRpm_SelectedFinal_000269b8;
     fVar4 = *(float *)PTR_FuelDisplay_InputPhaseFilter_Output_000269bc;
     *(float *)PTR_DAT_000269c0 = fVar4 - fVar5;
     puVar2 = PTR_LAB_000269c8;
@@ -57684,10 +57962,10 @@ void SubsystemA_PositionLimitedRamp_StageA_Update(void)
 
 
 
-// Updates the second shared ramp stage using cooling-fan command ramp references while enforcing
-// blend position limits.
+// Updates the second idle position-limited ramp stage from the protected ramp pair while enforcing
+// delta/range checks and blend-position limits.
 
-void SubsystemA_PositionLimitedRamp_StageB_Update(void)
+void IdleControl_PositionLimitedRamp_StageB_Update(void)
 
 {
   undefined *puVar1;
@@ -57857,10 +58135,10 @@ void SubsystemA_PositionLimitedRamp_DecayTarget_Update(void)
 
 
 
-// Builds the cooling-fan relay 2 request output from ECT-based threshold blends, hysteresis timers,
-// masked table-input state, and mixed SubsystemA/fan mode flags.
+// Builds final idle target RPM from ECT-based MT/AT base tables plus idle-up adders, applies
+// mode/min-clamp logic, and stores the selected target together with per-term idle-up snapshots.
 
-void CoolingFan2_RequestThresholdBlend_Update(void)
+void IdleTargetRpm_ECTBaseAndIdleUp_Update(void)
 
 {
   char cVar1;
@@ -57895,8 +58173,8 @@ void CoolingFan2_RequestThresholdBlend_Update(void)
   uVar19 = *(undefined4 *)PTR_ECTSensor_AN28_CelsiusValidated_00026e24;
   fVar18 = *(float *)PTR_SubsystemA_CommandBlend_TableInput_Snapshot_00026e4c;
   cVar3 = *PTR_SubsystemA_CommandBlend_TableSelectFlag_00026e50;
-  local_54 = *PTR_DAT_00026e54;
-  cVar4 = *PTR_DAT_00026e58;
+  local_54 = *PTR_IdleUpMode_Mode1Bit20_DebouncedAnyFlag_00026e54;
+  cVar4 = *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00026e58;
   cVar5 = *PTR_CoolingFanRelay2_LogicalRequest_FromECTDiagShared_00026e5c;
   uVar14 = (*(code *)PTR_FloatBlendTowardsTarget_WithDeadband_00026e70)
                      (*(undefined4 *)PTR_SubsystemA_ControlRampBlend_TableInput_00026e6c,
@@ -57950,30 +58228,46 @@ void CoolingFan2_RequestThresholdBlend_Update(void)
   }
   else if (bVar13 < 6) {
     if (bVar13 < 3) {
-      fVar17 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00026eac)(uVar19,PTR_PTR_000270c0);
-      fStack_4c = (float)(*(code *)puVar7)(uVar19,PTR_PTR_000270c4);
-      fStack_40 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_000270c8);
-      fStack_44 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_000270cc);
-      fStack_3c = (float)(*(code *)puVar7)(uVar19,PTR_PTR_000270d0);
-      puVar12 = PTR_PTR_000270d4;
+      fVar17 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00026eac)
+                                (uVar19,PTR_Desc_IdleTargetRpm_IdleUpAdder40_ByECT_000270c0);
+      fStack_4c = (float)(*(code *)puVar7)(uVar19,
+                                           PTR_Desc_IdleTargetRpm_IdleUpAdderZero_ByECT_000270c4);
+      fStack_40 = (float)(*(code *)puVar7)(uVar19,
+                                           PTR_Desc_IdleTargetRpm_IdleUpAdderZero_B_ByECT_000270c8);
+      fStack_44 = (float)(*(code *)puVar7)(uVar19,
+                                           PTR_Desc_IdleTargetRpm_IdleUpAdder50_B_ByECT_000270cc);
+      fStack_3c = (float)(*(code *)puVar7)(uVar19,
+                                           PTR_Desc_IdleTargetRpm_IdleUpAdder50_C_ByECT_000270d0);
+      puVar12 = PTR_Desc_IdleTargetRpm_IdleUpAdder50_D_ByECT_000270d4;
     }
     else {
-      fVar17 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00026eac)(uVar19,PTR_PTR_000270a8);
-      fStack_4c = (float)(*(code *)puVar7)(uVar19,PTR_PTR_000270ac);
-      fStack_40 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_000270b0);
-      fStack_44 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_000270b4);
-      fStack_3c = (float)(*(code *)puVar7)(uVar19,PTR_PTR_000270b8);
-      puVar12 = PTR_PTR_000270bc;
+      fVar17 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00026eac)
+                                (uVar19,PTR_Desc_IdleTargetRpm_IdleUpAdder90_ByECT_000270a8);
+      fStack_4c = (float)(*(code *)puVar7)(uVar19,
+                                           PTR_Desc_IdleTargetRpm_IdleUpAdder50_ByECT_000270ac);
+      fStack_40 = (float)(*(code *)puVar7)(uVar19,
+                                           PTR_Desc_IdleTargetRpm_IdleUpAdder90_B_ByECT_000270b0);
+      fStack_44 = (float)(*(code *)puVar7)(uVar19,
+                                           PTR_Desc_IdleTargetRpm_IdleUpAdder100_E_ByECT_000270b4);
+      fStack_3c = (float)(*(code *)puVar7)(uVar19,
+                                           PTR_Desc_IdleTargetRpm_IdleUpAdder100_F_ByECT_000270b8);
+      puVar12 = PTR_Desc_IdleTargetRpm_IdleUpAdder100_G_ByECT_000270bc;
     }
     fStack_38 = (float)(*(code *)puVar7)(uVar19,puVar12);
   }
   else {
-    fVar17 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00026eac)(uVar19,PTR_PTR_00026eb0);
-    fStack_4c = (float)(*(code *)puVar7)(uVar19,PTR_PTR_00026eb4);
-    fStack_40 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_00026eb8);
-    fStack_44 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_00026ebc);
-    fStack_3c = (float)(*(code *)puVar7)(uVar19,PTR_PTR_00026ec0);
-    fStack_38 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_00026ec4);
+    fVar17 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00026eac)
+                              (uVar19,PTR_Desc_IdleTargetRpm_IdleUpAdder140_ByECT_00026eb0);
+    fStack_4c = (float)(*(code *)puVar7)(uVar19,PTR_Desc_IdleTargetRpm_IdleUpAdder100_ByECT_00026eb4
+                                        );
+    fStack_40 = (float)(*(code *)puVar7)(uVar19,
+                                         PTR_Desc_IdleTargetRpm_IdleUpAdder140_B_ByECT_00026eb8);
+    fStack_44 = (float)(*(code *)puVar7)(uVar19,
+                                         PTR_Desc_IdleTargetRpm_IdleUpAdder100_B_ByECT_00026ebc);
+    fStack_3c = (float)(*(code *)puVar7)(uVar19,
+                                         PTR_Desc_IdleTargetRpm_IdleUpAdder100_C_ByECT_00026ec0);
+    fStack_38 = (float)(*(code *)puVar7)(uVar19,
+                                         PTR_Desc_IdleTargetRpm_IdleUpAdder100_D_ByECT_00026ec4);
   }
   if (cVar1 == '\0') {
     uVar10 = (*(code *)PTR_AddUint16AndSaturateToFFFE_000270dc)((int)*(short *)PTR_DAT_000270d8,1);
@@ -57992,19 +58286,19 @@ void CoolingFan2_RequestThresholdBlend_Update(void)
   puVar9 = PTR_DAT_000270f8;
   puVar12 = PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000270e4;
   if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000270e4 == '\0') {
-    fVar16 = *(float *)PTR_DAT_000270ec;
-    fVar15 = *(float *)PTR_DAT_000270f4;
+    fVar16 = *(float *)PTR_Cal_IdleTargetRpm_ModeThreshold1_0_000270ec;
+    fVar15 = *(float *)PTR_Cal_IdleTargetRpm_ModeHysteresisB_2p5_000270f4;
   }
   else {
-    fVar16 = *(float *)PTR_DAT_000270e8;
-    fVar15 = *(float *)PTR_DAT_000270f0;
+    fVar16 = *(float *)PTR_Cal_IdleTargetRpm_ModeThreshold0_0_000270e8;
+    fVar15 = *(float *)PTR_Cal_IdleTargetRpm_ModeHysteresis_2p5_000270f0;
   }
   if (fVar16 - fVar15 <= fVar18) {
     if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000270e4 == '\0') {
-      fVar16 = *(float *)PTR_DAT_000270ec;
+      fVar16 = *(float *)PTR_Cal_IdleTargetRpm_ModeThreshold1_0_000270ec;
     }
     else {
-      fVar16 = *(float *)PTR_DAT_000270e8;
+      fVar16 = *(float *)PTR_Cal_IdleTargetRpm_ModeThreshold0_0_000270e8;
     }
     if (fVar16 <= fVar18) {
       *PTR_DAT_000270f8 = 1;
@@ -58016,77 +58310,79 @@ void CoolingFan2_RequestThresholdBlend_Update(void)
   if (*puVar12 == '\x01') {
     if (cVar2 == '\0') {
       if (*puVar9 == '\0') {
-        fVar18 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_000270fc);
-        pfVar11 = (float *)PTR_DAT_00027100;
+        fVar18 = (float)(*(code *)puVar7)(uVar19,PTR_Desc_IdleTargetRpm_MT_BaseA_ByECT_000270fc);
+        pfVar11 = (float *)PTR_Cal_IdleTargetRpm_Offset0_A_00027100;
       }
       else {
-        fVar18 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_00027104);
-        pfVar11 = (float *)PTR_DAT_00027108;
+        fVar18 = (float)(*(code *)puVar7)(uVar19,PTR_Desc_IdleTargetRpm_MT_BaseB_ByECT_00027104);
+        pfVar11 = (float *)PTR_Cal_IdleTargetRpm_Offset0_B_00027108;
       }
       fVar16 = fVar18 + *pfVar11 + fVar17;
     }
     else {
-      fVar18 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_0002710c);
-      fVar16 = fVar18 + *(float *)PTR_DAT_00027110 + fStack_44;
+      fVar18 = (float)(*(code *)puVar7)(uVar19,PTR_Desc_IdleTargetRpm_BaseHigh750_ByECT_0002710c);
+      fVar16 = fVar18 + *(float *)PTR_Cal_IdleTargetRpm_Offset0_C_00027110 + fStack_44;
     }
   }
   else if (cVar2 == '\0') {
     if (cVar3 == '\0') {
       if (*puVar9 == '\0') {
-        fVar18 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_00027114);
-        pfVar11 = (float *)PTR_DAT_00027118;
+        fVar18 = (float)(*(code *)puVar7)(uVar19,PTR_Desc_IdleTargetRpm_AT_BaseA_ByECT_00027114);
+        pfVar11 = (float *)PTR_Cal_IdleTargetRpm_Offset0_D_00027118;
       }
       else {
-        fVar18 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_0002711c);
-        pfVar11 = (float *)PTR_DAT_00027120;
+        fVar18 = (float)(*(code *)puVar7)(uVar19,PTR_Desc_IdleTargetRpm_AT_BaseB_ByECT_0002711c);
+        pfVar11 = (float *)PTR_Cal_IdleTargetRpm_Offset0_E_00027120;
       }
       fVar16 = fVar18 + *pfVar11 + fStack_4c;
     }
     else {
-      fVar18 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_00027124);
-      fVar16 = fVar18 + *(float *)PTR_DAT_00027128 + fStack_40;
+      fVar18 = (float)(*(code *)puVar7)(uVar19,PTR_Desc_IdleTargetRpm_MT_Settled_ByECT_00027124);
+      fVar16 = fVar18 + *(float *)PTR_Cal_IdleTargetRpm_Offset0_F_00027128 + fStack_40;
     }
   }
   else {
     if (cVar3 == '\0') {
-      fVar16 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_0002712c);
-      fVar16 = fVar16 + *(float *)PTR_DAT_00027130;
+      fVar16 = (float)(*(code *)puVar7)(uVar19,PTR_Desc_IdleTargetRpm_BaseHigh750B_ByECT_0002712c);
+      fVar16 = fVar16 + *(float *)PTR_Cal_IdleTargetRpm_Offset0_G_00027130;
       fVar18 = fStack_3c;
     }
     else {
-      fVar16 = (float)(*(code *)puVar7)(uVar19,PTR_PTR_00027134);
-      fVar16 = fVar16 + *(float *)PTR_DAT_00027138;
+      fVar16 = (float)(*(code *)puVar7)(uVar19,PTR_Desc_IdleTargetRpm_SettledHigh750_ByECT_00027134)
+      ;
+      fVar16 = fVar16 + *(float *)PTR_Cal_IdleTargetRpm_Offset0_H_00027138;
       fVar18 = fStack_38;
     }
     fVar16 = fVar16 + fVar18;
   }
-  puVar7 = PTR_DAT_0002713c;
+  puVar7 = PTR_IdleTargetRpm_SelectedFinal_0002713c;
   if (*PTR_DAT_00027140 == '\x01') {
     uVar14 = (*(code *)PTR_MulAdd_f32_u8_1_0002714c)
                        (DAT_00027144,uVar14,(int)(char)*PTR_DAT_00027148);
     *(undefined4 *)puVar7 = uVar14;
   }
   else if (*puVar8 == '\0') {
-    *(float *)PTR_DAT_0002713c = fVar16;
+    *(float *)PTR_IdleTargetRpm_SelectedFinal_0002713c = fVar16;
   }
   else {
-    uVar14 = (*(code *)PTR_MaxFloat_000271b8)(fVar16,*(undefined4 *)PTR_DAT_000271b4);
+    uVar14 = (*(code *)PTR_MaxFloat_000271b8)
+                       (fVar16,*(undefined4 *)PTR_Cal_IdleTargetRpm_MinClamp_900_000271b4);
     *(undefined4 *)puVar7 = uVar14;
   }
-  puVar7 = PTR_DAT_000271c0;
-  *(float *)PTR_DAT_000271bc = fVar17;
-  puVar8 = PTR_DAT_000271c4;
+  puVar7 = PTR_IdleTargetRpm_IdleUpTerm1_000271c0;
+  *(float *)PTR_IdleTargetRpm_IdleUpTerm0_000271bc = fVar17;
+  puVar8 = PTR_IdleTargetRpm_IdleUpTerm2_000271c4;
   *(float *)puVar7 = fStack_4c;
-  puVar7 = PTR_DAT_000271c8;
+  puVar7 = PTR_IdleTargetRpm_IdleUpTerm3_000271c8;
   *(float *)puVar8 = fStack_40;
-  puVar8 = PTR_DAT_000271cc;
+  puVar8 = PTR_IdleTargetRpm_IdleUpTerm4_000271cc;
   *(float *)puVar7 = fStack_44;
-  puVar7 = PTR_DAT_000271d0;
+  puVar7 = PTR_IdleTargetRpm_IdleUpTerm5_000271d0;
   *(float *)puVar8 = fStack_3c;
   *(float *)puVar7 = fStack_38;
-  *(float *)PTR_DAT_000271d4 = fVar16;
-  *PTR_DAT_000271d8 = bVar6;
-  *PTR_DAT_000271dc = local_54;
+  *(float *)PTR_IdleTargetRpm_SelectedFinal_PreClamp_000271d4 = fVar16;
+  *PTR_IdleUpMode_TransitionDetectedFlag_000271d8 = bVar6;
+  *PTR_IdleUpMode_LatchedStableFlag_000271dc = local_54;
   return;
 }
 
@@ -58100,10 +58396,10 @@ void NoOp_Return_271e0(void)
 
 
 
-// Calculates the SubsystemA control-ramp blend position from ECT-based limits and a summed
-// command/offset term, then clamps the result.
+// Calculates idle control-ramp position percent from idle feed-forward, shared correction terms,
+// and the limited-ramp stage, then clamps the result against ECT-based limits.
 
-void SubsystemA_ControlRampBlend_Position_UpdateFromEctAndTerms(void)
+void IdleControlRamp_PositionPct_FromIdleTargetAndCorrections_Update(void)
 
 {
   undefined *puVar1;
@@ -58126,14 +58422,16 @@ void SubsystemA_ControlRampBlend_Position_UpdateFromEctAndTerms(void)
   uVar4 = (*(code *)PTR_Interpolate1D_WithTransform_000272b4)(uVar4,puVar1);
   *(undefined4 *)PTR_SubsystemA_ControlRampBlend_PositionUpperLimit_000272c4 = uVar4;
   if (*PTR_SubsystemA_ControlRampBlend_PositionFallbackEnable_000272c8 == '\0') {
-    fVar3 = ((((*(float *)PTR_DAT_000272d4 + *(float *)PTR_DAT_000272d0 + *(float *)PTR_DAT_000272d8
-                + *(float *)PTR_DAT_000272dc +
+    fVar3 = ((((*(float *)PTR_DAT_000272d4 +
+                *(float *)PTR_IdleControlPct_BaseAndIdleUpFeedForwardFinal_000272d0 +
+                *(float *)PTR_DAT_000272d8 + *(float *)PTR_DAT_000272dc +
                 *(float *)PTR_SharedCommandBlend_TotalWithSubsystemAProduct_000272e0 +
                 *(float *)PTR_DAT_000272e4 +
                 *(float *)PTR_SubsystemA_PositionLimitedRamp_StageValue_000272e8 +
-                *(float *)PTR_DAT_000272ec + *(float *)PTR_DAT_000272f0) -
-              *(float *)PTR_DAT_000272f4) - *(float *)PTR_DAT_000272f8) + fVar3) *
-            *(float *)PTR_DAT_000272fc * *(float *)PTR_DAT_00027300;
+                *(float *)PTR_IdleControl_CommandRampSelectedPct_000272ec +
+               *(float *)PTR_DAT_000272f0) - *(float *)PTR_DAT_000272f4) -
+             *(float *)PTR_DAT_000272f8) + fVar3) * *(float *)PTR_DAT_000272fc *
+            *(float *)PTR_DAT_00027300;
   }
   else {
     fVar3 = *(float *)PTR_SubsystemA_ControlRampBlend_PositionFallbackValue_000272cc;
@@ -58161,7 +58459,7 @@ void SharedCommandBlendHook_NoOp0(void)
 // Adds the local command-blend product to several shared offset terms and stores the combined
 // total.
 
-void SharedCommandBlend_TotalWithSubsystemAProduct_Update(void)
+void IdleControl_CommandCorrectionSum_Update(void)
 
 {
   *(float *)PTR_SharedCommandBlend_TotalWithSubsystemAProduct_00027348 =
@@ -58236,17 +58534,17 @@ bool CoolingFan_CommandRampPair_AnyActive(void)
 
 
 
-// Updates the selected cooling-fan command ramp channel according to shared and command
-// table-select flags.
+// Selects the active protected idle command-ramp value according to the combined control-ramp and
+// command-blend table-select flags.
 
-void CoolingFan_CommandRampPair_UpdateSelected(void)
+void IdleControl_CommandRampPair_UpdateSelected(void)
 
 {
   undefined *puVar1;
   undefined *puVar2;
   undefined4 uVar3;
   
-  puVar1 = PTR_DAT_000274cc;
+  puVar1 = PTR_IdleControl_CommandRampSelectedPct_000274cc;
   uVar3 = *(undefined4 *)PTR_Cal_CoolingFan_CommandRampParams_000274b0;
   if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000274d0 == '\x01') {
     uVar3 = (*(code *)PTR_ProtectedDword_ReadWithChecksumFallback_000274c8)(PTR_DAT_000274b4);
@@ -58294,7 +58592,7 @@ void CoolingFan_TempDeltaThresholdLogic(void)
   fVar12 = *(float *)PTR_DAT_000274e4;
   fVar14 = *(float *)PTR_ECTSensor_AN28_CelsiusValidated_000274e0;
   fVar11 = (float)(*(code *)PTR_AbsFloatDifference_000274f0)
-                            (*(undefined4 *)PTR_DAT_000274ec,
+                            (*(undefined4 *)PTR_IdleTargetRpm_SelectedFinal_000274ec,
                              *(undefined4 *)PTR_FuelDisplay_InputPhaseFilter_Output_000274e8);
   puVar10 = PTR_ValueInDeltaRange_000274f8;
   uVar16 = 0;
@@ -58312,7 +58610,7 @@ void CoolingFan_TempDeltaThresholdLogic(void)
   uVar5 = (*(code *)PTR_Interpolate1D_ToUint16_0002751c)
                     (*(undefined4 *)PTR_SubsystemA_PrimaryEnable_PrerequisiteB_Input_00027510,
                      puVar10);
-  puVar10 = PTR_DAT_00027524;
+  puVar10 = PTR_Cal_IdleTargetRpm_ModeThreshold_70_00027524;
   *(undefined2 *)PTR_DAT_00027520 = uVar5;
   puVar3 = PTR_DAT_0002752c;
   if (fVar14 < *(float *)puVar10) {
@@ -58339,12 +58637,14 @@ void CoolingFan_TempDeltaThresholdLogic(void)
                   ((*(float *)PTR_DAT_00027708 <=
                     *(float *)PTR_SubsystemA_CommandBlend_TableInput_0002770c ||
                    (*(float *)PTR_DAT_00027710 < fVar11)))) || (cVar6 != '\0')))) ||
-      ((((cVar7 != '\0' || (*PTR_DAT_00027714 != '\0')) || (cVar8 != '\0')) ||
+      ((((cVar7 != '\0' || (*PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00027714 != '\0')) ||
+        (cVar8 != '\0')) ||
        (((cVar9 != '\0' ||
          (fVar13 <= *(float *)PTR_SubsystemA_ControlRampBlend_PositionLowerLimit_00027718)) ||
         ((*(float *)PTR_SubsystemA_ControlRampBlend_PositionUpperLimit_0002771c <= fVar13 ||
          ((*PTR_DAT_00027720 != '\0' || (*PTR_DAT_00027724 != '\0')))))))))) ||
-     ((*PTR_DAT_00027728 != '\0' || (*PTR_DAT_0002772c != '\0')))) {
+     ((*PTR_PhaseFrontend_Mode2Bit08_DebouncedFlag_00027728 != '\0' || (*PTR_DAT_0002772c != '\0')))
+     ) {
     *PTR_DAT_000276ec = 0;
   }
   else if ((*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00027730 == '\0') &&
@@ -58384,9 +58684,10 @@ void CoolingFan_TempDeltaThresholdLogic(void)
 
 
 
-// Cooling-fan candidate: applies calibrated float limits/offsets and calls setter/getter helpers.
+// Trims, clamps, and synchronizes the protected idle command-ramp pair using the current
+// limited-ramp stage value and table-select state.
 
-void CoolingFan_CommandRampOrTrim(void)
+void IdleControl_CommandRampProtectedPair_TrimAndClamp(void)
 
 {
   undefined *puVar1;
@@ -58687,7 +58988,7 @@ void SubsystemA_CommandBlend_EctGateHoldCounterAndBias_Update(void)
   
   puVar3 = PTR_DAT_00027b68;
   puVar2 = PTR_DAT_00027b64;
-  cVar1 = *PTR_DAT_00027b60;
+  cVar1 = *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00027b60;
   if (cVar1 == '\x01') {
     if (*PTR_DAT_00027b64 == '\0') {
       *PTR_DAT_00027b68 = *PTR_DAT_00027b6c;
@@ -58725,7 +59026,7 @@ void SubsystemA_CommandBlend_EctGateCompanionTerm_Update(void)
   undefined4 uVar2;
   
   puVar1 = PTR_DAT_00027b58;
-  if (*PTR_DAT_00027b60 == '\x01') {
+  if (*PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00027b60 == '\x01') {
     if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00027b70 == '\0') {
       uVar2 = *(undefined4 *)PTR_DAT_00027b80;
     }
@@ -58837,7 +59138,7 @@ void SubsystemA_CommandBlend_TableInputRamp_EctInhibitDecay_Update(void)
   float fVar7;
   
   puVar2 = PTR_DAT_00027dbc;
-  if (*(float *)PTR_DAT_00027db8 +
+  if (*(float *)PTR_IdleTargetRpm_SelectedFinal_00027db8 +
       *(float *)PTR_SubsystemA_CommandBlend_TableInputRamp_TriggerOffset_00027db4 <=
       *(float *)PTR_EngineSpeed_RPM_Filtered_00027dc0) {
     *PTR_DAT_00027dbc = 1;
@@ -58898,7 +59199,7 @@ void SubsystemA_CommandBlend_TableInputRamp_Update(void)
   
   puVar3 = PTR_SubsystemA_CommandBlend_TableInputRamp_RequestLatched_00027df0;
   fVar9 = *(float *)PTR_ECTSensor_AN28_CelsiusValidated_00027dcc;
-  if (*(float *)PTR_DAT_00027db8 +
+  if (*(float *)PTR_IdleTargetRpm_SelectedFinal_00027db8 +
       *(float *)PTR_SubsystemA_CommandBlend_TableInputRamp_TriggerOffset_00027db4 <=
       *(float *)PTR_EngineSpeed_RPM_Filtered_00027dc0) {
     *PTR_SubsystemA_CommandBlend_TableInputRamp_RequestLatched_00027df0 = 1;
@@ -58978,7 +59279,7 @@ void CoolingFan_StateDecision_ECT(void)
   
   fVar9 = *(float *)PTR_ECTSensor_AN28_CelsiusValidated_00027fdc;
   fVar10 = *(float *)PTR_EngineSpeed_RPM_Filtered_00027fe0;
-  fVar7 = *(float *)PTR_DAT_00027fe4;
+  fVar7 = *(float *)PTR_IdleTargetRpm_SelectedFinal_00027fe4;
   cVar1 = *PTR_SubsystemA_EnableSharedInhibitFlag_00027fec;
   fVar11 = *(float *)PTR_DAT_00027ff8;
   fVar8 = *(float *)PTR_DAT_00027ffc;
@@ -59057,7 +59358,7 @@ void SubsystemA_CommandBlend_EnableWindow_Evaluate(void)
   undefined *puVar3;
   undefined2 uVar4;
   
-  cVar1 = *PTR_DAT_00028048;
+  cVar1 = *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00028048;
   cVar2 = *PTR_SubsystemA_CommandBlend_EnableFlag_0002804c;
   if ((*PTR_SubsystemA_CommandBlend_EnableFlag_SnapshotPrev_00028054 == '\x01') && (cVar2 == '\0'))
   {
@@ -59070,7 +59371,8 @@ void SubsystemA_CommandBlend_EnableWindow_Evaluate(void)
              (*PTR_DAT_00028060 == '\0')))) &&
            ((((*(ushort *)PTR_SubsystemA_CommandBlend_EnableWindowCounterLimit_00028068 <=
                *(ushort *)PTR_SubsystemA_CommandBlend_EnableWindowCounter_00028064 ||
-              (cVar1 == '\x01')) && (*PTR_DAT_0002806c == '\0')) &&
+              (cVar1 == '\x01')) &&
+             (*PTR_PhaseFrontend_DisabledRequest_DebouncedFlag_0002806c == '\0')) &&
             ((*PTR_DiagAggregate_ECT_DTC0D0E_AnyProtectedStatusSet_00028070 == '\0' &&
              (*PTR_SharedDiagAggregate_StatusPair1416_AnyFlag_00028074 == '\0')))))) &&
           (*PTR_SharedDiagAggregate_Status50_Flag_00028078 == '\0')) {
@@ -59108,7 +59410,7 @@ void SubsystemA_CommandBlend_TableInputRamp_EnableWindowGate_Update(void)
   
   fVar5 = *(float *)PTR_DAT_0002810c;
   fVar3 = *(float *)PTR_EngineSpeed_RPM_Filtered_00028110;
-  fVar4 = *(float *)PTR_DAT_00028114;
+  fVar4 = *(float *)PTR_IdleTargetRpm_SelectedFinal_00028114;
   cVar2 = (*(code *)PTR_ValueInDeltaRange_0002811c)(fVar5,0,DAT_00028118);
   puVar1 = PTR_DAT_00028124;
   if (*(float *)PTR_SubsystemA_CommandBlend_TableInputRamp_TriggerOffset_00028120 + fVar4 <= fVar3)
@@ -59171,10 +59473,10 @@ void FloatConstant_FanoutSnapshots_Init(void)
 
 
 
-// Builds the calibrated cooling-fan request blend from ECT and 2D table lookups, then selects the
-// active request output from the mixed fan/SubsystemA mode flags.
+// Builds base idle-control percent plus idle-up feed-forward from ECT and 2D tables, then selects
+// the active branch from transition/stable idle-up flags and command-blend state.
 
-void CoolingFan_CalibratedRequestBlend_Update(void)
+void IdleControlPct_BaseAndIdleUpFeedForward_Update(void)
 
 {
   char cVar1;
@@ -59228,11 +59530,11 @@ void CoolingFan_CalibratedRequestBlend_Update(void)
   uVar35 = *(undefined4 *)PTR_ECTSensor_AN28_CelsiusValidated_000282c0;
   uVar26 = *(undefined4 *)PTR_DAT_000282c4;
   fVar27 = *(float *)PTR_SubsystemA_CommandBlend_TableInput_Snapshot_000282c8;
-  bVar7 = *PTR_DAT_000282d0 == '\x01';
+  bVar7 = *PTR_IdleUpMode_TransitionDetectedFlag_000282d0 == '\x01';
   if (*PTR_CoolingFanRelay2_LogicalRequest_FromECTDiagShared_000282cc == '\x01') {
     bVar7 = bVar7 | 2;
   }
-  if (*PTR_DAT_000282d4 == '\x01') {
+  if (*PTR_IdleUpMode_LatchedStableFlag_000282d4 == '\x01') {
     bVar7 = bVar7 | 4;
   }
   if (bVar7 < 6) {
@@ -59257,29 +59559,48 @@ void CoolingFan_CalibratedRequestBlend_Update(void)
         fStack_6c = (float)(*(code *)puVar6)(fVar15 - fVar17,uVar34);
       }
       else {
-        fVar8 = (float)(*(code *)PTR_Interpolate1D_WithTransform_000282d8)(uVar35,PTR_LAB_0002830c);
-        fVar9 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_00028310);
-        fStack_70 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_00028314);
-        fStack_78 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_00028318);
-        fStack_74 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_0002831c);
-        fStack_6c = (float)(*(code *)puVar2)(uVar35,PTR_LAB_00028320);
+        fVar8 = (float)(*(code *)PTR_Interpolate1D_WithTransform_000282d8)
+                                 (uVar35,PTR_Desc_IdleControlPct_IdleUpLow_Term0_ByECT_0002830c);
+        fVar9 = (float)(*(code *)puVar2)(uVar35,
+                                         PTR_Desc_IdleControlPct_IdleUpLow_Term1_ByECT_00028310);
+        fStack_70 = (float)(*(code *)puVar2)(uVar35,
+                                             PTR_Desc_IdleControlPct_IdleUpLow_Term2_ByECT_00028314)
+        ;
+        fStack_78 = (float)(*(code *)puVar2)(uVar35,
+                                             PTR_Desc_IdleControlPct_IdleUpLow_Term3_ByECT_00028318)
+        ;
+        fStack_74 = (float)(*(code *)puVar2)(uVar35,
+                                             PTR_Desc_IdleControlPct_IdleUpLow_Term4_ByECT_0002831c)
+        ;
+        fStack_6c = (float)(*(code *)puVar2)(uVar35,
+                                             PTR_Desc_IdleControlPct_IdleUpLow_Term5_ByECT_00028320)
+        ;
       }
       goto LAB_000283b2;
     }
-    fVar8 = (float)(*(code *)PTR_Interpolate1D_WithTransform_000282d8)(uVar35,PTR_LAB_000282f4);
-    fVar9 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_000282f8);
-    fStack_70 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_000282fc);
-    fStack_78 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_00028300);
-    fStack_74 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_00028304);
-    puVar6 = PTR_LAB_00028308;
+    fVar8 = (float)(*(code *)PTR_Interpolate1D_WithTransform_000282d8)
+                             (uVar35,PTR_Desc_IdleControlPct_IdleUpMid_Term0_ByECT_000282f4);
+    fVar9 = (float)(*(code *)puVar2)(uVar35,PTR_Desc_IdleControlPct_IdleUpMid_Term1_ByECT_000282f8);
+    fStack_70 = (float)(*(code *)puVar2)(uVar35,
+                                         PTR_Desc_IdleControlPct_IdleUpMid_Term2_ByECT_000282fc);
+    fStack_78 = (float)(*(code *)puVar2)(uVar35,
+                                         PTR_Desc_IdleControlPct_IdleUpMid_Term3_ByECT_00028300);
+    fStack_74 = (float)(*(code *)puVar2)(uVar35,
+                                         PTR_Desc_IdleControlPct_IdleUpMid_Term4_ByECT_00028304);
+    puVar6 = PTR_Desc_IdleControlPct_IdleUpMid_Term5_ByECT_00028308;
   }
   else {
-    fVar8 = (float)(*(code *)PTR_Interpolate1D_WithTransform_000282d8)(uVar35,PTR_LAB_000282dc);
-    fVar9 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_000282e0);
-    fStack_70 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_000282e4);
-    fStack_78 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_000282e8);
-    fStack_74 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_000282ec);
-    puVar6 = PTR_LAB_000282f0;
+    fVar8 = (float)(*(code *)PTR_Interpolate1D_WithTransform_000282d8)
+                             (uVar35,PTR_Desc_IdleControlPct_IdleUpHigh_Term0_ByECT_000282dc);
+    fVar9 = (float)(*(code *)puVar2)(uVar35,PTR_Desc_IdleControlPct_IdleUpHigh_Term1_ByECT_000282e0)
+    ;
+    fStack_70 = (float)(*(code *)puVar2)(uVar35,
+                                         PTR_Desc_IdleControlPct_IdleUpHigh_Term2_ByECT_000282e4);
+    fStack_78 = (float)(*(code *)puVar2)(uVar35,
+                                         PTR_Desc_IdleControlPct_IdleUpHigh_Term3_ByECT_000282e8);
+    fStack_74 = (float)(*(code *)puVar2)(uVar35,
+                                         PTR_Desc_IdleControlPct_IdleUpHigh_Term4_ByECT_000282ec);
+    puVar6 = PTR_Desc_IdleControlPct_IdleUpHigh_Term5_ByECT_000282f0;
   }
   fStack_6c = (float)(*(code *)puVar2)(uVar35,puVar6);
 LAB_000283b2:
@@ -59302,20 +59623,26 @@ LAB_000283b2:
   fVar19 = *(float *)PTR_DAT_000285ac;
   fVar32 = *(float *)PTR_DAT_000285cc;
   fVar24 = *(float *)PTR_DAT_000285ac;
-  fVar33 = *(float *)PTR_DAT_000285d0;
-  fVar13 = *(float *)PTR_DAT_000285d4;
-  fVar25 = *(float *)PTR_DAT_000285d8;
-  fVar20 = *(float *)PTR_DAT_000285dc;
-  fStack_84 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_000285e0);
+  fVar33 = *(float *)PTR_Cal_IdleTargetRpm_ModeHysteresis_2p5_000285d0;
+  fVar13 = *(float *)PTR_Cal_IdleTargetRpm_ModeThreshold0_0_000285d4;
+  fVar25 = *(float *)PTR_Cal_IdleTargetRpm_ModeHysteresisB_2p5_000285d8;
+  fVar20 = *(float *)PTR_Cal_IdleTargetRpm_ModeThreshold1_0_000285dc;
+  fStack_84 = (float)(*(code *)puVar2)(uVar35,PTR_Desc_IdleControlPct_BaseFeedForward_ByECT_000285e0
+                                      );
   puVar5 = PTR_Interpolate2D_float_WithTransform_000285e4;
   fStack_88 = (float)(*(code *)PTR_Interpolate2D_float_WithTransform_000285e4)
-                               (uVar35,uVar26,PTR_LAB_000285e8);
-  fStack_8c = (float)(*(code *)puVar5)(uVar35,uVar26,PTR_LAB_000285ec);
-  fStack_90 = (float)(*(code *)puVar5)(uVar35,uVar26,PTR_LAB_000285f0);
-  fStack_80 = (float)(*(code *)puVar2)(uVar35,PTR_LAB_000285f4);
-  fStack_7c = (float)(*(code *)puVar2)(uVar35,PTR_LAB_000285f8);
-  fVar14 = (float)(*(code *)puVar5)(uVar35,uVar26,PTR_LAB_000285fc);
-  fVar15 = (float)(*(code *)puVar5)(uVar35,uVar26,PTR_LAB_00028600);
+                               (uVar35,uVar26,
+                                PTR_Desc_IdleControlPct_2D_TableC_ByECT_TableInput_000285e8);
+  fStack_8c = (float)(*(code *)puVar5)(uVar35,uVar26,
+                                       PTR_Desc_IdleControlPct_2D_TableD_ByECT_TableInput_000285ec);
+  fStack_90 = (float)(*(code *)puVar5)(uVar35,uVar26,
+                                       PTR_Desc_IdleControlPct_2D_TableE_ByECT_TableInput_000285f0);
+  fStack_80 = (float)(*(code *)puVar2)(uVar35,PTR_Desc_IdleControlPct_DecayTableA_ByECT_000285f4);
+  fStack_7c = (float)(*(code *)puVar2)(uVar35,PTR_Desc_IdleControlPct_DecayTableB_ByECT_000285f8);
+  fVar14 = (float)(*(code *)puVar5)(uVar35,uVar26,
+                                    PTR_Desc_IdleControlPct_2D_TableA_ByECT_TableInput_000285fc);
+  fVar15 = (float)(*(code *)puVar5)(uVar35,uVar26,
+                                    PTR_Desc_IdleControlPct_2D_TableB_ByECT_TableInput_00028600);
   puVar2 = PTR_DAT_00028604;
   if (fVar21 + fVar28 <= fStack_84) {
     fStack_84 = *(float *)PTR_DAT_000285b0;
@@ -59342,7 +59669,7 @@ LAB_000283b2:
     fVar15 = *(float *)puVar4;
   }
   if (fVar13 - fVar33 <= fVar27) {
-    if (*(float *)PTR_DAT_000285d4 <= fVar27) {
+    if (*(float *)PTR_Cal_IdleTargetRpm_ModeThreshold0_0_000285d4 <= fVar27) {
       *PTR_DAT_00028604 = 1;
     }
   }
@@ -59351,7 +59678,7 @@ LAB_000283b2:
   }
   puVar5 = PTR_DAT_00028608;
   if (fVar20 - fVar25 <= fVar27) {
-    if (*(float *)PTR_DAT_000285dc <= fVar27) {
+    if (*(float *)PTR_Cal_IdleTargetRpm_ModeThreshold1_0_000285dc <= fVar27) {
       *PTR_DAT_00028608 = 1;
     }
   }
@@ -59365,10 +59692,10 @@ LAB_000283b2:
       if (*puVar2 == '\0') {
         fVar27 = fStack_80;
       }
-      *(float *)PTR_DAT_00028610 = fVar27 + fVar8;
+      *(float *)PTR_IdleControlPct_BaseAndIdleUpFeedForwardFinal_00028610 = fVar27 + fVar8;
     }
     else {
-      *(float *)PTR_DAT_00028610 = fStack_84 + fStack_78;
+      *(float *)PTR_IdleControlPct_BaseAndIdleUpFeedForwardFinal_00028610 = fStack_84 + fStack_78;
     }
   }
   else if (*PTR_SubsystemA_CommandBlend_TableSelectFlag_00028720 == '\0') {
@@ -59377,10 +59704,10 @@ LAB_000283b2:
       if (*puVar5 == '\0') {
         fVar27 = fVar14;
       }
-      *(float *)PTR_DAT_00028610 = fVar27 + fVar9;
+      *(float *)PTR_IdleControlPct_BaseAndIdleUpFeedForwardFinal_00028610 = fVar27 + fVar9;
     }
     else {
-      *(float *)PTR_DAT_00028610 = fStack_88 + fStack_74;
+      *(float *)PTR_IdleControlPct_BaseAndIdleUpFeedForwardFinal_00028610 = fStack_88 + fStack_74;
     }
   }
   else {
@@ -59390,7 +59717,7 @@ LAB_000283b2:
       fVar27 = fStack_8c;
       fVar10 = fStack_70;
     }
-    *(float *)PTR_DAT_00028610 = fVar27 + fVar10;
+    *(float *)PTR_IdleControlPct_BaseAndIdleUpFeedForwardFinal_00028610 = fVar27 + fVar10;
   }
   puVar2 = PTR_DAT_00028728;
   *(float *)PTR_DAT_00028724 = fStack_90;
@@ -59479,7 +59806,7 @@ void MixedFanSubsystemAGauge_Precompute_ServiceBundle(void)
   (*(code *)PTR_NoOp_Return_25398_0002898c)();
   (*(code *)PTR_SubsystemA_CommandBlend_FlagState_Snapshot_00028990)();
   (*(code *)PTR_CoolingFan_FloatState_ShadowCopy)();
-  (*(code *)PTR_CoolingFanAndSubsystemAFlagState_Snapshot_00028998)();
+  (*(code *)PTR_IdleUpAndFanRequest_StateSnapshot_Update_00028998)();
   (*(code *)PTR_CoolingFan_MirroredBytePair_Snapshot)();
   (*(code *)PTR_NoOp_Return_26106_000289a0)();
   (*(code *)PTR_CoolingFan_CommandRampParameterPair_Precompute)();
@@ -59565,7 +59892,7 @@ void MixedProtectedServiceBundle_SubsystemABlendFanAndRampCommit(void)
   (*(code *)PTR_SubsystemA_CommandBlend_EctGateOffsetSum_Update)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SharedCommandBlend_TotalWithSubsystemAProduct_Update_00028cd4)();
+  (*(code *)PTR_IdleControl_CommandCorrectionSum_Update_00028cd4)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_SubsystemA_CommandBlend_EnableWindowTerm_Product_Update)();
@@ -59577,13 +59904,13 @@ void MixedProtectedServiceBundle_SubsystemABlendFanAndRampCommit(void)
   (*(code *)PTR_EGR_CommandBlend_TableInput_Interpolate1D_Update_00028ce0)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_ControlRampBlend_Position_UpdateFromEctAndTerms_00028ce4)();
+  (*(code *)PTR_IdleControlRamp_PositionPct_FromIdleTargetAndCorrections_Update_00028ce4)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_SubsystemA_ControlRampBlend_RequestFlag_Update_00028ce8)();
   (*(code *)PTR_SubsystemA_ControlRampBlend_TableSelectValue_Copy_00028cec)();
   (*(code *)puVar2)(uVar3);
-  (*(code *)PTR_SubsystemA_ControlRampBlend_UpdateAndCommit_00028cf0)();
+  (*(code *)PTR_IdleControlRamp_OutputBlendAndControlRampTimerCommit_00028cf0)();
   return;
 }
 
@@ -59695,7 +60022,7 @@ void MixedProtectedServiceBundle_CoolingFanRampPair(void)
   (*(code *)PTR_CoolingFan_CommandRampPair_UpdateSelected)();
   (*(code *)PTR_MixedProtectedScheduler_ExitCritical)(uVar1);
   uVar1 = (*(code *)PTR_MixedProtectedScheduler_EnterCritical)(0x10);
-  (*(code *)PTR_SubsystemA_PositionLimitedRamp_StageB_Update_00028d70)();
+  (*(code *)PTR_IdleControl_PositionLimitedRamp_StageB_Update_00028d70)();
   (*(code *)PTR_MixedProtectedScheduler_ExitCritical)(uVar1);
   return;
 }
@@ -60594,7 +60921,7 @@ void MixedProtectedScheduler_TableSeedFromInjectorPermutation(void)
 
 
 
-void O2_Heater2_DutyNormalizedRatioDispatch(void)
+void HO2S2_Heater_PD4_DutyNormalizedRatio_Dispatch(void)
 
 {
   undefined *puVar1;
@@ -60609,7 +60936,7 @@ void O2_Heater2_DutyNormalizedRatioDispatch(void)
 
 
 
-void O2_Heater2_ServiceBundle(void)
+void HO2S2_Heater_PD4_ServiceBundle(void)
 
 {
   (*(code *)PTR_O2_Heater2_ServiceLeaf_NoOpA_00029CA0)();
@@ -60687,7 +61014,7 @@ void O2_Heater2_ServiceLeaf_NoOpC(void)
 
 
 
-void O2_Heater2_SubsystemAPrerequisiteB_GateMatrix_Update(void)
+void HO2S2_Heater_PD4_GateMatrix_Update(void)
 
 {
   char cVar1;
@@ -60756,7 +61083,7 @@ void O2_Heater2_SubsystemAPrerequisiteB_GateMatrix_Update(void)
 
 
 
-void O2_Heater2_SubsystemAPrerequisiteB_HysteresisAndHold_Update(void)
+void HO2S2_Heater_PD4_HysteresisAndHold_Update(void)
 
 {
   char cVar1;
@@ -60828,7 +61155,7 @@ void O2_Heater2_SubsystemAPrerequisiteB_HysteresisAndHold_Update(void)
 
 
 
-void O2_Heater2_SubsystemAPrerequisiteB_CompositeDuty_Update(void)
+void HO2S2_Heater_PD4_CompositeDuty_Update(void)
 
 {
   char cVar1;
@@ -60958,7 +61285,7 @@ LAB_0002a0a2:
 
 
 
-void O2_Heater2_SubsystemAPrerequisiteB_InterpolatedThreshold_Update(void)
+void HO2S2_Heater_PD4_InterpolatedThreshold_Update(void)
 
 {
   char cVar1;
@@ -61024,7 +61351,7 @@ void FuelPumpRelay_PJ7_OutputBit_ApplyProtected(void)
   undefined4 local_c [2];
   
   puVar1 = PTR_FuelPumpRelay_PJ7_OutputStateLatched_0002a2f0;
-  if (*PTR_DAT_0002a2f4 == '\x01') {
+  if (*PTR_FuelPumpRelay_PJ7_CommandRequest_0002a2f4 == '\x01') {
     *PTR_FuelPumpRelay_PJ7_OutputStateLatched_0002a2f0 = 1;
   }
   else {
@@ -61089,12 +61416,13 @@ void O2Heater2_PD4_CommandWord_SelectAndLatch(void)
 
 {
   if (*PTR_MAF_sensor_raw_data_buf_2_Sub_2_0002a41c == '\0') {
-    *(undefined2 *)PTR_DAT_0002a418 = *(undefined2 *)PTR_DAT_0002a420;
+    *(undefined2 *)PTR_FuelPumpRelay_PJ7_CommandWordLatched_0002a418 =
+         *(undefined2 *)PTR_DAT_0002a420;
   }
   else {
-    *(undefined2 *)PTR_DAT_0002a418 = 0;
+    *(undefined2 *)PTR_FuelPumpRelay_PJ7_CommandWordLatched_0002a418 = 0;
   }
-  *PTR_DAT_0002a424 = 1;
+  *PTR_FuelPumpRelay_PJ7_CommandRequest_0002a424 = 1;
   return;
 }
 
@@ -61108,21 +61436,22 @@ void MAF_RawSub2_StatusLatch_Update(void)
   undefined *puVar3;
   undefined2 uVar4;
   
-  puVar3 = PTR_DAT_0002a430;
-  puVar2 = PTR_DAT_0002a424;
+  puVar3 = PTR_FuelPumpRelay_PJ7_CommandRequestDelayCounter_0002a430;
+  puVar2 = PTR_FuelPumpRelay_PJ7_CommandRequest_0002a424;
   cVar1 = *PTR_MAF_sensor_raw_data_buf_2_Sub_2_0002a41c;
   if (*PTR_DAT_0002a428 == '\x01') {
     if ((byte)*PTR_DAT_0002a42c == DAT_0002a414) {
-      *PTR_DAT_0002a424 = 1;
+      *PTR_FuelPumpRelay_PJ7_CommandRequest_0002a424 = 1;
     }
     else if ((byte)*PTR_DAT_0002a42c == 0) {
-      *PTR_DAT_0002a424 = 0;
+      *PTR_FuelPumpRelay_PJ7_CommandRequest_0002a424 = 0;
     }
   }
   else {
-    uVar4 = (*(code *)PTR_AddUint16AndSaturateToFFFE_0002a434)((int)*(short *)PTR_DAT_0002a430,1);
+    uVar4 = (*(code *)PTR_AddUint16AndSaturateToFFFE_0002a434)
+                      ((int)*(short *)PTR_FuelPumpRelay_PJ7_CommandRequestDelayCounter_0002a430,1);
     *(undefined2 *)puVar3 = uVar4;
-    if (((((cVar1 == '\0') && (*(short *)PTR_DAT_0002a418 != 0)) ||
+    if (((((cVar1 == '\0') && (*(short *)PTR_FuelPumpRelay_PJ7_CommandWordLatched_0002a418 != 0)) ||
          ((int)(uint)*(ushort *)puVar3 < (int)DAT_0002a416)) ||
         ((*PTR_InputBit1_DebouncedState_0002a438 == '\x01' ||
          (*PTR_SubsystemA_CommandBlend_ActiveFlag_0002a43c == '\0')))) &&
@@ -61133,16 +61462,17 @@ void MAF_RawSub2_StatusLatch_Update(void)
       *puVar2 = 0;
     }
     if (cVar1 == '\0') {
-      if (*(short *)PTR_DAT_0002a418 == 0) {
-        *(undefined2 *)PTR_DAT_0002a418 = 0;
+      if (*(short *)PTR_FuelPumpRelay_PJ7_CommandWordLatched_0002a418 == 0) {
+        *(undefined2 *)PTR_FuelPumpRelay_PJ7_CommandWordLatched_0002a418 = 0;
       }
       else {
-        *(short *)PTR_DAT_0002a418 = *(short *)PTR_DAT_0002a418 + (short)PTR_LAB_0000fffe_1_0002a444
-        ;
+        *(short *)PTR_FuelPumpRelay_PJ7_CommandWordLatched_0002a418 =
+             *(short *)PTR_FuelPumpRelay_PJ7_CommandWordLatched_0002a418 +
+             (short)PTR_LAB_0000fffe_1_0002a444;
       }
     }
     else {
-      *(undefined2 *)PTR_DAT_0002a418 = 0;
+      *(undefined2 *)PTR_FuelPumpRelay_PJ7_CommandWordLatched_0002a418 = 0;
     }
   }
   return;
@@ -61540,7 +61870,7 @@ void CoolingFan_LocalBatchB_Step1(void)
     *PTR_DAT_0002abd8 = 1;
   }
   puVar1 = PTR_DAT_0002abdc;
-  if ((*PTR_DAT_0002abe0 == '\0') &&
+  if ((*PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_0002abe0 == '\0') &&
      ((*PTR_DAT_0002abd4 == '\x01' || (*PTR_DAT_0002abd8 == '\x01')))) {
     *PTR_DAT_0002abdc = 1;
   }
@@ -61933,7 +62263,7 @@ void ProtectedStatusPair_Group2AF_StateMachine_Update(void)
       *PTR_DAT_0002b0d0 = 1;
       (*(code *)puVar3)(puVar2,1);
     }
-    else if (*PTR_DAT_0002b0f4 == '\0') {
+    else if (*PTR_IMMO_StatusRequestQualifierRejectFlag_0002b0f4 == '\0') {
       (*(code *)PTR_ProtectedStatusBytePair_WriteValueWithComplement_0002b0dc)(PTR_DAT_0002b0e4,0);
       (*(code *)puVar3)(PTR_DAT_0002b0e0,1);
       (*(code *)PTR_HaltForever_A0D0_0002b0f8)();
@@ -61958,7 +62288,7 @@ void ProtectedStatusPair_Group2AF_StateMachine_Update(void)
       *PTR_DAT_0002b108 = 1;
     }
     puVar4 = PTR_DAT_0002b0e4;
-    if ((*puVar2 == '\x01') && (*PTR_DAT_0002b118 == '\0')) {
+    if ((*puVar2 == '\x01') && (*PTR_IMMO_StatusRequestGateResultFlag_0002b118 == '\0')) {
       *puVar1 = 2;
       (*(code *)puVar3)(puVar4,1);
       (*(code *)puVar3)(PTR_DAT_0002b0d4,0);
@@ -62348,7 +62678,7 @@ void CoolingFan_LocalBatchA_Step2(void)
   else {
     *PTR_DAT_0002b6f8 = 0;
   }
-  if ((((*PTR_DAT_0002b704 == '\x01') ||
+  if ((((*PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_0002b704 == '\x01') ||
        ((*PTR_DAT_0002b708 == '\x01' && (*PTR_DAT_0002b70c == '\0')))) ||
       ((*PTR_DAT_0002b710 == '\0' &&
        (*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_0002b714 == '\x01')))) ||
@@ -62543,8 +62873,9 @@ void CoolingFan_LocalBatchA_Step4(void)
         (*PTR_DAT_0002ba20 != '\0')) &&
        ((cVar1 == '\0' && (*(ushort *)PTR_DAT_0002ba28 <= *(ushort *)PTR_DAT_0002ba24)))))) &&
      ((*PTR_DAT_0002b9f8 == '\0' &&
-      (((*PTR_DAT_0002ba2c == '\0' && (*PTR_DAT_0002ba30 == '\0')) && (*PTR_DAT_0002ba34 == '\0'))))
-     )) {
+      (((*PTR_DAT_0002ba2c == '\0' &&
+        (*PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_0002ba30 == '\0')) &&
+       (*PTR_DAT_0002ba34 == '\0')))))) {
     *PTR_DAT_0002ba14 = 1;
   }
   else {
@@ -62978,7 +63309,7 @@ void NoOp_Return_2c034(void)
 
 
 
-void VVT_TO6A_ChannelConfigByte_CopyFromTable(uint param_1)
+void InjectorTimer_ChannelByte_CopyFromConfig(uint param_1)
 
 {
   PTR_DAT_0002c278[param_1 & 0xff] = PTR_VVT_TO6A_RequestAggregateFlag_0002c27c[param_1 & 0xff];
@@ -63003,7 +63334,7 @@ void NoOp_Return_2c04c(void)
 
 
 
-void VVT_TO6A_TargetZero_SetOrApply(void)
+void InjectorTimer_Target0_SetOrApply(void)
 
 {
   (*(code *)PTR_VVT_TPD1042F_TO6A_Target_SetOrApply_0002c280)(0);
@@ -63030,7 +63361,7 @@ void MultiChannelClampedValue_ResetSlotPrimary(uint param_1)
 
 
 
-void VVT_TO6A_ConfigEntryA_StateMachine_Update(uint param_1)
+void InjectorTimer_ConfigEntryA_StateMachine_Update(uint param_1)
 
 {
   char cVar1;
@@ -63106,7 +63437,7 @@ void VVT_TO6A_ConfigEntryA_StateMachine_Update(uint param_1)
 
 
 
-void VVT_TO6A_ConfigEntryB_StateMachine_Update(uint param_1)
+void InjectorTimer_ConfigEntryB_StateMachine_Update(uint param_1)
 
 {
   undefined *puVar1;
@@ -63149,7 +63480,7 @@ void VVT_TO6A_ConfigEntryB_StateMachine_Update(uint param_1)
 
 
 
-void VVT_TO6A_ConfigEntryC_StateMachine_Update(uint param_1)
+void InjectorTimer_ConfigEntryC_StateMachine_Update(uint param_1)
 
 {
   undefined *puVar1;
@@ -63192,7 +63523,7 @@ void VVT_TO6A_ConfigEntryC_StateMachine_Update(uint param_1)
 
 
 
-void VVT_TO6A_ChannelRequestAggregate_Update(uint param_1)
+void InjectorTimer_ChannelRequestAggregate_Update(uint param_1)
 
 {
   undefined *puVar1;
@@ -63220,7 +63551,7 @@ void VVT_TO6A_ChannelRequestAggregate_Update(uint param_1)
 
 
 
-void VVT_TO6A_ChannelConfigVariants_Load(uint param_1)
+void InjectorTimer_ChannelConfigVariants_Load(uint param_1)
 
 {
   undefined *puVar1;
@@ -63276,7 +63607,7 @@ void VVT_TO6A_ChannelConfigVariants_Load(uint param_1)
 
 
 
-void VVT_TO6A_ChannelDurationCounters_Update(uint param_1)
+void InjectorTimer_ChannelDurationCounters_Update(uint param_1)
 
 {
   ushort uVar1;
@@ -63355,7 +63686,7 @@ LAB_0002c61a:
 
 
 
-void VVT_TO6A_ChannelTargetScaled_Apply(byte param_1)
+void InjectorTimer_ChannelTargetScaled_Apply(byte param_1)
 
 {
   undefined4 uVar1;
@@ -63369,7 +63700,7 @@ void VVT_TO6A_ChannelTargetScaled_Apply(byte param_1)
 
 
 
-void VVT_ChannelTarget_ClampPositive(byte param_1)
+void InjectorTimer_ChannelTarget_ClampPositive(byte param_1)
 
 {
   uint uVar1;
@@ -63412,7 +63743,7 @@ void NoOp_Return_2c710(void)
 
 
 
-void VVT_ChannelEnableConditions_Update
+void EGR_ChannelEnableConditions_Update
                (uint param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
 
 {
@@ -63544,7 +63875,7 @@ void VVT_ChannelEnableConditions_Update
 
 
 
-void VVT_ChannelCorrectionOutput_Update(uint param_1)
+void EGR_ChannelCorrectionOutput_Update(uint param_1)
 
 {
   undefined *puVar1;
@@ -63602,7 +63933,7 @@ void NoOp_Return_2cb14(void)
 
 
 
-void VVT_ChannelBaseTable_Interpolate_Update(byte param_1)
+void EGR_ChannelBaseTable_Interpolate_Update(byte param_1)
 
 {
   undefined4 *puVar1;
@@ -63626,7 +63957,7 @@ void NoOp_Return_2cb4a(void)
 
 
 
-void VVT_ChannelTransientFlags_Update
+void EGR_ChannelTransientFlags_Update
                (uint param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
 
 {
@@ -63720,7 +64051,7 @@ void VVT_ChannelTransientFlags_Update
 
 
 
-void VVT_ChannelBaseTable_TrimOrRecover_Update(byte param_1)
+void EGR_ChannelBaseTable_TrimOrRecover_Update(byte param_1)
 
 {
   int iVar1;
@@ -63752,7 +64083,7 @@ void VVT_ChannelBaseTable_TrimOrRecover_Update(byte param_1)
 
 
 
-void VVT_ChannelGainProduct_Update(byte param_1)
+void EGR_ChannelGainProduct_Update(byte param_1)
 
 {
   undefined *puVar1;
@@ -63807,7 +64138,7 @@ void NoOp_Return_2ceb8(void)
 
 
 
-void VVT_ChannelWindowOutOfRangeFlag_Update(byte param_1)
+void EGR_ChannelWindowOutOfRangeFlag_Update(byte param_1)
 
 {
   if (((PTR_VVT_ChannelControl_EnabledFlag_0002d064[param_1] != '\x01') ||
@@ -63829,7 +64160,7 @@ void VVT_ChannelWindowOutOfRangeFlag_Update(byte param_1)
 
 
 
-void VVT_ChannelOutOfRangeCorrection_Update(uint param_1)
+void EGR_ChannelOutOfRangeCorrection_Update(uint param_1)
 
 {
   float *pfVar1;
@@ -63861,7 +64192,7 @@ void VVT_ChannelOutOfRangeCorrection_Update(uint param_1)
 
 
 
-void VVT_ChannelFilteredDelta_Update(byte param_1)
+void EGR_ChannelFilteredDelta_Update(byte param_1)
 
 {
   undefined *puVar1;
@@ -63936,7 +64267,7 @@ void NoOp_Return_2d0b4(void)
 
 
 
-void VVT_ChannelProductTargetDuty_Update(uint param_1)
+void EGR_ChannelProductOutput_Update(uint param_1)
 
 {
   int iVar1;
@@ -63950,7 +64281,7 @@ void VVT_ChannelProductTargetDuty_Update(uint param_1)
 
 
 
-void VVT_ChannelGlobalEnableGate_Update(byte param_1)
+void EGR_ChannelGlobalEnableGate_Update(byte param_1)
 
 {
   if (((((*PTR_InputBitPair_DebouncedState_0002d2d0 == '\0') &&
@@ -63969,7 +64300,7 @@ void VVT_ChannelGlobalEnableGate_Update(byte param_1)
 
 
 
-void VVT_ChannelPrimaryEnableConditions_Update(uint param_1)
+void EGR_ChannelPrimaryEnableConditions_Update(uint param_1)
 
 {
   undefined *puVar1;
@@ -64050,8 +64381,10 @@ void VVT_ChannelPrimaryEnableConditions_Update(uint param_1)
     fVar11 = **(float **)(puVar1 + iVar9 + 0x28);
     fVar10 = **(float **)(puVar1 + iVar9 + 0x2c) + DAT_0002d330;
     fVar12 = **(float **)(puVar1 + iVar9 + 0x30) + DAT_0002d2f8;
-    if (fVar16 < *(float *)PTR_DAT_0002d32c + **(float **)(puVar1 + iVar9 + 0x24)) {
-      if (fVar16 < *(float *)PTR_DAT_0002d32c + **(float **)(puVar1 + iVar9 + 0x24) + fVar14) {
+    if (fVar16 < *(float *)PTR_IdleTargetRpm_SelectedFinal_0002d32c +
+                 **(float **)(puVar1 + iVar9 + 0x24)) {
+      if (fVar16 < *(float *)PTR_IdleTargetRpm_SelectedFinal_0002d32c +
+                   **(float **)(puVar1 + iVar9 + 0x24) + fVar14) {
         PTR_DAT_0002d334[param_1 & 0xff] = 0;
       }
     }
@@ -64131,7 +64464,7 @@ void VVT_ChannelPrimaryEnableConditions_Update(uint param_1)
 
 
 
-void VVT_ChannelSeedEnableConditions_Update
+void EGR_ChannelSeedEnableConditions_Update
                (uint param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
 
 {
@@ -64155,8 +64488,10 @@ void VVT_ChannelSeedEnableConditions_Update
   fVar10 = *(float *)PTR_EngineSpeed_RPM_Filtered_0002d578;
   fVar13 = *(float *)PTR_ECTSensor_AN28_CelsiusValidated_0002d580;
   iVar9 = (param_1 & 0xff) * 0x54;
-  fVar12 = *(float *)PTR_DAT_0002d57c - **(float **)(PTR_PTR_0002d584 + iVar9 + 0x3c);
-  fVar11 = *(float *)PTR_DAT_0002d57c + **(float **)(PTR_PTR_0002d584 + iVar9 + 0x40);
+  fVar12 = *(float *)PTR_IdleTargetRpm_SelectedFinal_0002d57c -
+           **(float **)(PTR_PTR_0002d584 + iVar9 + 0x3c);
+  fVar11 = *(float *)PTR_IdleTargetRpm_SelectedFinal_0002d57c +
+           **(float **)(PTR_PTR_0002d584 + iVar9 + 0x40);
   fVar15 = fVar11 + DAT_0002d588;
   fVar14 = **(float **)(PTR_PTR_0002d584 + iVar9 + 0x44) + DAT_0002d58c;
   if (fVar10 < fVar12) {
@@ -64269,7 +64604,7 @@ void MultiChannelClampedValue_ResetSlotGroupB(uint param_1)
 
 
 
-void VVT_ChannelMovingAverageAndDelta_Update(byte param_1)
+void EGR_ChannelMovingAverageAndDelta_Update(byte param_1)
 
 {
   undefined *puVar1;
@@ -64327,7 +64662,7 @@ void VVT_ChannelMovingAverageAndDelta_Update(byte param_1)
 
 
 
-void VVT_ChannelPositiveDeltaFilter_Update(byte param_1)
+void EGR_ChannelPositiveDeltaFilter_Update(byte param_1)
 
 {
   undefined4 *puVar1;
@@ -64378,7 +64713,7 @@ void NoOp_Return_2d8f8(void)
 
 
 
-void VVT_ChannelBaseline_Interpolate_Update(byte param_1)
+void EGR_ChannelBaseline_Interpolate_Update(byte param_1)
 
 {
   undefined4 *puVar1;
@@ -64394,7 +64729,7 @@ void VVT_ChannelBaseline_Interpolate_Update(byte param_1)
 
 
 
-void VVT_ChannelScaledBaseline_Update(byte param_1)
+void EGR_ChannelScaledBaseline_Update(byte param_1)
 
 {
   undefined4 *puVar1;
@@ -64413,7 +64748,7 @@ void VVT_ChannelScaledBaseline_Update(byte param_1)
 
 
 
-void VVT_ChannelBaselineDeltaFilter_Update(byte param_1)
+void EGR_ChannelBaselineDeltaFilter_Update(byte param_1)
 
 {
   float *pfVar1;
@@ -64434,7 +64769,7 @@ void VVT_ChannelBaselineDeltaFilter_Update(byte param_1)
 
 
 
-void VVT_ChannelBaselineTrim_Update
+void EGR_ChannelBaselineTrim_Update
                (uint param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
 
 {
@@ -64504,7 +64839,7 @@ void NoOp_Return_2dad8(void)
 
 
 
-void VVT_ChannelDefaultOutput_Load(byte param_1)
+void EGR_ChannelDefaultOutput_Load(byte param_1)
 
 {
   *(undefined4 *)(PTR_VVT_ChannelAdaptiveOutput_Clamped_0002dd04 + (uint)param_1 * 4) =
@@ -64522,7 +64857,7 @@ void NoOp_Return_2dafa(void)
 
 
 
-void VVT_ChannelAdaptiveEnableTimer_Update
+void EGR_ChannelAdaptiveEnableTimer_Update
                (uint param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
 
 {
@@ -64567,7 +64902,7 @@ void VVT_ChannelAdaptiveEnableTimer_Update
 
 
 
-void VVT_ChannelAdaptiveWindowFlags_Update(uint param_1)
+void EGR_ChannelAdaptiveWindowFlags_Update(uint param_1)
 
 {
   char cVar1;
@@ -64625,7 +64960,7 @@ void VVT_ChannelAdaptiveWindowFlags_Update(uint param_1)
 
 
 
-void VVT_ChannelAdaptiveOutput_Update(uint param_1)
+void EGR_ChannelAdaptiveOutput_Update(uint param_1)
 
 {
   int iVar1;
@@ -64665,7 +65000,7 @@ void VVT_ChannelAdaptiveOutput_Update(uint param_1)
 
 
 
-void VVT_ChannelAdaptiveCompletionTimer_Update
+void EGR_ChannelAdaptiveCompletionTimer_Update
                (uint param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
 
 {
@@ -64724,7 +65059,7 @@ void NoOp_Return_2de98(void)
 
 
 
-void VVT_IatLoadPhaseWindow_OutputSelect_Update(uint param_1)
+void EGR_IatLoadPhaseWindow_OutputSelect_Update(uint param_1)
 
 {
   char cVar1;
@@ -64859,7 +65194,7 @@ void VVT_IatLoadPhaseWindow_OutputSelect_Update(uint param_1)
 
 
 
-void VVT_ChannelOutput_RateLimited_Update(uint param_1)
+void EGR_ChannelOutput_RateLimited_Update(uint param_1)
 
 {
   undefined *puVar1;
@@ -64933,7 +65268,7 @@ void VVT_ChannelOutput_RateLimited_Update(uint param_1)
 
 
 
-void VVT_ChannelOutput_Filtered_Update(uint param_1)
+void EGR_ChannelOutput_Filtered_Update(uint param_1)
 
 {
   int iVar1;
@@ -64970,7 +65305,7 @@ void VVT_ChannelControl_ServiceBundle(void)
   (*(code *)PTR_NoOp_Return_2de98_0002e594)(0);
   (*(code *)PTR_NoOp_Return_2dad4_0002e598)(0);
   (*(code *)PTR_NoOp_Return_2dad8_0002e59c)(0);
-  (*(code *)PTR_VVT_ChannelDefaultOutput_Load_0002e5a0)(0);
+  (*(code *)PTR_EGR_ChannelDefaultOutput_Load_0002e5a0)(0);
   (*(code *)PTR_NoOp_Return_2dafa_0002e5a4)(0);
   (*(code *)PTR_NoOp_Return_2e6a0_0002e5a8)(0);
   (*(code *)PTR_NoOp_Return_2d0a8_0002e5ac)(0);
@@ -64980,21 +65315,21 @@ void VVT_ChannelControl_ServiceBundle(void)
   (*(code *)PTR_NoOp_Return_2c70c_0002e5bc)(0);
   (*(code *)PTR_NoOp_Return_2c710_0002e5c0)(0);
   (*(code *)PTR_NoOp_Return_2cb14_0002e5c4)(0);
-  (*(code *)PTR_VVT_ChannelBaseTable_Interpolate_Update_0002e5c8)(0);
+  (*(code *)PTR_EGR_ChannelBaseTable_Interpolate_Update_0002e5c8)(0);
   (*(code *)PTR_NoOp_Return_2cb4a_0002e5cc)(0);
   (*(code *)PTR_NoOp_Return_2ceb8_0002e5d0)(0);
   (*(code *)PTR_NoOp_Return_2ceb0_0002e5d4)(0);
   (*(code *)PTR_NoOp_Return_2ceb4_0002e5d8)(0);
   (*(code *)PTR_NoOp_Return_2d8f4_0002e5dc)(0);
   (*(code *)PTR_NoOp_Return_2d8f8_0002e5e0)(0);
-  (*(code *)PTR_VVT_ChannelBaseline_Interpolate_Update_0002e5e4)(0);
+  (*(code *)PTR_EGR_ChannelBaseline_Interpolate_Update_0002e5e4)(0);
   (*(code *)PTR_NoOp_Return_2c02c_0002e5e8)(0);
   (*(code *)PTR_NoOp_Return_2c030_0002e5ec)(0);
   (*(code *)PTR_NoOp_Return_2c034_0002e5f0)(0);
-  (*(code *)PTR_VVT_TO6A_ChannelConfigByte_CopyFromTable_0002e5f4)(0);
+  (*(code *)PTR_InjectorTimer_ChannelByte_CopyFromConfig_0002e5f4)(0);
   (*(code *)PTR_NoOp_Return_2c048_0002e5f8)(0);
   (*(code *)PTR_NoOp_Return_2c04c_0002e5fc)(0);
-  (*(code *)PTR_VVT_TO6A_TargetZero_SetOrApply_0002e600)(0);
+  (*(code *)PTR_InjectorTimer_Target0_SetOrApply_0002e600)(0);
   (*(code *)PTR_NoOp_Return_2c056_0002e604)(0);
   return;
 }
@@ -65033,52 +65368,52 @@ void VVT_ChannelControl_MainSubBundle(void)
   
   puVar1 = PTR_SharedSchedulerGate_ReadMaskedSrLevel_0002e608;
   uVar3 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_0002e608)(0x10);
-  (*(code *)PTR_VVT_IatLoadPhaseWindow_OutputSelect_Update_0002e61c)(0);
-  (*(code *)PTR_VVT_ChannelOutput_RateLimited_Update_0002e620)(0);
-  (*(code *)PTR_VVT_ChannelOutput_Filtered_Update_0002e624)(0);
+  (*(code *)PTR_EGR_IatLoadPhaseWindow_OutputSelect_Update_0002e61c)(0);
+  (*(code *)PTR_EGR_ChannelOutput_RateLimited_Update_0002e620)(0);
+  (*(code *)PTR_EGR_ChannelOutput_Filtered_Update_0002e624)(0);
   puVar2 = PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0002e610;
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0002e610)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_VVT_ChannelAdaptiveEnableTimer_Update_0002e628)(0);
-  (*(code *)PTR_VVT_ChannelAdaptiveWindowFlags_Update_0002e62c)(0);
-  (*(code *)PTR_VVT_ChannelAdaptiveOutput_Update_0002e630)(0);
-  (*(code *)PTR_VVT_ChannelAdaptiveCompletionTimer_Update_0002e634)(0);
+  (*(code *)PTR_EGR_ChannelAdaptiveEnableTimer_Update_0002e628)(0);
+  (*(code *)PTR_EGR_ChannelAdaptiveWindowFlags_Update_0002e62c)(0);
+  (*(code *)PTR_EGR_ChannelAdaptiveOutput_Update_0002e630)(0);
+  (*(code *)PTR_EGR_ChannelAdaptiveCompletionTimer_Update_0002e634)(0);
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_VVT_ChannelEnableConditions_Update_0002e638)(0);
-  (*(code *)PTR_VVT_ChannelCorrectionOutput_Update_0002e63c)(0);
+  (*(code *)PTR_EGR_ChannelEnableConditions_Update_0002e638)(0);
+  (*(code *)PTR_EGR_ChannelCorrectionOutput_Update_0002e63c)(0);
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_VVT_ChannelFilteredDelta_Update_0002e640)(0);
-  (*(code *)PTR_VVT_ChannelWindowOutOfRangeFlag_Update_0002e644)(0);
-  (*(code *)PTR_VVT_ChannelOutOfRangeCorrection_Update_0002e648)(0);
+  (*(code *)PTR_EGR_ChannelFilteredDelta_Update_0002e640)(0);
+  (*(code *)PTR_EGR_ChannelWindowOutOfRangeFlag_Update_0002e644)(0);
+  (*(code *)PTR_EGR_ChannelOutOfRangeCorrection_Update_0002e648)(0);
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_VVT_ChannelTransientFlags_Update_0002e64c)(0);
-  (*(code *)PTR_VVT_ChannelBaseTable_TrimOrRecover_Update_0002e650)(0);
-  (*(code *)PTR_VVT_ChannelGainProduct_Update_0002e654)(0);
+  (*(code *)PTR_EGR_ChannelTransientFlags_Update_0002e64c)(0);
+  (*(code *)PTR_EGR_ChannelBaseTable_TrimOrRecover_Update_0002e650)(0);
+  (*(code *)PTR_EGR_ChannelGainProduct_Update_0002e654)(0);
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_VVT_ChannelModel_ClampAndUpdate_0002e658)(0);
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_VVT_ChannelScaledBaseline_Update_0002e65c)(0);
-  (*(code *)PTR_VVT_ChannelBaselineDeltaFilter_Update_0002e660)(0);
-  (*(code *)PTR_VVT_ChannelBaselineTrim_Update_0002e664)(0);
+  (*(code *)PTR_EGR_ChannelScaledBaseline_Update_0002e65c)(0);
+  (*(code *)PTR_EGR_ChannelBaselineDeltaFilter_Update_0002e660)(0);
+  (*(code *)PTR_EGR_ChannelBaselineTrim_Update_0002e664)(0);
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_VVT_ChannelGlobalEnableGate_Update_0002e668)(0);
-  (*(code *)PTR_VVT_ChannelPrimaryEnableConditions_Update_0002e66c)(0);
-  (*(code *)PTR_VVT_ChannelSeedEnableConditions_Update_0002e670)(0);
-  (*(code *)PTR_VVT_ChannelProductTargetDuty_Update_0002e674)(0);
+  (*(code *)PTR_EGR_ChannelGlobalEnableGate_Update_0002e668)(0);
+  (*(code *)PTR_EGR_ChannelPrimaryEnableConditions_Update_0002e66c)(0);
+  (*(code *)PTR_EGR_ChannelSeedEnableConditions_Update_0002e670)(0);
+  (*(code *)PTR_EGR_ChannelProductOutput_Update_0002e674)(0);
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_VVT_TO6A_ChannelConfigVariants_Load_0002e678)(0);
-  (*(code *)PTR_VVT_TO6A_ConfigEntryA_StateMachine_Update_0002e67c)(0);
-  (*(code *)PTR_VVT_TO6A_ConfigEntryB_StateMachine_Update_0002e680)(0);
-  (*(code *)PTR_VVT_TO6A_ConfigEntryC_StateMachine_Update_0002e684)(0);
-  (*(code *)PTR_VVT_TO6A_ChannelRequestAggregate_Update_0002e688)(0);
-  (*(code *)PTR_VVT_TO6A_ChannelTargetScaled_Apply_0002e68c)(0);
+  (*(code *)PTR_InjectorTimer_ChannelConfigVariants_Load_0002e678)(0);
+  (*(code *)PTR_InjectorTimer_ConfigEntryA_StateMachine_Update_0002e67c)(0);
+  (*(code *)PTR_InjectorTimer_ConfigEntryB_StateMachine_Update_0002e680)(0);
+  (*(code *)PTR_InjectorTimer_ConfigEntryC_StateMachine_Update_0002e684)(0);
+  (*(code *)PTR_InjectorTimer_ChannelRequestAggregate_Update_0002e688)(0);
+  (*(code *)PTR_InjectorTimer_ChannelTargetScaled_Apply_0002e68c)(0);
   (*(code *)puVar2)(uVar3);
   return;
 }
@@ -65093,7 +65428,7 @@ void VVT_TO6A_DurationCounters_SubBundle(void)
   undefined4 uVar1;
   
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_0002e608)(0x10);
-  (*(code *)PTR_VVT_TO6A_ChannelDurationCounters_Update_0002e690)(0);
+  (*(code *)PTR_InjectorTimer_ChannelDurationCounters_Update_0002e690)(0);
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0002e610)(uVar1);
   return;
 }
@@ -65108,11 +65443,11 @@ void VVT_ChannelControl_TargetFilterSubBundle(void)
   undefined4 uVar1;
   
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_0002e608)(0x10);
-  (*(code *)PTR_VVT_ChannelTarget_ClampPositive_0002e694)(0);
+  (*(code *)PTR_InjectorTimer_ChannelTarget_ClampPositive_0002e694)(0);
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0002e610)(uVar1);
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_0002e608)(0x10);
-  (*(code *)PTR_VVT_ChannelMovingAverageAndDelta_Update_0002e698)(0);
-  (*(code *)PTR_VVT_ChannelPositiveDeltaFilter_Update_0002e69c)(0);
+  (*(code *)PTR_EGR_ChannelMovingAverageAndDelta_Update_0002e698)(0);
+  (*(code *)PTR_EGR_ChannelPositiveDeltaFilter_Update_0002e69c)(0);
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0002e610)(uVar1);
   return;
 }
@@ -65183,7 +65518,7 @@ void NoOp_Return_2e768(void)
 
 
 
-void EGR_TransientPulse_WindowAndTimer_Update(void)
+void SubsystemA_TransientPulse_WindowAndTimer_Update(void)
 
 {
   undefined *puVar1;
@@ -65195,7 +65530,7 @@ void EGR_TransientPulse_WindowAndTimer_Update(void)
   float fVar7;
   undefined4 uVar8;
   
-  puVar4 = PTR_DAT_0002e880;
+  puVar4 = PTR_SubsystemA_TransientPulse_WindowedOutput_0002e880;
   puVar3 = PTR_DAT_0002e87c;
   puVar2 = PTR_DAT_0002e878;
   puVar1 = PTR_DAT_0002e874;
@@ -65503,10 +65838,11 @@ void EGR_LearnEnable_Conditions_Update(void)
 
 
 
-void EGR_LearnCommand_Delta_Update(void)
+void SubsystemA_LearnCommand_Delta_Update(void)
 
 {
-  *(float *)PTR_DAT_0002ecc4 = *(float *)PTR_DAT_0002ecc0 - *(float *)PTR_DAT_0002ecbc;
+  *(float *)PTR_SubsystemA_LearnCommand_Delta_0002ecc4 =
+       *(float *)PTR_DAT_0002ecc0 - *(float *)PTR_DAT_0002ecbc;
   return;
 }
 
@@ -66811,7 +67147,10 @@ void InfoDisplay_StatusBit40_MAFDtcPair_Reset(void)
 
 
 
-uint InfoDisplay_StatusBit40_MAFDtcPair_Update(void)
+// Debounces the MAF AN3 low/high signal-status pair and reports OBD DTCs P0102/P0103 (internal DTC
+// 0x04/0x05).
+
+uint MAF_P0102_P0103_SignalStatus_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -66929,25 +67268,25 @@ void SubsystemA_DiagAndInfoDisplay_ResetBundle(void)
   (*(code *)PTR_SubsystemA_PrimaryEnable_NoOpG_00030508)();
   (*(code *)PTR_SubsystemA_PrimaryEnable_NoOpH_0003050c)();
   (*(code *)PTR_InfoDisplay_StatusBit40_MAFDtcPair_Reset_00030510)();
-  (*(code *)PTR_SubsystemA_DTC31_State_Reset_00030514)();
+  (*(code *)PTR_P1510_State_Reset_00030514)();
   (*(code *)PTR_InfoDisplay_StatusBit04_SampledPair_SubsystemABlendSnapshot_Init_00030518)();
   (*(code *)PTR_InfoDisplay_StatusBit04_SampledPair_NoOpA_0003051c)();
-  (*(code *)PTR_InfoDisplay_StatusBit04_SampledPair_Reset_00030520)();
+  (*(code *)PTR_CMP_P0340_SampledPair_Reset_00030520)();
   (*(code *)PTR_SubsystemA_PrimaryEnable_Prereq_NoOp_00030524)();
-  (*(code *)PTR_SubsystemA_PrimaryEnable_PrereqState_Init_00030528)();
+  (*(code *)PTR_CatalystMonitor_P0420_State_Init_00030528)();
   (*(code *)PTR_SubsystemA_PrimaryEnable_PrereqCounter_Reset_0003052c)();
-  (*(code *)PTR_SubsystemA_PrimaryEnable_PrereqState_Reset_00030530)();
-  (*(code *)PTR_SubsystemA_PrimaryEnable_PrereqTail_Reset_00030534)();
-  (*(code *)PTR_InfoDisplay_StatusBit04_SubsystemABlendThreshold_Reset_00030538)();
+  (*(code *)PTR_CatalystMonitor_P0420_State_Reset_00030530)();
+  (*(code *)PTR_CatalystMonitor_P0420_TailCounters_Reset_00030534)();
+  (*(code *)PTR_CKP_P0335_ProcessedStatus_Reset_00030538)();
   (*(code *)PTR_SubsystemA_CommandBlend_SeededIatLoad_TableSelectSnapshot_Reset_0003053c)();
   (*(code *)PTR_SubsystemA_CommandBlend_SeededIatLoad_SecondarySnapshot_Reset_00030540)();
   (*(code *)PTR_SubsystemA_CommandBlend_SeededIatLoad_PrimarySnapshot_Reset_00030544)();
   (*(code *)PTR_SubsystemA_CommandBlend_SeededIatLoad_ResetWithShared_00030548)();
   (*(code *)PTR_SubsystemA_CommandBlend_SeededIatLoad_Counters_Reset_0003054c)();
   (*(code *)PTR_SubsystemA_PrimaryEnable_PreNoOp_00030550)();
-  (*(code *)PTR_SubsystemA_DTC1C_ResponseWindow_ResetState_00030554)();
-  (*(code *)PTR_SubsystemA_DTC1D_ResponseWindow_ResetState_00030558)();
-  (*(code *)PTR_SubsystemA_DTC29_State_Reset_0003055c)();
+  (*(code *)PTR_FuelSystem_P0171_Lean_ResponseWindow_ResetState_00030554)();
+  (*(code *)PTR_FuelSystem_P0172_Rich_ResponseWindow_ResetState_00030558)();
+  (*(code *)PTR_IdleControl_P0505_State_Reset_0003055c)();
   (*(code *)PTR_SubsystemA_PrimaryEnable_PreStateResetA_00030560)();
   (*(code *)PTR_SharedDiagAggregate_PhaseState_Reset_00030564)();
   (*(code *)PTR_InfoDisplay_StatusBit04_SampledPair_NoOpC_00030568)();
@@ -66959,26 +67298,26 @@ void SubsystemA_DiagAndInfoDisplay_ResetBundle(void)
   (*(code *)PTR_DiagWindowGroup35D_State_Reset_00030580)();
   (*(code *)PTR_DiagWindowGroup365_State_Reset_00030584)();
   (*(code *)PTR_SubsystemA_PrimaryEnable_PreStateResetB_00030588)();
-  (*(code *)PTR_SubsystemA_DTC2E_MapBaseline_ResetAndCapture_0003058c)();
+  (*(code *)PTR_PressureModel_P2227_Baseline_ResetAndCapture_0003058c)();
   (*(code *)PTR_OBD04_ClearDTC_NoOp_00030590)();
-  (*(code *)PTR_SubsystemA_DTC2E_MapWindow_ResetState_00030594)();
+  (*(code *)PTR_PressureModel_P2227_WindowState_Reset_00030594)();
   (*(code *)PTR_SubsystemA_PrimaryEnable_PreStateResetC_00030598)();
-  (*(code *)PTR_SubsystemA_DTC26_WindowState_Reset_0003059c)();
+  (*(code *)PTR_EVAP_Purge_P0443_Reset_0003059c)();
   (*(code *)PTR_NoOp_Return_46678_000305a0)();
-  (*(code *)PTR_SubsystemA_MAPThresholdDiag_ResetState_000305a4)();
+  (*(code *)PTR_HO2S2_P0140_ResetState_000305a4)();
   (*(code *)PTR_DiagWindowGroup367_State_Reset_000305a8)();
   (*(code *)PTR_OBD04_ClearDTC_StateResetA_000305ac)();
   (*(code *)PTR_OBD04_ClearDTC_StateResetB_000305b0)();
   (*(code *)PTR_OBD04_ClearDTC_StateResetC_000305b4)();
-  (*(code *)PTR_SubsystemA_DTC2B_DirectReport_SetFail_000305b8)();
+  (*(code *)PTR_ECU_P0602_DirectReport_SetFail_000305b8)();
   (*(code *)PTR_NoOp_Return_42560_000305bc)();
   (*(code *)PTR_InfoDisplay_FrameCounter_Reset_000305c0)();
-  (*(code *)PTR_InfoDisplay_StatusBit01_Dtc1011Pair_Reset_000305c4)();
+  (*(code *)PTR_TPS_P0122_P0123_StatusPair_Reset_000305c4)();
   (*(code *)PTR_SubsystemA_PrimaryEnable_PreStateResetD_000305c8)();
-  (*(code *)PTR_ECTSensor_AN28_DTC0D0E_RawRange_Reset_000305cc)();
+  (*(code *)PTR_ECTSensor_AN28_StatusDTC0D0E_AndInfoDisplayBit10_Reset_000305cc)();
   (*(code *)PTR_OBD04_ClearDTC_PreNoOpA_000305d0)();
   (*(code *)PTR_OBD04_ClearDTC_PreNoOpB_000305d4)();
-  (*(code *)PTR_InfoDisplay_StatusBit01_SubsystemASeedDeltaPair_Reset_000305d8)();
+  (*(code *)PTR_TPS_P0121_ProcessedDeltaPair_Reset_000305d8)();
   (*(code *)PTR_NoOp_Return_36a0c_000305dc)();
   (*(code *)PTR_DiagWindowGroup36A_StateA_Reset_000305e0)();
   (*(code *)PTR_DiagWindowGroup36A_StateB_Reset_000305e4)();
@@ -66991,12 +67330,12 @@ void SubsystemA_DiagAndInfoDisplay_ResetBundle(void)
   (*(code *)PTR_EGR_CoilDiag_ResetDebounceState_00030600)();
   (*(code *)PTR_EGR_CoilDiag_ResetSummaryFlags_00030604)();
   (*(code *)PTR_SubsystemA_FlowDiag_ResetDebounceState_00030608)();
-  (*(code *)PTR_SubsystemA_MAPResponseDiag_ResetBaselineState_0003060c)();
-  (*(code *)PTR_SubsystemA_MAPResponseDiag_ResetDebounceState_00030610)();
-  (*(code *)PTR_SubsystemA_MAPResponseDiag_ResetSummaryFlags_00030614)();
+  (*(code *)PTR_MAP_P0106_ResetBaselineState_0003060c)();
+  (*(code *)PTR_MAP_P0106_ResetDebounceState_00030610)();
+  (*(code *)PTR_MAP_P0106_ResetSummaryFlags_00030614)();
   (*(code *)PTR_SubsystemA_NextDiag_ClearEnableFlag_00030618)();
   (*(code *)PTR_SubsystemA_NextDiag_ResetBaselineState_0003061c)();
-  (*(code *)PTR_SubsystemA_DeltaDiag_ResetSummaryFlags_DTC0C_00030620)();
+  (*(code *)PTR_IAT_P0111_ResetSummaryFlags_00030620)();
   (*(code *)PTR_ECTSensor_AN28_P0116_ClearEnableFlag_00030624)();
   (*(code *)PTR_ECTSensor_AN28_P0116_ResetDebounceState_00030628)();
   (*(code *)PTR_ECTSensor_AN28_P0116_ResetReportFlags_0003062c)();
@@ -67026,13 +67365,14 @@ void InfoDisplay_StatusBit04_SampledPair_ResetPacket(void)
 
 
 
-// Protected wrapper around the SubsystemA DTC2E MAP baseline edge-average update.
+// Protected wrapper around the P2227 pressure/MAP-baseline edge-average update.
 
-void SubsystemA_DTC2E_MapBaseline_EdgeAverage_ProtectedUpdate(void)
+void PressureModel_P2227_BaselineEdgeAverage_ServiceProtected(void)
 
 {
   undefined4 uVar1;
   
+                    // Protected wrapper around the P2227 pressure/MAP-baseline edge-average update.
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_0003063c)(0x10);
   (*(code *)PTR_SubsystemA_DTC2E_MapBaseline_EdgeAverageUpdate_ForProtectedWrapper)();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_0003064c)(uVar1);
@@ -67075,17 +67415,17 @@ void SubsystemA_DiagAggregator(void)
   (*(code *)PTR_SubsystemA_EnableGate_ControlRampBlendWindow_Update_00030920)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC31_StateDebounceAndReport_00030924)();
+  (*(code *)PTR_P1510_StateDebounceAndReport_00030924)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC30_StateDebounceAndReport_00030928)();
-  (*(code *)PTR_SubsystemA_DTC2F_CommandBlendInhibit_DebounceAndReport_0003092c)();
+  (*(code *)PTR_StarterControl_P0617_StateDebounceAndReport_00030928)();
+  (*(code *)PTR_StarterControl_P0616_StateDebounceAndReport_0003092c)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_InfoDisplay_StatusBit04_SampledPair_SubsystemABlendSnapshot_MinUpdate_00030930)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC28_SeededLoadWindow_DebounceAndReport_00030934)();
+  (*(code *)PTR_VehicleSpeed_P0500_DebounceAndReport_00030934)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_EGR_CoilDiag_CheckPreconditions_00030938)();
@@ -67093,68 +67433,68 @@ void SubsystemA_DiagAggregator(void)
   (*(code *)PTR_EGR_CoilDiag_ReportDTC24_00030940)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC29_StateDebounceAndReport_00030944)();
+  (*(code *)PTR_IdleControl_P0505_StateDebounceAndReport_00030944)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_VVT_TPD1042F_P0010_PJ10_TI9A_DebounceAndReport_00030948)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC17_18_ThresholdPair_DebounceAndReport_0003094c)();
+  (*(code *)PTR_HO2S1_Heater_PD0_P0031_P0032_DebounceAndReport_0003094c)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC1A_1B_ThresholdPair_DebounceAndReport_00030950)();
+  (*(code *)PTR_HO2S2_Heater_PD4_P0037_P0038_DebounceAndReport_00030950)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC2E_EnableGate_UpdateFromSeededLoadWindow_00030954)();
-  (*(code *)PTR_SubsystemA_DTC2E_AccumulatorAndReport_Update_00030958)();
+  (*(code *)PTR_PressureModel_P2227_EnableGate_UpdateFromSeededLoadWindow_00030954)();
+  (*(code *)PTR_PressureModel_P2227_AccumulatorAndReport_Update_00030958)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_MAPThresholdDiag_CheckPreconditions_0003095c)();
-  (*(code *)PTR_SubsystemA_MAPThresholdDiag_DebounceAndReportDTC19_00030960)();
+  (*(code *)PTR_HO2S2_P0140_CheckPreconditions_0003095c)();
+  (*(code *)PTR_HO2S2_AN7_P0140_NoActivity_DebounceAndReport_00030960)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC3B_3C_3D_EnableGate_UpdateFromRampBlend_00030964)();
-  (*(code *)PTR_SubsystemA_DTC3D_InputCluster_Report_00030968)();
-  (*(code *)PTR_SubsystemA_DTC3C_InputCluster_Report_0003096c)();
-  (*(code *)PTR_SubsystemA_DTC3B_InputCluster_Report_00030970)();
+  (*(code *)PTR_OEM_P1674_P1675_P1676_EnableGate_UpdateFromRampBlend_00030964)();
+  (*(code *)PTR_OEM_P1676_DebounceAndReport_00030968)();
+  (*(code *)PTR_OEM_P1675_DebounceAndReport_0003096c)();
+  (*(code *)PTR_OEM_P1674_DebounceAndReport_00030970)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_CoolingFanAux_PE11_P0481_SetArmingProtectedStatusAfterDelay_00030974)();
-  (*(code *)PTR_CoolingFanAux_PE11_P0481_OutputFeedbackDebounceAndReport_00030978)();
+  (*(code *)PTR_CoolingFanRelay23_PE9_P0481_DebounceAndReport_00030978)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_CoolingFanRelay1_PE4_P0480_OutputFeedbackDebounceAndReport_0003097c)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC25_EnableGate_UpdateFromSeededLoadWindow_00030980)();
-  (*(code *)PTR_SubsystemA_PrimarySecondaryEnableGate_UpdateFromWindows_00030984)();
-  (*(code *)PTR_SubsystemA_DTC25_AccumulatorAndReport_Update_00030988)();
+  (*(code *)PTR_Catalyst_P0420_EnableGate_UpdateFromRpmLoadWindow_00030980)();
+  (*(code *)PTR_CatalystMonitor_P0420_PreconditionGate_UpdateFromOperatingWindows_00030984)();
+  (*(code *)PTR_Catalyst_P0420_AccumulatorAndReport_Update_00030988)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC22_23_StableInputWindow_Update_0003098c)();
-  (*(code *)PTR_SubsystemA_DTC22_23_EnableGate_UpdateFromSeedWindow_00030990)();
-  (*(code *)PTR_SubsystemA_DTC22_23_BaselineCapture_Update_00030994)();
-  (*(code *)PTR_SubsystemA_DTC22_23_AccumulatorAndReport_Update_00030998)();
+  (*(code *)PTR_EGR_P0402_ExcessiveFlow_DebouncePath_Update_0003098c)();
+  (*(code *)PTR_EGR_P0401_P0402_EnableGate_Update_00030990)();
+  (*(code *)PTR_EGR_P0401_InsufficientFlow_DebounceAndReport_00030994)();
+  (*(code *)PTR_EGR_P0402_ExcessiveFlow_DebounceAndReport_00030998)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC13_14_15_EnableGate_UpdateFromAirLoadWindows_0003099c)();
-  (*(code *)PTR_SubsystemA_DTC13_14_15_MinMaxSample_Update_000309a0)();
-  (*(code *)PTR_SubsystemA_DTC13_14_15_ThresholdCrossingCounters_Update_000309a4)();
-  (*(code *)PTR_SubsystemA_DTC13_14_15_TransitionRateAccumulator_Update_000309a8)();
-  (*(code *)PTR_SubsystemA_DTC13_14_15_AccumulatorAndReport_Update_000309ac)();
+  (*(code *)PTR_HO2S1_P0131_P0132_P0133_EnableGate_UpdateFromOperatingWindows_0003099c)();
+  (*(code *)PTR_HO2S1_P0131_P0132_P0133_MinMaxSample_Update_000309a0)();
+  (*(code *)PTR_HO2S1_P0131_P0132_P0133_ThresholdCrossingCounters_Update_000309a4)();
+  (*(code *)PTR_HO2S1_P0131_P0132_P0133_TransitionRateAccumulator_Update_000309a8)();
+  (*(code *)PTR_HO2S1_P0131_P0132_P0133_AccumulatorAndReport_Update_000309ac)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_InfoDisplay_StatusBit01_SubsystemASeedDelta_EnableGate_Update_000309b0)();
+  (*(code *)PTR_TPS_P0121_EnableGate_UpdateFromProcessedDeltaWindow_000309b0)();
   (*(code *)PTR_InfoDisplay_StatusBit01_SubsystemASeedDelta_TableLimit_Update_000309b4)();
-  (*(code *)PTR_InfoDisplay_StatusBit01_SubsystemASeedDeltaPair_Update_000309b8)();
+  (*(code *)PTR_TPS_P0121_ProcessedDeltaPair_DebounceAndReport_000309b8)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_VVT_DTC02_03_P0011_P0012_EnableGate_Update_000309bc)();
+  (*(code *)PTR_VVT_P0011_P0012_EnableGate_Update_000309bc)();
   (*(code *)PTR_VVT_P0011_AdvanceResponse_DebounceAndReport_000309c0)();
   (*(code *)PTR_VVT_P0012_RetardResponse_DebounceAndReport_000309c4)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_FlowDiag_DebounceAndReportDTC6_000309c8)();
+  (*(code *)PTR_MAF_P0101_FlowPerformance_DebounceAndReport_000309c8)();
   (*(code *)puVar2)(uVar3);
   return;
 }
@@ -67170,35 +67510,35 @@ void SubsystemA_DiagAggregator_RunTailTaskTable(void)
   
   puVar1 = PTR_SharedSchedulerGate_ReadMaskedSrLevel_000308fc;
   uVar3 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_000308fc)(0x10);
-  (*(code *)PTR_InfoDisplay_StatusBit40_MAFDtcPair_Update_000309cc)();
+  (*(code *)PTR_MAF_P0102_P0103_SignalStatus_DebounceAndReport_000309cc)();
   puVar2 = PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030904;
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030904)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_Diag_DTC1E_1F_InitStatus_DebounceAndReport_000309d0)();
+  (*(code *)PTR_KnockSensor_P0327_P0328_DebounceAndReport_000309d0)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_IAT_DTC2C_2D_ModeStatus_DebounceAndReport_000309d4)();
+  (*(code *)PTR_IAT_P2228_P2229_ModeStatus_DebounceAndReport_000309d4)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_InfoDisplay_StatusBit01_Dtc1011Pair_Update_000309d8)();
+  (*(code *)PTR_TPS_P0122_P0123_StatusPair_DebounceAndReport_000309d8)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_MAP_DTC07_08_RawStatus_DebounceAndReport_000309dc)();
+  (*(code *)PTR_MAP_P0107_P0108_RawStatus_DebounceAndReport_000309dc)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC33_StateDebounceAndReport_000309e0)();
+  (*(code *)PTR_ECU_P1603_StateDebounceAndReport_000309e0)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_MAPResponseDiag_UpdateBaselineDelta_000309e4)();
-  (*(code *)PTR_SubsystemA_MAPResponseDiag_DebounceDeltaAndTemp_000309e8)();
-  (*(code *)PTR_SubsystemA_MAPResponseDiag_ReportDTC9_000309ec)();
+  (*(code *)PTR_MAP_P0106_BaselineDelta_Update_000309e4)();
+  (*(code *)PTR_MAP_P0106_DebounceDeltaAndTemp_Update_000309e8)();
+  (*(code *)PTR_MAP_P0106_RangePerformance_Report_000309ec)();
   (*(code *)puVar2)(uVar3);
   return;
 }
 
 
 
-void DiagRunner_SubsystemAInfoDisplay_DTC1C1D_DTC3536_Group(void)
+void DiagRunner_FuelTrimP0171P0172_HO2S2P0137P0138_Group(void)
 
 {
   undefined *puVar1;
@@ -67207,45 +67547,46 @@ void DiagRunner_SubsystemAInfoDisplay_DTC1C1D_DTC3536_Group(void)
   
   puVar1 = PTR_SharedSchedulerGate_ReadMaskedSrLevel_00030bb4;
   uVar3 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00030bb4)(0x10);
-  (*(code *)PTR_InfoDisplay_StatusBit04_SubsystemABlendThreshold_Update_00030bb8)();
+  (*(code *)PTR_CKP_P0335_ProcessedStatus_DebounceAndReport_00030bb8)();
   puVar2 = PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030bbc;
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030bbc)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC16_EnableGate_UpdateFromLoadIatSeedRequest_00030bc0)();
-  (*(code *)PTR_SubsystemA_DTC16_EctWindow_DebounceAndReport_00030bc4)();
+  (*(code *)PTR_HO2S1_P0134_NoActivity_EnableGate_UpdateFromLoadIatSeedRequest_00030bc0)();
+  (*(code *)PTR_HO2S1_P0134_NoActivity_DebounceAndReport_00030bc4)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC1C_1D_EnableGate_UpdateFromLoadIatWindows_00030bc8)();
-  (*(code *)PTR_SubsystemA_DTC1C_TempDeltaWindow_DebounceAndReport_00030bcc)();
-  (*(code *)PTR_SubsystemA_DTC1D_TempDeltaWindow_DebounceAndReport_00030bd0)();
+  (*(code *)PTR_FuelSystem_P0171_P0172_EnableGate_UpdateFromLoadIatWindows_00030bc8)();
+  (*(code *)PTR_FuelSystem_P0171_Lean_DebounceAndReport_00030bcc)();
+  (*(code *)PTR_FuelSystem_P0172_Rich_DebounceAndReport_00030bd0)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_Diag_DTC35_36_FilteredReferencePair_Update_00030bd4)();
-  (*(code *)PTR_Diag_DTC35_36_PreconditionCounters_Update_00030bd8)();
-  (*(code *)PTR_Diag_DTC35_36_StateManager_Update_00030bdc)();
+  (*(code *)PTR_HO2S2_P0137_P0138_FilteredReferencePair_Update_00030bd4)();
+  (*(code *)PTR_HO2S2_P0137_P0138_PreconditionCounters_Update_00030bd8)();
+  (*(code *)PTR_HO2S2_P0137_P0138_StateManagerAndReport_Update_00030bdc)();
   (*(code *)puVar2)(uVar3);
   return;
 }
 
 
 
-// Protected single-call diagnostic runner in Group F that updates the SubsystemA DTC22/23
-// seed-delta tracking state.
+// Protected single-call diagnostic runner for the EGR P0401/P0402 seed-delta tracking state.
 
-void DiagRunner_SubsystemADTC22_23_SeedDeltaTrack_ServiceProtected(void)
+void DiagRunner_EGR_P0401_P0402_SeedDeltaTrack_ServiceProtected(void)
 
 {
   undefined4 uVar1;
   
+                    // Protected single-call diagnostic runner for the EGR P0401/P0402 seed-delta
+                    // tracking path.
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00030bb4)(0x10);
-  (*(code *)PTR_SubsystemA_DTC22_23_SeedDeltaTrack_Update_00030be0)();
+  (*(code *)PTR_EGR_P0401_InsufficientFlow_DebouncePath_Update_00030be0)();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030bbc)(uVar1);
   return;
 }
 
 
 
-void DiagRunner_DTC0A0B_EctInfoDisplay_SubsystemADTC26_Group(void)
+void DiagRunner_IAT_P0112P0113_ECT_EVAPP0443_Group(void)
 
 {
   undefined *puVar1;
@@ -67258,32 +67599,34 @@ void DiagRunner_DTC0A0B_EctInfoDisplay_SubsystemADTC26_Group(void)
   puVar2 = PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030bbc;
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030bbc)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_ECTSensor_AN28_DTC0D0E_RawRangeDebounceAndReport_Update_00030be8)();
+  (*(code *)PTR_ECTSensor_AN28_StatusDTC0D0E_AndInfoDisplayBit10_Update_00030be8)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC26_WindowState_DebounceAndReport_00030bec)();
+  (*(code *)PTR_EVAP_Purge_P0443_DebounceAndReport_00030bec)();
   (*(code *)puVar2)(uVar3);
   return;
 }
 
 
 
-void DiagRunner_SubsystemADeltaDiag_DTC0C_Group(void)
+// Runs the intake-air-temperature P0111 range/performance diagnostic group and its helper stages.
+
+void IAT_P0111_RangePerformance_Group(void)
 
 {
   undefined4 uVar1;
   
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00030bb4)(0x10);
-  (*(code *)PTR_SubsystemA_DeltaDiag_CheckPreconditions_DTC0C_00030bf0)();
-  (*(code *)PTR_SubsystemA_DeltaDiag_UpdateFilteredBaselines_DTC0C_00030bf4)();
-  (*(code *)PTR_SubsystemA_DeltaDiag_ReportDTC0C_00030bf8)();
+  (*(code *)PTR_IAT_P0111_CheckPreconditions_00030bf0)();
+  (*(code *)PTR_IAT_P0111_UpdateFilteredBaselines_00030bf4)();
+  (*(code *)PTR_IAT_P0111_Report_00030bf8)();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030bbc)(uVar1);
   return;
 }
 
 
 
-void DiagRunner_SubsystemADTC2A2B_DTC25_Group(void)
+void DiagRunner_ECU_P0601_P0602_CatalystP0420_Group(void)
 
 {
   undefined *puVar1;
@@ -67296,11 +67639,11 @@ void DiagRunner_SubsystemADTC2A2B_DTC25_Group(void)
   puVar2 = PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030bbc;
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030bbc)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC2A_StateDebounceAndReport_00030c00)();
+  (*(code *)PTR_ECU_P0601_StateDebounceAndReport_00030c00)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC25_ThresholdWindowAccumulator_Update_00030c04)();
-  (*(code *)PTR_SubsystemA_DTC25_CounterPair_Update_00030c08)();
+  (*(code *)PTR_Catalyst_P0420_ThresholdWindowAccumulator_Update_00030c04)();
+  (*(code *)PTR_CatalystMonitor_P0420_CounterPair_Update_00030c08)();
   (*(code *)puVar2)(uVar3);
   return;
 }
@@ -67313,22 +67656,22 @@ void ECTSensor_AN28_P0116_RangePerformanceDiag_Group(void)
   undefined4 uVar1;
   
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00030bb4)(0x10);
-  (*(code *)PTR_ECTSensor_AN28_P0116_CheckOBDGate_00030c0c)();
-  (*(code *)PTR_ECTSensor_AN28_P0116_ModelWarmupCounter_Update_00030c10)();
-  (*(code *)PTR_ECTSensor_AN28_P0116_ReportRangePerformanceDTC_00030c14)();
+  (*(code *)PTR_ECTSensor_AN28_P0116_CheckPreconditions_00030c0c)();
+  (*(code *)PTR_ECTSensor_AN28_P0116_DebounceThreshold_Update_00030c10)();
+  (*(code *)PTR_ECTSensor_AN28_P0116_Report_00030c14)();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030bbc)(uVar1);
   return;
 }
 
 
 
-void SubsystemA_DTC2A_StateScanAndLatch_ServiceProtected(void)
+void ECU_P0601_StateScanAndLatch_ServiceProtected(void)
 
 {
   undefined4 uVar1;
   
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00030bb4)(0x10);
-  (*(code *)PTR_SubsystemA_DTC2A_StateScanAndLatch_Update_00030c18)();
+  (*(code *)PTR_ECU_P0601_StateScanAndLatch_Update_00030c18)();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030bbc)(uVar1);
   return;
 }
@@ -67341,9 +67684,8 @@ void DiagRunner_InfoDisplaySampledSubsystemABit04_TimedGroup(void)
   undefined4 uVar1;
   
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00030bb4)(0x10);
-  (*(code *)
-    PTR_InfoDisplay_StatusBit04_SampledPair_EnableGate_UpdateFromSubsystemAPhaseInputs_00030c1c)();
-  (*(code *)PTR_InfoDisplay_StatusBit04_SampledPair_Update_00030c20)();
+  (*(code *)PTR_CMP_P0340_SampledPair_EnableGate_Update_00030c1c)();
+  (*(code *)PTR_CMP_P0340_SampledPair_DebounceAndReport_00030c20)();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00030bbc)(uVar1);
   return;
 }
@@ -67382,14 +67724,16 @@ void CoolingFanAux_PE11_P0481_ArmingStatusClear_Group(void)
 
 
 
-// Boolean predicate wrapper around the SubsystemA DTC27 protected-status check helper.
+// Boolean predicate wrapper around the cooling-fan relay 2/3 P0481 protected-status check helper.
 
-bool CoolingFanAux_PE11_P0481_ArmingStatusCheck_Predicate(void)
+bool CoolingFanRelay23_P0481_ArmingStatusCheck_Predicate(void)
 
 {
   char cVar1;
   
-  cVar1 = (*(code *)PTR_DiagRunner_SubsystemADTC27_ProtectedStatusCheck_Wrapped_00030c2c)();
+                    // Boolean predicate wrapper around the cooling-fan relay 2/3 P0481
+                    // protected-status check helper.
+  cVar1 = (*(code *)PTR_CoolingFanRelay23_PE9_P0481_ProtectedStatusCheck_Wrapped_00030c2c)();
   return cVar1 != '\0';
 }
 
@@ -67400,24 +67744,27 @@ void SubsystemA_PrimaryEnable_PreStateResetA(void)
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_00030db0;
-  *PTR_DAT_00030dac = 0;
+  puVar1 = PTR_KnockSensor_P0327_FaultDebouncedFlag_00030db0;
+  *PTR_KnockSensor_P0327_NormalDebouncedFlag_00030dac = 0;
   *puVar1 = 0;
-  puVar1 = PTR_DAT_00030db8;
-  *(undefined2 *)PTR_DAT_00030db4 = 0;
+  puVar1 = PTR_KnockSensor_P0327_FaultDebounceCounter_00030db8;
+  *(undefined2 *)PTR_KnockSensor_P0327_NormalDebounceCounter_00030db4 = 0;
   *(undefined2 *)puVar1 = 0;
-  puVar1 = PTR_DAT_00030dc0;
-  *PTR_DAT_00030dbc = 0;
+  puVar1 = PTR_KnockSensor_P0328_FaultDebouncedFlag_00030dc0;
+  *PTR_KnockSensor_P0328_NormalDebouncedFlag_00030dbc = 0;
   *puVar1 = 0;
-  puVar1 = PTR_DAT_00030dc8;
-  *(undefined2 *)PTR_DAT_00030dc4 = 0;
+  puVar1 = PTR_KnockSensor_P0328_FaultDebounceCounter_00030dc8;
+  *(undefined2 *)PTR_KnockSensor_P0328_NormalDebounceCounter_00030dc4 = 0;
   *(undefined2 *)puVar1 = 0;
   return;
 }
 
 
 
-uint Diag_DTC1E_1F_InitStatus_DebounceAndReport(void)
+// Initializes and debounces the knock-sensor status path before reporting OBD DTCs P0327/P0328
+// (internal DTC 0x1E/0x1F).
+
+uint KnockSensor_P0327_P0328_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -67431,15 +67778,16 @@ uint Diag_DTC1E_1F_InitStatus_DebounceAndReport(void)
   
   puVar5 = PTR_AddUint16AndSaturateToFFFE_00030dd4;
   puVar4 = PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00030dd0;
-  puVar3 = PTR_DAT_00030db8;
-  puVar2 = PTR_DAT_00030db4;
-  cVar1 = *PTR_InjectorPhaseControl_InitPendingFlag_00030dcc;
+  puVar3 = PTR_KnockSensor_P0327_FaultDebounceCounter_00030db8;
+  puVar2 = PTR_KnockSensor_P0327_NormalDebounceCounter_00030db4;
+  cVar1 = *PTR_KnockSensor_AN21_RangeState_LowOkHigh_00030dcc;
   cVar8 = (*(code *)PTR_DTC_IsOBDRelevantOrActive_00030dd8)(0x1e);
   if (cVar8 == '\0') {
     if (cVar1 == '\0') {
-      if (*(ushort *)PTR_DAT_00030ddc <= *(ushort *)puVar2) {
-        *PTR_DAT_00030dac = 1;
-        *PTR_DAT_00030db0 = 0;
+      if (*(ushort *)PTR_KnockSensor_P0327_P0328_NormalDebounceLimit_00030ddc <= *(ushort *)puVar2)
+      {
+        *PTR_KnockSensor_P0327_NormalDebouncedFlag_00030dac = 1;
+        *PTR_KnockSensor_P0327_FaultDebouncedFlag_00030db0 = 0;
       }
       uVar7 = (*(code *)puVar5)((int)*(short *)puVar2,1);
       *(undefined2 *)puVar2 = uVar7;
@@ -67448,9 +67796,9 @@ uint Diag_DTC1E_1F_InitStatus_DebounceAndReport(void)
       *(undefined2 *)puVar2 = 0;
     }
     if (cVar1 == '\x02') {
-      if (*(ushort *)PTR_DAT_00030de0 <= *(ushort *)puVar3) {
-        *PTR_DAT_00030db0 = 1;
-        *PTR_DAT_00030dac = 0;
+      if (*(ushort *)PTR_KnockSensor_P0327_LowFaultDebounceLimit_00030de0 <= *(ushort *)puVar3) {
+        *PTR_KnockSensor_P0327_FaultDebouncedFlag_00030db0 = 1;
+        *PTR_KnockSensor_P0327_NormalDebouncedFlag_00030dac = 0;
       }
       uVar7 = (*(code *)puVar5)((int)*(short *)puVar3,1);
       *(undefined2 *)puVar3 = uVar7;
@@ -67458,10 +67806,12 @@ uint Diag_DTC1E_1F_InitStatus_DebounceAndReport(void)
     else {
       *(undefined2 *)puVar3 = 0;
     }
-    if ((*PTR_DAT_00030dac == '\x01') && (*PTR_DAT_00030db0 == '\0')) {
+    if ((*PTR_KnockSensor_P0327_NormalDebouncedFlag_00030dac == '\x01') &&
+       (*PTR_KnockSensor_P0327_FaultDebouncedFlag_00030db0 == '\0')) {
       (*(code *)puVar4)(0x1e,1);
     }
-    else if ((*PTR_DAT_00030db0 == '\x01') && (*PTR_DAT_00030dac == '\0')) {
+    else if ((*PTR_KnockSensor_P0327_FaultDebouncedFlag_00030db0 == '\x01') &&
+            (*PTR_KnockSensor_P0327_NormalDebouncedFlag_00030dac == '\0')) {
       (*(code *)puVar4)(0x1e,0x10);
     }
   }
@@ -67469,15 +67819,16 @@ uint Diag_DTC1E_1F_InitStatus_DebounceAndReport(void)
     *(undefined2 *)puVar2 = 0;
     *(undefined2 *)puVar3 = 0;
   }
-  puVar3 = PTR_DAT_00030dc8;
-  puVar2 = PTR_DAT_00030dc4;
+  puVar3 = PTR_KnockSensor_P0328_FaultDebounceCounter_00030dc8;
+  puVar2 = PTR_KnockSensor_P0328_NormalDebounceCounter_00030dc4;
   uVar6 = (*(code *)PTR_DTC_IsOBDRelevantOrActive_00030dd8)(0x1f);
   uVar6 = uVar6 & 0xff;
   if (uVar6 == 0) {
     if (cVar1 == '\0') {
-      if (*(ushort *)PTR_DAT_00030ddc <= *(ushort *)puVar2) {
-        *PTR_DAT_00030dbc = 1;
-        *PTR_DAT_00030dc0 = 0;
+      if (*(ushort *)PTR_KnockSensor_P0327_P0328_NormalDebounceLimit_00030ddc <= *(ushort *)puVar2)
+      {
+        *PTR_KnockSensor_P0328_NormalDebouncedFlag_00030dbc = 1;
+        *PTR_KnockSensor_P0328_FaultDebouncedFlag_00030dc0 = 0;
       }
       uVar7 = (*(code *)puVar5)((int)*(short *)puVar2,1);
       *(undefined2 *)puVar2 = uVar7;
@@ -67486,9 +67837,9 @@ uint Diag_DTC1E_1F_InitStatus_DebounceAndReport(void)
       *(undefined2 *)puVar2 = 0;
     }
     if (cVar1 == '\x01') {
-      if (*(ushort *)PTR_DAT_00030de4 <= *(ushort *)puVar3) {
-        *PTR_DAT_00030dc0 = 1;
-        *PTR_DAT_00030dbc = 0;
+      if (*(ushort *)PTR_KnockSensor_P0328_HighFaultDebounceLimit_00030de4 <= *(ushort *)puVar3) {
+        *PTR_KnockSensor_P0328_FaultDebouncedFlag_00030dc0 = 1;
+        *PTR_KnockSensor_P0328_NormalDebouncedFlag_00030dbc = 0;
       }
       uVar7 = (*(code *)puVar5)((int)*(short *)puVar3,1);
       *(undefined2 *)puVar3 = uVar7;
@@ -67496,12 +67847,13 @@ uint Diag_DTC1E_1F_InitStatus_DebounceAndReport(void)
     else {
       *(undefined2 *)puVar3 = 0;
     }
-    if ((*PTR_DAT_00030dbc == '\x01') && (*PTR_DAT_00030dc0 == '\0')) {
+    if ((*PTR_KnockSensor_P0328_NormalDebouncedFlag_00030dbc == '\x01') &&
+       (*PTR_KnockSensor_P0328_FaultDebouncedFlag_00030dc0 == '\0')) {
       uVar6 = (*(code *)puVar4)(0x1f,1);
     }
     else {
-      uVar6 = (uint)(byte)*PTR_DAT_00030dc0;
-      if ((uVar6 == 1) && (*PTR_DAT_00030dbc == '\0')) {
+      uVar6 = (uint)(byte)*PTR_KnockSensor_P0328_FaultDebouncedFlag_00030dc0;
+      if ((uVar6 == 1) && (*PTR_KnockSensor_P0328_NormalDebouncedFlag_00030dbc == '\0')) {
         uVar6 = (*(code *)puVar4)(0x1f,0x10);
       }
     }
@@ -67537,7 +67889,10 @@ void SubsystemA_PrimaryEnable_PreStateResetB(void)
 
 
 
-uint IAT_DTC2C_2D_ModeStatus_DebounceAndReport(void)
+// Debounces the OEM intake-air-temperature mode/status diagnostic pair and reports OBD DTCs
+// P2228/P2229 (internal DTC 0x2C/0x2D).
+
+uint IAT_P2228_P2229_ModeStatus_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -67671,7 +68026,10 @@ void SubsystemA_PrimaryEnable_PreStateResetC(void)
 
 
 
-uint MAP_DTC07_08_RawStatus_DebounceAndReport(void)
+// Debounces the MAP AN1 raw low/high status pair and reports OBD DTCs P0107/P0108 (internal DTC
+// 0x07/0x08).
+
+uint MAP_P0107_P0108_RawStatus_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -67769,7 +68127,10 @@ uint MAP_DTC07_08_RawStatus_DebounceAndReport(void)
 
 
 
-void InfoDisplay_StatusBit01_Dtc1011Pair_Reset(void)
+// Resets the TPS P0122/P0123 dual-counter status pair used for the processed low/high input
+// diagnostic path.
+
+void TPS_P0122_P0123_StatusPair_Reset(void)
 
 {
   undefined *puVar1;
@@ -67793,7 +68154,11 @@ void InfoDisplay_StatusBit01_Dtc1011Pair_Reset(void)
 
 
 
-uint InfoDisplay_StatusBit01_Dtc1011Pair_Update(void)
+// Debounces the processed AN15-derived three-state source and reports OBD DTCs P0122/P0123
+// (internal DTC 0x10/0x11); state 2 drives the low-input path and state 1 drives the high-input
+// path.
+
+uint TPS_P0122_P0123_StatusPair_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -67918,8 +68283,8 @@ void SubsystemA_PrimaryEnable_PreStateResetD(void)
 
 
 
-// Debounces knock-window status into DTC/report pair 0x0A/0x0B; kept out of the ECT naming path
-// because the source state is KnockSensor_WindowRangeState, not coolant temperature.
+// Debounces the intake-air-temperature window/range state and reports OBD DTCs P0112/P0113
+// (internal DTC 0x0A/0x0B).
 
 uint KnockWindow_StatusDTC0A0B_DebounceAndReport(void)
 
@@ -68019,7 +68384,9 @@ uint KnockWindow_StatusDTC0A0B_DebounceAndReport(void)
 
 
 
-void ECTSensor_AN28_DTC0D0E_RawRange_Reset(void)
+// Resets the AN28 ECT status path for OBD P0117/P0118 and info-display status bit 0x10.
+
+void ECTSensor_AN28_StatusDTC0D0E_AndInfoDisplayBit10_Reset(void)
 
 {
   undefined *puVar1;
@@ -68043,11 +68410,10 @@ void ECTSensor_AN28_DTC0D0E_RawRange_Reset(void)
 
 
 
-// Debounces AN28 ECT raw-range status into DTC/report pair 0x0D/0x0E and info-display status bit
-// 0x10 source flags; status byte values are 0=inside raw window, 1=raw >= high limit, 2=raw < low
-// limit.
+// Debounces AN28 ECT raw-range status into OBD P0117/P0118 and mirrors the result into info-display
+// status bit 0x10.
 
-uint ECTSensor_AN28_DTC0D0E_RawRangeDebounceAndReport_Update(void)
+uint ECTSensor_AN28_StatusDTC0D0E_AndInfoDisplayBit10_Update(void)
 
 {
   char cVar1;
@@ -68561,7 +68927,7 @@ float EGR_DiagSource_GetPhaseNormalized_Copy(void)
 bool EGR_DiagFlagB_IsNonzero(void)
 
 {
-  if (*PTR_DAT_00031ad8 == '\0') {
+  if (*PTR_P0300_DTC0_ThresholdFlagB_00031ad8 == '\0') {
     return false;
   }
   return true;
@@ -68616,7 +68982,7 @@ bool EGR_DiagProtectedStatus_IsZero_DefaultOne(void)
 
 
 
-void SubsystemA_DTC31_State_Reset(void)
+void P1510_State_Reset(void)
 
 {
   undefined *puVar1;
@@ -68632,7 +68998,7 @@ void SubsystemA_DTC31_State_Reset(void)
 
 
 
-void SubsystemA_DTC31_StateDebounceAndReport(void)
+void P1510_StateDebounceAndReport(void)
 
 {
   char cVar1;
@@ -68698,7 +69064,7 @@ void SubsystemA_PrimaryEnable_PreNoOp(void)
 
 
 
-void SubsystemA_DTC1C_ResponseWindow_ResetState(void)
+void FuelSystem_P0171_Lean_ResponseWindow_ResetState(void)
 
 {
   undefined *puVar1;
@@ -68723,7 +69089,7 @@ void SubsystemA_DTC1C_ResponseWindow_ResetState(void)
 
 
 
-void SubsystemA_DTC1D_ResponseWindow_ResetState(void)
+void FuelSystem_P0172_Rich_ResponseWindow_ResetState(void)
 
 {
   undefined *puVar1;
@@ -68748,7 +69114,7 @@ void SubsystemA_DTC1D_ResponseWindow_ResetState(void)
 
 
 
-void SubsystemA_DTC1C_1D_EnableGate_UpdateFromLoadIatWindows(void)
+void FuelSystem_P0171_P0172_EnableGate_UpdateFromLoadIatWindows(void)
 
 {
   char cVar2;
@@ -68815,7 +69181,7 @@ void SubsystemA_DTC1C_1D_EnableGate_UpdateFromLoadIatWindows(void)
 
 
 
-void SubsystemA_DTC1C_TempDeltaWindow_DebounceAndReport(void)
+void FuelSystem_P0171_Lean_DebounceAndReport(void)
 
 {
   undefined *puVar1;
@@ -68926,7 +69292,7 @@ void SubsystemA_DTC1C_TempDeltaWindow_DebounceAndReport(void)
 
 
 
-void SubsystemA_DTC1D_TempDeltaWindow_DebounceAndReport(void)
+void FuelSystem_P0172_Rich_DebounceAndReport(void)
 
 {
   undefined *puVar1;
@@ -69036,7 +69402,9 @@ void SubsystemA_DTC1D_TempDeltaWindow_DebounceAndReport(void)
 
 
 
-void SubsystemA_DTC29_State_Reset(void)
+// Resets the local P0505 idle-control fault latch bytes and debounce counter.
+
+void IdleControl_P0505_State_Reset(void)
 
 {
   undefined *puVar1;
@@ -69050,7 +69418,10 @@ void SubsystemA_DTC29_State_Reset(void)
 
 
 
-void SubsystemA_DTC29_StateDebounceAndReport(void)
+// Debounces the idle-control malfunction path and reports/clears OBD DTC P0505 based on the latched
+// idle fault flag.
+
+void IdleControl_P0505_StateDebounceAndReport(void)
 
 {
   char cVar1;
@@ -69099,15 +69470,17 @@ void SubsystemA_DTC29_StateDebounceAndReport(void)
 
 
 
-void SubsystemA_DTC2E_MapBaseline_ResetAndCapture(void)
+void PressureModel_P2227_Baseline_ResetAndCapture(void)
 
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_00032540;
-  *(undefined4 *)PTR_DAT_0003253c = *(undefined4 *)PTR_MAP_data_float_0_00032538;
+  puVar1 = PTR_PressureModel_P2227_BaselineAveragePhaseFlag_00032540;
+  *(undefined4 *)PTR_PressureModel_P2227_MapBaseline_0003253c =
+       *(undefined4 *)PTR_MAP_data_float_0_00032538;
   *puVar1 = 0;
-  *PTR_DAT_00032548 = *PTR_InputBitPair_DebouncedState_00032544;
+  *PTR_PressureModel_P2227_InputBitPairState_Snapshot_00032548 =
+       *PTR_InputBitPair_DebouncedState_00032544;
   return;
 }
 
@@ -69121,16 +69494,16 @@ void OBD04_ClearDTC_NoOp(void)
 
 
 
-void SubsystemA_DTC2E_MapWindow_ResetState(void)
+void PressureModel_P2227_WindowState_Reset(void)
 
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_00032550;
-  *PTR_DAT_0003254c = 0;
+  puVar1 = PTR_PressureModel_P2227_FailFlag_00032550;
+  *PTR_PressureModel_P2227_PassFlag_0003254c = 0;
   *puVar1 = 0;
-  puVar1 = PTR_DAT_00032558;
-  *(undefined2 *)PTR_DAT_00032554 = 0;
+  puVar1 = PTR_PressureModel_P2227_PassCounter_00032558;
+  *(undefined2 *)PTR_PressureModel_P2227_FailCounter_00032554 = 0;
   *(undefined2 *)puVar1 = 0;
   return;
 }
@@ -69140,7 +69513,7 @@ void SubsystemA_DTC2E_MapWindow_ResetState(void)
 // On a one-shot edge, seeds MAP baseline from MAP_data_float_0; on the following stage, averages
 // the prior baseline with current MAP.
 
-void SubsystemA_DTC2E_MapBaseline_EdgeAverageUpdate(void)
+void PressureModel_P2227_BaselineEdgeAverage_Update(void)
 
 {
   char cVar1;
@@ -69148,46 +69521,49 @@ void SubsystemA_DTC2E_MapBaseline_EdgeAverageUpdate(void)
   undefined *puVar3;
   undefined4 uVar4;
   
-  puVar3 = PTR_DAT_00032540;
-  puVar2 = PTR_DAT_0003253c;
+  puVar3 = PTR_PressureModel_P2227_BaselineAveragePhaseFlag_00032540;
+  puVar2 = PTR_PressureModel_P2227_MapBaseline_0003253c;
   cVar1 = *PTR_InputBitPair_DebouncedState_00032544;
-  if ((cVar1 == '\x01') && (*PTR_DAT_00032548 == '\0')) {
-    *(float *)PTR_DAT_0003253c = *(float *)PTR_MAP_data_float_0_00032538;
+  if ((cVar1 == '\x01') && (*PTR_PressureModel_P2227_InputBitPairState_Snapshot_00032548 == '\0')) {
+    *(float *)PTR_PressureModel_P2227_MapBaseline_0003253c = *(float *)PTR_MAP_data_float_0_00032538
+    ;
     *puVar3 = 1;
   }
-  else if (*PTR_DAT_00032540 == '\x01') {
+  else if (*PTR_PressureModel_P2227_BaselineAveragePhaseFlag_00032540 == '\x01') {
     uVar4 = (*(code *)PTR_FloatDivideWithLimits_0003255c)
-                      (*(float *)PTR_DAT_0003253c + *(float *)PTR_MAP_data_float_0_00032538,
-                       0x40000000);
+                      (*(float *)PTR_PressureModel_P2227_MapBaseline_0003253c +
+                       *(float *)PTR_MAP_data_float_0_00032538,0x40000000);
     *(undefined4 *)puVar2 = uVar4;
     *puVar3 = 0;
   }
-  *PTR_DAT_00032548 = cVar1;
+  *PTR_PressureModel_P2227_InputBitPairState_Snapshot_00032548 = cVar1;
   return;
 }
 
 
 
-void SubsystemA_DTC2E_EnableGate_UpdateFromSeededLoadWindow(void)
+void PressureModel_P2227_EnableGate_UpdateFromSeededLoadWindow(void)
 
 {
   char cVar1;
   
   cVar1 = (*(code *)PTR_DTC_IsOBDRelevantOrActive_00032560)(0x2e);
   if (((cVar1 != '\0') ||
-      (*(float *)PTR_DAT_00032564 <= *(float *)PTR_EngineSpeed_RPM_Filtered_00032568)) ||
-     (*(float *)PTR_DAT_0003256c <= *(float *)PTR_FuelDisplay_InputWindowAvg_00032570)) {
-    *PTR_DAT_00032574 = 0;
+      (*(float *)PTR_PressureModel_P2227_EnableWindowThresholdA_00032564 <=
+       *(float *)PTR_EngineSpeed_RPM_Filtered_00032568)) ||
+     (*(float *)PTR_PressureModel_P2227_EnableWindowThresholdB_0003256c <=
+      *(float *)PTR_FuelDisplay_InputWindowAvg_00032570)) {
+    *PTR_PressureModel_P2227_EnableFlag_00032574 = 0;
   }
   else {
-    *PTR_DAT_00032574 = 1;
+    *PTR_PressureModel_P2227_EnableFlag_00032574 = 1;
   }
   return;
 }
 
 
 
-void SubsystemA_DTC2E_AccumulatorAndReport_Update(void)
+void PressureModel_P2227_AccumulatorAndReport_Update(void)
 
 {
   undefined *puVar1;
@@ -69202,35 +69578,39 @@ void SubsystemA_DTC2E_AccumulatorAndReport_Update(void)
   uVar8 = *(undefined4 *)PTR_MAP_data_float_0_00032538;
   fVar6 = (float)(*(code *)PTR_AbsFloatDifference_0003257c)
                            (*(undefined4 *)PTR_IATSensor_AN29_TempValueUsed_00032578,uVar8);
-  fVar7 = (float)(*(code *)PTR_AbsFloatDifference_0003257c)(*(undefined4 *)PTR_DAT_0003253c,uVar8);
-  puVar4 = PTR_DAT_00032558;
-  puVar3 = PTR_DAT_00032554;
-  puVar2 = PTR_DAT_00032550;
-  puVar1 = PTR_DAT_0003254c;
-  if (*PTR_DAT_00032574 == '\x01') {
-    if ((fVar6 < *(float *)PTR_DAT_00032580) || (*(float *)PTR_DAT_00032584 <= fVar7)) {
-      *(undefined2 *)PTR_DAT_00032554 = 0;
+  fVar7 = (float)(*(code *)PTR_AbsFloatDifference_0003257c)
+                           (*(undefined4 *)PTR_PressureModel_P2227_MapBaseline_0003253c,uVar8);
+  puVar4 = PTR_PressureModel_P2227_PassCounter_00032558;
+  puVar3 = PTR_PressureModel_P2227_FailCounter_00032554;
+  puVar2 = PTR_PressureModel_P2227_FailFlag_00032550;
+  puVar1 = PTR_PressureModel_P2227_PassFlag_0003254c;
+  if (*PTR_PressureModel_P2227_EnableFlag_00032574 == '\x01') {
+    if ((fVar6 < *(float *)PTR_PressureModel_P2227_FailWindowThresholdA_00032580) ||
+       (*(float *)PTR_PressureModel_P2227_FailWindowThresholdB_00032584 <= fVar7)) {
+      *(undefined2 *)PTR_PressureModel_P2227_FailCounter_00032554 = 0;
     }
     else {
-      if (*(ushort *)PTR_DAT_00032588 <= *(ushort *)PTR_DAT_00032554) {
-        *PTR_DAT_0003254c = 1;
+      if (*(ushort *)PTR_PressureModel_P2227_FailCounterThresholdPair_00032588 <=
+          *(ushort *)PTR_PressureModel_P2227_FailCounter_00032554) {
+        *PTR_PressureModel_P2227_PassFlag_0003254c = 1;
         *puVar2 = 0;
       }
       uVar5 = (*(code *)PTR_AddUint16AndSaturateToFFFE_0003258c)((int)*(short *)puVar3,1);
       *(undefined2 *)puVar3 = uVar5;
     }
-    if (*(float *)PTR_DAT_00032580 <= fVar6) {
+    if (*(float *)PTR_PressureModel_P2227_FailWindowThresholdA_00032580 <= fVar6) {
       *(undefined2 *)puVar4 = 0;
     }
     else {
-      if (*(ushort *)PTR_DAT_00032590 <= *(ushort *)puVar4) {
+      if (*(ushort *)PTR_PressureModel_P2227_PassCounterThresholdPair_00032590 <= *(ushort *)puVar4)
+      {
         *puVar2 = 1;
         *puVar1 = 0;
       }
       uVar5 = (*(code *)PTR_AddUint16AndSaturateToFFFE_0003258c)((int)*(short *)puVar4,1);
       *(undefined2 *)puVar4 = uVar5;
     }
-    if ((*puVar2 == '\x01') && (*PTR_DAT_0003254c == '\0')) {
+    if ((*puVar2 == '\x01') && (*PTR_PressureModel_P2227_PassFlag_0003254c == '\0')) {
       (*(code *)PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00032594)(0x2e,1);
       return;
     }
@@ -69240,7 +69620,7 @@ void SubsystemA_DTC2E_AccumulatorAndReport_Update(void)
     }
   }
   else {
-    *(undefined2 *)PTR_DAT_00032554 = 0;
+    *(undefined2 *)PTR_PressureModel_P2227_FailCounter_00032554 = 0;
     *(undefined2 *)puVar4 = 0;
   }
   return;
@@ -69248,7 +69628,10 @@ void SubsystemA_DTC2E_AccumulatorAndReport_Update(void)
 
 
 
-void SubsystemA_DTC26_WindowState_Reset(void)
+// Resets the EVAP purge-circuit P0443 diagnostic state without asserting a physical output-pin
+// assumption.
+
+void EVAP_Purge_P0443_Reset(void)
 
 {
   undefined *puVar1;
@@ -69274,7 +69657,9 @@ void SubsystemA_DTC26_WindowState_Reset(void)
 
 
 
-uint SubsystemA_DTC26_WindowState_DebounceAndReport(void)
+// Debounces EVAP purge-circuit diagnostic conditions and reports OBD DTC P0443 (internal DTC 0x26).
+
+uint EVAP_Purge_P0443_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -69392,7 +69777,7 @@ void OBD04_ClearDTC_StateResetA(void)
 
 
 
-void SubsystemA_DTC28_SeededLoadWindow_DebounceAndReport(void)
+void VehicleSpeed_P0500_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -69521,7 +69906,7 @@ void OBD04_ClearDTC_StateResetC(void)
 
 
 
-uint SubsystemA_DTC30_StateDebounceAndReport(void)
+uint StarterControl_P0617_StateDebounceAndReport(void)
 
 {
   char cVar1;
@@ -69584,7 +69969,7 @@ uint SubsystemA_DTC30_StateDebounceAndReport(void)
 
 
 
-uint SubsystemA_DTC2F_CommandBlendInhibit_DebounceAndReport(void)
+uint StarterControl_P0616_StateDebounceAndReport(void)
 
 {
   char cVar1;
@@ -69672,7 +70057,9 @@ void OBD04_ClearDTC_PreNoOpB(void)
 
 
 
-void InfoDisplay_StatusBit01_SubsystemASeedDeltaPair_Reset(void)
+// Resets the processed-delta state machine used by the TPS P0121 range/performance diagnostic path.
+
+void TPS_P0121_ProcessedDeltaPair_Reset(void)
 
 {
   undefined *puVar1;
@@ -69699,7 +70086,10 @@ void InfoDisplay_StatusBit01_SubsystemASeedDeltaPair_Reset(void)
 
 
 
-void InfoDisplay_StatusBit01_SubsystemASeedDelta_EnableGate_Update(void)
+// Updates the TPS P0121 enable gate from processed RPM/load/IAT-window conditions before the
+// processed-delta plausibility check runs.
+
+void TPS_P0121_EnableGate_UpdateFromProcessedDeltaWindow(void)
 
 {
   char cVar1;
@@ -69748,7 +70138,10 @@ uint InfoDisplay_StatusBit01_SubsystemASeedDelta_TableLimit_Update(void)
 
 
 
-uint InfoDisplay_StatusBit01_SubsystemASeedDeltaPair_Update(void)
+// Debounces the processed-delta plausibility path and reports OBD DTC P0121 (internal DTC 0x12)
+// using the dual-threshold source-pair logic.
+
+uint TPS_P0121_ProcessedDeltaPair_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -69974,22 +70367,25 @@ void SubsystemA_ControlRampBlend_TableSelectSnapshot_Copy(void)
   undefined *puVar3;
   undefined *puVar4;
   
-  puVar4 = PTR_DAT_00033034;
-  puVar3 = PTR_DAT_00033030;
-  puVar2 = PTR_DAT_00033024;
-  puVar1 = PTR_DAT_00033020;
+  puVar4 = PTR_IgnitionPhaseOutputAngle_Slot3_Snapshot_00033034;
+  puVar3 = PTR_IgnitionPhaseCommandBlend_ClampedOutput_00033030;
+  puVar2 = PTR_IgnitionPhaseOutputAngle_Slot1_Snapshot_00033024;
+  puVar1 = PTR_IgnitionPhaseOutputAngle_Slot2_Snapshot_00033020;
   if (*PTR_DAT_0003302c == '\0') {
-    *(undefined4 *)PTR_DAT_00033028 = *(undefined4 *)PTR_DAT_00033030;
+    *(undefined4 *)PTR_IgnitionPhaseOutputAngle_Slot0_Snapshot_00033028 =
+         *(undefined4 *)PTR_IgnitionPhaseCommandBlend_ClampedOutput_00033030;
     *(undefined4 *)puVar2 = *(undefined4 *)puVar3;
     *(undefined4 *)puVar1 = *(undefined4 *)puVar3;
     *(undefined4 *)puVar4 = *(undefined4 *)puVar3;
   }
   else {
-    *(undefined4 *)PTR_DAT_00033028 = *(undefined4 *)PTR_DAT_00033038;
+    *(undefined4 *)PTR_IgnitionPhaseOutputAngle_Slot0_Snapshot_00033028 =
+         *(undefined4 *)PTR_DAT_00033038;
     puVar3 = PTR_DAT_00033040;
     *(undefined4 *)puVar2 = *(undefined4 *)PTR_DAT_0003303c;
     *(undefined4 *)puVar1 = *(undefined4 *)puVar3;
-    *(undefined4 *)PTR_DAT_00033034 = *(undefined4 *)PTR_DAT_00033044;
+    *(undefined4 *)PTR_IgnitionPhaseOutputAngle_Slot3_Snapshot_00033034 =
+         *(undefined4 *)PTR_DAT_00033044;
   }
   return;
 }
@@ -70010,19 +70406,19 @@ char SubsystemA_ControlRampBlend_RequestEnable_Update(void)
   char cVar1;
   undefined *puVar2;
   
-  puVar2 = PTR_DAT_00033078;
+  puVar2 = PTR_SubsystemA_ControlRampBlend_RequestEnableFlag;
   if (*PTR_DAT_0003307c == '\x01') {
-    *PTR_DAT_00033078 = 1;
+    *PTR_SubsystemA_ControlRampBlend_RequestEnableFlag = 1;
   }
   else {
-    *PTR_DAT_00033078 = 0;
+    *PTR_SubsystemA_ControlRampBlend_RequestEnableFlag = 0;
   }
   cVar1 = *puVar2;
   if (cVar1 == '\x01') {
-    *PTR_DAT_00033080 = 1;
+    *PTR_SubsystemA_ControlRampBlend_RequestEnableMirror = 1;
   }
   else {
-    *PTR_DAT_00033080 = 0;
+    *PTR_SubsystemA_ControlRampBlend_RequestEnableMirror = 0;
   }
   return cVar1;
 }
@@ -70049,7 +70445,7 @@ void SubsystemA_ControlRampBlend_TableSelectValue_Copy(void)
 void SubsystemA_ControlRampBlend_RequestPrev_Save(void)
 
 {
-  *PTR_DAT_00033114 = *PTR_CommandBlend_RequestFlag_00033110;
+  *PTR_SubsystemA_ControlRampBlend_RequestFlagPrev = *PTR_CommandBlend_RequestFlag_00033110;
   return;
 }
 
@@ -70081,11 +70477,12 @@ void SubsystemA_ControlRampBlend_RequestFlag_Update(void)
   if ((cVar1 == '\0') || (*PTR_DAT_0003311c == '\x01')) {
     *PTR_SubsystemA_ControlRampBlend_RequestFlag_00033118 = 0;
   }
-  else if ((*(float *)PTR_DAT_00033120 <= *(float *)PTR_EngineSpeed_RPM_Filtered_00033124) &&
-          ((*PTR_DAT_00033114 == '\0' && (cVar1 == '\x01')))) {
+  else if ((*(float *)PTR_SubsystemA_ControlRampBlend_RequestFlag_MinRpmThreshold <=
+            *(float *)PTR_EngineSpeed_RPM_Filtered_00033124) &&
+          ((*PTR_SubsystemA_ControlRampBlend_RequestFlagPrev == '\0' && (cVar1 == '\x01')))) {
     *PTR_SubsystemA_ControlRampBlend_RequestFlag_00033118 = 1;
   }
-  *PTR_DAT_00033114 = cVar1;
+  *PTR_SubsystemA_ControlRampBlend_RequestFlagPrev = cVar1;
   return;
 }
 
@@ -70104,11 +70501,11 @@ void SubsystemA_ControlRampBlend_RequestCounters_Reset(void)
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_000331bc;
-  *PTR_DAT_000331b8 = 0;
+  puVar1 = PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagB;
+  *PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagA = 0;
   *puVar1 = 0;
-  puVar1 = PTR_DAT_000331c4;
-  *PTR_DAT_000331c0 = 0;
+  puVar1 = PTR_SubsystemA_ControlRampBlend_RequestWindow_Counter;
+  *PTR_SubsystemA_ControlRampBlend_RequestWindow_StateAboveRpm = 0;
   *puVar1 = 0;
   return;
 }
@@ -70125,14 +70522,15 @@ void SubsystemA_ControlRampBlend_RequestWindow_Update(void)
   char cVar5;
   float fVar6;
   
-  puVar2 = PTR_DAT_000331c4;
+  puVar2 = PTR_SubsystemA_ControlRampBlend_RequestWindow_Counter;
   fVar6 = *(float *)PTR_EngineSpeed_RPM_Filtered_000331c8;
-  if (*PTR_DAT_000331c4 != '\0') {
-    *PTR_DAT_000331c4 = *PTR_DAT_000331c4 + (char)DAT_000331b6;
+  if (*PTR_SubsystemA_ControlRampBlend_RequestWindow_Counter != '\0') {
+    *PTR_SubsystemA_ControlRampBlend_RequestWindow_Counter =
+         *PTR_SubsystemA_ControlRampBlend_RequestWindow_Counter + (char)DAT_000331b6;
   }
-  cVar5 = *PTR_DAT_000331c0;
-  if (fVar6 < *(float *)PTR_DAT_000331cc) {
-    if (fVar6 < *(float *)PTR_DAT_000331e4) {
+  cVar5 = *PTR_SubsystemA_ControlRampBlend_RequestWindow_StateAboveRpm;
+  if (fVar6 < *(float *)PTR_SubsystemA_ControlRampBlend_RequestWindow_RpmHighThreshold) {
+    if (fVar6 < *(float *)PTR_SubsystemA_ControlRampBlend_RequestWindow_RpmLowThreshold) {
       cVar5 = '\0';
     }
   }
@@ -70149,12 +70547,12 @@ void SubsystemA_ControlRampBlend_RequestWindow_Update(void)
       *puVar2 = uVar3;
     }
   }
-  *PTR_DAT_000331c0 = cVar5;
-  puVar4 = PTR_DAT_000331bc;
+  *PTR_SubsystemA_ControlRampBlend_RequestWindow_StateAboveRpm = cVar5;
+  puVar4 = PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagB;
   if (*puVar2 != '\0') {
     cVar5 = '\0';
   }
-  *PTR_DAT_000331b8 = cVar5;
+  *PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagA = cVar5;
   *puVar4 = cVar5;
   return;
 }
@@ -70188,13 +70586,13 @@ void DiagResetRunner_SubsystemASharedState_ResetAll(void)
 
 {
   (*(code *)PTR_DTC_ReportState_ResetAllLatchedStates_Thunk_00033370)();
-  (*(code *)PTR_SubsystemA_LocalLatchGate_SetAndCommit_00033374)();
+  (*(code *)PTR_MIL_PD13_Request_SetAndDispatch_00033374)();
   (*(code *)PTR_NoOp_EgrSharedState_ResetAll_00033378)();
   (*(code *)PTR_SubsystemA_LocalProtectedState_Reset_0003337c)();
   (*(code *)PTR_SubsystemA_SecondaryEnableMode_Update_00033380)();
   (*(code *)PTR_DTC_ShortRecord_SlotIndexB_IsOneFlag_Update_00033384)();
   (*(code *)PTR_DTC_ShortRecord_SlotIndexA_IsOneFlag_Update_00033388)();
-  (*(code *)PTR_DTC1C1D_AbsentFlags_Update_0003338c)();
+  (*(code *)PTR_FuelSystem_P0171_P0172_AbsentFlags_Update_0003338c)();
   (*(code *)PTR_DTC_StatusCollectedIdFlagTables_ClearAll_00033390)();
   (*(code *)PTR_NoOp_Return_00033394)();
   (*(code *)PTR_DTC_ReportState_ClearAllIdUpdatedFlags_00033398)();
@@ -70232,18 +70630,20 @@ void DiagResetRunner_SubsystemACommandBlendFactor_Update(void)
 
 
 
-// Protected diagnostic reset helper in Group G that refreshes the short-record slot-A/slot-B
-// index-one flags and the DTC1C/1D absent flags.
+// Protected diagnostic reset helper in Group G that refreshes fuel-trim P0171/P0172 short-record
+// flags.
 
-void DiagResetRunner_SubsystemAShortRecordFlags_Update(void)
+void DiagResetRunner_FuelTrimShortRecordFlags_Update(void)
 
 {
   undefined4 uVar1;
   
+                    // Protected diagnostic reset helper in Group G that refreshes fuel-trim
+                    // P0171/P0172 short-record flags.
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_0003339c)(0x10);
   (*(code *)PTR_DTC_ShortRecord_SlotIndexB_IsOneFlag_Update_000333b0)();
   (*(code *)PTR_DTC_ShortRecord_SlotIndexA_IsOneFlag_Update_000333b4)();
-  (*(code *)PTR_DTC1C1D_AbsentFlags_Update_000333b8)();
+  (*(code *)PTR_FuelSystem_P0171_P0172_AbsentFlags_Update_000333b8)();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_000333a4)(uVar1);
   return;
 }
@@ -70256,7 +70656,7 @@ void DiagResetRunner_SubsystemALocalLatchGate_Update(void)
   undefined4 uVar1;
   
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_0003339c)(0x10);
-  (*(code *)PTR_SubsystemA_LocalLatchGate_UpdateFromDtcStatus_000333bc)();
+  (*(code *)PTR_MIL_PD13_Request_UpdateFromDtcStatusAndDispatch_000333bc)();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_000333a4)(uVar1);
   return;
 }
@@ -70293,13 +70693,13 @@ void DiagResetRunner_SubsystemAProtectedState_ResetAll(void)
 
 
 
-void DiagResetRunner_SubsystemAOutputMirrorBit_Sync(void)
+void MIL_PD13_OutputBit_Apply_ServiceProtected(void)
 
 {
   undefined4 uVar1;
   
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_0003339c)(0x10);
-  (*(code *)PTR_SubsystemA_OutputMirrorBit_Sync_000333d0)();
+  (*(code *)PTR_MIL_PD13_OutputBit_ApplyProtected_000333d0)();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_000333a4)(uVar1);
   return;
 }
@@ -71088,27 +71488,27 @@ void SubsystemA_PrimaryEnable_Prereq_NoOp(void)
 
 
 
-void SubsystemA_PrimaryEnable_PrereqState_Init(void)
+void CatalystMonitor_P0420_State_Init(void)
 
 {
   undefined *puVar1;
   undefined *puVar2;
   
-  puVar2 = PTR_DAT_00033f9c;
-  puVar1 = PTR_DAT_00033f98;
-  *(undefined2 *)PTR_DAT_00033f94 = 0;
+  puVar2 = PTR_CatalystMonitor_P0420_InputA_DeltaAbs_00033f9c;
+  puVar1 = PTR_CatalystMonitor_P0420_InputB_DeltaSampleCounter_00033f98;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_InputA_DeltaSampleCounter_00033f94 = 0;
   *(undefined2 *)puVar1 = 0;
   *(undefined4 *)puVar2 = 0;
-  *(undefined4 *)PTR_DAT_00033fa0 = 0;
-  *(undefined4 *)PTR_DAT_00033fa8 = *(undefined4 *)PTR_SubsystemA_EnablePrecondition_InputA_00033fa4
-  ;
-  *(undefined4 *)PTR_DAT_00033fb0 = *(undefined4 *)PTR_SubsystemA_EnablePrecondition_InputB_00033fac
-  ;
-  *PTR_DAT_00033fb8 = *PTR_DAT_00033fb4;
-  *(undefined2 *)PTR_DAT_00033fbc = 0;
-  *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_00033fc0 = 0;
+  *(undefined4 *)PTR_CatalystMonitor_P0420_InputB_DeltaAbs_00033fa0 = 0;
+  *(undefined4 *)PTR_CatalystMonitor_P0420_InputA_PreviousSample_00033fa8 =
+       *(undefined4 *)PTR_SubsystemA_EnablePrecondition_InputA_00033fa4;
+  *(undefined4 *)PTR_CatalystMonitor_P0420_InputB_PreviousSample_00033fb0 =
+       *(undefined4 *)PTR_SubsystemA_EnablePrecondition_InputB_00033fac;
+  *PTR_CatalystMonitor_P0420_SwitchStatePrevious_00033fb8 = *PTR_DAT_00033fb4;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldCounter_00033fbc = 0;
+  *PTR_CatalystMonitor_P0420_PrerequisiteFlagC_00033fc0 = 0;
   *PTR_SubsystemA_SecondaryEnable_InhibitFlagA_00033fc4 = 0;
-  *(undefined2 *)PTR_DAT_00033fc8 = 0;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_PreconditionStableCounter_00033fc8 = 0;
   return;
 }
 
@@ -71117,89 +71517,92 @@ void SubsystemA_PrimaryEnable_PrereqState_Init(void)
 void SubsystemA_PrimaryEnable_PrereqCounter_Reset(void)
 
 {
-  *(undefined2 *)PTR_DAT_00033fcc = 0;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_RearO2ActivityRejectCounter_00033fcc = 0;
   return;
 }
 
 
 
-void SubsystemA_PrimaryEnable_PrereqState_Reset(void)
+void CatalystMonitor_P0420_State_Reset(void)
 
 {
   undefined *puVar1;
   undefined *puVar2;
   
-  puVar2 = PTR_DAT_00033fd0;
+  puVar2 = PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlag_00033fd0;
   if (*(float *)PTR_SubsystemA_PrimaryEnable_PrerequisiteB_ImmediateThresholdInput_00033fd8 <
-      *(float *)PTR_DAT_00033fd4) {
-    *PTR_DAT_00033fd0 = 0;
+      *(float *)PTR_CatalystMonitor_P0420_RearO2SwitchThreshold_0p45_00033fd4) {
+    *PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlag_00033fd0 = 0;
   }
   else {
-    *PTR_DAT_00033fd0 = 1;
+    *PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlag_00033fd0 = 1;
   }
   puVar1 = PTR_DAT_00033fb4;
-  *PTR_DAT_00033fdc = *puVar2;
-  puVar2 = PTR_DAT_00033fe4;
-  *PTR_DAT_00033fe0 = *puVar1;
+  *PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlagPrev_00033fdc = *puVar2;
+  puVar2 = PTR_CatalystMonitor_P0420_ActivitySamplingEnableFlag_00033fe4;
+  *PTR_CatalystMonitor_P0420_SwitchStatePreviousForActivity_00033fe0 = *puVar1;
   *puVar2 = 0;
-  puVar2 = PTR_DAT_00033fec;
+  puVar2 = PTR_CatalystMonitor_P0420_ActivitySampleCountdown_00033fec;
   *PTR_DAT_00033fe8 = 0;
   *(undefined2 *)puVar2 = 1;
-  puVar2 = PTR_DAT_00033ff4;
-  *(undefined2 *)PTR_DAT_00033ff0 = 0;
+  puVar2 = PTR_CatalystMonitor_P0420_ActivityWeightedCounter_00033ff4;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_ActivitySampleCounter_00033ff0 = 0;
   *(undefined2 *)puVar2 = 0;
-  *(undefined4 *)PTR_DAT_00033ff8 = 0;
-  puVar2 = PTR_DAT_00034000;
-  *(undefined2 *)PTR_DAT_00033ffc = 0;
+  *(undefined4 *)PTR_CatalystMonitor_P0420_ActivityWindowInputSum_00033ff8 = 0;
+  puVar2 = PTR_CatalystMonitor_P0420_ResettableFloatSumB_00034000;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_ResettableCounterB_00033ffc = 0;
   *(undefined4 *)puVar2 = 0;
-  puVar2 = PTR_DAT_00034008;
-  *PTR_DAT_00034004 = 0;
+  puVar2 = PTR_CatalystMonitor_P0420_RearO2WindowReadyFlag_00034008;
+  *PTR_CatalystMonitor_P0420_ResetHoldFlag_00034004 = 0;
   *puVar2 = 0;
-  puVar2 = PTR_DAT_00034010;
+  puVar2 = PTR_CatalystMonitor_P0420_FailCounterSnapshot_00034010;
   *(undefined2 *)PTR_DAT_0003400c = 0;
   *(undefined2 *)puVar2 = 0;
-  puVar2 = PTR_DAT_00034018;
-  *(undefined2 *)PTR_DAT_00034014 = 0;
+  puVar2 = PTR_CatalystMonitor_P0420_LowStateDurationCounter_00034018;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_PassCounterSnapshot_00034014 = 0;
   *(undefined2 *)puVar2 = 0;
-  puVar2 = PTR_DAT_00034020;
-  *PTR_DAT_0003401c = 0;
+  puVar2 = PTR_CatalystMonitor_P0420_HighStateDurationCounter_00034020;
+  *PTR_CatalystMonitor_P0420_LowStateActiveFlag_0003401c = 0;
   *(undefined2 *)puVar2 = 0;
-  puVar2 = PTR_DAT_00034028;
-  *PTR_DAT_00034024 = 0;
+  puVar2 = PTR_CatalystMonitor_P0420_SwitchEventCounter_00034028;
+  *PTR_CatalystMonitor_P0420_HighStateActiveFlag_00034024 = 0;
   *(undefined2 *)puVar2 = 0;
-  puVar2 = PTR_DAT_00034030;
-  *PTR_DAT_0003402c = 0;
+  puVar2 = PTR_CatalystMonitor_P0420_RuntimeReadyFlagSnapshot_00034030;
+  *PTR_CatalystMonitor_P0420_RuntimeReadyFlag_0003402c = 0;
   *puVar2 = 0;
-  puVar2 = PTR_DAT_00034038;
-  *(undefined2 *)PTR_DAT_00034034 = 1;
+  puVar2 = PTR_CatalystMonitor_P0420_ComparisonIndex_00034038;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_WindowSampleCountdown_00034034 = 1;
   *(undefined2 *)puVar2 = 0;
-  *(undefined4 *)PTR_DAT_0003403c = 0;
-  puVar2 = PTR_DAT_00034044;
-  *PTR_DAT_00034040 = 0;
+  *(undefined4 *)PTR_CatalystMonitor_P0420_RatioOrIndexValue_0003403c = 0;
+  puVar2 = PTR_CatalystMonitor_P0420_PassLatch_00034044;
+  *PTR_CatalystMonitor_P0420_FailLatch_00034040 = 0;
   *puVar2 = 0;
-  puVar2 = PTR_DAT_0003404c;
-  *(undefined2 *)PTR_DAT_00034048 = 0;
+  puVar2 = PTR_CatalystMonitor_P0420_RatioFloatValue_0003404c;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_WindowCounterB_00034048 = 0;
   *(undefined4 *)puVar2 = 0;
-  *(undefined2 *)PTR_DAT_00034050 = 0;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_WindowCounterA_00034050 = 0;
   puVar2 = PTR_LAB_0000fffe_1_00034058;
-  *PTR_DAT_00034054 = 0;
-  *(short *)PTR_DAT_0003405c = (short)puVar2;
+  *PTR_CatalystMonitor_P0420_DtcReportStateSnapshot_00034054 = 0;
+  *(short *)PTR_CatalystMonitor_P0420_ComparisonIndexSnapshot_0003405c = (short)puVar2;
   return;
 }
 
 
 
-void SubsystemA_PrimaryEnable_PrereqTail_Reset(void)
+void CatalystMonitor_P0420_TailCounters_Reset(void)
 
 {
-  *(undefined2 *)PTR_DAT_00034060 = 0;
-  *(undefined2 *)PTR_DAT_00034064 = 0;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_ResetCounterA_00034060 = 0;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_EnableDelayCounter_00034064 = 0;
   return;
 }
 
 
 
-void SubsystemA_DTC25_EnableGate_UpdateFromSeededLoadWindow(void)
+// Updates the catalyst-monitor enable gate from the confirmed RPM/load operating windows used by
+// OBD DTC P0420.
+
+void Catalyst_P0420_EnableGate_UpdateFromRpmLoadWindow(void)
 
 {
   char cVar1;
@@ -71215,7 +71618,7 @@ void SubsystemA_DTC25_EnableGate_UpdateFromSeededLoadWindow(void)
   uVar9 = *(undefined4 *)PTR_IATSensor_AN29_TempValueUsed_00034068;
   fVar8 = *(float *)PTR_SubsystemA_EnablePrecondition_InputB_00033fac;
   fVar6 = (float)(*(code *)PTR_FloatDivideWithLimits_00034070)(uVar9,DAT_0003406c);
-  fVar6 = fVar6 - *(float *)PTR_DAT_00034074;
+  fVar6 = fVar6 - *(float *)PTR_CatalystMonitor_P0420_EnableThresholdOffset_0p35_00034074;
   if (*PTR_DAT_0003407c == '\0') {
     puVar5 = PTR_Desc_SubsystemA_DTC25_ThresholdWindow_TableA_00034090;
     if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00034080 != '\0') {
@@ -71230,28 +71633,29 @@ void SubsystemA_DTC25_EnableGate_UpdateFromSeededLoadWindow(void)
   }
   uVar9 = (*(code *)PTR_Interpolate2D_float_WithTransform_00034094)
                     (*(undefined4 *)PTR_EngineSpeed_RPM_Filtered_00034078,uVar9,puVar5);
-  *(undefined4 *)PTR_DAT_00034098 = uVar9;
-  puVar5 = PTR_DAT_000340a4;
+  *(undefined4 *)PTR_CatalystMonitor_P0420_EnableThreshold2D_00034098 = uVar9;
+  puVar5 = PTR_CatalystMonitor_P0420_EnableGateFlag_000340a4;
   cVar1 = *PTR_CommandModel_StageActiveFlag_0003409c;
   cVar2 = *PTR_DTC_ReportState_DTC25_UpdatedFlag_000340a0;
   cVar4 = (*(code *)PTR_DTC_IsOBDRelevantOrActive_000340a8)(0x25);
   if (cVar4 == '\0') {
     if (*PTR_DAT_0003407c == '\0') {
-      fVar7 = *(float *)PTR_DAT_000340b0;
+      fVar7 = *(float *)PTR_CatalystMonitor_P0420_PendingDtcEnableLimit_Normal_000340b0;
     }
     else {
-      fVar7 = *(float *)PTR_DAT_000340ac;
+      fVar7 = *(float *)PTR_CatalystMonitor_P0420_PendingDtcEnableLimit_Alt_000340ac;
     }
     if (fVar7 <= *(float *)PTR_DAT_000340b4) {
       if (*PTR_DAT_0003407c == '\0') {
-        fVar7 = *(float *)PTR_DAT_000340bc;
+        fVar7 = *(float *)PTR_CatalystMonitor_P0420_RearO2DiagnosticThresholdMax_Normal_000340bc;
       }
       else {
-        fVar7 = *(float *)PTR_DAT_000340b8;
+        fVar7 = *(float *)PTR_CatalystMonitor_P0420_RearO2DiagnosticThresholdMax_Alt_000340b8;
       }
       if ((((fVar7 <= *(float *)
                        PTR_SubsystemA_PrimaryEnable_PrerequisiteB_InterpolatedThreshold_000340c0) &&
-           (*(float *)PTR_DAT_00034098 <= fVar8)) && (fVar8 < fVar6)) && (cVar1 == '\x01')) {
+           (*(float *)PTR_CatalystMonitor_P0420_EnableThreshold2D_00034098 <= fVar8)) &&
+          (fVar8 < fVar6)) && (cVar1 == '\x01')) {
         *puVar5 = 1;
         goto LAB_000340c6;
       }
@@ -71259,18 +71663,20 @@ void SubsystemA_DTC25_EnableGate_UpdateFromSeededLoadWindow(void)
   }
   *puVar5 = 0;
 LAB_000340c6:
-  puVar3 = PTR_DAT_000342a8;
-  if ((cVar2 == '\0') && ((*PTR_DAT_000342a8 == '\x01' || (*PTR_DAT_000342ac == '\x01')))) {
+  puVar3 = PTR_CatalystMonitor_P0420_FailLatch_000342a8;
+  if ((cVar2 == '\0') &&
+     ((*PTR_CatalystMonitor_P0420_FailLatch_000342a8 == '\x01' ||
+      (*PTR_CatalystMonitor_P0420_PassLatch_000342ac == '\x01')))) {
     *puVar5 = 0;
     *puVar3 = 0;
-    *PTR_DAT_000342ac = 0;
+    *PTR_CatalystMonitor_P0420_PassLatch_000342ac = 0;
   }
   return;
 }
 
 
 
-ushort * SubsystemA_PrimarySecondaryEnableGate_UpdateFromWindows(void)
+ushort * CatalystMonitor_P0420_PreconditionGate_UpdateFromOperatingWindows(void)
 
 {
   char cVar1;
@@ -71292,33 +71698,37 @@ ushort * SubsystemA_PrimarySecondaryEnableGate_UpdateFromWindows(void)
   float fVar17;
   
   puVar4 = PTR_AddUint16AndSaturateToFFFE_000342d0;
-  puVar3 = PTR_DAT_000342cc;
-  puVar2 = PTR_DAT_000342c8;
+  puVar3 = PTR_CatalystMonitor_P0420_SwitchStatePrevious_000342cc;
+  puVar2 = PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldCounter_000342c8;
   fVar12 = *(float *)PTR_EngineSpeed_RPM_Filtered_000342b0;
   fVar17 = *(float *)PTR_SubsystemA_EnablePrecondition_InputA_000342b4;
   uVar15 = *(undefined4 *)PTR_SubsystemA_EnablePrecondition_InputB_000342b8;
   fVar14 = *(float *)PTR_FuelDisplay_InputWindowAvg_000342bc;
   fVar16 = *(float *)PTR_SubsystemA_CommandBlend_CommandRampOutput_Current_000342c0;
   cVar1 = *PTR_DAT_000342c4;
-  if (*PTR_DAT_000342d4 == '\x01') {
-    if (cVar1 != *PTR_DAT_000342cc) {
-      uVar8 = (*(code *)PTR_AddUint16AndSaturateToFFFE_000342d0)((int)*(short *)PTR_DAT_000342c8,1);
+  if (*PTR_CatalystMonitor_P0420_RearO2WindowReadyFlag_000342d4 == '\x01') {
+    if (cVar1 != *PTR_CatalystMonitor_P0420_SwitchStatePrevious_000342cc) {
+      uVar8 = (*(code *)PTR_AddUint16AndSaturateToFFFE_000342d0)
+                        ((int)*(short *)
+                               PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldCounter_000342c8,
+                         1);
       *(undefined2 *)puVar2 = uVar8;
     }
   }
   else {
-    *(undefined2 *)PTR_DAT_000342c8 = 0;
+    *(undefined2 *)PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldCounter_000342c8 = 0;
   }
   if (cVar1 != *puVar3) {
-    uVar8 = (*(code *)puVar4)((int)*(short *)PTR_DAT_000342d8,1);
-    *(undefined2 *)PTR_DAT_000342d8 = uVar8;
+    uVar8 = (*(code *)puVar4)((int)*(short *)
+                                    PTR_CatalystMonitor_P0420_SwitchStateChangeCounter_000342d8,1);
+    *(undefined2 *)PTR_CatalystMonitor_P0420_SwitchStateChangeCounter_000342d8 = uVar8;
   }
-  puVar5 = PTR_DAT_000342e0;
-  puVar2 = PTR_DAT_000342dc;
+  puVar5 = PTR_CatalystMonitor_P0420_HighStateCurrentDuration_000342e0;
+  puVar2 = PTR_CatalystMonitor_P0420_LowStateCurrentDuration_000342dc;
   if (cVar1 == '\0') {
     if (*puVar3 == '\x01') {
       uVar8 = (*(code *)puVar4)();
-      *(undefined2 *)PTR_DAT_000342e4 = uVar8;
+      *(undefined2 *)PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_000342e4 = uVar8;
       *(undefined2 *)puVar2 = 0;
     }
     uVar8 = (*(code *)puVar4)((int)*(short *)puVar2,1);
@@ -71326,160 +71736,187 @@ ushort * SubsystemA_PrimarySecondaryEnableGate_UpdateFromWindows(void)
   }
   else {
     if (*puVar3 == '\0') {
-      uVar8 = (*(code *)puVar4)((int)*(short *)PTR_DAT_000342dc,(int)*(short *)PTR_DAT_000342e0);
-      *(undefined2 *)PTR_DAT_000342e4 = uVar8;
+      uVar8 = (*(code *)puVar4)((int)*(short *)
+                                      PTR_CatalystMonitor_P0420_LowStateCurrentDuration_000342dc,
+                                (int)*(short *)
+                                      PTR_CatalystMonitor_P0420_HighStateCurrentDuration_000342e0);
+      *(undefined2 *)PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_000342e4 = uVar8;
       *(undefined2 *)puVar5 = 0;
     }
     uVar8 = (*(code *)puVar4)((int)*(short *)puVar5,1);
     *(undefined2 *)puVar5 = uVar8;
   }
-  puVar2 = PTR_DAT_000342e8;
-  uVar8 = (*(code *)puVar4)((int)*(short *)PTR_DAT_000342e8,1);
+  puVar2 = PTR_CatalystMonitor_P0420_InputA_DeltaSampleCounter_000342e8;
+  uVar8 = (*(code *)puVar4)((int)*(short *)
+                                  PTR_CatalystMonitor_P0420_InputA_DeltaSampleCounter_000342e8,1);
   *(undefined2 *)puVar2 = uVar8;
-  if (*(ushort *)PTR_DAT_000342ec <= *(ushort *)puVar2) {
+  if (*(ushort *)PTR_CatalystMonitor_P0420_InputA_DeltaSamplePeriod_000342ec <= *(ushort *)puVar2) {
     *(undefined2 *)puVar2 = 0;
-    uVar11 = (*(code *)PTR_AbsFloatDifference_000342f4)(*(undefined4 *)PTR_DAT_000342f0,fVar17);
-    *(undefined4 *)PTR_DAT_000342f8 = uVar11;
-    *(float *)PTR_DAT_000342f0 = fVar17;
+    uVar11 = (*(code *)PTR_AbsFloatDifference_000342f4)
+                       (*(undefined4 *)PTR_CatalystMonitor_P0420_InputA_PreviousSample_000342f0,
+                        fVar17);
+    *(undefined4 *)PTR_CatalystMonitor_P0420_InputA_DeltaAbs_000342f8 = uVar11;
+    *(float *)PTR_CatalystMonitor_P0420_InputA_PreviousSample_000342f0 = fVar17;
   }
-  puVar2 = PTR_DAT_000342fc;
-  uVar8 = (*(code *)puVar4)((int)*(short *)PTR_DAT_000342fc,1);
+  puVar2 = PTR_CatalystMonitor_P0420_InputB_DeltaSampleCounter_000342fc;
+  uVar8 = (*(code *)puVar4)((int)*(short *)
+                                  PTR_CatalystMonitor_P0420_InputB_DeltaSampleCounter_000342fc,1);
   *(undefined2 *)puVar2 = uVar8;
-  if (*(ushort *)PTR_DAT_00034300 <= *(ushort *)puVar2) {
+  if (*(ushort *)PTR_CatalystMonitor_P0420_InputB_DeltaSamplePeriod_00034300 <= *(ushort *)puVar2) {
     *(undefined2 *)puVar2 = 0;
-    uVar11 = (*(code *)PTR_AbsFloatDifference_000342f4)(*(undefined4 *)PTR_DAT_00034304,uVar15);
-    *(undefined4 *)PTR_DAT_00034308 = uVar11;
-    *(undefined4 *)PTR_DAT_00034304 = uVar15;
+    uVar11 = (*(code *)PTR_AbsFloatDifference_000342f4)
+                       (*(undefined4 *)PTR_CatalystMonitor_P0420_InputB_PreviousSample_00034304,
+                        uVar15);
+    *(undefined4 *)PTR_CatalystMonitor_P0420_InputB_DeltaAbs_00034308 = uVar11;
+    *(undefined4 *)PTR_CatalystMonitor_P0420_InputB_PreviousSample_00034304 = uVar15;
   }
-  puVar6 = PTR_DAT_00034564;
-  puVar5 = PTR_DAT_00034314;
-  puVar2 = PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_0003430c;
-  puVar7 = (ushort *)(uint)(byte)*PTR_DAT_00034318;
-  puVar10 = (ushort *)(uint)(byte)*PTR_DAT_000342d4;
+  puVar6 = PTR_CatalystMonitor_P0420_PreconditionStableCountRequired_00034564;
+  puVar5 = PTR_CatalystMonitor_P0420_PreconditionStableCounter_00034314;
+  puVar2 = PTR_CatalystMonitor_P0420_PrerequisiteFlagC_0003430c;
+  puVar7 = (ushort *)(uint)(byte)*PTR_CatalystMonitor_P0420_EnableGateFlag_00034318;
+  puVar10 = (ushort *)(uint)(byte)*PTR_CatalystMonitor_P0420_RearO2WindowReadyFlag_000342d4;
   if (puVar7 == (ushort *)0x1) {
-    puVar9 = (ushort *)PTR_DAT_00034324;
+    puVar9 = (ushort *)PTR_CatalystMonitor_P0420_PreconditionDelay_Normal_00034324;
     if (*PTR_DAT_0003431c != '\0') {
-      puVar9 = (ushort *)PTR_DAT_00034320;
+      puVar9 = (ushort *)PTR_CatalystMonitor_P0420_PreconditionDelay_Alt_00034320;
     }
     puVar7 = (ushort *)(uint)*(ushort *)PTR_SubsystemA_SecondaryEnable_ElapsedCounter_00034328;
     if ((ushort *)(uint)*puVar9 <= puVar7) {
-      puVar7 = (ushort *)PTR_DAT_00034334;
+      puVar7 = (ushort *)PTR_CatalystMonitor_P0420_RearO2ActivityAccumulatorMin_Normal_00034334;
       if (*PTR_DAT_0003431c != '\0') {
-        puVar7 = (ushort *)PTR_DAT_00034330;
+        puVar7 = (ushort *)PTR_CatalystMonitor_P0420_RearO2ActivityAccumulatorMin_Alt_00034330;
       }
-      if (*puVar7 <= *(ushort *)PTR_DAT_0003432c) {
+      if (*puVar7 <= *(ushort *)PTR_CatalystMonitor_P0420_RearO2ActivityAccumulator_0003432c) {
         if (*PTR_DAT_0003431c == '\0') {
           if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00034338 == '\0') {
-            fVar13 = *(float *)PTR_DAT_00034348;
-            puVar7 = (ushort *)PTR_DAT_00034348;
+            fVar13 = *(float *)PTR_CatalystMonitor_P0420_RpmMin_Normal_00034348;
+            puVar7 = (ushort *)PTR_CatalystMonitor_P0420_RpmMin_Normal_00034348;
           }
           else {
-            fVar13 = *(float *)PTR_DAT_00034344;
+            fVar13 = *(float *)PTR_CatalystMonitor_P0420_RpmMin_NormalBlend_00034344;
           }
         }
         else if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00034338 == '\0')
         {
-          fVar13 = *(float *)PTR_DAT_00034340;
-          puVar7 = (ushort *)PTR_DAT_00034340;
+          fVar13 = *(float *)PTR_CatalystMonitor_P0420_RpmMin_Alt_00034340;
+          puVar7 = (ushort *)PTR_CatalystMonitor_P0420_RpmMin_Alt_00034340;
         }
         else {
-          fVar13 = *(float *)PTR_DAT_0003433c;
+          fVar13 = *(float *)PTR_CatalystMonitor_P0420_RpmMin_AltBlend_0003433c;
         }
         if (fVar13 <= fVar12) {
           if (*PTR_DAT_0003431c == '\0') {
             if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000344e4 == '\0') {
-              fVar13 = *(float *)PTR_DAT_000344ec;
+              fVar13 = *(float *)PTR_CatalystMonitor_P0420_RpmMax_Normal_000344ec;
             }
             else {
-              fVar13 = *(float *)PTR_DAT_000344e8;
+              fVar13 = *(float *)PTR_CatalystMonitor_P0420_RpmMax_NormalBlend_000344e8;
             }
           }
           else if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00034338 == '\0'
                   ) {
-            fVar13 = *(float *)PTR_DAT_000344e0;
+            fVar13 = *(float *)PTR_CatalystMonitor_P0420_RpmMax_Alt_000344e0;
           }
           else {
-            fVar13 = *(float *)PTR_DAT_0003434c;
+            fVar13 = *(float *)PTR_CatalystMonitor_P0420_RpmMax_AltBlend_0003434c;
           }
           if (fVar12 < fVar13) {
             if (*PTR_DAT_000344f0 == '\0') {
               if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000344e4 == '\0')
               {
-                fVar12 = *(float *)PTR_DAT_00034500;
+                fVar12 = *(float *)PTR_CatalystMonitor_P0420_LoadMin_Normal_00034500;
               }
               else {
-                fVar12 = *(float *)PTR_DAT_000344fc;
+                fVar12 = *(float *)PTR_CatalystMonitor_P0420_LoadMin_NormalBlend_000344fc;
               }
             }
             else if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000344e4 ==
                      '\0') {
-              fVar12 = *(float *)PTR_DAT_000344f8;
+              fVar12 = *(float *)PTR_CatalystMonitor_P0420_LoadMin_Alt_000344f8;
             }
             else {
-              fVar12 = *(float *)PTR_DAT_000344f4;
+              fVar12 = *(float *)PTR_CatalystMonitor_P0420_LoadMin_AltBlend_000344f4;
             }
             if (fVar12 <= fVar17) {
               if (*PTR_DAT_000344f0 == '\0') {
                 if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000344e4 ==
                     '\0') {
-                  fVar12 = *(float *)PTR_DAT_00034510;
+                  fVar12 = *(float *)PTR_CatalystMonitor_P0420_LoadMax_Normal_00034510;
                 }
                 else {
-                  fVar12 = *(float *)PTR_DAT_0003450c;
+                  fVar12 = *(float *)PTR_CatalystMonitor_P0420_LoadMax_NormalBlend_0003450c;
                 }
               }
               else if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_000344e4 ==
                        '\0') {
-                fVar12 = *(float *)PTR_DAT_00034508;
+                fVar12 = *(float *)PTR_CatalystMonitor_P0420_LoadMax_Alt_00034508;
               }
               else {
-                fVar12 = *(float *)PTR_DAT_00034504;
+                fVar12 = *(float *)PTR_CatalystMonitor_P0420_LoadMax_AltBlend_00034504;
               }
               if (fVar17 < fVar12) {
                 if (*PTR_DAT_000344f0 == '\0') {
-                  fVar12 = *(float *)PTR_DAT_00034518;
+                  fVar12 = *(float *)PTR_CatalystMonitor_P0420_WindowInputMin_Normal_00034518;
                 }
                 else {
-                  fVar12 = *(float *)PTR_DAT_00034514;
+                  fVar12 = *(float *)PTR_CatalystMonitor_P0420_WindowInputMin_Alt_00034514;
                 }
                 if (fVar12 <= fVar14) {
                   if (*PTR_DAT_000344f0 == '\0') {
-                    fVar12 = *(float *)PTR_DAT_00034520;
+                    fVar12 = *(float *)PTR_CatalystMonitor_P0420_WindowInputMax_Normal_00034520;
                   }
                   else {
-                    fVar12 = *(float *)PTR_DAT_0003451c;
+                    fVar12 = *(float *)PTR_CatalystMonitor_P0420_WindowInputMax_Alt_0003451c;
                   }
                   if (fVar14 < fVar12) {
                     if (*PTR_DAT_000344f0 == '\0') {
-                      fVar12 = *(float *)PTR_DAT_00034528;
+                      fVar12 = *(float *)PTR_CatalystMonitor_P0420_InputADeltaMax_Normal_00034528;
                     }
                     else {
-                      fVar12 = *(float *)PTR_DAT_00034524;
+                      fVar12 = *(float *)PTR_CatalystMonitor_P0420_InputADeltaMax_Alt_00034524;
                     }
-                    if (*(float *)PTR_DAT_0003452c < fVar12) {
+                    if (*(float *)PTR_CatalystMonitor_P0420_InputA_DeltaAbs_0003452c < fVar12) {
                       if (*PTR_DAT_000344f0 == '\0') {
-                        fVar12 = *(float *)PTR_DAT_00034534;
+                        fVar12 = *(float *)PTR_CatalystMonitor_P0420_InputBDeltaMax_Normal_00034534;
                       }
                       else {
-                        fVar12 = *(float *)PTR_DAT_00034530;
+                        fVar12 = *(float *)PTR_CatalystMonitor_P0420_InputBDeltaMax_Alt_00034530;
                       }
-                      if (*(float *)PTR_DAT_00034538 < fVar12) {
-                        if ((((*(float *)PTR_DAT_0003453c <= fVar16) ||
-                             (*(ushort *)PTR_DAT_00034540 < *(ushort *)PTR_DAT_00034544)) ||
-                            (*(ushort *)PTR_DAT_00034548 <= *(ushort *)PTR_DAT_00034540)) ||
-                           (*PTR_DAT_0003454c != '\0')) {
+                      if (*(float *)PTR_CatalystMonitor_P0420_InputB_DeltaAbs_00034538 < fVar12) {
+                        if ((((*(float *)PTR_CatalystMonitor_P0420_CommandRampMinA_0003453c <=
+                               fVar16) ||
+                             (*(ushort *)
+                               PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_00034540 <
+                              *(ushort *)PTR_CatalystMonitor_P0420_SwitchDurationMidLow_00034544))
+                            || (*(ushort *)PTR_CatalystMonitor_P0420_SwitchDurationMidHigh_00034548
+                                <= *(ushort *)
+                                    PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_00034540))
+                           || (*PTR_CatalystMonitor_P0420_RearO2WindowReadyFlag_0003454c != '\0')) {
                           puVar7 = puVar10;
-                          if (((fVar16 < *(float *)PTR_DAT_00034550) &&
-                              (*(ushort *)PTR_DAT_00034554 <= *(ushort *)PTR_DAT_00034540)) &&
-                             (*(ushort *)PTR_DAT_00034540 < *(ushort *)PTR_DAT_00034558)) {
+                          if (((fVar16 < *(float *)
+                                          PTR_CatalystMonitor_P0420_CommandRampMinB_00034550) &&
+                              (*(ushort *)PTR_CatalystMonitor_P0420_SwitchDurationAltLow_00034554 <=
+                               *(ushort *)
+                                PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_00034540)) &&
+                             (*(ushort *)
+                               PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_00034540 <
+                              *(ushort *)PTR_CatalystMonitor_P0420_SwitchDurationAltHigh_00034558))
+                          {
                             if (puVar10 != (ushort *)0x1) goto LAB_00034568;
-                            if (*(ushort *)PTR_DAT_00034560 <= *(ushort *)PTR_DAT_0003455c)
-                            goto LAB_000344c4;
+                            if (*(ushort *)
+                                 PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldRequired_00034560
+                                <= *(ushort *)
+                                    PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldCounter_0003455c
+                               ) goto LAB_000344c4;
                           }
                           if ((puVar10 != (ushort *)0x1) ||
-                             (puVar7 = (ushort *)PTR_DAT_00034560,
-                             *(ushort *)PTR_DAT_00034560 <= *(ushort *)PTR_DAT_0003455c))
-                          goto LAB_00034568;
+                             (puVar7 = (ushort *)
+                                       PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldRequired_00034560
+                             , *(ushort *)
+                                PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldRequired_00034560
+                               <= *(ushort *)
+                                   PTR_CatalystMonitor_P0420_RearO2WindowTransitionHoldCounter_0003455c
+                             )) goto LAB_00034568;
                         }
 LAB_000344c4:
                         *PTR_SubsystemA_SecondaryEnable_InhibitFlagA_00034310 = 1;
@@ -71511,7 +71948,9 @@ LAB_0003456e:
 
 
 
-void SubsystemA_DTC25_ThresholdWindowAccumulator_Update(void)
+// Accumulates the rear-O2 catalyst-monitor threshold window used by OBD DTC P0420.
+
+void Catalyst_P0420_ThresholdWindowAccumulator_Update(void)
 
 {
   undefined *puVar1;
@@ -71537,40 +71976,45 @@ void SubsystemA_DTC25_ThresholdWindowAccumulator_Update(void)
   fVar5 = (float)(*(code *)PTR_Interpolate2D_float_WithTransform_0003477c)
                            (*(undefined4 *)PTR_EngineSpeed_RPM_Filtered_00034760,
                             *(undefined4 *)PTR_IATSensor_AN29_TempValueUsed_0003475c,puVar3);
-  *(float *)PTR_DAT_00034780 = fVar5;
-  puVar1 = PTR_DAT_00034788;
-  puVar3 = PTR_DAT_00034784;
+  *(float *)PTR_CatalystMonitor_P0420_SelectedEnableThreshold2D_00034780 = fVar5;
+  puVar1 = PTR_CatalystMonitor_P0420_RearO2ActivityAccumulator_00034788;
+  puVar3 = PTR_CatalystMonitor_P0420_RearO2ActivityRejectCounter_00034784;
   if ((*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_0003478c == '\x01') ||
      (*(float *)PTR_SubsystemA_EnablePrecondition_InputB_00034790 < fVar5)) {
-    if (*(ushort *)PTR_DAT_00034794 <= *(ushort *)PTR_DAT_00034784) {
-      *(undefined2 *)PTR_DAT_00034788 = 0;
+    if (*(ushort *)PTR_CatalystMonitor_P0420_RearO2ActivityRejectLimit_00034794 <=
+        *(ushort *)PTR_CatalystMonitor_P0420_RearO2ActivityRejectCounter_00034784) {
+      *(undefined2 *)PTR_CatalystMonitor_P0420_RearO2ActivityAccumulator_00034788 = 0;
     }
     uVar2 = (*(code *)PTR_AddUint16AndSaturateToFFFE_00034798)((int)*(short *)puVar3,1);
     *(undefined2 *)puVar3 = uVar2;
   }
   else {
-    *(undefined2 *)PTR_DAT_00034784 = 0;
-    puVar3 = PTR_DAT_000347a8;
+    *(undefined2 *)PTR_CatalystMonitor_P0420_RearO2ActivityRejectCounter_00034784 = 0;
+    puVar3 = PTR_CatalystMonitor_P0420_ActivityWindowDecayStep_000347a8;
     if ((*PTR_SubsystemA_EnableSharedInhibitFlag_0003479c == '\0') &&
-       (*(float *)PTR_DAT_000347a0 <= *(float *)PTR_ECTSensor_AN28_CelsiusValidated_000347a4)) {
-      if (fVar6 < *(float *)PTR_DAT_000347ac) {
+       (*(float *)PTR_CatalystMonitor_P0420_ECTMinForActivityDecay_000347a0 <=
+        *(float *)PTR_ECTSensor_AN28_CelsiusValidated_000347a4)) {
+      if (fVar6 < *(float *)PTR_CatalystMonitor_P0420_InputAForDecayTableMax_000347ac) {
         uVar2 = (*(code *)PTR_Interpolate2D_ReturnU16_000347bc)
                           (fVar6,*(undefined4 *)PTR_SubsystemA_CommandBlend_TableInput_000347b4,
                            PTR_Desc_SubsystemA_DTC25_ThresholdWindow_TableD_000347b8);
         *(undefined2 *)puVar3 = uVar2;
       }
       else {
-        *(undefined2 *)PTR_DAT_000347a8 = *(undefined2 *)PTR_DAT_000347b0;
+        *(undefined2 *)PTR_CatalystMonitor_P0420_ActivityWindowDecayStep_000347a8 =
+             *(undefined2 *)PTR_CatalystMonitor_P0420_ActivityDecayStepDefault_000347b0;
       }
       iVar4 = (uint)*(ushort *)puVar1 + (uint)*(ushort *)puVar3 + -100;
       if (iVar4 < 1) {
         *(undefined2 *)puVar1 = 0;
       }
-      else if (iVar4 < (int)(uint)*(ushort *)PTR_DAT_000347c0) {
+      else if (iVar4 < (int)(uint)*(ushort *)
+                                   PTR_CatalystMonitor_P0420_ActivityWeightedCounterMax_000347c0) {
         *(short *)puVar1 = (short)iVar4;
       }
       else {
-        *(ushort *)puVar1 = *(ushort *)PTR_DAT_000347c0;
+        *(ushort *)puVar1 = *(ushort *)PTR_CatalystMonitor_P0420_ActivityWeightedCounterMax_000347c0
+        ;
       }
     }
   }
@@ -71579,7 +72023,9 @@ void SubsystemA_DTC25_ThresholdWindowAccumulator_Update(void)
 
 
 
-void SubsystemA_DTC25_AccumulatorAndReport_Update(void)
+// Updates the catalyst-monitor accumulator and requests OBD DTC P0420 set/clear state changes.
+
+void Catalyst_P0420_AccumulatorAndReport_Update(void)
 
 {
   char cVar1;
@@ -71602,159 +72048,176 @@ void SubsystemA_DTC25_AccumulatorAndReport_Update(void)
   cVar1 = *PTR_DAT_000347c4;
   uVar9 = (*(code *)PTR_Interpolate1D_ToUint16_000347cc)
                     (fVar14,PTR_Desc_SubsystemA_DTC25_AccumulatorReport_TableA_000347c8);
-  puVar2 = PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_000347d4;
-  *(undefined2 *)PTR_DAT_000347d0 = uVar9;
-  if ((*puVar2 == '\x01') && (*PTR_DAT_000347d8 == '\0')) {
-    *PTR_DAT_000347dc = 1;
+  puVar2 = PTR_CatalystMonitor_P0420_PrerequisiteFlagC_000347d4;
+  *(undefined2 *)PTR_CatalystMonitor_P0420_ActivityWindowOffsetByInputA_000347d0 = uVar9;
+  if ((*puVar2 == '\x01') && (*PTR_CatalystMonitor_P0420_ResetHoldFlag_000347d8 == '\0')) {
+    *PTR_CatalystMonitor_P0420_ActivitySamplingEnableFlag_000347dc = 1;
   }
   else {
-    *PTR_DAT_000347dc = 0;
+    *PTR_CatalystMonitor_P0420_ActivitySamplingEnableFlag_000347dc = 0;
   }
-  puVar6 = PTR_DAT_000347e8;
-  puVar5 = PTR_DAT_000347e4;
-  puVar4 = PTR_DAT_000347e0;
+  puVar6 = PTR_CatalystMonitor_P0420_ActivityWeightedCounter_000347e8;
+  puVar5 = PTR_CatalystMonitor_P0420_ActivityWindowInputSum_000347e4;
+  puVar4 = PTR_CatalystMonitor_P0420_ActivitySampleCounter_000347e0;
   puVar3 = PTR_AddUint16AndSaturateToFFFE_00034798;
   puVar2 = PTR_DAT_00034764;
   uVar13 = 0x3f800000;
   uVar15 = 0;
-  if ((*PTR_DAT_000347dc == '\x01') && (*PTR_DAT_000347f0 == '\x01')) {
-    if (cVar1 != *PTR_DAT_000347f4) {
-      if (*(short *)PTR_DAT_000347ec == 0) {
-        *(undefined2 *)PTR_DAT_000347ec = 1;
-        uVar9 = (*(code *)puVar3)((int)*(short *)puVar6,(int)*(short *)PTR_DAT_000347f8);
+  if ((*PTR_CatalystMonitor_P0420_ActivitySamplingEnableFlag_000347dc == '\x01') &&
+     (*PTR_DAT_000347f0 == '\x01')) {
+    if (cVar1 != *PTR_CatalystMonitor_P0420_SwitchStatePreviousForActivity_000347f4) {
+      if (*(short *)PTR_CatalystMonitor_P0420_ActivitySampleCountdown_000347ec == 0) {
+        *(undefined2 *)PTR_CatalystMonitor_P0420_ActivitySampleCountdown_000347ec = 1;
+        uVar9 = (*(code *)puVar3)((int)*(short *)puVar6,
+                                  (int)*(short *)
+                                        PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_000347f8
+                                 );
         *(undefined2 *)puVar6 = uVar9;
         *(float *)puVar5 = *(float *)puVar5 + fVar14;
         uVar9 = (*(code *)puVar3)((int)*(short *)puVar4,1);
         *(undefined2 *)puVar4 = uVar9;
         if (*puVar2 == '\0') {
-          uVar10 = *(ushort *)PTR_DAT_00034800;
+          uVar10 = *(ushort *)PTR_CatalystMonitor_P0420_ActivitySampleCount_Normal_00034800;
         }
         else {
-          uVar10 = *(ushort *)PTR_DAT_000347fc;
+          uVar10 = *(ushort *)PTR_CatalystMonitor_P0420_ActivitySampleCount_Alt_000347fc;
         }
         if (uVar10 <= *(ushort *)puVar4) {
           uVar9 = (*(code *)PTR_Math_Unknown_0735C_000349b0)();
-          *(undefined2 *)PTR_DAT_000349b4 = uVar9;
+          *(undefined2 *)PTR_CatalystMonitor_P0420_ResettableCounterB_000349b4 = uVar9;
           if (*puVar2 == '\0') {
-            uVar9 = *(undefined2 *)PTR_DAT_000349ac;
+            uVar9 = *(undefined2 *)PTR_CatalystMonitor_P0420_ActivitySampleCount_Normal_000349ac;
           }
           else {
-            uVar9 = *(undefined2 *)PTR_DAT_000349b8;
+            uVar9 = *(undefined2 *)PTR_CatalystMonitor_P0420_ActivitySampleCount_Alt_000349b8;
           }
           uVar12 = (*(code *)PTR_FloatMulAccumulate_U16_000349bc)(uVar13,uVar15,uVar9);
           uVar12 = (*(code *)PTR_FloatDivideWithLimits_000349c0)(*(undefined4 *)puVar5,uVar12);
-          *(undefined4 *)PTR_DAT_000349c4 = uVar12;
-          *PTR_DAT_000349c8 = 1;
+          *(undefined4 *)PTR_CatalystMonitor_P0420_ResettableFloatSumB_000349c4 = uVar12;
+          *PTR_CatalystMonitor_P0420_ResetHoldFlag_000349c8 = 1;
         }
       }
       else {
-        *(short *)PTR_DAT_000347ec = *(short *)PTR_DAT_000347ec + (short)PTR_LAB_0000fffe_1_000349cc
-        ;
+        *(short *)PTR_CatalystMonitor_P0420_ActivitySampleCountdown_000347ec =
+             *(short *)PTR_CatalystMonitor_P0420_ActivitySampleCountdown_000347ec +
+             (short)PTR_LAB_0000fffe_1_000349cc;
       }
     }
   }
   else {
-    *(undefined2 *)PTR_DAT_000347ec = 1;
+    *(undefined2 *)PTR_CatalystMonitor_P0420_ActivitySampleCountdown_000347ec = 1;
     *(undefined2 *)puVar4 = 0;
     *(undefined2 *)puVar6 = 0;
     *(undefined4 *)puVar5 = 0;
   }
-  *PTR_DAT_000349d4 = *PTR_DAT_000349d0;
-  if (*(ushort *)PTR_DAT_000349dc <= *(ushort *)PTR_DAT_000349d8) {
-    *(undefined2 *)PTR_DAT_000349b4 = 0;
-    *(undefined4 *)PTR_DAT_000349c4 = uVar15;
-    *PTR_DAT_000349c8 = 0;
+  *PTR_DAT_000349d4 = *PTR_CatalystMonitor_P0420_ActivitySamplingEnableFlag_000349d0;
+  if (*(ushort *)PTR_DAT_000349dc <= *(ushort *)PTR_CatalystMonitor_P0420_ResetCounterA_000349d8) {
+    *(undefined2 *)PTR_CatalystMonitor_P0420_ResettableCounterB_000349b4 = 0;
+    *(undefined4 *)PTR_CatalystMonitor_P0420_ResettableFloatSumB_000349c4 = uVar15;
+    *PTR_CatalystMonitor_P0420_ResetHoldFlag_000349c8 = 0;
   }
-  puVar4 = PTR_DAT_000349e0;
-  if ((*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_000349e4 == '\x01') &&
-     (*PTR_DAT_000349c8 == '\x01')) {
-    *PTR_DAT_000349e0 = 1;
+  puVar4 = PTR_CatalystMonitor_P0420_RearO2WindowReadyFlag_000349e0;
+  if ((*PTR_CatalystMonitor_P0420_PrerequisiteFlagC_000349e4 == '\x01') &&
+     (*PTR_CatalystMonitor_P0420_ResetHoldFlag_000349c8 == '\x01')) {
+    *PTR_CatalystMonitor_P0420_RearO2WindowReadyFlag_000349e0 = 1;
   }
   else {
-    *PTR_DAT_000349e0 = 0;
+    *PTR_CatalystMonitor_P0420_RearO2WindowReadyFlag_000349e0 = 0;
   }
   if (*puVar4 == '\x01') {
     if (*PTR_DAT_000349ec == '\0') {
-      iVar11 = (uint)*(ushort *)PTR_DAT_000349f4 - (uint)*(ushort *)PTR_DAT_000349b4;
+      iVar11 = (uint)*(ushort *)PTR_CatalystMonitor_P0420_ActivityWindowOffsetByInputA_000349f4 -
+               (uint)*(ushort *)PTR_CatalystMonitor_P0420_ResettableCounterB_000349b4;
       if (iVar11 < 0) {
         iVar11 = 0;
       }
       *(short *)PTR_DAT_000349e8 = (short)((uint)*(ushort *)PTR_DAT_000349f8 * iVar11 >> 0x10);
     }
     else {
-      *(undefined2 *)PTR_DAT_000349e8 = *(undefined2 *)PTR_DAT_000349f0;
+      *(undefined2 *)PTR_DAT_000349e8 =
+           *(undefined2 *)PTR_CatalystMonitor_P0420_ReportSampleCount_Alt_000349f0;
     }
   }
   else {
     *(undefined2 *)PTR_DAT_000349e8 = 0;
   }
   if (*(float *)PTR_SubsystemA_PrimaryEnable_PrerequisiteB_ImmediateThresholdInput_00034a00 <
-      *(float *)PTR_DAT_000349fc) {
-    *PTR_DAT_00034a04 = 0;
+      *(float *)PTR_CatalystMonitor_P0420_RearO2SwitchThreshold_0p45_000349fc) {
+    *PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlag_00034a04 = 0;
   }
   else {
-    *PTR_DAT_00034a04 = 1;
+    *PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlag_00034a04 = 1;
   }
-  puVar8 = PTR_DAT_00034a1c;
-  puVar7 = PTR_DAT_00034a10;
-  puVar6 = PTR_DAT_00034a0c;
-  puVar5 = PTR_DAT_00034a08;
+  puVar8 = PTR_CatalystMonitor_P0420_LowStateActiveFlag_00034a1c;
+  puVar7 = PTR_CatalystMonitor_P0420_LowStateDurationCounter_00034a10;
+  puVar6 = PTR_CatalystMonitor_P0420_HighStateDurationCounter_00034a0c;
+  puVar5 = PTR_CatalystMonitor_P0420_SwitchEventCounter_00034a08;
   if (*puVar4 == '\x01') {
-    if ((cVar1 == '\x01') && (*PTR_DAT_00034a14 == '\0')) {
-      *(undefined2 *)PTR_DAT_00034a18 = *(undefined2 *)PTR_DAT_00034a10;
+    if ((cVar1 == '\x01') &&
+       (*PTR_CatalystMonitor_P0420_SwitchStatePreviousForActivity_00034a14 == '\0')) {
+      *(undefined2 *)PTR_CatalystMonitor_P0420_FailCounterSnapshot_00034a18 =
+           *(undefined2 *)PTR_CatalystMonitor_P0420_LowStateDurationCounter_00034a10;
       *(undefined2 *)puVar7 = 0;
       *puVar8 = 1;
       uVar9 = (*(code *)puVar3)((int)*(short *)puVar5,1);
       *(undefined2 *)puVar5 = uVar9;
     }
-    else if ((cVar1 == '\0') && (*PTR_DAT_00034a14 == '\x01')) {
-      *(undefined2 *)PTR_DAT_00034a20 = *(undefined2 *)PTR_DAT_00034a0c;
+    else if ((cVar1 == '\0') &&
+            (*PTR_CatalystMonitor_P0420_SwitchStatePreviousForActivity_00034a14 == '\x01')) {
+      *(undefined2 *)PTR_CatalystMonitor_P0420_PassCounterSnapshot_00034a20 =
+           *(undefined2 *)PTR_CatalystMonitor_P0420_HighStateDurationCounter_00034a0c;
       *(undefined2 *)puVar6 = 0;
-      *PTR_DAT_00034a24 = 1;
+      *PTR_CatalystMonitor_P0420_HighStateActiveFlag_00034a24 = 1;
       uVar9 = (*(code *)puVar3)((int)*(short *)puVar5,1);
       *(undefined2 *)puVar5 = uVar9;
     }
-    puVar4 = PTR_DAT_00034a1c;
-    if ((*PTR_DAT_00034a04 == '\0') && (*PTR_DAT_00034a28 == '\x01')) {
-      *(undefined2 *)PTR_DAT_00034a18 = *(undefined2 *)puVar7;
+    puVar4 = PTR_CatalystMonitor_P0420_LowStateActiveFlag_00034a1c;
+    if ((*PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlag_00034a04 == '\0') &&
+       (*PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlagPrev_00034a28 == '\x01')) {
+      *(undefined2 *)PTR_CatalystMonitor_P0420_FailCounterSnapshot_00034a18 = *(undefined2 *)puVar7;
       *puVar4 = 0;
     }
-    else if ((*PTR_DAT_00034a04 == '\x01') && (*PTR_DAT_00034a28 == '\0')) {
-      *(undefined2 *)PTR_DAT_00034a20 = *(undefined2 *)puVar6;
-      *PTR_DAT_00034a24 = 0;
+    else if ((*PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlag_00034a04 == '\x01') &&
+            (*PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlagPrev_00034a28 == '\0')) {
+      *(undefined2 *)PTR_CatalystMonitor_P0420_PassCounterSnapshot_00034a20 = *(undefined2 *)puVar6;
+      *PTR_CatalystMonitor_P0420_HighStateActiveFlag_00034a24 = 0;
     }
-    if (*PTR_DAT_00034a1c == '\x01') {
+    if (*PTR_CatalystMonitor_P0420_LowStateActiveFlag_00034a1c == '\x01') {
       uVar9 = (*(code *)puVar3)((int)*(short *)puVar7,1);
       *(undefined2 *)puVar7 = uVar9;
     }
-    if (*PTR_DAT_00034a24 == '\x01') {
+    if (*PTR_CatalystMonitor_P0420_HighStateActiveFlag_00034a24 == '\x01') {
       uVar9 = (*(code *)puVar3)((int)*(short *)puVar6,1);
       *(undefined2 *)puVar6 = uVar9;
     }
     if (*(ushort *)PTR_DAT_00034a2c <= *(ushort *)puVar5) {
-      *PTR_DAT_00034a30 = 1;
+      *PTR_CatalystMonitor_P0420_RuntimeReadyFlag_00034a30 = 1;
     }
   }
   else {
-    *(undefined2 *)PTR_DAT_00034a08 = 0;
-    puVar4 = PTR_DAT_00034c38;
-    *(undefined2 *)PTR_DAT_00034c34 = 0;
+    *(undefined2 *)PTR_CatalystMonitor_P0420_SwitchEventCounter_00034a08 = 0;
+    puVar4 = PTR_CatalystMonitor_P0420_PassCounterSnapshot_00034c38;
+    *(undefined2 *)PTR_CatalystMonitor_P0420_FailCounterSnapshot_00034c34 = 0;
     *(undefined2 *)puVar4 = 0;
-    puVar4 = PTR_DAT_00034c40;
-    *PTR_DAT_00034c3c = 0;
+    puVar4 = PTR_CatalystMonitor_P0420_LowStateActiveFlag_00034c40;
+    *PTR_CatalystMonitor_P0420_RuntimeReadyFlag_00034c3c = 0;
     *puVar4 = 0;
-    *PTR_DAT_00034c44 = 0;
+    *PTR_CatalystMonitor_P0420_HighStateActiveFlag_00034c44 = 0;
   }
-  puVar6 = PTR_DAT_00034c54;
-  puVar5 = PTR_DAT_00034c50;
-  puVar4 = PTR_DAT_00034c4c;
-  if (*(ushort *)PTR_DAT_00034c58 < *(ushort *)PTR_DAT_00034c5c) {
-    if ((*PTR_DAT_00034c3c == '\x01') && (*PTR_DAT_00034c60 == '\x01')) {
-      if (cVar1 != *PTR_DAT_00034c64) {
-        if (*(short *)PTR_DAT_00034c48 == 0) {
-          *(undefined2 *)PTR_DAT_00034c48 = 1;
-          iVar11 = ((uint)*(ushort *)PTR_DAT_00034c34 + (uint)*(ushort *)PTR_DAT_00034c38 +
-                   (uint)*(ushort *)PTR_DAT_00034c68) - (uint)*(ushort *)PTR_DAT_00034c6c;
+  puVar6 = PTR_CatalystMonitor_P0420_WindowCounterB_00034c54;
+  puVar5 = PTR_CatalystMonitor_P0420_WindowCounterA_00034c50;
+  puVar4 = PTR_CatalystMonitor_P0420_RatioFloatValue_00034c4c;
+  if (*(ushort *)PTR_CatalystMonitor_P0420_EnableDelayCounter_00034c58 < *(ushort *)PTR_DAT_00034c5c
+     ) {
+    if ((*PTR_CatalystMonitor_P0420_RuntimeReadyFlag_00034c3c == '\x01') &&
+       (*PTR_CatalystMonitor_P0420_RuntimeReadyFlagSnapshot_00034c60 == '\x01')) {
+      if (cVar1 != *PTR_CatalystMonitor_P0420_SwitchStatePreviousForActivity_00034c64) {
+        if (*(short *)PTR_CatalystMonitor_P0420_WindowSampleCountdown_00034c48 == 0) {
+          *(undefined2 *)PTR_CatalystMonitor_P0420_WindowSampleCountdown_00034c48 = 1;
+          iVar11 = ((uint)*(ushort *)PTR_CatalystMonitor_P0420_FailCounterSnapshot_00034c34 +
+                    (uint)*(ushort *)PTR_CatalystMonitor_P0420_PassCounterSnapshot_00034c38 +
+                   (uint)*(ushort *)PTR_CatalystMonitor_P0420_ActivityWindowOffsetByInputA_00034c68)
+                   - (uint)*(ushort *)PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_00034c6c;
           iVar11 = ((int)(iVar11 + (uint)(iVar11 < 0)) >> 1) + (uint)*(ushort *)puVar6;
           if (iVar11 < 0) {
             *(undefined2 *)puVar6 = 0;
@@ -71769,39 +72232,41 @@ void SubsystemA_DTC25_AccumulatorAndReport_Update(void)
           uVar9 = (*(code *)puVar3)((int)*(short *)puVar5,1);
           *(undefined2 *)puVar5 = uVar9;
           if (*puVar2 == '\0') {
-            uVar10 = *(ushort *)PTR_DAT_00034c78;
+            uVar10 = *(ushort *)PTR_CatalystMonitor_P0420_ReportSampleCount_Normal_00034c78;
           }
           else {
             uVar10 = *(ushort *)PTR_DAT_00034c74;
           }
           if (uVar10 <= *(ushort *)puVar5) {
             uVar9 = (*(code *)PTR_Math_Unknown_0735C_00034c7c)();
-            *(undefined2 *)PTR_DAT_00034c80 = uVar9;
+            *(undefined2 *)PTR_CatalystMonitor_P0420_ComparisonIndex_00034c80 = uVar9;
             if (*puVar2 == '\0') {
-              uVar9 = *(undefined2 *)PTR_DAT_00034c78;
+              uVar9 = *(undefined2 *)PTR_CatalystMonitor_P0420_ReportSampleCount_Normal_00034c78;
             }
             else {
               uVar9 = *(undefined2 *)PTR_DAT_00034c74;
             }
             uVar13 = (*(code *)PTR_FloatMulAccumulate_U16_00034c84)(uVar13,uVar15,uVar9);
             uVar13 = (*(code *)PTR_FloatDivideWithLimits_00034c88)(*(undefined4 *)puVar4,uVar13);
-            *(undefined4 *)PTR_DAT_00034c8c = uVar13;
+            *(undefined4 *)PTR_CatalystMonitor_P0420_RatioOrIndexValue_00034c8c = uVar13;
             uVar9 = (*(code *)PTR_Interpolate1D_ToUint16_00034c94)
                               (uVar13,PTR_Desc_SubsystemA_DTC25_AccumulatorReport_TableB_00034c90);
-            puVar2 = PTR_DAT_00034c9c;
-            *(undefined2 *)PTR_DAT_00034c98 = uVar9;
-            puVar3 = PTR_DAT_00034ca0;
-            if (*(ushort *)PTR_DAT_00034c80 < *(ushort *)PTR_DAT_00034c98) {
-              *PTR_DAT_00034ca0 = 0;
+            puVar2 = PTR_CatalystMonitor_P0420_PassLatch_00034c9c;
+            *(undefined2 *)PTR_CatalystMonitor_P0420_ThresholdIndex_00034c98 = uVar9;
+            puVar3 = PTR_CatalystMonitor_P0420_FailLatch_00034ca0;
+            if (*(ushort *)PTR_CatalystMonitor_P0420_ComparisonIndex_00034c80 <
+                *(ushort *)PTR_CatalystMonitor_P0420_ThresholdIndex_00034c98) {
+              *PTR_CatalystMonitor_P0420_FailLatch_00034ca0 = 0;
               *puVar2 = 1;
             }
             else {
-              *PTR_DAT_00034ca0 = 1;
+              *PTR_CatalystMonitor_P0420_FailLatch_00034ca0 = 1;
               *puVar2 = 0;
             }
-            *(undefined2 *)PTR_DAT_00034ca4 = *(undefined2 *)PTR_DAT_00034c80;
-            if (*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_00034ca8 == '\x01') {
-              if ((*puVar3 == '\x01') && (*PTR_DAT_00034c9c == '\0')) {
+            *(undefined2 *)PTR_CatalystMonitor_P0420_ComparisonIndexSnapshot_00034ca4 =
+                 *(undefined2 *)PTR_CatalystMonitor_P0420_ComparisonIndex_00034c80;
+            if (*PTR_CatalystMonitor_P0420_PrerequisiteFlagC_00034ca8 == '\x01') {
+              if ((*puVar3 == '\x01') && (*PTR_CatalystMonitor_P0420_PassLatch_00034c9c == '\0')) {
                 (*(code *)PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00034cac)(0x25,1);
               }
               else if ((*puVar2 == '\x01') && (*puVar3 == '\0')) {
@@ -71812,40 +72277,41 @@ void SubsystemA_DTC25_AccumulatorAndReport_Update(void)
           }
         }
         else {
-          *(short *)PTR_DAT_00034c48 =
-               *(short *)PTR_DAT_00034c48 + (short)PTR_LAB_0000fffe_1_00034c70;
+          *(short *)PTR_CatalystMonitor_P0420_WindowSampleCountdown_00034c48 =
+               *(short *)PTR_CatalystMonitor_P0420_WindowSampleCountdown_00034c48 +
+               (short)PTR_LAB_0000fffe_1_00034c70;
         }
       }
     }
     else {
-      *(undefined2 *)PTR_DAT_00034c48 = 1;
+      *(undefined2 *)PTR_CatalystMonitor_P0420_WindowSampleCountdown_00034c48 = 1;
     }
   }
   else {
-    *(undefined2 *)PTR_DAT_00034c48 = 1;
+    *(undefined2 *)PTR_CatalystMonitor_P0420_WindowSampleCountdown_00034c48 = 1;
     *(undefined2 *)puVar6 = 0;
     *(undefined4 *)puVar4 = uVar15;
     *(undefined2 *)puVar5 = 0;
   }
-  puVar3 = PTR_DAT_00034cb0;
-  *PTR_DAT_00034c64 = cVar1;
-  puVar2 = PTR_DAT_00034c60;
-  *PTR_DAT_00034cb4 = *puVar3;
+  puVar3 = PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlag_00034cb0;
+  *PTR_CatalystMonitor_P0420_SwitchStatePreviousForActivity_00034c64 = cVar1;
+  puVar2 = PTR_CatalystMonitor_P0420_RuntimeReadyFlagSnapshot_00034c60;
+  *PTR_CatalystMonitor_P0420_RearO2BelowThresholdFlagPrev_00034cb4 = *puVar3;
   puVar3 = PTR_DTC_ReportState_DTC25_UpdatedFlag_00034cb8;
-  *puVar2 = *PTR_DAT_00034c3c;
-  puVar7 = PTR_DAT_00034cc4;
-  puVar2 = PTR_DAT_00034cbc;
+  *puVar2 = *PTR_CatalystMonitor_P0420_RuntimeReadyFlag_00034c3c;
+  puVar7 = PTR_CatalystMonitor_P0420_ResettableFloatSumB_00034cc4;
+  puVar2 = PTR_CatalystMonitor_P0420_DtcReportStateSnapshot_00034cbc;
   cVar1 = *puVar3;
-  if ((*PTR_DAT_00034cbc == '\x01') && (cVar1 == '\0')) {
-    *(undefined2 *)PTR_DAT_00034cc0 = 0;
+  if ((*PTR_CatalystMonitor_P0420_DtcReportStateSnapshot_00034cbc == '\x01') && (cVar1 == '\0')) {
+    *(undefined2 *)PTR_CatalystMonitor_P0420_ResettableCounterB_00034cc0 = 0;
     *(undefined4 *)puVar7 = uVar15;
-    puVar3 = PTR_DAT_00034c80;
-    *PTR_DAT_00034cc8 = 0;
+    puVar3 = PTR_CatalystMonitor_P0420_ComparisonIndex_00034c80;
+    *PTR_CatalystMonitor_P0420_ResetHoldFlag_00034cc8 = 0;
     *(undefined2 *)puVar6 = 0;
     *(undefined4 *)puVar4 = uVar15;
     *(undefined2 *)puVar5 = 0;
     *(undefined2 *)puVar3 = 0;
-    *(undefined4 *)PTR_DAT_00034c8c = uVar15;
+    *(undefined4 *)PTR_CatalystMonitor_P0420_RatioOrIndexValue_00034c8c = uVar15;
   }
   *puVar2 = cVar1;
   return;
@@ -71853,26 +72319,28 @@ void SubsystemA_DTC25_AccumulatorAndReport_Update(void)
 
 
 
-void SubsystemA_DTC25_CounterPair_Update(void)
+void CatalystMonitor_P0420_CounterPair_Update(void)
 
 {
   undefined *puVar1;
   undefined2 uVar2;
   
-  puVar1 = PTR_DAT_00034d0c;
-  if (*PTR_DAT_00034d10 == '\x01') {
-    uVar2 = (*(code *)PTR_AddUint16AndSaturateToFFFE_00034d14)((int)*(short *)PTR_DAT_00034d0c,1);
+  puVar1 = PTR_CatalystMonitor_P0420_ResetCounterA_00034d0c;
+  if (*PTR_CatalystMonitor_P0420_ResetHoldFlag_00034d10 == '\x01') {
+    uVar2 = (*(code *)PTR_AddUint16AndSaturateToFFFE_00034d14)
+                      ((int)*(short *)PTR_CatalystMonitor_P0420_ResetCounterA_00034d0c,1);
     *(undefined2 *)puVar1 = uVar2;
   }
   else {
-    *(undefined2 *)PTR_DAT_00034d0c = 0;
+    *(undefined2 *)PTR_CatalystMonitor_P0420_ResetCounterA_00034d0c = 0;
   }
-  puVar1 = PTR_DAT_00034d18;
-  if (*(short *)PTR_DAT_00034d1c == 0) {
-    *(undefined2 *)PTR_DAT_00034d18 = 0;
+  puVar1 = PTR_CatalystMonitor_P0420_EnableDelayCounter_00034d18;
+  if (*(short *)PTR_CatalystMonitor_P0420_WindowCounterA_00034d1c == 0) {
+    *(undefined2 *)PTR_CatalystMonitor_P0420_EnableDelayCounter_00034d18 = 0;
   }
   else {
-    uVar2 = (*(code *)PTR_AddUint16AndSaturateToFFFE_00034d14)((int)*(short *)PTR_DAT_00034d18,1);
+    uVar2 = (*(code *)PTR_AddUint16AndSaturateToFFFE_00034d14)
+                      ((int)*(short *)PTR_CatalystMonitor_P0420_EnableDelayCounter_00034d18,1);
     *(undefined2 *)puVar1 = uVar2;
   }
   return;
@@ -71880,7 +72348,7 @@ void SubsystemA_DTC25_CounterPair_Update(void)
 
 
 
-void InfoDisplay_StatusBit04_SubsystemABlendThreshold_Reset(void)
+void CKP_P0335_ProcessedStatus_Reset(void)
 
 {
   undefined *puVar1;
@@ -71896,7 +72364,7 @@ void InfoDisplay_StatusBit04_SubsystemABlendThreshold_Reset(void)
 
 
 
-void InfoDisplay_StatusBit04_SubsystemABlendThreshold_Update(void)
+void CKP_P0335_ProcessedStatus_DebounceAndReport(void)
 
 {
   undefined *puVar1;
@@ -71988,9 +72456,9 @@ void SubsystemA_CommandBlend_SeededIatLoad_TableSelectSnapshot_Reset(void)
   *(undefined2 *)PTR_DAT_0003504c = 0;
   *PTR_DAT_00035054 = *PTR_SubsystemA_CommandBlend_TableSelectFlag_00035050;
   *PTR_DAT_0003505c = *PTR_ACCompressorRelay_PE10_CommandRequest_00035058;
-  *PTR_DAT_00035064 = *PTR_DAT_00035060;
-  *PTR_DAT_0003506c = *PTR_DAT_00035068;
-  *PTR_DAT_00035074 = *PTR_DAT_00035070;
+  *PTR_DAT_00035064 = *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_00035060;
+  *PTR_DAT_0003506c = *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_00035068;
+  *PTR_DAT_00035074 = *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00035070;
   *PTR_DAT_0003507c = *PTR_CoolingFanRelay1_PE4_CommandRequest_00035078;
   *PTR_DAT_00035084 = *PTR_CoolingFanRelay2Relay3_PE9_CommandRequest_00035080;
   *PTR_DAT_0003508c = *PTR_CoolingFanAux_PE11_CommandRequest_00035088;
@@ -72032,7 +72500,9 @@ void SubsystemA_CommandBlend_SeededIatLoad_Counters_Reset(void)
 
 
 
-void SubsystemA_DTC22_23_EnableGate_UpdateFromSeedWindow(void)
+// Updates the shared enable gate for the EGR flow diagnostics P0401/P0402.
+
+void EGR_P0401_P0402_EnableGate_Update(void)
 
 {
   char cVar1;
@@ -72119,7 +72589,9 @@ LAB_00035120:
 
 
 
-void SubsystemA_DTC22_23_SeedDeltaTrack_Update(void)
+// Updates the insufficient-EGR-flow debounce path used for OBD DTC P0401.
+
+void EGR_P0401_InsufficientFlow_DebouncePath_Update(void)
 
 {
   undefined *puVar1;
@@ -72141,7 +72613,9 @@ void SubsystemA_DTC22_23_SeedDeltaTrack_Update(void)
 
 
 
-void SubsystemA_DTC22_23_StableInputWindow_Update(void)
+// Updates the excessive-EGR-flow debounce path used for OBD DTC P0402.
+
+void EGR_P0402_ExcessiveFlow_DebouncePath_Update(void)
 
 {
   char cVar1;
@@ -72158,17 +72632,17 @@ void SubsystemA_DTC22_23_StableInputWindow_Update(void)
   
   cVar1 = *PTR_SubsystemA_CommandBlend_TableSelectFlag_00035310;
   cVar2 = *PTR_ACCompressorRelay_PE10_CommandRequest_00035314;
-  cVar3 = *PTR_DAT_00035318;
-  cVar4 = *PTR_DAT_0003531c;
-  cVar5 = *PTR_DAT_00035320;
+  cVar3 = *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_00035318;
+  cVar4 = *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_0003531c;
+  cVar5 = *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00035320;
   cVar6 = *PTR_CoolingFanRelay1_PE4_CommandRequest_00035324;
   cVar7 = *PTR_CoolingFanRelay2Relay3_PE9_CommandRequest_00035328;
   cVar8 = *PTR_CoolingFanAux_PE11_CommandRequest_0003532c;
   cVar11 = (*(code *)PTR_ValueInDeltaRange_00035338)(*(undefined4 *)PTR_DAT_00035334,0,DAT_00035330)
   ;
   puVar9 = PTR_DAT_00035340;
-  if ((((((*PTR_DAT_00035344 == '\0') && (*PTR_DAT_00035348 == cVar1)) &&
-        (*PTR_DAT_0003534c == cVar2)) &&
+  if ((((((*PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00035344 == '\0') &&
+         (*PTR_DAT_00035348 == cVar1)) && (*PTR_DAT_0003534c == cVar2)) &&
        ((*PTR_DAT_00035350 == cVar3 && (*PTR_DAT_00035354 == cVar4)))) &&
       ((*PTR_DAT_00035358 == cVar5 && ((*PTR_DAT_0003535c == cVar6 && (*PTR_DAT_00035360 == cVar7)))
        ))) && ((*PTR_DAT_00035364 == cVar8 && (cVar11 == '\0')))) {
@@ -72201,7 +72675,9 @@ void SubsystemA_DTC22_23_StableInputWindow_Update(void)
 
 
 
-void SubsystemA_DTC22_23_BaselineCapture_Update(void)
+// Finalizes and reports the insufficient-EGR-flow diagnostic result for OBD DTC P0401.
+
+void EGR_P0401_InsufficientFlow_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -72277,7 +72753,9 @@ void SubsystemA_DTC22_23_BaselineCapture_Update(void)
 
 
 
-uint SubsystemA_DTC22_23_AccumulatorAndReport_Update(void)
+// Finalizes and reports the excessive-EGR-flow diagnostic result for OBD DTC P0402.
+
+uint EGR_P0402_ExcessiveFlow_DebounceAndReport(void)
 
 {
   undefined *puVar1;
@@ -72423,7 +72901,7 @@ void InfoDisplay_StatusBit04_SampledPair_SubsystemABlendSnapshot_Init(void)
 
 
 
-void InfoDisplay_StatusBit04_SampledPair_Reset(void)
+void CMP_P0340_SampledPair_Reset(void)
 
 {
   undefined *puVar1;
@@ -72494,7 +72972,7 @@ void InfoDisplay_StatusBit04_SampledPair_SubsystemABlendSnapshot_MinUpdate(void)
 
 
 
-void InfoDisplay_StatusBit04_SampledPair_EnableGate_UpdateFromSubsystemAPhaseInputs(void)
+void CMP_P0340_SampledPair_EnableGate_Update(void)
 
 {
   char cVar1;
@@ -72534,7 +73012,7 @@ void InfoDisplay_StatusBit04_SampledPair_EnableGate_UpdateFromSubsystemAPhaseInp
 
 
 
-uint InfoDisplay_StatusBit04_SampledPair_Update(void)
+uint CMP_P0340_SampledPair_DebounceAndReport(void)
 
 {
   undefined *puVar1;
@@ -72676,7 +73154,7 @@ void InfoDisplay_StatusBit04_SampledPair_Counters_Reset(void)
 
 
 
-void SubsystemA_DTC16_EnableGate_UpdateFromLoadIatSeedRequest(void)
+void HO2S1_P0134_NoActivity_EnableGate_UpdateFromLoadIatSeedRequest(void)
 
 {
   char cVar1;
@@ -72712,11 +73190,9 @@ void SubsystemA_DTC16_EnableGate_UpdateFromLoadIatSeedRequest(void)
 
 
 
-// SubsystemA DTC 0x16 plausibility/window monitor using validated coolant temperature and
-// load-derived thresholds; reports 0x16 through the generic DTC report dispatcher after
-// debounce/window state changes.
+// Reports OBD P0134 for HO2S1 no-activity after the operating-window gate is satisfied.
 
-void SubsystemA_DTC16_EctWindow_DebounceAndReport(void)
+void HO2S1_P0134_NoActivity_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -72732,6 +73208,8 @@ void SubsystemA_DTC16_EctWindow_DebounceAndReport(void)
   float fVar11;
   undefined4 uVar12;
   
+                    // Reports OBD P0134 for HO2S1 no-activity after the operating-window gate is
+                    // satisfied.
   puVar2 = PTR_Interpolate1D_ToUint16_00035c30;
   uVar12 = *(undefined4 *)PTR_ECTSensor_AN28_CelsiusValidated_00035c28;
   fVar11 = *(float *)PTR_SubsystemA_CommandBlend_IndexFilteredInput_Output_00035c2c;
@@ -72843,16 +73321,16 @@ void SubsystemA_PrimaryEnable_InputBState_Reset(void)
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_00035f1c;
-  *(undefined4 *)PTR_DAT_00035f18 = *(undefined4 *)PTR_SubsystemA_EnablePrecondition_InputB_00035f14
-  ;
+  puVar1 = PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_00035f1c;
+  *(undefined4 *)PTR_HO2S1_DTC_LastWorkingVoltageForDelta_00035f18 =
+       *(undefined4 *)PTR_SubsystemA_EnablePrecondition_InputB_00035f14;
   *puVar1 = 0;
-  *(undefined2 *)PTR_DAT_00035f20 = 0;
-  *(undefined2 *)PTR_DAT_00035f24 = 0;
-  *PTR_DAT_00035f28 = 0;
-  *(undefined2 *)PTR_DAT_00035f2c = 0;
-  *(undefined2 *)PTR_DAT_00035f30 = 0;
-  *(undefined4 *)PTR_DAT_00035f34 = 0;
+  *(undefined2 *)PTR_HO2S1_DTC_EnableWindowCounter_00035f20 = 0;
+  *(undefined2 *)PTR_HO2S1_DTC_EnableWindowAccumulatorA_00035f24 = 0;
+  *PTR_HO2S1_DTC_EnableWindowFaultLatch_00035f28 = 0;
+  *(undefined2 *)PTR_HO2S1_DTC_EnableWindowAccumulatorB_00035f2c = 0;
+  *(undefined2 *)PTR_HO2S1_DTC_SamplePeriodCounter_00035f30 = 0;
+  *(undefined4 *)PTR_HO2S1_DTC_SampleDeltaAbs_00035f34 = 0;
   return;
 }
 
@@ -72861,16 +73339,16 @@ void SubsystemA_PrimaryEnable_InputBState_Reset(void)
 void DiagWindowGroup35D_State_Reset(void)
 
 {
-  *PTR_DAT_00035f38 = 0;
-  *PTR_DAT_00035f3c = 0;
-  *PTR_DAT_00035f40 = 0;
-  *PTR_DAT_00035f44 = 0;
-  *PTR_DAT_00035f48 = 0;
-  *PTR_DAT_00035f4c = 0;
-  *(undefined2 *)PTR_DAT_00035f50 = 0;
-  *(undefined2 *)PTR_DAT_00035f54 = 0;
-  *(undefined2 *)PTR_DAT_00035f58 = 0;
-  *(undefined2 *)PTR_DAT_00035f5c = 0;
+  *PTR_HO2S1_DTC13_P0131_FailLatch_00035f38 = 0;
+  *PTR_HO2S1_DTC13_P0131_PassLatch_00035f3c = 0;
+  *PTR_HO2S1_DTC14_P0132_FailLatch_00035f40 = 0;
+  *PTR_HO2S1_DTC14_P0132_PassLatch_00035f44 = 0;
+  *PTR_HO2S1_DTC15_P0133_FailLatch_00035f48 = 0;
+  *PTR_HO2S1_DTC15_P0133_PassLatch_00035f4c = 0;
+  *(undefined2 *)PTR_HO2S1_DTC_ReportWindowCounter_00035f50 = 0;
+  *(undefined2 *)PTR_HO2S1_DTC_HighSideCrossingCounterSnapshot_00035f54 = 0;
+  *(undefined2 *)PTR_HO2S1_DTC_LowSideCrossingCounterSnapshot_00035f58 = 0;
+  *(undefined2 *)PTR_HO2S1_DTC_TransitionRateSnapshot_00035f5c = 0;
   return;
 }
 
@@ -72882,8 +73360,8 @@ void DiagWindowGroup35D_Input_CopySnapshots(void)
   undefined4 uVar1;
   
   uVar1 = *(undefined4 *)PTR_SubsystemA_CommandBlend_IndexFilteredInput_Output_00035f60;
-  *(undefined4 *)PTR_DAT_00035f64 = uVar1;
-  *(undefined4 *)PTR_DAT_00035f68 = uVar1;
+  *(undefined4 *)PTR_HO2S1_DTC_WindowMinVoltage_00035f64 = uVar1;
+  *(undefined4 *)PTR_HO2S1_DTC_WindowMaxVoltage_00035f68 = uVar1;
   return;
 }
 
@@ -72899,30 +73377,30 @@ void DiagWindowGroup35D_ThresholdFlags_Update(void)
   float fVar5;
   
   fVar3 = *(float *)PTR_SubsystemA_CommandBlend_IndexFilteredInput_Output_00035f60;
-  fVar4 = *(float *)PTR_DAT_00035f6c - *(float *)PTR_DAT_00035f70;
-  fVar5 = *(float *)PTR_DAT_00035f74 + *(float *)PTR_DAT_00035f6c;
+  fVar4 = *(float *)PTR_HO2S1_DTC_ReferenceCenterVoltage_00035f6c - *(float *)PTR_DAT_00035f70;
+  fVar5 = *(float *)PTR_DAT_00035f74 + *(float *)PTR_HO2S1_DTC_ReferenceCenterVoltage_00035f6c;
   if (fVar4 <= fVar3) {
     if (fVar5 <= fVar3) {
-      *PTR_DAT_00035f78 = 0;
+      *PTR_HO2S1_DTC_BelowThresholdFlag_00035f78 = 0;
     }
   }
   else {
-    *PTR_DAT_00035f78 = 1;
+    *PTR_HO2S1_DTC_BelowThresholdFlag_00035f78 = 1;
   }
   if (fVar3 < fVar5) {
     if (fVar3 < fVar4) {
-      *PTR_DAT_00035f7c = 0;
+      *PTR_HO2S1_DTC_AboveThresholdFlag_00035f7c = 0;
     }
   }
   else {
-    *PTR_DAT_00035f7c = 1;
+    *PTR_HO2S1_DTC_AboveThresholdFlag_00035f7c = 1;
   }
-  puVar1 = PTR_DAT_00035f88;
+  puVar1 = PTR_HO2S1_DTC_HighSideCrossingCounterMin_00035f88;
   uVar2 = SUB42(PTR_DAT_00035f80,0);
-  *(undefined2 *)PTR_DAT_00035f84 = uVar2;
+  *(undefined2 *)PTR_HO2S1_DTC_LowSideCrossingCounterMin_00035f84 = uVar2;
   *(undefined2 *)puVar1 = uVar2;
-  puVar1 = PTR_DAT_00035f90;
-  *(undefined2 *)PTR_DAT_00035f8c = uVar2;
+  puVar1 = PTR_HO2S1_DTC_HighSideCrossingCounter_00035f90;
+  *(undefined2 *)PTR_HO2S1_DTC_LowSideCrossingCounter_00035f8c = uVar2;
   *(undefined2 *)puVar1 = uVar2;
   return;
 }
@@ -72934,17 +73412,17 @@ void DiagWindowGroup35D_Latches_Reset(void)
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_00035fa0;
-  *PTR_DAT_00035f98 = *PTR_DAT_00035f94;
-  *(undefined2 *)PTR_DAT_00035f9c = 0;
+  puVar1 = PTR_HO2S1_DTC_TransitionCount_00035fa0;
+  *PTR_HO2S1_DTC_LastSwitchState_00035f98 = *PTR_DAT_00035f94;
+  *(undefined2 *)PTR_HO2S1_DTC_TransitionAccumulatedTime_00035f9c = 0;
   *(undefined2 *)puVar1 = 0;
-  *(undefined2 *)PTR_DAT_00035fa4 = 0;
+  *(undefined2 *)PTR_HO2S1_DTC_TransitionRateValue_00035fa4 = 0;
   return;
 }
 
 
 
-void SubsystemA_DTC13_14_15_EnableGate_UpdateFromAirLoadWindows(void)
+void HO2S1_P0131_P0132_P0133_EnableGate_UpdateFromOperatingWindows(void)
 
 {
   char cVar1;
@@ -72979,14 +73457,14 @@ void SubsystemA_DTC13_14_15_EnableGate_UpdateFromAirLoadWindows(void)
   fVar17 = *(float *)PTR_DAT_00035fc0;
   fVar13 = (float)(*(code *)PTR_AbsFloatDifference_00035fc8)
                             (*(undefined4 *)PTR_SubsystemA_SeededIatLoad_SecondaryDelta_00035fc4,0);
-  puVar5 = PTR_DAT_00035fcc;
+  puVar5 = PTR_HO2S1_DTC_EnableThresholdByLoadA_00035fcc;
   uVar14 = (*(code *)PTR_Interpolate1D_WithTransform_00035fd4)
                      (fVar21,PTR_Desc_SubsystemA_DTC13_14_15_AirLoadWindow_TableA_00035fd0);
   *(undefined4 *)puVar5 = uVar14;
   fVar15 = (float)(*(code *)PTR_Interpolate1D_WithTransform_00035fd4)
                             (fVar21,PTR_Desc_SubsystemA_DTC13_14_15_AirLoadWindow_TableB_00035fd8);
   puVar4 = PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00035fe0;
-  *(float *)PTR_DAT_00035fdc = fVar15;
+  *(float *)PTR_HO2S1_DTC_EnableThresholdByLoadB_00035fdc = fVar15;
   fVar18 = *(float *)puVar5;
   puVar10 = PTR_Desc_SubsystemA_DTC13_16_LoadIatSeedWindow_TableB_00035fe8;
   if (*puVar4 != '\0') {
@@ -72994,60 +73472,62 @@ void SubsystemA_DTC13_14_15_EnableGate_UpdateFromAirLoadWindows(void)
   }
   uVar14 = (*(code *)PTR_Interpolate2D_float_WithTransform_00035fec)(fVar21,uVar20,puVar10);
   puVar10 = PTR_AddUint16AndSaturateToFFFE_00035ff8;
-  *(undefined4 *)PTR_DAT_00035ff0 = uVar14;
-  puVar4 = PTR_DAT_00035f24;
+  *(undefined4 *)PTR_HO2S1_DTC_EnableThreshold2D_00035ff0 = uVar14;
+  puVar4 = PTR_HO2S1_DTC_EnableWindowAccumulatorA_00035f24;
   cVar2 = PTR_DTC_ReportState_IdUpdatedFlagTable_00035ff4[0x13];
   cVar3 = PTR_DTC_ReportState_IdUpdatedFlagTable_00035ff4[0x14];
   cVar1 = PTR_DTC_ReportState_IdUpdatedFlagTable_00035ff4[0x15];
   if (fVar22 < fVar18 + fVar15) {
     if (fVar22 < *(float *)puVar5) {
-      iVar11 = (uint)*(ushort *)PTR_DAT_00035f24 - (uint)*(ushort *)PTR_DAT_00036004;
+      iVar11 = (uint)*(ushort *)PTR_HO2S1_DTC_EnableWindowAccumulatorA_00035f24 -
+               (uint)*(ushort *)PTR_DAT_00036004;
       if (iVar11 < 0) {
-        *(undefined2 *)PTR_DAT_00035f24 = 0;
+        *(undefined2 *)PTR_HO2S1_DTC_EnableWindowAccumulatorA_00035f24 = 0;
       }
       else {
-        *(short *)PTR_DAT_00035f24 = (short)iVar11;
+        *(short *)PTR_HO2S1_DTC_EnableWindowAccumulatorA_00035f24 = (short)iVar11;
       }
     }
   }
   else {
-    uVar7 = (*(code *)puVar10)((int)(short)*(ushort *)PTR_DAT_00035f24,
+    uVar7 = (*(code *)puVar10)((int)(short)*(ushort *)
+                                            PTR_HO2S1_DTC_EnableWindowAccumulatorA_00035f24,
                                (int)*(short *)PTR_DAT_00035ffc);
     if (*(ushort *)PTR_DAT_00036000 < uVar7) {
       uVar7 = *(ushort *)PTR_DAT_00036000;
     }
     *(ushort *)puVar4 = uVar7;
   }
-  puVar5 = PTR_DAT_00035f2c;
+  puVar5 = PTR_HO2S1_DTC_EnableWindowAccumulatorB_00035f2c;
   if (*(ushort *)puVar4 < *(ushort *)PTR_DAT_00036008) {
-    if (*(ushort *)PTR_DAT_0003600c <= *(ushort *)PTR_DAT_00035f2c) {
-      *PTR_DAT_00035f28 = 0;
+    if (*(ushort *)PTR_DAT_0003600c <= *(ushort *)PTR_HO2S1_DTC_EnableWindowAccumulatorB_00035f2c) {
+      *PTR_HO2S1_DTC_EnableWindowFaultLatch_00035f28 = 0;
     }
     uVar8 = (*(code *)puVar10)((int)*(short *)puVar5,1);
     *(undefined2 *)puVar5 = uVar8;
   }
   else {
-    *PTR_DAT_00035f28 = 1;
+    *PTR_HO2S1_DTC_EnableWindowFaultLatch_00035f28 = 1;
     *(undefined2 *)puVar5 = 0;
   }
-  puVar5 = PTR_DAT_000361c8;
-  uVar8 = (*(code *)puVar10)((int)*(short *)PTR_DAT_000361c8,1);
+  puVar5 = PTR_HO2S1_DTC_SamplePeriodCounter_000361c8;
+  uVar8 = (*(code *)puVar10)((int)*(short *)PTR_HO2S1_DTC_SamplePeriodCounter_000361c8,1);
   *(undefined2 *)puVar5 = uVar8;
-  puVar4 = PTR_DAT_000361d0;
+  puVar4 = PTR_HO2S1_DTC_LastWorkingVoltageForDelta_000361d0;
   if (*(ushort *)PTR_DAT_000361cc <= *(ushort *)puVar5) {
     *(undefined2 *)puVar5 = 0;
     uVar14 = (*(code *)PTR_AbsFloatDifference_000361d4)(*(undefined4 *)puVar4,fVar22);
-    *(undefined4 *)PTR_DAT_000361d8 = uVar14;
-    *(float *)PTR_DAT_000361d0 = fVar22;
+    *(undefined4 *)PTR_HO2S1_DTC_SampleDeltaAbs_000361d8 = uVar14;
+    *(float *)PTR_HO2S1_DTC_LastWorkingVoltageForDelta_000361d0 = fVar22;
   }
-  puVar6 = PTR_DAT_000361e4;
-  puVar4 = PTR_DAT_000361e0;
+  puVar6 = PTR_HO2S1_DTC_EnableWindowCounter_000361e4;
+  puVar4 = PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_000361e0;
   puVar5 = PTR_DTC_IsOBDRelevantOrActive_000361dc;
   cVar9 = (*(code *)PTR_DTC_IsOBDRelevantOrActive_000361dc)(0x13);
   if ((((cVar9 == '\0') && (cVar9 = (*(code *)puVar5)(0x14), cVar9 == '\0')) &&
       (cVar9 = (*(code *)puVar5)(0x15), cVar9 == '\0')) &&
      ((*PTR_CommandModel_StageActiveFlag_000361e8 == '\x01' &&
-      (*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_000361ec == '\0')))) {
+      (*PTR_CatalystMonitor_P0420_PrerequisiteFlagC_000361ec == '\0')))) {
     if (*PTR_DAT_000361f0 == '\0') {
       fVar15 = *(float *)PTR_DAT_000361f8;
     }
@@ -73068,14 +73548,15 @@ void SubsystemA_DTC13_14_15_EnableGate_UpdateFromAirLoadWindows(void)
         else {
           fVar15 = *(float *)PTR_DAT_0003620c;
         }
-        if (((((fVar21 < fVar15) && (*(float *)PTR_DAT_00036214 <= fVar22)) &&
-             ((fVar22 < fVar12 - fVar17 &&
-              (((*(float *)PTR_DAT_00036218 <= fVar19 && (fVar19 < *(float *)PTR_DAT_0003621c)) &&
-               (*(float *)PTR_SubsystemA_CommandBlend_CommandRampOutput_Current_00036224 <
-                *(float *)PTR_DAT_00036220)))))) &&
+        if (((((fVar21 < fVar15) && (*(float *)PTR_HO2S1_DTC_EnableThreshold2D_00036214 <= fVar22))
+             && ((fVar22 < fVar12 - fVar17 &&
+                 (((*(float *)PTR_DAT_00036218 <= fVar19 && (fVar19 < *(float *)PTR_DAT_0003621c))
+                  && (*(float *)PTR_SubsystemA_CommandBlend_CommandRampOutput_Current_00036224 <
+                      *(float *)PTR_DAT_00036220)))))) &&
             ((*(float *)PTR_DAT_00036228 <= fVar16 && (fVar16 < *(float *)PTR_DAT_0003622c)))) &&
-           ((*(float *)PTR_DAT_000361d8 < *(float *)PTR_DAT_00036230 &&
-            ((fVar13 < *(float *)PTR_DAT_00036234 && (*PTR_DAT_00036238 == '\0')))))) {
+           ((*(float *)PTR_HO2S1_DTC_SampleDeltaAbs_000361d8 < *(float *)PTR_DAT_00036230 &&
+            ((fVar13 < *(float *)PTR_DAT_00036234 &&
+             (*PTR_HO2S1_DTC_EnableWindowFaultLatch_00036238 == '\0')))))) {
           if (*(ushort *)PTR_DAT_0003623c <= *(ushort *)puVar6) {
             *puVar4 = 1;
           }
@@ -73089,27 +73570,29 @@ void SubsystemA_DTC13_14_15_EnableGate_UpdateFromAirLoadWindows(void)
   *puVar4 = 0;
   *(undefined2 *)puVar6 = 0;
 LAB_00036144:
-  puVar5 = PTR_DAT_00036240;
+  puVar5 = PTR_HO2S1_DTC13_P0131_FailLatch_00036240;
   if ((((cVar2 == '\0') && (cVar3 == '\0')) && (cVar1 == '\0')) &&
-     ((((*PTR_DAT_00036240 == '\x01' || (*PTR_DAT_00036244 == '\x01')) ||
-       ((*PTR_DAT_00036248 == '\x01' ||
-        ((*PTR_DAT_0003624c == '\x01' || (*PTR_DAT_00036250 == '\x01')))))) ||
-      (*PTR_DAT_00036254 == '\x01')))) {
+     ((((*PTR_HO2S1_DTC13_P0131_FailLatch_00036240 == '\x01' ||
+        (*PTR_HO2S1_DTC13_P0131_PassLatch_00036244 == '\x01')) ||
+       ((*PTR_HO2S1_DTC14_P0132_FailLatch_00036248 == '\x01' ||
+        ((*PTR_HO2S1_DTC14_P0132_PassLatch_0003624c == '\x01' ||
+         (*PTR_HO2S1_DTC15_P0133_FailLatch_00036250 == '\x01')))))) ||
+      (*PTR_HO2S1_DTC15_P0133_PassLatch_00036254 == '\x01')))) {
     *(undefined2 *)puVar6 = 0;
     *puVar4 = 0;
     *puVar5 = 0;
-    *PTR_DAT_00036244 = 0;
-    *PTR_DAT_00036248 = 0;
-    *PTR_DAT_0003624c = 0;
-    *PTR_DAT_00036250 = 0;
-    *PTR_DAT_00036254 = 0;
+    *PTR_HO2S1_DTC13_P0131_PassLatch_00036244 = 0;
+    *PTR_HO2S1_DTC14_P0132_FailLatch_00036248 = 0;
+    *PTR_HO2S1_DTC14_P0132_PassLatch_0003624c = 0;
+    *PTR_HO2S1_DTC15_P0133_FailLatch_00036250 = 0;
+    *PTR_HO2S1_DTC15_P0133_PassLatch_00036254 = 0;
   }
   return;
 }
 
 
 
-uint SubsystemA_DTC13_14_15_AccumulatorAndReport_Update(void)
+uint HO2S1_P0131_P0132_P0133_AccumulatorAndReport_Update(void)
 
 {
   undefined *puVar1;
@@ -73124,16 +73607,16 @@ uint SubsystemA_DTC13_14_15_AccumulatorAndReport_Update(void)
   float fVar10;
   float fVar11;
   
-  puVar3 = PTR_DAT_00036450;
-  puVar2 = PTR_DAT_0003644c;
-  puVar1 = PTR_DAT_00036438;
-  fVar11 = *(float *)PTR_DAT_00036434;
-  uVar9 = (uint)(byte)*PTR_DAT_0003643c;
+  puVar3 = PTR_HO2S1_DTC13_P0131_FailLatch_00036450;
+  puVar2 = PTR_HO2S1_DTC13_P0131_PassLatch_0003644c;
+  puVar1 = PTR_HO2S1_DTC_ReportWindowCounter_00036438;
+  fVar11 = *(float *)PTR_HO2S1_DTC_ReferenceCenterVoltage_00036434;
+  uVar9 = (uint)(byte)*PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_0003643c;
   if (uVar9 == 1) {
-    if (*(short *)PTR_DAT_00036438 == *(short *)PTR_DAT_00036440) {
+    if (*(short *)PTR_HO2S1_DTC_ReportWindowCounter_00036438 == *(short *)PTR_DAT_00036440) {
       fVar10 = *(float *)PTR_DAT_00036444 + fVar11;
-      *(float *)PTR_DAT_00036448 = fVar10;
-      if (fVar10 <= *(float *)PTR_DAT_00036454) {
+      *(float *)PTR_HO2S1_DTC_HighFaultThresholdVoltage_00036448 = fVar10;
+      if (fVar10 <= *(float *)PTR_HO2S1_DTC_WindowMaxVoltage_00036454) {
         *puVar3 = 1;
         *puVar2 = 0;
       }
@@ -73141,48 +73624,53 @@ uint SubsystemA_DTC13_14_15_AccumulatorAndReport_Update(void)
         *puVar3 = 0;
         *puVar2 = 1;
       }
-      puVar6 = PTR_DAT_00036468;
-      puVar4 = PTR_DAT_00036460;
+      puVar6 = PTR_HO2S1_DTC_WindowMinVoltage_00036468;
+      puVar4 = PTR_HO2S1_DTC14_P0132_PassLatch_00036460;
       fVar11 = fVar11 - *(float *)PTR_DAT_00036458;
-      *(float *)PTR_DAT_0003645c = fVar11;
-      puVar5 = PTR_DAT_00036464;
+      *(float *)PTR_HO2S1_DTC_LowFaultThresholdVoltage_0003645c = fVar11;
+      puVar5 = PTR_HO2S1_DTC14_P0132_FailLatch_00036464;
       if (*(float *)puVar6 <= fVar11) {
-        *PTR_DAT_00036464 = 1;
+        *PTR_HO2S1_DTC14_P0132_FailLatch_00036464 = 1;
         *puVar4 = 0;
       }
       else {
-        *PTR_DAT_00036464 = 0;
+        *PTR_HO2S1_DTC14_P0132_FailLatch_00036464 = 0;
         *puVar4 = 1;
       }
-      puVar7 = PTR_DAT_00036470;
-      puVar6 = PTR_DAT_0003646c;
-      if (((*(ushort *)PTR_DAT_00036478 < *(ushort *)PTR_DAT_00036474) ||
-          (*(ushort *)PTR_DAT_00036480 < *(ushort *)PTR_DAT_0003647c)) ||
-         (*(ushort *)PTR_DAT_00036488 < *(ushort *)PTR_DAT_00036484)) {
-        *PTR_DAT_00036470 = 0;
+      puVar7 = PTR_HO2S1_DTC15_P0133_FailLatch_00036470;
+      puVar6 = PTR_HO2S1_DTC15_P0133_PassLatch_0003646c;
+      if (((*(ushort *)PTR_DAT_00036478 <
+            *(ushort *)PTR_HO2S1_DTC_LowSideCrossingCounterMin_00036474) ||
+          (*(ushort *)PTR_DAT_00036480 <
+           *(ushort *)PTR_HO2S1_DTC_HighSideCrossingCounterMin_0003647c)) ||
+         (*(ushort *)PTR_DAT_00036488 < *(ushort *)PTR_HO2S1_DTC_TransitionRateValue_00036484)) {
+        *PTR_HO2S1_DTC15_P0133_FailLatch_00036470 = 0;
         *puVar6 = 1;
       }
       else {
-        *PTR_DAT_00036470 = 1;
+        *PTR_HO2S1_DTC15_P0133_FailLatch_00036470 = 1;
         *puVar6 = 0;
       }
-      *(undefined2 *)PTR_DAT_0003648c = *(undefined2 *)PTR_DAT_0003647c;
-      *(undefined2 *)PTR_DAT_00036490 = *(undefined2 *)PTR_DAT_00036474;
-      *(undefined2 *)PTR_DAT_00036494 = *(undefined2 *)PTR_DAT_00036484;
+      *(undefined2 *)PTR_HO2S1_DTC_HighSideCrossingCounterSnapshot_0003648c =
+           *(undefined2 *)PTR_HO2S1_DTC_HighSideCrossingCounterMin_0003647c;
+      *(undefined2 *)PTR_HO2S1_DTC_LowSideCrossingCounterSnapshot_00036490 =
+           *(undefined2 *)PTR_HO2S1_DTC_LowSideCrossingCounterMin_00036474;
+      *(undefined2 *)PTR_HO2S1_DTC_TransitionRateSnapshot_00036494 =
+           *(undefined2 *)PTR_HO2S1_DTC_TransitionRateValue_00036484;
       puVar8 = PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00036498;
-      if ((*puVar3 == '\x01') && (*PTR_DAT_0003644c == '\0')) {
+      if ((*puVar3 == '\x01') && (*PTR_HO2S1_DTC13_P0131_PassLatch_0003644c == '\0')) {
         (*(code *)PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00036498)(0x13,1);
       }
       else if ((*puVar2 == '\x01') && (*puVar3 == '\0')) {
         (*(code *)PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00036498)(0x13,0x10);
       }
-      if ((*puVar5 == '\x01') && (*PTR_DAT_00036460 == '\0')) {
+      if ((*puVar5 == '\x01') && (*PTR_HO2S1_DTC14_P0132_PassLatch_00036460 == '\0')) {
         (*(code *)puVar8)(0x14,1);
       }
       else if ((*puVar4 == '\x01') && (*puVar5 == '\0')) {
         (*(code *)puVar8)(0x14,0x10);
       }
-      if ((*puVar7 == '\x01') && (*PTR_DAT_0003646c == '\0')) {
+      if ((*puVar7 == '\x01') && (*PTR_HO2S1_DTC15_P0133_PassLatch_0003646c == '\0')) {
         (*(code *)puVar8)(0x15,1);
       }
       else if ((*puVar6 == '\x01') && (*puVar7 == '\0')) {
@@ -73193,28 +73681,28 @@ uint SubsystemA_DTC13_14_15_AccumulatorAndReport_Update(void)
     *(short *)puVar1 = (short)uVar9;
   }
   else {
-    *(undefined2 *)PTR_DAT_00036438 = 0;
+    *(undefined2 *)PTR_HO2S1_DTC_ReportWindowCounter_00036438 = 0;
   }
   return uVar9;
 }
 
 
 
-void SubsystemA_DTC13_14_15_MinMaxSample_Update(void)
+void HO2S1_P0131_P0132_P0133_MinMaxSample_Update(void)
 
 {
   undefined *puVar1;
   float fVar2;
   
-  puVar1 = PTR_DAT_00036454;
+  puVar1 = PTR_HO2S1_DTC_WindowMaxVoltage_00036454;
   fVar2 = *(float *)PTR_SubsystemA_CommandBlend_IndexFilteredInput_Output_000364a0;
-  if (*PTR_DAT_0003643c == '\0') {
-    *(float *)PTR_DAT_00036468 = fVar2;
+  if (*PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_0003643c == '\0') {
+    *(float *)PTR_HO2S1_DTC_WindowMinVoltage_00036468 = fVar2;
     *(float *)puVar1 = fVar2;
   }
   else {
-    if (fVar2 < *(float *)PTR_DAT_00036468) {
-      *(float *)PTR_DAT_00036468 = fVar2;
+    if (fVar2 < *(float *)PTR_HO2S1_DTC_WindowMinVoltage_00036468) {
+      *(float *)PTR_HO2S1_DTC_WindowMinVoltage_00036468 = fVar2;
     }
     if (*(float *)puVar1 < fVar2) {
       *(float *)puVar1 = fVar2;
@@ -73225,7 +73713,7 @@ void SubsystemA_DTC13_14_15_MinMaxSample_Update(void)
 
 
 
-void SubsystemA_DTC13_14_15_ThresholdCrossingCounters_Update(void)
+void HO2S1_P0131_P0132_P0133_ThresholdCrossingCounters_Update(void)
 
 {
   ushort uVar1;
@@ -73240,51 +73728,51 @@ void SubsystemA_DTC13_14_15_ThresholdCrossingCounters_Update(void)
   float fVar10;
   float fVar11;
   
-  puVar2 = PTR_DAT_000364ac;
+  puVar2 = PTR_HO2S1_DTC_BelowThresholdFlag_000364ac;
   fVar11 = *(float *)PTR_SubsystemA_CommandBlend_IndexFilteredInput_Output_000364a0;
-  fVar10 = *(float *)PTR_DAT_00036434 - *(float *)PTR_DAT_000364a4;
-  fVar9 = *(float *)PTR_DAT_000364a8 + *(float *)PTR_DAT_00036434;
+  fVar10 = *(float *)PTR_HO2S1_DTC_ReferenceCenterVoltage_00036434 - *(float *)PTR_DAT_000364a4;
+  fVar9 = *(float *)PTR_DAT_000364a8 + *(float *)PTR_HO2S1_DTC_ReferenceCenterVoltage_00036434;
   if (fVar10 <= fVar11) {
     if (fVar9 <= fVar11) {
-      *PTR_DAT_000364ac = 0;
+      *PTR_HO2S1_DTC_BelowThresholdFlag_000364ac = 0;
     }
   }
   else {
-    *PTR_DAT_000364ac = 1;
+    *PTR_HO2S1_DTC_BelowThresholdFlag_000364ac = 1;
   }
-  puVar3 = PTR_DAT_000364b0;
+  puVar3 = PTR_HO2S1_DTC_AboveThresholdFlag_000364b0;
   if (fVar11 < fVar9) {
     if (fVar11 < fVar10) {
-      *PTR_DAT_000364b0 = 0;
+      *PTR_HO2S1_DTC_AboveThresholdFlag_000364b0 = 0;
     }
   }
   else {
-    *PTR_DAT_000364b0 = 1;
+    *PTR_HO2S1_DTC_AboveThresholdFlag_000364b0 = 1;
   }
-  puVar7 = PTR_DAT_000365b0;
-  puVar6 = PTR_DAT_000365ac;
-  puVar5 = PTR_DAT_000365a8;
-  puVar4 = PTR_DAT_000365a4;
-  if (*PTR_DAT_000365b4 == '\0') {
+  puVar7 = PTR_HO2S1_DTC_HighSideCrossingCounter_000365b0;
+  puVar6 = PTR_HO2S1_DTC_LowSideCrossingCounter_000365ac;
+  puVar5 = PTR_HO2S1_DTC_LowSideCrossingCounterMin_000365a8;
+  puVar4 = PTR_HO2S1_DTC_HighSideCrossingCounterMin_000365a4;
+  if (*PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_000365b4 == '\0') {
     uVar8 = SUB42(PTR_DAT_000365b8,0);
-    *(undefined2 *)PTR_DAT_000365a8 = uVar8;
+    *(undefined2 *)PTR_HO2S1_DTC_LowSideCrossingCounterMin_000365a8 = uVar8;
     *(undefined2 *)puVar4 = uVar8;
     *(undefined2 *)puVar6 = uVar8;
     *(undefined2 *)puVar7 = uVar8;
   }
   else {
     if (fVar11 < fVar9) {
-      uVar1 = *(ushort *)PTR_DAT_000365b0;
+      uVar1 = *(ushort *)PTR_HO2S1_DTC_HighSideCrossingCounter_000365b0;
       if (*puVar3 == '\x01') {
         uVar8 = (*(code *)PTR_AddUint16AndSaturateToFFFE_000365bc)((int)(short)uVar1,1);
         *(undefined2 *)puVar7 = uVar8;
       }
-      else if (uVar1 < *(ushort *)PTR_DAT_000365a4) {
-        *(ushort *)PTR_DAT_000365a4 = uVar1;
+      else if (uVar1 < *(ushort *)PTR_HO2S1_DTC_HighSideCrossingCounterMin_000365a4) {
+        *(ushort *)PTR_HO2S1_DTC_HighSideCrossingCounterMin_000365a4 = uVar1;
       }
     }
     else {
-      *(undefined2 *)PTR_DAT_000365b0 = 0;
+      *(undefined2 *)PTR_HO2S1_DTC_HighSideCrossingCounter_000365b0 = 0;
     }
     if (fVar10 <= fVar11) {
       uVar1 = *(ushort *)puVar6;
@@ -73305,7 +73793,7 @@ void SubsystemA_DTC13_14_15_ThresholdCrossingCounters_Update(void)
 
 
 
-void SubsystemA_DTC13_14_15_TransitionRateAccumulator_Update(void)
+void HO2S1_P0131_P0132_P0133_TransitionRateAccumulator_Update(void)
 
 {
   char cVar1;
@@ -73314,19 +73802,21 @@ void SubsystemA_DTC13_14_15_TransitionRateAccumulator_Update(void)
   undefined *puVar4;
   undefined2 uVar5;
   
-  puVar2 = PTR_DAT_000365cc;
-  puVar4 = PTR_DAT_000365c8;
-  puVar3 = PTR_DAT_000365c4;
+  puVar2 = PTR_HO2S1_DTC_TransitionRateValue_000365cc;
+  puVar4 = PTR_HO2S1_DTC_TransitionAccumulatedTime_000365c8;
+  puVar3 = PTR_HO2S1_DTC_TransitionCount_000365c4;
   cVar1 = *PTR_DAT_000365c0;
-  if (*PTR_DAT_000365b4 == '\0') {
-    *(undefined2 *)PTR_DAT_000365c8 = 0;
+  if (*PTR_HO2S1_DTC13_14_15_EnableWindowReadyFlag_000365b4 == '\0') {
+    *(undefined2 *)PTR_HO2S1_DTC_TransitionAccumulatedTime_000365c8 = 0;
     *(undefined2 *)puVar3 = 0;
     *(undefined2 *)puVar2 = 0;
   }
   else {
-    if (cVar1 != *PTR_DAT_000365d0) {
+    if (cVar1 != *PTR_HO2S1_DTC_LastSwitchState_000365d0) {
       uVar5 = (*(code *)PTR_AddUint16AndSaturateToFFFE_000365bc)
-                        ((int)*(short *)PTR_DAT_000365c8,(int)*(short *)PTR_DAT_000365d4);
+                        ((int)*(short *)PTR_HO2S1_DTC_TransitionAccumulatedTime_000365c8,
+                         (int)*(short *)
+                               PTR_CatalystMonitor_P0420_SwitchStateDurationCounter_000365d4);
       puVar2 = PTR_AddUint16AndSaturateToFFFE_000365bc;
       *(undefined2 *)puVar4 = uVar5;
       uVar5 = (*(code *)puVar2)((int)*(short *)puVar3,1);
@@ -73334,10 +73824,10 @@ void SubsystemA_DTC13_14_15_TransitionRateAccumulator_Update(void)
     }
     if (1 < *(ushort *)puVar3) {
       uVar5 = (*(code *)PTR_Math_Unknown_0735C_000365d8)();
-      *(undefined2 *)PTR_DAT_000365cc = uVar5;
+      *(undefined2 *)PTR_HO2S1_DTC_TransitionRateValue_000365cc = uVar5;
     }
   }
-  *PTR_DAT_000365d0 = cVar1;
+  *PTR_HO2S1_DTC_LastSwitchState_000365d0 = cVar1;
   return;
 }
 
@@ -73368,7 +73858,7 @@ void DiagWindowGroup365_State_Reset(void)
 
 
 
-uint SubsystemA_DTC17_18_ThresholdPair_DebounceAndReport(void)
+uint HO2S1_Heater_PD0_P0031_P0032_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -73520,7 +74010,7 @@ void DiagWindowGroup367_State_Reset(void)
 
 
 
-uint SubsystemA_DTC1A_1B_ThresholdPair_DebounceAndReport(void)
+uint HO2S2_Heater_PD4_P0037_P0038_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -73688,7 +74178,7 @@ void DiagWindowGroup36A_StateB_Reset(void)
 
 
 
-void VVT_DTC02_03_P0011_P0012_EnableGate_Update(void)
+void VVT_P0011_P0012_EnableGate_Update(void)
 
 {
   char cVar1;
@@ -73915,8 +74405,8 @@ char OBD04_ClearDTC_StateFlags_ClearIfInactive(void)
   
   cVar1 = *PTR_OBD04_ClearDTCStateFlag_00036eb8;
   if (cVar1 != '\x01') {
-    *PTR_DAT_00036ebc = 0;
-    *PTR_DAT_00036ec0 = 0;
+    *PTR_P0300_DTC0_ThresholdFlagA_00036ebc = 0;
+    *PTR_P0300_DTC0_ThresholdFlagB_00036ec0 = 0;
   }
   return cVar1;
 }
@@ -73954,8 +74444,8 @@ void EGR_SeededLoadWindow_PrimaryInputThresholdFlags_Reset(void)
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_00036ec0;
-  *PTR_DAT_00036ebc = 0;
+  puVar1 = PTR_P0300_DTC0_ThresholdFlagB_00036ec0;
+  *PTR_P0300_DTC0_ThresholdFlagA_00036ebc = 0;
   *puVar1 = 0;
   return;
 }
@@ -74021,12 +74511,13 @@ void EGR_SeededLoadWindow_Dtc0_ThresholdFlags_Update(void)
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_00036efc;
-  if ((int)DAT_00036ef6 <= (int)(uint)*(ushort *)PTR_DAT_00036efc) {
-    *PTR_DAT_00036f00 = 1;
+  puVar1 = PTR_P0300_Emission1000Rev_WindowCounter_00036efc;
+  if ((int)DAT_00036ef6 <= (int)(uint)*(ushort *)PTR_P0300_Emission1000Rev_WindowCounter_00036efc) {
+    *PTR_P0300_DTC0_ThresholdFlagA_00036f00 = 1;
   }
-  if (((int)DAT_00036ef8 <= (int)(uint)*(ushort *)puVar1) && (*PTR_DAT_00036f00 == '\x01')) {
-    *PTR_DAT_00036f04 = 1;
+  if (((int)DAT_00036ef8 <= (int)(uint)*(ushort *)puVar1) &&
+     (*PTR_P0300_DTC0_ThresholdFlagA_00036f00 == '\x01')) {
+    *PTR_P0300_DTC0_ThresholdFlagB_00036f04 = 1;
   }
   return;
 }
@@ -74036,7 +74527,7 @@ void EGR_SeededLoadWindow_Dtc0_ThresholdFlags_Update(void)
 void EGR_SeededLoadWindow_Dtc0_ThresholdSelector_Reset(void)
 
 {
-  *(undefined2 *)PTR_DAT_00036fbc = 0;
+  *(undefined2 *)PTR_P0300_CatalystDamage200Rev_ThresholdWord_00036fbc = 0;
   return;
 }
 
@@ -74047,19 +74538,19 @@ void EGR_SeededLoadWindow_Dtc0_ReportWindowFlags_Reset(void)
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_00036fc4;
-  *PTR_DAT_00036fc0 = 0;
+  puVar1 = PTR_P0300_DTC0_PassFlag_00036fc4;
+  *PTR_P0300_DTC0_FailFlag_00036fc0 = 0;
   *puVar1 = 0;
-  puVar1 = PTR_DAT_00036fcc;
-  *PTR_DAT_00036fc8 = 0;
+  puVar1 = PTR_P0300_DTC0_ProtectedSlotFlagB_00036fcc;
+  *PTR_P0300_DTC0_ProtectedSlotFlagA_00036fc8 = 0;
   *puVar1 = 0;
-  puVar1 = PTR_DAT_00036fd4;
-  *PTR_DAT_00036fd0 = 0;
+  puVar1 = PTR_P0300_DTC0_ProtectedSlotFlagD_00036fd4;
+  *PTR_P0300_DTC0_ProtectedSlotFlagC_00036fd0 = 0;
   *puVar1 = 0;
-  puVar1 = PTR_DAT_00036fdc;
+  puVar1 = PTR_P0300_DTC0_PayloadSourceShadow_00036fdc;
   *PTR_DTC_ReportState_Dtc0ClearPayloadSource_00036fd8 = 0;
   *puVar1 = 0;
-  *(undefined2 *)PTR_DAT_00036fe0 = 0;
+  *(undefined2 *)PTR_P0300_CatalystDamage200Rev_SelectedThresholdWord_00036fe0 = 0;
   return;
 }
 
@@ -74084,12 +74575,14 @@ void NoOp_EGR_SeededLoadWindow_Dtc0Hook_B(void)
 void EGR_SeededLoadWindow_Dtc0_ThresholdSelector_Update(void)
 
 {
-  if ((uint)*(ushort *)PTR_DAT_00036fe4 == (int)DAT_00036fb8) {
+  if ((uint)*(ushort *)PTR_P0300_CatalystDamage200Rev_WindowCounter_00036fe4 == (int)DAT_00036fb8) {
     if (*(float *)PTR_StatusPrep_DualMaskedValue_SmoothedB_00036fec < *(float *)PTR_DAT_00036fe8) {
-      *(undefined2 *)PTR_DAT_00036fbc = *(undefined2 *)PTR_DAT_00036ff4;
+      *(undefined2 *)PTR_P0300_CatalystDamage200Rev_ThresholdWord_00036fbc =
+           *(undefined2 *)PTR_DAT_00036ff4;
     }
     else {
-      *(undefined2 *)PTR_DAT_00036fbc = *(undefined2 *)PTR_DAT_00036ff0;
+      *(undefined2 *)PTR_P0300_CatalystDamage200Rev_ThresholdWord_00036fbc =
+           *(undefined2 *)PTR_DAT_00036ff0;
     }
   }
   return;
@@ -74116,7 +74609,7 @@ void EGR_SeededLoadWindow_Dtc0_ReportWindow_Update(void)
   undefined4 uVar14;
   undefined4 uVar15;
   
-  if ((uint)*(ushort *)PTR_DAT_00036fe4 == (int)DAT_00036fb8) {
+  if ((uint)*(ushort *)PTR_P0300_CatalystDamage200Rev_WindowCounter_00036fe4 == (int)DAT_00036fb8) {
     uVar14 = 0x3f800000;
     uVar15 = 0;
     uVar1 = *(ushort *)PTR_SubsystemA_SeededLoadWindow_ProtectedSlotCounter_Dtc0_00036ff8;
@@ -74133,18 +74626,19 @@ void EGR_SeededLoadWindow_Dtc0_ReportWindow_Update(void)
     fVar13 = (float)(*(code *)puVar2)(DAT_000370dc,uVar15,(int)*(short *)puVar11);
     uVar10 = (*(code *)PTR_IndexFromFloat_Clamped_1_000370e4)(fVar12 * fVar13,uVar14,uVar15);
     puVar7 = PTR_SubsystemA_SeededLoadWindow_Dtc0_ProtectedSlotThreshold_A_00037100;
-    puVar6 = PTR_DAT_000370fc;
-    puVar5 = PTR_DAT_000370f8;
-    puVar4 = PTR_DAT_000370f4;
+    puVar6 = PTR_P0300_DTC0_ProtectedSlotFlagD_000370fc;
+    puVar5 = PTR_P0300_DTC0_PassFlag_000370f8;
+    puVar4 = PTR_P0300_DTC0_FailFlag_000370f4;
     puVar3 = PTR_DTC_ReportState_Dtc0ClearPayloadSource_000370f0;
-    puVar2 = PTR_DAT_000370ec;
-    puVar11 = PTR_DAT_000370e8;
-    if ((uVar1 < *(ushort *)PTR_DAT_00037104) || (uVar10 < *(ushort *)PTR_DAT_00037108)) {
-      *PTR_DAT_000370f4 = 1;
+    puVar2 = PTR_P0300_DTC0_ProtectedSlotFlagA_000370ec;
+    puVar11 = PTR_P0300_DTC0_ProtectedSlotFlagB_000370e8;
+    if ((uVar1 < *(ushort *)PTR_P0300_CatalystDamage200Rev_ThresholdWord_00037104) ||
+       (uVar10 < *(ushort *)PTR_P0300_CatalystDamage200Rev_WindowThreshold_00037108)) {
+      *PTR_P0300_DTC0_FailFlag_000370f4 = 1;
       *puVar5 = 0;
     }
     else {
-      *PTR_DAT_000370f4 = 0;
+      *PTR_P0300_DTC0_FailFlag_000370f4 = 0;
       *puVar5 = 1;
       puVar8 = PTR_DAT_0003710c;
       if (*(ushort *)PTR_DAT_0003710c < *(ushort *)puVar7) {
@@ -74154,14 +74648,15 @@ void EGR_SeededLoadWindow_Dtc0_ReportWindow_Update(void)
         *puVar11 = 1;
       }
       if (*(ushort *)puVar8 < *(ushort *)(puVar7 + 2)) {
-        *PTR_DAT_00037110 = 1;
+        *PTR_P0300_DTC0_ProtectedSlotFlagC_00037110 = 1;
       }
       if (*(ushort *)puVar8 < *(ushort *)(puVar7 + 4)) {
         *puVar6 = 1;
       }
-      *puVar3 = *PTR_DAT_00037110 << 1 | *puVar6 << 2 | *puVar11 << 3 | *puVar2;
+      *puVar3 = *PTR_P0300_DTC0_ProtectedSlotFlagC_00037110 << 1 | *puVar6 << 2 | *puVar11 << 3 |
+                *puVar2;
     }
-    *PTR_DAT_00037114 = *puVar3;
+    *PTR_P0300_DTC0_PayloadSourceShadow_00037114 = *puVar3;
     if (*puVar4 == '\x01') {
       (*(code *)PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00037118)(0,1);
     }
@@ -74169,12 +74664,12 @@ void EGR_SeededLoadWindow_Dtc0_ReportWindow_Update(void)
       (*(code *)PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00037184)(0,0x10);
     }
     puVar4 = PTR_SubsystemA_SeededLoadWindow_ProtectedSlotCounter_Dtc0_00037190;
-    *(ushort *)PTR_DAT_00037188 = uVar1;
+    *(ushort *)PTR_P0300_CatalystDamage200Rev_SelectedThresholdWord_00037188 = uVar1;
     *puVar3 = 0;
     *puVar2 = 0;
     *puVar11 = 0;
     puVar11 = PTR_SubsystemA_SeededLoadWindow_ProtectedSlotGroupA_Counter_00037194;
-    *PTR_DAT_0003718c = 0;
+    *PTR_P0300_DTC0_ProtectedSlotFlagC_0003718c = 0;
     *puVar6 = 0;
     *(undefined2 *)puVar7 = 0;
     *(undefined2 *)(puVar7 + 2) = 0;
@@ -74185,7 +74680,7 @@ void EGR_SeededLoadWindow_Dtc0_ReportWindow_Update(void)
     puVar11 = PTR_SubsystemA_SeededLoadWindow_ProtectedSlotGroupC_Counter_0003719c;
     *(undefined2 *)PTR_SubsystemA_SeededLoadWindow_ProtectedSlotGroupB_Counter_00037198 = 0;
     *(undefined2 *)puVar11 = 0;
-    puVar11 = PTR_DAT_000371a4;
+    puVar11 = PTR_P0300_CatalystDamage200Rev_WindowThreshold_000371a4;
     *(undefined2 *)PTR_SubsystemA_SeededLoadWindow_ProtectedSlotGroupD_Counter_000371a0 = 0;
     *(undefined2 *)puVar11 = 0;
     *(undefined2 *)PTR_DAT_000371a8 = DAT_00037180;
@@ -74357,7 +74852,7 @@ void EGR_SeededLoadWindow_ProtectedSlotCounters_ClearIfBelowThreshold(void)
   
   puVar1 = PTR_SubsystemA_SeededLoadWindow_Dtc0_ProtectedSlotThreshold_A_000373cc;
   puVar2 = PTR_SubsystemA_SeededLoadWindow_ProtectedSlotCounter_Dtc0_000373a8;
-  if ((uint)*(ushort *)PTR_DAT_000373b4 != (int)DAT_000373a2) {
+  if ((uint)*(ushort *)PTR_P0300_CatalystDamage200Rev_WindowCounter_000373b4 != (int)DAT_000373a2) {
     return;
   }
   if ((*PTR_DAT_000373b8 == '\x01') &&
@@ -74500,9 +74995,12 @@ void EGR_SeededLoadWindow_PrimaryInputGateState_Init(void)
        *PTR_InputBit1_DebouncedState_00037614;
   *PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagC_00037620 =
        *PTR_ACCompressorRelay_PE10_CommandRequest_0003761c;
-  *PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagD_00037628 = *PTR_DAT_00037624;
-  *PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagE_00037630 = *PTR_DAT_0003762c;
-  *PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagF_00037638 = *PTR_DAT_00037634;
+  *PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagD_00037628 =
+       *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_00037624;
+  *PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagE_00037630 =
+       *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_0003762c;
+  *PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagF_00037638 =
+       *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00037634;
   *PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagG_00037640 =
        *PTR_CoolingFanRelay1_PE4_CommandRequest_0003763c;
   *PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagH_00037648 =
@@ -74511,7 +75009,8 @@ void EGR_SeededLoadWindow_PrimaryInputGateState_Init(void)
        *PTR_CoolingFanAux_PE11_CommandRequest_0003764c;
   *PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagJ_00037658 =
        *PTR_SubsystemA_CommandBlend_TableSelectAllowed_Flag_00037654;
-  *PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagK_00037660 = *PTR_DAT_0003765c;
+  *PTR_SubsystemA_SeededLoadWindow_PrereqMatrix_FlagK_00037660 =
+       *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_0003765c;
   return;
 }
 
@@ -74848,14 +75347,14 @@ void SubsystemA_SeededLoadWindowPrereqMatrix_Update(void)
   cVar1 = *PTR_DAT_00037998;
   cVar2 = *PTR_InputBit1_DebouncedState_0003799c;
   cVar3 = *PTR_ACCompressorRelay_PE10_CommandRequest_000379a0;
-  cVar4 = *PTR_DAT_000379a4;
-  cVar5 = *PTR_DAT_000379a8;
-  cVar6 = *PTR_DAT_000379ac;
+  cVar4 = *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_000379a4;
+  cVar5 = *PTR_IdleUpMode_Mode1Bit20_RequestFlagB_000379a8;
+  cVar6 = *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_000379ac;
   cVar7 = *PTR_CoolingFanRelay1_PE4_CommandRequest_000379b0;
   cVar8 = *PTR_CoolingFanRelay2Relay3_PE9_CommandRequest_000379b4;
   cVar9 = *PTR_CoolingFanAux_PE11_CommandRequest_000379b8;
   cVar10 = *PTR_SubsystemA_CommandBlend_TableSelectAllowed_Flag_000379bc;
-  cVar11 = *PTR_DAT_000379c0;
+  cVar11 = *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_000379c0;
   fVar17 = *(float *)PTR_MAP_IAT_SelectedCommitSlot0_000379c4;
   if (*(ushort *)PTR_DAT_000379d0 < *(ushort *)PTR_DAT_000379cc) {
     uVar15 = *(undefined4 *)PTR_DAT_000379d8;
@@ -75460,7 +75959,7 @@ void NoOp_EGR_SeededLoadWindow_Dtc1Hook_B(void)
 void EGR_SeededLoadWindow_Dtc1_ThresholdSelector_Update(void)
 
 {
-  if ((uint)*(ushort *)PTR_DAT_00038150 == (int)DAT_00038124) {
+  if ((uint)*(ushort *)PTR_P0300_Emission1000Rev_WindowCounter_00038150 == (int)DAT_00038124) {
     if (*(float *)PTR_StatusPrep_DualMaskedValue_SmoothedB_00038158 < *(float *)PTR_DAT_00038154) {
       *(undefined2 *)PTR_SubsystemA_SeededLoadWindow_Dtc1_ThresholdSelector_00038128 =
            *(undefined2 *)PTR_DAT_00038160;
@@ -75494,7 +75993,7 @@ void EGR_SeededLoadWindow_Dtc1_ReportWindow_Update(void)
   undefined4 uVar14;
   undefined4 uVar15;
   
-  if ((uint)*(ushort *)PTR_DAT_00038150 == (int)DAT_00038124) {
+  if ((uint)*(ushort *)PTR_P0300_Emission1000Rev_WindowCounter_00038150 == (int)DAT_00038124) {
     uVar14 = 0x3f800000;
     uVar15 = 0;
     uVar1 = *(ushort *)PTR_SubsystemA_SeededLoadWindow_ProtectedSlotCounter_Dtc1_00038164;
@@ -75518,7 +76017,7 @@ void EGR_SeededLoadWindow_Dtc1_ReportWindow_Update(void)
     puVar2 = PTR_SubsystemA_SeededLoadWindow_Dtc1_ReportState_B_000382a0;
     puVar11 = PTR_SubsystemA_SeededLoadWindow_Dtc1_ReportState_C_0003829c;
     if ((uVar1 < *(ushort *)PTR_SubsystemA_SeededLoadWindow_Dtc1_ThresholdSelector_000382b8) ||
-       (uVar10 < *(ushort *)PTR_DAT_000382bc)) {
+       (uVar10 < *(ushort *)PTR_P0300_Emission1000Rev_WindowThreshold_000382bc)) {
       *PTR_SubsystemA_SeededLoadWindow_Dtc1_ReportFlagB_000382a8 = 1;
       *puVar5 = 0;
     }
@@ -75561,7 +76060,7 @@ void EGR_SeededLoadWindow_Dtc1_ReportWindow_Update(void)
     *(undefined2 *)(puVar7 + 4) = 0;
     *(undefined2 *)(puVar7 + 6) = 0;
     *(undefined2 *)puVar5 = 0;
-    *(undefined2 *)PTR_DAT_000382bc = 0;
+    *(undefined2 *)PTR_P0300_Emission1000Rev_WindowThreshold_000382bc = 0;
   }
   return;
 }
@@ -76337,7 +76836,8 @@ void EGR_SeededLoadWindow_EnablePredicate_SetIfAnyInhibit(void)
   float fVar1;
   
   fVar1 = *(float *)PTR_DAT_00038cb4;
-  if (((((((*(ushort *)PTR_DAT_00038cbc <= *(ushort *)PTR_DAT_00038cb8) ||
+  if (((((((*(ushort *)PTR_DAT_00038cbc <=
+            *(ushort *)PTR_P0300_CatalystDamage200Rev_WindowThreshold_00038cb8) ||
           (*(ushort *)PTR_DAT_00038cc4 <=
            *(ushort *)PTR_SubsystemA_SeededLoadWindow_ProtectedSlotCounter_Dtc0_00038cc0)) ||
          (*(float *)PTR_DAT_00038cc8 <= *(float *)PTR_DAT_00038ccc)) ||
@@ -78144,7 +78644,7 @@ void EGR_SeededLoadWindow_TermD_Update(void)
 void EGR_SeededLoadWindow_EnableWindowCounterA_Reset(void)
 
 {
-  *(undefined2 *)PTR_DAT_0003a4dc = 0;
+  *(undefined2 *)PTR_P0300_CatalystDamage200Rev_WindowCounter_0003a4dc = 0;
   return;
 }
 
@@ -78153,7 +78653,7 @@ void EGR_SeededLoadWindow_EnableWindowCounterA_Reset(void)
 void EGR_SeededLoadWindow_EnableWindowCounterB_Reset(void)
 
 {
-  *(undefined2 *)PTR_DAT_0003a4e0 = 0;
+  *(undefined2 *)PTR_P0300_Emission1000Rev_WindowCounter_0003a4e0 = 0;
   return;
 }
 
@@ -78181,9 +78681,10 @@ void EGR_SeededLoadWindow_EnableWindowCounterA_Update(void)
   undefined *puVar1;
   undefined2 uVar2;
   
-  puVar1 = PTR_DAT_0003a4dc;
-  if ((int)DAT_0003a4d8 <= (int)(uint)*(ushort *)PTR_DAT_0003a4dc) {
-    *(undefined2 *)PTR_DAT_0003a4dc = 0;
+  puVar1 = PTR_P0300_CatalystDamage200Rev_WindowCounter_0003a4dc;
+  if ((int)DAT_0003a4d8 <=
+      (int)(uint)*(ushort *)PTR_P0300_CatalystDamage200Rev_WindowCounter_0003a4dc) {
+    *(undefined2 *)PTR_P0300_CatalystDamage200Rev_WindowCounter_0003a4dc = 0;
   }
   if (*PTR_SubsystemA_SeededLoadWindow_StateFlags_0003a4e4 == '\x01') {
     uVar2 = (*(code *)PTR_AddUint16AndSaturateToFFFE_0003a4e8)((int)*(short *)puVar1,1);
@@ -78200,9 +78701,9 @@ void EGR_SeededLoadWindow_EnableWindowCounterB_Update(void)
   undefined *puVar1;
   undefined2 uVar2;
   
-  puVar1 = PTR_DAT_0003a4e0;
-  if ((int)DAT_0003a4da <= (int)(uint)*(ushort *)PTR_DAT_0003a4e0) {
-    *(undefined2 *)PTR_DAT_0003a4e0 = 0;
+  puVar1 = PTR_P0300_Emission1000Rev_WindowCounter_0003a4e0;
+  if ((int)DAT_0003a4da <= (int)(uint)*(ushort *)PTR_P0300_Emission1000Rev_WindowCounter_0003a4e0) {
+    *(undefined2 *)PTR_P0300_Emission1000Rev_WindowCounter_0003a4e0 = 0;
   }
   if (*PTR_SubsystemA_SeededLoadWindow_StateFlags_0003a4e4 == '\x01') {
     uVar2 = (*(code *)PTR_AddUint16AndSaturateToFFFE_0003a4e8)((int)*(short *)puVar1,1);
@@ -78227,8 +78728,8 @@ void EGR_SeededLoadWindow_EctMafBlendTableSelect_Init(void)
   undefined *puVar1;
   undefined2 uVar2;
   
-  puVar1 = PTR_DAT_0003a61c;
-  *(undefined2 *)PTR_DAT_0003a618 = 0;
+  puVar1 = PTR_P0300_Emission1000Rev_WindowThreshold_0003a61c;
+  *(undefined2 *)PTR_P0300_CatalystDamage200Rev_WindowThreshold_0003a618 = 0;
   *(undefined2 *)puVar1 = 0;
   if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_0003a620 == '\0') {
     uVar2 = *(undefined2 *)PTR_DAT_0003a628;
@@ -78320,7 +78821,7 @@ void EGR_SeededLoadWindow_EnableWindowCounters_Update(void)
   int iVar5;
   float fVar6;
   
-  puVar3 = PTR_DAT_0003a718;
+  puVar3 = PTR_P0300_CatalystDamage200Rev_WindowThreshold_0003a718;
   sVar2 = DAT_0003a70a;
   cVar1 = *PTR_SubsystemA_SeededLoadWindow_ProtectedSlotCounter_Aux_0003a670;
   if (((*(float *)PTR_DAT_0003a634 <= *(float *)PTR_DAT_0003a66c) &&
@@ -78345,22 +78846,24 @@ void EGR_SeededLoadWindow_EnableWindowCounters_Update(void)
       }
     }
     iVar5 = (int)DAT_0003a70a;
-    if ((int)(uint)*(ushort *)PTR_DAT_0003a718 < iVar5) {
+    if ((int)(uint)*(ushort *)PTR_P0300_CatalystDamage200Rev_WindowThreshold_0003a718 < iVar5) {
       uVar4 = (*(code *)PTR_AddUint16AndSaturateToFFFE_0003a71c)
-                        ((int)(short)*(ushort *)PTR_DAT_0003a718,1);
+                        ((int)(short)*(ushort *)
+                                      PTR_P0300_CatalystDamage200Rev_WindowThreshold_0003a718,1);
       *(undefined2 *)puVar3 = uVar4;
     }
     else {
-      *(short *)PTR_DAT_0003a718 = DAT_0003a70a;
+      *(short *)PTR_P0300_CatalystDamage200Rev_WindowThreshold_0003a718 = DAT_0003a70a;
     }
-    puVar3 = PTR_DAT_0003a720;
-    if ((int)(uint)*(ushort *)PTR_DAT_0003a720 < iVar5) {
+    puVar3 = PTR_P0300_Emission1000Rev_WindowThreshold_0003a720;
+    if ((int)(uint)*(ushort *)PTR_P0300_Emission1000Rev_WindowThreshold_0003a720 < iVar5) {
       uVar4 = (*(code *)PTR_AddUint16AndSaturateToFFFE_0003a71c)
-                        ((int)(short)*(ushort *)PTR_DAT_0003a720,1);
+                        ((int)(short)*(ushort *)PTR_P0300_Emission1000Rev_WindowThreshold_0003a720,1
+                        );
       *(undefined2 *)puVar3 = uVar4;
     }
     else {
-      *(short *)PTR_DAT_0003a720 = sVar2;
+      *(short *)PTR_P0300_Emission1000Rev_WindowThreshold_0003a720 = sVar2;
     }
   }
 LAB_0003a6d0:
@@ -80084,7 +80587,7 @@ void SubsystemA_CommandBlend_SeededLoadDeltaPairAndComposite_Update(void)
     *(undefined4 *)puVar6 = 0;
   }
   else {
-    if (*PTR_DAT_00040324 == '\0') {
+    if (*PTR_PhaseFrontend_Mode2Bit08_DebouncedFlag_00040324 == '\0') {
       uVar7 = (*(code *)PTR_Interpolate1D_WithTransform_00040320)(PTR_PTR_00040328);
       *(undefined4 *)puVar5 = uVar7;
       *(undefined4 *)puVar6 = uVar10;
@@ -80365,7 +80868,7 @@ void SubsystemA_CommandOutput_ReportBurstCounter_Update(void)
   undefined1 uVar3;
   
   puVar2 = PTR_DAT_000405c8;
-  cVar1 = *PTR_DAT_000405c4;
+  cVar1 = *PTR_IdleUpMode_Mode1Bit08_RequestFlagC_000405c4;
   if (*PTR_DAT_000405c0 == '\0') {
     *PTR_DAT_000405c8 = 0;
   }
@@ -80734,19 +81237,19 @@ void EGR_PrimaryEnable_DiagResetBatch_Gated(void)
   puVar1 = PTR_SharedSchedulerGate_ReadMaskedSrLevel_00040fb4;
   uVar3 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00040fb4)(0x10);
   (*(code *)PTR_SubsystemA_PrimaryEnable_Prereq_NoOp_00040fb8)();
-  (*(code *)PTR_SubsystemA_PrimaryEnable_PrereqState_Init_00040fbc)();
+  (*(code *)PTR_CatalystMonitor_P0420_State_Init_00040fbc)();
   (*(code *)PTR_SubsystemA_PrimaryEnable_PrereqCounter_Reset_00040fc0)();
-  (*(code *)PTR_SubsystemA_PrimaryEnable_PrereqState_Reset_00040fc4)();
-  (*(code *)PTR_SubsystemA_PrimaryEnable_PrereqTail_Reset_00040fc8)();
+  (*(code *)PTR_CatalystMonitor_P0420_State_Reset_00040fc4)();
+  (*(code *)PTR_CatalystMonitor_P0420_TailCounters_Reset_00040fc8)();
   puVar2 = PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00040fcc;
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00040fcc)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_SubsystemA_PrimaryEnable_PreNoOp_00040fd0)();
-  (*(code *)PTR_SubsystemA_DTC1C_ResponseWindow_ResetState_00040fd4)();
-  (*(code *)PTR_SubsystemA_DTC1D_ResponseWindow_ResetState_00040fd8)();
+  (*(code *)PTR_FuelSystem_P0171_Lean_ResponseWindow_ResetState_00040fd4)();
+  (*(code *)PTR_FuelSystem_P0172_Rich_ResponseWindow_ResetState_00040fd8)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC26_WindowState_Reset_00040fdc)();
+  (*(code *)PTR_EVAP_Purge_P0443_Reset_00040fdc)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_SubsystemA_PrimaryEnable_InputBState_Reset_00040fe0)();
@@ -80764,7 +81267,7 @@ void EGR_PrimaryEnable_DiagResetBatch_Gated(void)
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_NoOp_Return_46678_00041000)();
-  (*(code *)PTR_SubsystemA_MAPThresholdDiag_ResetState_00041004)();
+  (*(code *)PTR_HO2S2_P0140_ResetState_00041004)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_Diag_ClearIdResponseState_A_00041008)();
@@ -80796,9 +81299,9 @@ void EGR_PrimaryEnable_DiagResetBatch_Gated(void)
   (*(code *)PTR_SubsystemA_PrimaryEnable_PreStateResetC_00041040)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_MAPResponseDiag_ResetBaselineState_00041044)();
-  (*(code *)PTR_SubsystemA_MAPResponseDiag_ResetDebounceState_00041048)();
-  (*(code *)PTR_SubsystemA_MAPResponseDiag_ResetSummaryFlags_0004104c)();
+  (*(code *)PTR_MAP_P0106_ResetBaselineState_00041044)();
+  (*(code *)PTR_MAP_P0106_ResetDebounceState_00041048)();
+  (*(code *)PTR_MAP_P0106_ResetSummaryFlags_0004104c)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_SubsystemA_PrimaryEnable_PreStateResetD_00041050)();
@@ -80806,10 +81309,10 @@ void EGR_PrimaryEnable_DiagResetBatch_Gated(void)
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_SubsystemA_NextDiag_ClearEnableFlag_00041054)();
   (*(code *)PTR_SubsystemA_NextDiag_ResetBaselineState_00041058)();
-  (*(code *)PTR_SubsystemA_DeltaDiag_ResetSummaryFlags_DTC0C_0004105c)();
+  (*(code *)PTR_IAT_P0111_ResetSummaryFlags_0004105c)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_ECTSensor_AN28_DTC0D0E_RawRange_Reset_00041060)();
+  (*(code *)PTR_ECTSensor_AN28_StatusDTC0D0E_AndInfoDisplayBit10_Reset_00041060)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_ECTSensor_AN28_P0116_ClearEnableFlag_00041064)();
@@ -80819,15 +81322,15 @@ void EGR_PrimaryEnable_DiagResetBatch_Gated(void)
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_OBD04_ClearDTC_PreNoOpA_00041070)();
   (*(code *)PTR_OBD04_ClearDTC_PreNoOpB_00041074)();
-  (*(code *)PTR_InfoDisplay_StatusBit01_SubsystemASeedDeltaPair_Reset_00041078)();
+  (*(code *)PTR_TPS_P0121_ProcessedDeltaPair_Reset_00041078)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_InfoDisplay_StatusBit01_Dtc1011Pair_Reset_0004107c)();
+  (*(code *)PTR_TPS_P0122_P0123_StatusPair_Reset_0004107c)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC2E_MapBaseline_ResetAndCapture_00041080)();
+  (*(code *)PTR_PressureModel_P2227_Baseline_ResetAndCapture_00041080)();
   (*(code *)PTR_OBD04_ClearDTC_NoOp_00041084)();
-  (*(code *)PTR_SubsystemA_DTC2E_MapWindow_ResetState_00041088)();
+  (*(code *)PTR_PressureModel_P2227_WindowState_Reset_00041088)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_SubsystemA_PrimaryEnable_PreStateResetB_0004108c)();
@@ -80835,16 +81338,16 @@ void EGR_PrimaryEnable_DiagResetBatch_Gated(void)
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_InfoDisplay_StatusBit04_SampledPair_SubsystemABlendSnapshot_Init_00041090)();
   (*(code *)PTR_InfoDisplay_StatusBit04_SampledPair_NoOpA_00041094)();
-  (*(code *)PTR_InfoDisplay_StatusBit04_SampledPair_Reset_00041098)();
+  (*(code *)PTR_CMP_P0340_SampledPair_Reset_00041098)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_InfoDisplay_StatusBit04_SubsystemABlendThreshold_Reset_0004109c)();
+  (*(code *)PTR_CKP_P0335_ProcessedStatus_Reset_0004109c)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_OBD04_ClearDTC_StateResetA_000410a0)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC29_State_Reset_000410a4)();
+  (*(code *)PTR_IdleControl_P0505_State_Reset_000410a4)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_NoOp_Return_36a0c_000410a8)();
@@ -80862,7 +81365,7 @@ void EGR_PrimaryEnable_DiagResetBatch_Gated(void)
   (*(code *)PTR_OBD04_ClearDTC_StateResetC_000410c0)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
-  (*(code *)PTR_SubsystemA_DTC31_State_Reset_000410c4)();
+  (*(code *)PTR_P1510_State_Reset_000410c4)();
   (*(code *)puVar2)(uVar3);
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_NoOp_Return_42560_000410c8)();
@@ -80886,7 +81389,7 @@ void EGR_PrimaryEnable_DiagResetBatch_Gated(void)
 
 
 
-void SubsystemA_DTC27_ProtectedStatus_Clear_Gated(void)
+void CoolingFanRelay23_PE9_P0481_ProtectedStatus_Clear_Gated(void)
 
 {
   undefined4 uVar1;
@@ -80902,12 +81405,12 @@ void SubsystemA_DTC27_ProtectedStatus_Clear_Gated(void)
 
 
 
-void SubsystemA_LocalLatchGate_SetAndCommit(void)
+void MIL_PD13_Request_SetAndDispatch(void)
 
 {
   undefined4 local_8 [2];
   
-  *PTR_DAT_0004123c = 1;
+  *PTR_MIL_PD13_RequestState_0004123c = 1;
   local_8[0] = 0;
   (*(code *)PTR_CommandTable_Execute_00041240)(0,5,local_8);
   return;
@@ -80915,7 +81418,7 @@ void SubsystemA_LocalLatchGate_SetAndCommit(void)
 
 
 
-void SubsystemA_LocalLatchGate_UpdateFromDtcStatus(void)
+void MIL_PD13_Request_UpdateFromDtcStatusAndDispatch(void)
 
 {
   undefined *puVar1;
@@ -80928,46 +81431,47 @@ void SubsystemA_LocalLatchGate_UpdateFromDtcStatus(void)
   undefined1 auStack_48 [48];
   
   cVar4 = (*(code *)PTR_DTC_Main16_GetByte07_ByDTC_00041244)(0);
-  puVar1 = PTR_DAT_0004124c;
+  puVar1 = PTR_MIL_PD13_BlinkCounter_0004124c;
   cStack_4c = *PTR_DAT_00041248;
-  if ((cVar4 == -0x80) && (*PTR_DAT_00041250 == -0x80)) {
-    if ((byte)*PTR_DAT_0004124c < 2) {
-      uVar5 = (*(code *)PTR_AddBytesWithLimit_00041254)((int)(char)*PTR_DAT_0004124c,1);
+  if ((cVar4 == -0x80) && (*PTR_MIL_DTCMain16_Byte07_LastSample_00041250 == -0x80)) {
+    if ((byte)*PTR_MIL_PD13_BlinkCounter_0004124c < 2) {
+      uVar5 = (*(code *)PTR_AddBytesWithLimit_00041254)
+                        ((int)(char)*PTR_MIL_PD13_BlinkCounter_0004124c,1);
       *puVar1 = uVar5;
     }
     else {
-      *PTR_DAT_0004124c = 1;
+      *PTR_MIL_PD13_BlinkCounter_0004124c = 1;
     }
   }
   else {
-    *PTR_DAT_0004124c = 0;
+    *PTR_MIL_PD13_BlinkCounter_0004124c = 0;
   }
-  puVar2 = PTR_DAT_00041258;
+  puVar2 = PTR_MIL_PD13_BlinkState_00041258;
   if (cVar4 == -0x80) {
     if (1 < (byte)*puVar1) {
-      *PTR_DAT_00041258 = *PTR_DAT_00041258 != '\x01';
+      *PTR_MIL_PD13_BlinkState_00041258 = *PTR_MIL_PD13_BlinkState_00041258 != '\x01';
     }
   }
   else {
-    *PTR_DAT_00041258 = 0;
+    *PTR_MIL_PD13_BlinkState_00041258 = 0;
   }
-  puVar1 = PTR_DAT_0004123c;
+  puVar1 = PTR_MIL_PD13_RequestState_0004123c;
   if (*PTR_DAT_0004125c == '\x01') {
     if (cStack_4c != -0x80) {
       if (cStack_4c == '\0') {
-        *PTR_DAT_0004123c = 0;
+        *PTR_MIL_PD13_RequestState_0004123c = 0;
       }
       goto LAB_0004128a;
     }
   }
   else {
     if (*PTR_DAT_00041260 == '\x01') {
-      *PTR_DAT_0004123c = 0;
+      *PTR_MIL_PD13_RequestState_0004123c = 0;
       goto LAB_0004128a;
     }
     if (*PTR_SubsystemA_EnableSharedInhibitFlag_00041264 != '\x01') {
       if (cVar4 == -0x80) {
-        *PTR_DAT_0004123c = *puVar2;
+        *PTR_MIL_PD13_RequestState_0004123c = *puVar2;
         goto LAB_0004128a;
       }
       sVar3 = (*(code *)PTR_DTC_Main16_CollectDTCsByStatusAndMask_000412b0)
@@ -80981,7 +81485,7 @@ void SubsystemA_LocalLatchGate_UpdateFromDtcStatus(void)
   *puVar1 = 1;
 LAB_0004128a:
   puVar1 = PTR_CommandTable_Execute_000412bc;
-  *PTR_DAT_000412b8 = cVar4;
+  *PTR_MIL_DTCMain16_Byte07_LastSample_000412b8 = cVar4;
   local_50 = 0;
   (*(code *)puVar1)(0,5,&local_50);
   return;
@@ -80989,15 +81493,15 @@ LAB_0004128a:
 
 
 
-void SubsystemA_OutputMirrorBit_Sync(void)
+void MIL_PD13_OutputBit_ApplyProtected(void)
 
 {
   undefined4 local_8 [2];
   
-  *PTR_DAT_00041300 = *PTR_DAT_000412fc;
+  *PTR_MIL_PD13_OutputStateLatched_00041300 = *PTR_MIL_PD13_RequestState_000412fc;
   (*(code *)PTR_SetPrivilegedSR_00041304)(local_8,(int)DAT_000412f4);
   (*(code *)PTR_ModifyRegisterBits_00041308)
-            ((int)DAT_000412f8,(int)DAT_000412f6,*PTR_DAT_00041300 == '\0');
+            ((int)DAT_000412f8,(int)DAT_000412f6,*PTR_MIL_PD13_OutputStateLatched_00041300 == '\0');
   (*(code *)PTR_RestorePrivilegedSR_0004130c)(local_8[0]);
   return;
 }
@@ -81251,7 +81755,7 @@ void DTC_StatusCollectedIdFlagTables_ClearAll_Gated(void)
   uVar3 = (*(code *)puVar1)(0x10);
   (*(code *)PTR_DTC_ShortRecord_SlotIndexB_IsOneFlag_Update_000416c8)();
   (*(code *)PTR_DTC_ShortRecord_SlotIndexA_IsOneFlag_Update_000416cc)();
-  (*(code *)PTR_DTC1C1D_AbsentFlags_Update_000416d0)();
+  (*(code *)PTR_FuelSystem_P0171_P0172_AbsentFlags_Update_000416d0)();
   (*(code *)PTR_DTC_StatusCollectedIdFlagTables_ClearAll_000416d4)();
   (*(code *)PTR_NoOp_Return_000416d8)();
   (*(code *)PTR_DTC_ReportState_ClearAllIdUpdatedFlags_000416dc)();
@@ -81304,7 +81808,7 @@ void DTC_ShortRecord_SlotIndexA_IsOneFlag_Update(void)
 
 
 
-void DTC1C1D_AbsentFlags_Update(void)
+void FuelSystem_P0171_P0172_AbsentFlags_Update(void)
 
 {
   char cVar1;
@@ -81938,7 +82442,7 @@ char Read_Gate20_ToggleAndCheck(void)
 
 
 
-char DiagRunner_SubsystemADTC2A_StateScan_Wrapped_Sub_Sub_1(void)
+char ECU_P0601_StateScan_Wrapped_SubStage(void)
 
 {
   byte bVar1;
@@ -82013,7 +82517,7 @@ void GroupA_DiagSaturatingByteCounter_ProtectedIncrement(void)
 
 
 
-void DiagRunner_SubsystemADTC2A_StateScan_Wrapped(void)
+void ECU_P0601_StateScan_Wrapped(void)
 
 {
   undefined4 uVar1;
@@ -82031,10 +82535,10 @@ void InfoDisplay_FrameCounter_Reset(void)
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_00042620;
-  *PTR_DAT_0004261c = 0;
+  puVar1 = PTR_ECU_P0601_PassFlag_00042620;
+  *PTR_ECU_P0601_FailFlag_0004261c = 0;
   *puVar1 = 0;
-  *PTR_DAT_00042624 = 0;
+  *PTR_ECU_P0601_StateScanCompleteFlag_00042624 = 0;
   InfoDisplay_Table_Clear();
   return;
 }
@@ -82049,7 +82553,7 @@ void NoOp_Return_42560(void)
 
 
 
-void SubsystemA_DTC2A_StateScanAndLatch_Update(void)
+void ECU_P0601_StateScanAndLatch_Update(void)
 
 {
   undefined *puVar1;
@@ -82062,22 +82566,23 @@ void SubsystemA_DTC2A_StateScanAndLatch_Update(void)
   uint uVar8;
   byte bVar9;
   
-  if ((*PTR_DAT_00042628 == '\0') && (*PTR_DAT_00042624 == '\0')) {
-    SubsystemA_DTC2A_StateSampleByIndex_Update(0);
-    puVar2 = PTR_DAT_00042630;
-    puVar1 = PTR_DAT_0004262c;
+  if ((*PTR_ECU_P0601_StateScanEnableByte_00042628 == '\0') &&
+     (*PTR_ECU_P0601_StateScanCompleteFlag_00042624 == '\0')) {
+    ECU_P0601_StateSampleByIndex_Update(0);
+    puVar2 = PTR_ECU_P0601_StateIndexDescriptorTable_00042630;
+    puVar1 = PTR_ECU_P0601_StateSampleByIndex_0004262c;
     iVar7 = (int)DAT_00042618;
     for (uVar8 = 0; ((uVar8 & 0xff) < (uint)(byte)*puVar2 && (puVar1[uVar8 & 0xff] == '\x01'));
         uVar8 = uVar8 + 1) {
       if ((uVar8 & 0xff) != ((char)*puVar2 + iVar7 & 0xffU)) {
-        SubsystemA_DTC2A_StateSampleByIndex_Update(uVar8 + 1);
+        ECU_P0601_StateSampleByIndex_Update(uVar8 + 1);
       }
     }
     if ((puVar1[(char)*puVar2 + iVar7 & 0xff] == '\x01') &&
-       (cVar3 = (*(code *)PTR_DTC_IsOBDRelevantOrActive_00042634)(0x2a), puVar1 = PTR_DAT_0004261c,
-       cVar3 == '\0')) {
+       (cVar3 = (*(code *)PTR_DTC_IsOBDRelevantOrActive_00042634)(0x2a),
+       puVar1 = PTR_ECU_P0601_FailFlag_0004261c, cVar3 == '\0')) {
       uVar6 = 0;
-      pcVar4 = PTR_DAT_00042638;
+      pcVar4 = PTR_ECU_P0601_StateLatchByIndex_00042638;
       for (bVar9 = 0; uVar5 = 0, bVar9 < (byte)*puVar2; bVar9 = bVar9 + 1) {
         if (*pcVar4 == '\0') {
           uVar5 = 1;
@@ -82087,9 +82592,9 @@ void SubsystemA_DTC2A_StateScanAndLatch_Update(void)
         uVar6 = 1;
         pcVar4 = pcVar4 + 1;
       }
-      *PTR_DAT_00042620 = uVar5;
+      *PTR_ECU_P0601_PassFlag_00042620 = uVar5;
       *puVar1 = uVar6;
-      *PTR_DAT_00042624 = 1;
+      *PTR_ECU_P0601_StateScanCompleteFlag_00042624 = 1;
     }
   }
   return;
@@ -82097,19 +82602,20 @@ void SubsystemA_DTC2A_StateScanAndLatch_Update(void)
 
 
 
-uint SubsystemA_DTC2A_StateDebounceAndReport(void)
+uint ECU_P0601_StateDebounceAndReport(void)
 
 {
   uint uVar1;
   
   uVar1 = (*(code *)PTR_DTC_IsOBDRelevantOrActive_00042728)(0x2a);
   uVar1 = uVar1 & 0xff;
-  if ((uVar1 == 0) && (uVar1 = (uint)(byte)*PTR_DAT_0004272c, uVar1 == 1)) {
-    if (*PTR_DAT_00042730 == '\x01') {
+  if ((uVar1 == 0) &&
+     (uVar1 = (uint)(byte)*PTR_ECU_P0601_StateScanCompleteFlag_0004272c, uVar1 == 1)) {
+    if (*PTR_ECU_P0601_FailFlag_00042730 == '\x01') {
       uVar1 = (*(code *)PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00042734)(0x2a,1);
       return uVar1;
     }
-    uVar1 = (uint)(byte)*PTR_DAT_00042738;
+    uVar1 = (uint)(byte)*PTR_ECU_P0601_PassFlag_00042738;
     if (uVar1 == 1) {
       uVar1 = (*(code *)PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00042734)(0x2a,0x10);
       return uVar1;
@@ -82128,9 +82634,9 @@ void InfoDisplay_Table_Clear(void)
   undefined *puVar3;
   byte bVar4;
   
-  puVar3 = PTR_DAT_00042744;
-  puVar2 = PTR_DAT_00042740;
-  puVar1 = PTR_DAT_0004273c;
+  puVar3 = PTR_ECU_P0601_StateLatchByIndex_00042744;
+  puVar2 = PTR_ECU_P0601_StateSampleByIndex_00042740;
+  puVar1 = PTR_ECU_P0601_StateIndexDescriptorTable_0004273c;
   for (bVar4 = 0; bVar4 < (byte)*puVar1; bVar4 = bVar4 + 1) {
     puVar3[bVar4] = 0;
     puVar2[bVar4] = 0;
@@ -82140,28 +82646,28 @@ void InfoDisplay_Table_Clear(void)
 
 
 
-void SubsystemA_DTC2A_StateSampleByIndex_Update(uint param_1)
+void ECU_P0601_StateSampleByIndex_Update(uint param_1)
 
 {
   char cVar1;
   uint uVar2;
   
-  if (PTR_DAT_00042740[param_1 & 0xff] == '\0') {
+  if (PTR_ECU_P0601_StateSampleByIndex_00042740[param_1 & 0xff] == '\0') {
     cVar1 = (*(code *)PTR_Service12F_RequestStart_IfIdle_00042748)(param_1);
     if ((cVar1 != '\0') &&
        (cVar1 = (*(code *)PTR_Service12F_State_ReadAndMaybeClear_0004274c)(), cVar1 != '\x02')) {
       uVar2 = param_1 & 0xff;
       cVar1 = (*(code *)PTR_Service12F_State_ReadAndMaybeClear_0004274c)();
       if (cVar1 == '\0') {
-        PTR_DAT_00042744[uVar2] = 1;
+        PTR_ECU_P0601_StateLatchByIndex_00042744[uVar2] = 1;
       }
       else {
         cVar1 = (*(code *)PTR_Service12F_State_ReadAndMaybeClear_0004274c)();
         if (cVar1 == '\x01') {
-          PTR_DAT_00042744[uVar2] = 0;
+          PTR_ECU_P0601_StateLatchByIndex_00042744[uVar2] = 0;
         }
       }
-      PTR_DAT_00042740[uVar2] = 1;
+      PTR_ECU_P0601_StateSampleByIndex_00042740[uVar2] = 1;
       return;
     }
   }
@@ -82170,13 +82676,13 @@ void SubsystemA_DTC2A_StateSampleByIndex_Update(uint param_1)
 
 
 
-void SubsystemA_DTC2B_DirectReport_SetFail(void)
+void ECU_P0602_DirectReport_SetFail(void)
 
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_0004276c;
-  *PTR_DAT_00042768 = 1;
+  puVar1 = PTR_ECU_P0602_PassFlag_0004276c;
+  *PTR_ECU_P0602_FailFlag_00042768 = 1;
   *puVar1 = 0;
   (*(code *)PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00042770)(0x2b,1);
   return;
@@ -82187,7 +82693,7 @@ void SubsystemA_DTC2B_DirectReport_SetFail(void)
 void EGR_DTC2B_DirectReport_SetFail_Thunk(void)
 
 {
-  SubsystemA_DTC2B_DirectReport_SetFail();
+  ECU_P0602_DirectReport_SetFail();
   return;
 }
 
@@ -82209,7 +82715,7 @@ void InfoDisplay_Slot_Reset(void)
 
 
 
-void SubsystemA_DTC33_StateDebounceAndReport(void)
+void ECU_P1603_StateDebounceAndReport(void)
 
 {
   undefined *puVar1;
@@ -82289,7 +82795,10 @@ void InfoDisplay_State_ResetGroupC(void)
 
 
 
-void SubsystemA_DTC3B_3C_3D_EnableGate_UpdateFromRampBlend(void)
+// Updates the shared enable gate for the OEM diagnostic tail P1674/P1675/P1676 using the ramp-blend
+// input cluster.
+
+void OEM_P1674_P1675_P1676_EnableGate_UpdateFromRampBlend(void)
 
 {
   char cVar1;
@@ -82344,7 +82853,9 @@ void SubsystemA_DTC3B_3C_3D_EnableGate_UpdateFromRampBlend(void)
 
 
 
-uint SubsystemA_DTC3B_InputCluster_Report(void)
+// Debounces and reports OEM diagnostic code P1674.
+
+uint OEM_P1674_DebounceAndReport(void)
 
 {
   undefined *puVar1;
@@ -82382,7 +82893,9 @@ uint SubsystemA_DTC3B_InputCluster_Report(void)
 
 
 
-uint SubsystemA_DTC3D_InputCluster_Report(void)
+// Debounces and reports OEM diagnostic code P1676.
+
+uint OEM_P1676_DebounceAndReport(void)
 
 {
   undefined *puVar1;
@@ -82418,7 +82931,9 @@ uint SubsystemA_DTC3D_InputCluster_Report(void)
 
 
 
-uint SubsystemA_DTC3C_InputCluster_Report(void)
+// Debounces and reports OEM diagnostic code P1675.
+
+uint OEM_P1675_DebounceAndReport(void)
 
 {
   undefined *puVar1;
@@ -82512,7 +83027,7 @@ void CoolingFanAux_PE11_P0481_ClearArmingProtectedStatus(void)
 
 
 
-bool SubsystemA_DTC27_ProtectedStatus_IsComplementInvalid(void)
+bool CoolingFanRelay23_PE9_P0481_ProtectedStatus_IsComplementInvalid(void)
 
 {
   char cVar1;
@@ -82550,7 +83065,9 @@ void CoolingFanAux_PE11_P0481_SetArmingProtectedStatusAfterDelay(void)
 
 
 
-void CoolingFanAux_PE11_P0481_OutputFeedbackDebounceAndReport(void)
+// Debounces the shared PE9 cooling-fan relay #2/#3 feedback path and reports OBD DTC P0481.
+
+void CoolingFanRelay23_PE9_P0481_DebounceAndReport(void)
 
 {
   char cVar1;
@@ -82617,14 +83134,14 @@ void CoolingFanAux_PE11_P0481_OutputFeedbackDebounceAndReport(void)
 
 
 
-bool DiagRunner_SubsystemADTC27_ProtectedStatusCheck_Wrapped(void)
+bool CoolingFanRelay23_PE9_P0481_ProtectedStatusCheck_Wrapped(void)
 
 {
   undefined4 uVar1;
   bool bVar2;
   
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00042e78)(0x10);
-  bVar2 = SubsystemA_DTC27_ProtectedStatus_IsComplementInvalid();
+  bVar2 = CoolingFanRelay23_PE9_P0481_ProtectedStatus_IsComplementInvalid();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00042e7c)(uVar1);
   return bVar2;
 }
@@ -82814,8 +83331,7 @@ float * ECT_GAUGE_CMD_Calc(void)
   if ((*PTR_DiagAggregate_ECT_DTC0D0E_AnyProtectedStatusSet_000430fc != '\0') ||
      (pfVar1 = &ECTGauge_PF5_CommandLinear_LowLimit_C_minus40,
      fVar2 < ECTGauge_PF5_CommandLinear_LowLimit_C_minus40)) {
-    *(float *)PTR_ECTGauge_PF5_CommandPercent_000430f8 =
-         ECTGauge_PF5_CommandFallback_ColdOrDiag_5pct;
+    *(float *)PTR_ECT_GAUGE_CMD_000430f8 = ECTGauge_PF5_CommandFallback_ColdOrDiag_5pct;
   }
   else {
     if (ECTGauge_PF5_CommandLinear_HighLimit_C_120 <= fVar2) {
@@ -82827,7 +83343,7 @@ float * ECT_GAUGE_CMD_Calc(void)
       fVar2 = ECTGauge_PF5_CommandLinear_Offset_30pct +
               fVar2 * ECTGauge_PF5_CommandLinear_Slope_0p5pctPerC;
     }
-    *(float *)PTR_ECTGauge_PF5_CommandPercent_000430f8 = fVar2;
+    *(float *)PTR_ECT_GAUGE_CMD_000430f8 = fVar2;
   }
   return pfVar1;
 }
@@ -82843,8 +83359,7 @@ void ECTGauge_PF5_CommandFromCoolant_Update(void)
   fVar2 = *(float *)PTR_ECTSensor_AN28_CelsiusValidated_000430f0;
   if ((*PTR_DiagAggregate_ECT_DTC0D0E_AnyProtectedStatusSet_000430fc != '\0') ||
      (fVar2 < ECTGauge_PF5_CommandLinear_LowLimit_C_minus40)) {
-    *(float *)PTR_ECTGauge_PF5_CommandPercent_000430f8 =
-         ECTGauge_PF5_CommandFallback_ColdOrDiag_5pct;
+    *(float *)PTR_ECT_GAUGE_CMD_000430f8 = ECTGauge_PF5_CommandFallback_ColdOrDiag_5pct;
   }
   else {
     fVar1 = ECTGauge_PF5_CommandOverheat_95pct;
@@ -82852,7 +83367,7 @@ void ECTGauge_PF5_CommandFromCoolant_Update(void)
       fVar1 = ECTGauge_PF5_CommandLinear_Offset_30pct +
               fVar2 * ECTGauge_PF5_CommandLinear_Slope_0p5pctPerC;
     }
-    *(float *)PTR_ECTGauge_PF5_CommandPercent_000430f8 = fVar1;
+    *(float *)PTR_ECT_GAUGE_CMD_000430f8 = fVar1;
   }
   return;
 }
@@ -82862,7 +83377,7 @@ void ECTGauge_PF5_CommandFromCoolant_Update(void)
 // Application coolant-temperature gauge PWM service: calculates the ECT gauge command, then updates
 // the PF5 output bit.
 
-void ECTGauge_PF5_CommandAndOutput_UpdateApp(void)
+void ECTGauge_PF5_PWM_UpdateApp(void)
 
 {
   (*(code *)PTR_ECT_GAUGE_CMD_Calc_00043150)();
@@ -82913,9 +83428,8 @@ void ECTGauge_PF5_OutputBit_UpdateFromCommand(void)
   undefined4 local_10 [2];
   
   uVar4 = (*(code *)PTR_IndexFromFloat_Clamped_1_00043220)
-                    ((*(float *)PTR_ECTGauge_PF5_CommandPercent_00043218 *
-                     ECTGauge_PF5_DutyIndex_Multiplier_1000) / ECTGauge_PF5_DutyIndex_Divisor_100,
-                     0x3f800000,0);
+                    ((*(float *)PTR_ECT_GAUGE_CMD_00043218 * ECTGauge_PF5_DutyIndex_Multiplier_1000)
+                     / ECTGauge_PF5_DutyIndex_Divisor_100,0x3f800000,0);
   iVar5 = (int)ECTGauge_PF5_CriticalSectionMask_0x00e0;
   *(undefined2 *)PTR_ECTGauge_PF5_DutyIndexRaw_00043224 = uVar4;
   (*(code *)PTR_SetPrivilegedSR_00043228)(local_10,iVar5);
@@ -82951,9 +83465,8 @@ void ECTGauge_PF5_OutputIndex_UpdateNoPinDrive(void)
   undefined2 uVar3;
   
   uVar3 = (*(code *)PTR_IndexFromFloat_Clamped_1_00043220)
-                    ((*(float *)PTR_ECTGauge_PF5_CommandPercent_00043218 *
-                     ECTGauge_PF5_DutyIndex_Multiplier_1000) / ECTGauge_PF5_DutyIndex_Divisor_100,
-                     0x3f800000,0);
+                    ((*(float *)PTR_ECT_GAUGE_CMD_00043218 * ECTGauge_PF5_DutyIndex_Multiplier_1000)
+                     / ECTGauge_PF5_DutyIndex_Divisor_100,0x3f800000,0);
   puVar2 = PTR_ECTGauge_PF5_OutputStateBase_0004322c;
   puVar1 = PTR_ECTGauge_PF5_DutyIndexRaw_00043224;
   *(undefined2 *)PTR_ECTGauge_PF5_DutyIndexRaw_00043224 = uVar3;
@@ -83099,12 +83612,12 @@ void Update_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag(void)
 void EGR_DTC2A_LocalStatusRefreshAndAggregate(void)
 
 {
-  if (*PTR_DAT_0004343c != '\0') {
-    if ((*PTR_DAT_00043444 & 0x10) == 0) {
-      *PTR_DAT_00043440 = 1;
+  if (*PTR_Cal_PhaseFrontend_Mode2Bit10_Enable_0004343c != '\0') {
+    if ((*PTR_PhaseFrontend_Mode2_ResponseStableByte_00043444 & 0x10) == 0) {
+      *PTR_PhaseFrontend_Mode2Bit10_InvertedRawFlag_00043440 = 1;
     }
     else {
-      *PTR_DAT_00043440 = 0;
+      *PTR_PhaseFrontend_Mode2Bit10_InvertedRawFlag_00043440 = 0;
     }
   }
   return;
@@ -83112,7 +83625,7 @@ void EGR_DTC2A_LocalStatusRefreshAndAggregate(void)
 
 
 
-void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_1(void)
+void PhaseFrontend_Mode2Bit10_DebouncedPrereq_Update(void)
 
 {
   char cVar1;
@@ -83122,13 +83635,13 @@ void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_1(void)
   undefined2 uVar5;
   undefined1 uVar6;
   
-  puVar3 = PTR_DAT_00043448;
-  if (*PTR_DAT_0004343c == '\0') {
-    *PTR_DAT_00043448 = 0;
+  puVar3 = PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00043448;
+  if (*PTR_Cal_PhaseFrontend_Mode2Bit10_Enable_0004343c == '\0') {
+    *PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_00043448 = 0;
     return;
   }
   uVar2 = *(ushort *)PTR_SubsystemA_PrimaryEnable_QualifiedCounter_0004344c;
-  cVar1 = *PTR_DAT_00043440;
+  cVar1 = *PTR_PhaseFrontend_Mode2Bit10_InvertedRawFlag_00043440;
   uVar5 = (*(code *)PTR_Interpolate1D_ToUint16_00043458)
                     (*(undefined4 *)PTR_SubsystemA_PrimaryEnable_PrerequisiteB_Input_00043450,
                      PTR_LAB_00043454);
@@ -83161,15 +83674,15 @@ LAB_0004332e:
 
 
 
-void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_2(void)
+void PhaseFrontend_Mode0Bit10_InvertRaw_Update(void)
 
 {
-  if (*PTR_DAT_00043474 != '\0') {
-    if ((*(ushort *)PTR_DAT_0004347c & 0x10) == 0) {
-      *PTR_DAT_00043478 = 1;
+  if (*PTR_Cal_PhaseFrontend_Mode0Bit10_Enable_00043474 != '\0') {
+    if ((*(ushort *)PTR_PhaseFrontend_Mode0_ResponseStableWord_0004347c & 0x10) == 0) {
+      *PTR_PhaseFrontend_Mode0Bit10_InvertedRawFlag_00043478 = 1;
     }
     else {
-      *PTR_DAT_00043478 = 0;
+      *PTR_PhaseFrontend_Mode0Bit10_InvertedRawFlag_00043478 = 0;
     }
   }
   return;
@@ -83177,7 +83690,7 @@ void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_2(void)
 
 
 
-void Read_AddBytesWithLimit_2(void)
+void PhaseFrontend_Mode0Bit10_DebouncedComparison_Update(void)
 
 {
   undefined *puVar1;
@@ -83186,12 +83699,12 @@ void Read_AddBytesWithLimit_2(void)
   
   puVar2 = PTR_DAT_00043488;
   puVar1 = PTR_DAT_00043484;
-  if (*PTR_DAT_00043474 == '\0') {
-    *PTR_DAT_00043480 = 0;
+  if (*PTR_Cal_PhaseFrontend_Mode0Bit10_Enable_00043474 == '\0') {
+    *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00043480 = 0;
   }
-  else if (*PTR_DAT_00043478 == '\x01') {
+  else if (*PTR_PhaseFrontend_Mode0Bit10_InvertedRawFlag_00043478 == '\x01') {
     if ((byte)*PTR_DAT_0004348c <= (byte)*PTR_DAT_00043484) {
-      *PTR_DAT_00043480 = 1;
+      *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00043480 = 1;
     }
     uVar3 = (*(code *)PTR_AddBytesWithLimit_00043470)((int)(char)*puVar1,1);
     *puVar1 = uVar3;
@@ -83199,7 +83712,7 @@ void Read_AddBytesWithLimit_2(void)
   }
   else {
     if ((byte)*PTR_DAT_00043490 <= (byte)*PTR_DAT_00043488) {
-      *PTR_DAT_00043480 = 0;
+      *PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00043480 = 0;
     }
     uVar3 = (*(code *)PTR_AddBytesWithLimit_00043470)((int)(char)*puVar2,1);
     *puVar2 = uVar3;
@@ -83210,18 +83723,18 @@ void Read_AddBytesWithLimit_2(void)
 
 
 
-void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_3(void)
+void PhaseFrontend_Mode1Bit20_Raw_Update(void)
 
 {
   char cVar1;
   
-  cVar1 = *PTR_DAT_00043494;
+  cVar1 = *PTR_Cal_PhaseFrontend_Mode1Bit20_IdleUp_Enable_00043494;
   if (cVar1 == '\x01') {
-    if ((*PTR_DAT_0004349c & 0x20) == 0) {
-      *PTR_DAT_00043498 = 0;
+    if ((*PTR_PhaseFrontend_Mode1_ResponseStableByte_0004349c & 0x20) == 0) {
+      *PTR_PhaseFrontend_Mode1Bit20_RawIdleUpFlag_00043498 = 0;
     }
     else {
-      *PTR_DAT_00043498 = 1;
+      *PTR_PhaseFrontend_Mode1Bit20_RawIdleUpFlag_00043498 = 1;
     }
   }
   else if ((cVar1 != '\0') && (cVar1 != '\x01')) {
@@ -83233,7 +83746,7 @@ void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_3(void)
 
 
 
-void Read_AddBytesWithLimit(void)
+void IdleUpMode_Mode1Bit20_DebouncedRequestAB_Update(void)
 
 {
   undefined *puVar1;
@@ -83244,63 +83757,63 @@ void Read_AddBytesWithLimit(void)
   undefined *puVar6;
   undefined1 uVar7;
   
-  puVar6 = PTR_DAT_000436bc;
-  puVar5 = PTR_DAT_000436a8;
+  puVar6 = PTR_IdleUpMode_DebounceCounterB_On_000436bc;
+  puVar5 = PTR_IdleUpMode_DebounceCounterA_On_000436a8;
   puVar4 = PTR_AddBytesWithLimit_000436a4;
-  puVar3 = PTR_DAT_0004369c;
-  puVar2 = PTR_DAT_00043698;
-  puVar1 = PTR_DAT_00043694;
-  if (*PTR_DAT_000436a0 == '\0') {
-    *PTR_DAT_00043698 = 0;
+  puVar3 = PTR_IdleUpMode_Mode1Bit20_RequestFlagA_0004369c;
+  puVar2 = PTR_IdleUpMode_Mode1Bit20_DebouncedAnyFlag_00043698;
+  puVar1 = PTR_IdleUpMode_Mode1Bit20_RequestFlagB_00043694;
+  if (*PTR_Cal_PhaseFrontend_Mode1Bit20_IdleUp_Enable_000436a0 == '\0') {
+    *PTR_IdleUpMode_Mode1Bit20_DebouncedAnyFlag_00043698 = 0;
     *puVar3 = 0;
     *puVar1 = 0;
   }
-  else if (*PTR_DAT_000436a0 == '\x01') {
-    if (*PTR_DAT_000436ac == '\x01') {
-      if ((byte)*PTR_DAT_000436b0 <= (byte)*PTR_DAT_000436a8) {
-        *PTR_DAT_00043698 = 1;
+  else if (*PTR_Cal_PhaseFrontend_Mode1Bit20_IdleUp_Enable_000436a0 == '\x01') {
+    if (*PTR_PhaseFrontend_Mode1Bit20_RawIdleUpFlag_000436ac == '\x01') {
+      if ((byte)*PTR_DAT_000436b0 <= (byte)*PTR_IdleUpMode_DebounceCounterA_On_000436a8) {
+        *PTR_IdleUpMode_Mode1Bit20_DebouncedAnyFlag_00043698 = 1;
         *puVar3 = 1;
         *puVar1 = 0;
       }
       uVar7 = (*(code *)puVar4)((int)(char)*puVar5,1);
       *puVar5 = uVar7;
-      *PTR_DAT_000436b4 = 0;
+      *PTR_IdleUpMode_DebounceCounterA_Off_000436b4 = 0;
     }
     else {
-      if ((byte)*PTR_DAT_000436b8 <= (byte)*PTR_DAT_000436b4) {
-        *PTR_DAT_00043698 = 0;
+      if ((byte)*PTR_DAT_000436b8 <= (byte)*PTR_IdleUpMode_DebounceCounterA_Off_000436b4) {
+        *PTR_IdleUpMode_Mode1Bit20_DebouncedAnyFlag_00043698 = 0;
         *puVar3 = 0;
         *puVar1 = 0;
       }
-      uVar7 = (*(code *)puVar4)((int)(char)*PTR_DAT_000436b4,1);
-      *PTR_DAT_000436b4 = uVar7;
+      uVar7 = (*(code *)puVar4)((int)(char)*PTR_IdleUpMode_DebounceCounterA_Off_000436b4,1);
+      *PTR_IdleUpMode_DebounceCounterA_Off_000436b4 = uVar7;
       *puVar5 = 0;
     }
   }
   else {
     if (*PTR_DAT_000436c0 == '\x01') {
-      if ((byte)*PTR_DAT_000436c4 <= (byte)*PTR_DAT_000436bc) {
-        *PTR_DAT_0004369c = 1;
+      if ((byte)*PTR_DAT_000436c4 <= (byte)*PTR_IdleUpMode_DebounceCounterB_On_000436bc) {
+        *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_0004369c = 1;
       }
       uVar7 = (*(code *)puVar4)((int)(char)*puVar6,1);
       *puVar6 = uVar7;
-      *PTR_DAT_000436c8 = 0;
+      *PTR_IdleUpMode_DebounceCounterB_Off_000436c8 = 0;
     }
     else {
-      if ((byte)*PTR_DAT_000436cc <= (byte)*PTR_DAT_000436c8) {
-        *PTR_DAT_0004369c = 0;
+      if ((byte)*PTR_DAT_000436cc <= (byte)*PTR_IdleUpMode_DebounceCounterB_Off_000436c8) {
+        *PTR_IdleUpMode_Mode1Bit20_RequestFlagA_0004369c = 0;
       }
-      uVar7 = (*(code *)puVar4)((int)(char)*PTR_DAT_000436c8,1);
-      *PTR_DAT_000436c8 = uVar7;
+      uVar7 = (*(code *)puVar4)((int)(char)*PTR_IdleUpMode_DebounceCounterB_Off_000436c8,1);
+      *PTR_IdleUpMode_DebounceCounterB_Off_000436c8 = uVar7;
       *puVar6 = 0;
     }
     puVar5 = PTR_DAT_000436d0;
     if (*PTR_DAT_000436d4 == '\x01') {
-      if ((byte)*PTR_DAT_000436dc <= (byte)*PTR_DAT_000436d8) {
+      if ((byte)*PTR_DAT_000436dc <= (byte)*PTR_IdleUpMode_DebounceCounterC_On_000436d8) {
         *puVar1 = 1;
       }
-      uVar7 = (*(code *)puVar4)((int)(char)*PTR_DAT_000436d8,1);
-      *PTR_DAT_000436d8 = uVar7;
+      uVar7 = (*(code *)puVar4)((int)(char)*PTR_IdleUpMode_DebounceCounterC_On_000436d8,1);
+      *PTR_IdleUpMode_DebounceCounterC_On_000436d8 = uVar7;
       *puVar5 = 0;
     }
     else {
@@ -83309,9 +83822,9 @@ void Read_AddBytesWithLimit(void)
       }
       uVar7 = (*(code *)puVar4)((int)(char)*puVar5,1);
       *puVar5 = uVar7;
-      *PTR_DAT_000436d8 = 0;
+      *PTR_IdleUpMode_DebounceCounterC_On_000436d8 = 0;
     }
-    if ((*puVar3 == '\0') && (*PTR_DAT_00043694 == '\0')) {
+    if ((*puVar3 == '\0') && (*PTR_IdleUpMode_Mode1Bit20_RequestFlagB_00043694 == '\0')) {
       *puVar2 = 0;
     }
     else {
@@ -83323,16 +83836,16 @@ void Read_AddBytesWithLimit(void)
 
 
 
-void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_4(void)
+void PhaseFrontend_DisabledRequestRaw_Clear(void)
 
 {
-  *PTR_DAT_000436e4 = 0;
+  *PTR_PhaseFrontend_DisabledRequest_RawFlag_000436e4 = 0;
   return;
 }
 
 
 
-void AddBytesWithLimit_Wrapper(void)
+void PhaseFrontend_DisabledRequest_Debounce_Update(void)
 
 {
   undefined *puVar1;
@@ -83341,18 +83854,18 @@ void AddBytesWithLimit_Wrapper(void)
   
   puVar2 = PTR_DAT_000436f4;
   puVar1 = PTR_DAT_000436f0;
-  if (*PTR_DAT_000436ec == '\0') {
-    *PTR_DAT_000436e8 = 0;
+  if (*PTR_Cal_PhaseFrontend_DisabledRequest_Enable_000436ec == '\0') {
+    *PTR_PhaseFrontend_DisabledRequest_DebouncedFlag_000436e8 = 0;
   }
   else {
     if (*PTR_SubsystemA_EnableSharedInhibitFlag_000436f8 == '\x01') {
-      *PTR_DAT_000436e8 = 0;
+      *PTR_PhaseFrontend_DisabledRequest_DebouncedFlag_000436e8 = 0;
       *puVar1 = 0;
     }
     else {
-      if (*PTR_DAT_000436e4 != '\x01') {
+      if (*PTR_PhaseFrontend_DisabledRequest_RawFlag_000436e4 != '\x01') {
         if ((byte)*PTR_DAT_00043700 <= (byte)*PTR_DAT_000436f4) {
-          *PTR_DAT_000436e8 = 0;
+          *PTR_PhaseFrontend_DisabledRequest_DebouncedFlag_000436e8 = 0;
         }
         uVar3 = (*(code *)PTR_AddBytesWithLimit_000436a4)((int)(char)*puVar2,1);
         *puVar2 = uVar3;
@@ -83360,7 +83873,7 @@ void AddBytesWithLimit_Wrapper(void)
         return;
       }
       if ((byte)*PTR_DAT_000436fc <= (byte)*PTR_DAT_000436f0) {
-        *PTR_DAT_000436e8 = 1;
+        *PTR_PhaseFrontend_DisabledRequest_DebouncedFlag_000436e8 = 1;
       }
       uVar3 = (*(code *)PTR_AddBytesWithLimit_000436a4)((int)(char)*puVar1,1);
       *puVar1 = uVar3;
@@ -83372,15 +83885,15 @@ void AddBytesWithLimit_Wrapper(void)
 
 
 
-void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_5(void)
+void PhaseFrontend_Mode1Bit08_Raw_Update(void)
 
 {
-  if (*PTR_DAT_00043704 != '\0') {
-    if ((*PTR_DAT_0004370c & 8) == 0) {
-      *PTR_DAT_00043708 = 0;
+  if (*PTR_Cal_PhaseFrontend_Mode1Bit08_IdleUp_Enable_00043704 != '\0') {
+    if ((*PTR_PhaseFrontend_Mode1_ResponseStableByte_0004370c & 8) == 0) {
+      *PTR_PhaseFrontend_Mode1Bit08_RawFlag_00043708 = 0;
     }
     else {
-      *PTR_DAT_00043708 = 1;
+      *PTR_PhaseFrontend_Mode1Bit08_RawFlag_00043708 = 1;
     }
   }
   return;
@@ -83388,7 +83901,7 @@ void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_5(void)
 
 
 
-void Read_AddBytesWithLimit_3(void)
+void PhaseFrontend_Mode1Bit08_DebouncedIdleUpRequestC_Update(void)
 
 {
   undefined *puVar1;
@@ -83397,12 +83910,12 @@ void Read_AddBytesWithLimit_3(void)
   
   puVar2 = PTR_DAT_00043878;
   puVar1 = PTR_DAT_00043874;
-  if (*PTR_DAT_00043704 == '\0') {
-    *PTR_DAT_00043710 = 0;
+  if (*PTR_Cal_PhaseFrontend_Mode1Bit08_IdleUp_Enable_00043704 == '\0') {
+    *PTR_IdleUpMode_Mode1Bit08_RequestFlagC_00043710 = 0;
   }
-  else if (*PTR_DAT_0004387c == '\x01') {
+  else if (*PTR_PhaseFrontend_Mode1Bit08_RawFlag_0004387c == '\x01') {
     if ((byte)*PTR_DAT_00043880 <= (byte)*PTR_DAT_00043874) {
-      *PTR_DAT_00043710 = 1;
+      *PTR_IdleUpMode_Mode1Bit08_RequestFlagC_00043710 = 1;
     }
     uVar3 = (*(code *)PTR_AddBytesWithLimit_00043884)((int)(char)*puVar1,1);
     *puVar1 = uVar3;
@@ -83410,7 +83923,7 @@ void Read_AddBytesWithLimit_3(void)
   }
   else {
     if ((byte)*PTR_DAT_00043888 <= (byte)*PTR_DAT_00043878) {
-      *PTR_DAT_00043710 = 0;
+      *PTR_IdleUpMode_Mode1Bit08_RequestFlagC_00043710 = 0;
     }
     uVar3 = (*(code *)PTR_AddBytesWithLimit_00043884)((int)(char)*puVar2,1);
     *puVar2 = uVar3;
@@ -83421,15 +83934,15 @@ void Read_AddBytesWithLimit_3(void)
 
 
 
-void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_6(void)
+void PhaseFrontend_Mode2Bit08_InvertRaw_Update(void)
 
 {
-  if (*PTR_DAT_0004388c != '\0') {
-    if ((*PTR_DAT_00043894 & 8) == 0) {
-      *PTR_DAT_00043890 = 1;
+  if (*PTR_Cal_PhaseFrontend_Mode2Bit08_Enable_0004388c != '\0') {
+    if ((*PTR_PhaseFrontend_Mode2_ResponseStableByte_00043894 & 8) == 0) {
+      *PTR_PhaseFrontend_Mode2Bit08_InvertedRawFlag_00043890 = 1;
     }
     else {
-      *PTR_DAT_00043890 = 0;
+      *PTR_PhaseFrontend_Mode2Bit08_InvertedRawFlag_00043890 = 0;
     }
   }
   return;
@@ -83437,7 +83950,7 @@ void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_6(void)
 
 
 
-void Read_AddBytesWithLimit_4(void)
+void PhaseFrontend_Mode2Bit08_DebouncedFlag_Update(void)
 
 {
   undefined *puVar1;
@@ -83446,12 +83959,12 @@ void Read_AddBytesWithLimit_4(void)
   
   puVar2 = PTR_DAT_000438a0;
   puVar1 = PTR_DAT_0004389c;
-  if (*PTR_DAT_0004388c == '\0') {
-    *PTR_DAT_00043898 = 0;
+  if (*PTR_Cal_PhaseFrontend_Mode2Bit08_Enable_0004388c == '\0') {
+    *PTR_PhaseFrontend_Mode2Bit08_DebouncedFlag_00043898 = 0;
   }
-  else if (*PTR_DAT_00043890 == '\x01') {
+  else if (*PTR_PhaseFrontend_Mode2Bit08_InvertedRawFlag_00043890 == '\x01') {
     if ((byte)*PTR_DAT_000438a4 <= (byte)*PTR_DAT_0004389c) {
-      *PTR_DAT_00043898 = 1;
+      *PTR_PhaseFrontend_Mode2Bit08_DebouncedFlag_00043898 = 1;
     }
     uVar3 = (*(code *)PTR_AddBytesWithLimit_00043884)((int)(char)*puVar1,1);
     *puVar1 = uVar3;
@@ -83459,7 +83972,7 @@ void Read_AddBytesWithLimit_4(void)
   }
   else {
     if ((byte)*PTR_DAT_000438a8 <= (byte)*PTR_DAT_000438a0) {
-      *PTR_DAT_00043898 = 0;
+      *PTR_PhaseFrontend_Mode2Bit08_DebouncedFlag_00043898 = 0;
     }
     uVar3 = (*(code *)PTR_AddBytesWithLimit_00043884)((int)(char)*puVar2,1);
     *puVar2 = uVar3;
@@ -83470,15 +83983,15 @@ void Read_AddBytesWithLimit_4(void)
 
 
 
-void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_7(void)
+void PhaseFrontend_Mode1Bit40_InvertRaw_Update(void)
 
 {
-  if (*PTR_DAT_000438ac != '\0') {
-    if ((*PTR_DAT_000438b4 & 0x40) == 0) {
-      *PTR_DAT_000438b0 = 1;
+  if (*PTR_Cal_PhaseFrontend_Mode1Bit40_Enable_000438ac != '\0') {
+    if ((*PTR_PhaseFrontend_Mode1_ResponseStableByte_000438b4 & 0x40) == 0) {
+      *PTR_PhaseFrontend_Mode1Bit40_InvertedRawFlag_000438b0 = 1;
     }
     else {
-      *PTR_DAT_000438b0 = 0;
+      *PTR_PhaseFrontend_Mode1Bit40_InvertedRawFlag_000438b0 = 0;
     }
   }
   return;
@@ -83486,7 +83999,7 @@ void SubsystemA_DTC2A_LocalStatusRefreshAndAggregateBundle_Sub_7(void)
 
 
 
-void Read_AddBytesWithLimit_1(void)
+void PhaseFrontend_Mode1Bit40_DebouncedFlag_Update(void)
 
 {
   undefined *puVar1;
@@ -83495,12 +84008,12 @@ void Read_AddBytesWithLimit_1(void)
   
   puVar2 = PTR_DAT_000438c0;
   puVar1 = PTR_DAT_000438bc;
-  if (*PTR_DAT_000438ac == '\0') {
-    *PTR_DAT_000438b8 = 0;
+  if (*PTR_Cal_PhaseFrontend_Mode1Bit40_Enable_000438ac == '\0') {
+    *PTR_PhaseFrontend_Mode1Bit40_DebouncedFlag_000438b8 = 0;
   }
-  else if (*PTR_DAT_000438b0 == '\x01') {
+  else if (*PTR_PhaseFrontend_Mode1Bit40_InvertedRawFlag_000438b0 == '\x01') {
     if ((byte)*PTR_DAT_000438c4 <= (byte)*PTR_DAT_000438bc) {
-      *PTR_DAT_000438b8 = 1;
+      *PTR_PhaseFrontend_Mode1Bit40_DebouncedFlag_000438b8 = 1;
     }
     uVar3 = (*(code *)PTR_AddBytesWithLimit_00043884)((int)(char)*puVar1,1);
     *puVar1 = uVar3;
@@ -83508,7 +84021,7 @@ void Read_AddBytesWithLimit_1(void)
   }
   else {
     if ((byte)*PTR_DAT_000438c8 <= (byte)*PTR_DAT_000438c0) {
-      *PTR_DAT_000438b8 = 0;
+      *PTR_PhaseFrontend_Mode1Bit40_DebouncedFlag_000438b8 = 0;
     }
     uVar3 = (*(code *)PTR_AddBytesWithLimit_00043884)((int)(char)*puVar2,1);
     *puVar2 = uVar3;
@@ -83745,7 +84258,7 @@ void MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket_Sub_1(void)
 
 
 
-void GroupK_DTC34_GaugeDiagAndMode_Update(void)
+void SubsystemA_PrereqA_WindowRampOutput_Update(void)
 
 {
   undefined *puVar1;
@@ -83755,6 +84268,10 @@ void GroupK_DTC34_GaugeDiagAndMode_Update(void)
   float fVar5;
   float fVar6;
   
+                    // Builds a ramped SubsystemA output gated by PrerequisiteFlagA, ECT,
+                    // command-blend table input, EnablePrecondition_InputB, and
+                    // FuelDisplay_InputWindowAvg. This output is subtracted in
+                    // IgnitionPhaseCommandBlend_ResidualSum_Update.
   puVar1 = PTR_DAT_00043c48;
   fVar5 = *(float *)PTR_SubsystemA_CommandBlend_TableInput_00043c34;
   fVar6 = *(float *)PTR_SubsystemA_EnablePrecondition_InputB_00043c38;
@@ -83792,21 +84309,23 @@ void GroupK_DTC34_GaugeDiagAndMode_Update(void)
   else {
     *PTR_DAT_00043c6c = 1;
   }
-  puVar2 = PTR_DAT_00043c70;
+  puVar2 = PTR_SubsystemA_PrereqA_WindowRampOutput_00043c70;
   if (*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00043c74 == '\0') {
-    *(undefined4 *)PTR_DAT_00043c70 = 0;
+    *(undefined4 *)PTR_SubsystemA_PrereqA_WindowRampOutput_00043c70 = 0;
   }
   else {
     if ((((*puVar1 == '\0') || (*PTR_DAT_00043c54 == '\0')) || (*PTR_DAT_00043c60 == '\0')) ||
        ((*PTR_DAT_00043c6c == '\x01' || (*(float *)PTR_DAT_00043c7c < *(float *)PTR_DAT_00043c80))))
     {
       uVar3 = (*(code *)PTR_MaxFloat_00043c84)
-                        (0,*(float *)PTR_DAT_00043c70 - *(float *)PTR_DAT_00043c78);
+                        (0,*(float *)PTR_SubsystemA_PrereqA_WindowRampOutput_00043c70 -
+                           *(float *)PTR_DAT_00043c78);
     }
     else {
       uVar3 = (*(code *)PTR_MinFloat_00043c8c)
                         (*(undefined4 *)PTR_DAT_00043c88,
-                         *(float *)PTR_DAT_00043c70 + *(float *)PTR_DAT_00043c78);
+                         *(float *)PTR_SubsystemA_PrereqA_WindowRampOutput_00043c70 +
+                         *(float *)PTR_DAT_00043c78);
     }
     *(undefined4 *)puVar2 = uVar3;
   }
@@ -83815,7 +84334,7 @@ void GroupK_DTC34_GaugeDiagAndMode_Update(void)
 
 
 
-void ModeByte3To10_SelectOrDecayToZero_Update(void)
+void SubsystemA_ModeByte3To10_SelectedOutput_Update(void)
 
 {
   byte bVar1;
@@ -83823,16 +84342,17 @@ void ModeByte3To10_SelectOrDecayToZero_Update(void)
   undefined4 *puVar3;
   undefined4 uVar4;
   
-  puVar2 = PTR_DAT_00043d3c;
+  puVar2 = PTR_SubsystemA_ModeByte3To10_SelectedOutput_00043d3c;
   if (*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00043d40 != '\0') {
-    *(undefined4 *)PTR_DAT_00043d3c = 0;
+    *(undefined4 *)PTR_SubsystemA_ModeByte3To10_SelectedOutput_00043d3c = 0;
     return;
   }
   bVar1 = *PTR_DAT_00043d44;
   if (((bVar1 < 3) || (10 < bVar1)) ||
      (*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00043d48 != '\0')) {
     uVar4 = (*(code *)PTR_MaxFloat_00043d70)
-                      (*(float *)PTR_DAT_00043d3c - *(float *)PTR_DAT_00043d6c,0);
+                      (*(float *)PTR_SubsystemA_ModeByte3To10_SelectedOutput_00043d3c -
+                       *(float *)PTR_DAT_00043d6c,0);
     *(undefined4 *)puVar2 = uVar4;
     return;
   }
@@ -83867,7 +84387,7 @@ void ModeByte3To10_SelectOrDecayToZero_Update(void)
   }
   uVar4 = *puVar3;
 LAB_00043d12:
-  *(undefined4 *)PTR_DAT_00043d3c = uVar4;
+  *(undefined4 *)PTR_SubsystemA_ModeByte3To10_SelectedOutput_00043d3c = uVar4;
   return;
 }
 
@@ -83896,11 +84416,11 @@ void IMMO_IndicatorAndPacket_ServiceBundle(void)
 
 {
   (*(code *)PTR_IMMO_PE7_Indicator_ApplyOutputState_00043eac)();
-  (*(code *)PTR_IMMO_IndicatorAndPacket_ServiceBundle_Sub_3_00043eb0)();
+  (*(code *)PTR_IMMO_ResetP1620_P1621_P1623_AndClearP1622_Bundle_00043eb0)();
   (*(code *)PTR_thunk_IMMO_StatusSlotsLoadAndSequenceValidate_00043EB4)();
-  (*(code *)PTR_IMMO_PacketReader_00043eb8)();
+  (*(code *)PTR_IMMO_PacketReader_Thunk_00043eb8)();
   (*(code *)PTR_thunk_IMMO_SessionSupervisor_Update_00043EBC)();
-  (*(code *)PTR_IMMO_IndicatorAndPacket_ServiceBundle_Sub_4_00043ec0)();
+  (*(code *)PTR_IMMO_ServiceBundle_NoOpAfterPacket_00043ec0)();
   (*(code *)PTR_NoOp_IMMO_IndicatorAndPacket_Service_00043ec4)();
   (*(code *)PTR_IMMO_IndicatorAndPacket_ServiceTail_NoOpB_00043ec8)();
   (*(code *)PTR_IMMO_IndicatorAndPacket_ServiceTail_NoOpA_00043ecc)();
@@ -83947,7 +84467,7 @@ void IMMO_PacketFetch_ServiceProtected(void)
 
 // Protected pair that starts an IMMO/status request when idle, then advances its request counter.
 
-void ImmoStatusRequestAndCounter_ServicePair(void)
+void IMMO_StatusRequestStartAndCounter_ServicePair(void)
 
 {
   undefined4 uVar1;
@@ -84036,19 +84556,20 @@ void IMMO_StatusQuadClearWhenFlagSet_ServiceProtected(void)
 
 // Increments the local IMMO/status request counter with a byte-limit helper.
 
-void ImmoStatusRequest_CounterIncrement(void)
+void IMMO_StatusRequestCounter_Increment(void)
 
 {
   undefined1 uVar1;
   
-  uVar1 = (*(code *)PTR_AddBytesWithLimit_00044030)((int)(char)*PTR_DAT_0004402c,1);
-  *PTR_DAT_0004402c = uVar1;
+  uVar1 = (*(code *)PTR_AddBytesWithLimit_00044030)
+                    ((int)(char)*PTR_IMMO_StatusRequestCounter_0004402c,1);
+  *PTR_IMMO_StatusRequestCounter_0004402c = uVar1;
   return;
 }
 
 
 
-void IMMO_RangeRewriteOperation_CompletionAndDTC39Monitor(void)
+void IMMO_P1622_RangeRewriteCompletionAndMonitor(void)
 
 {
   undefined *puVar1;
@@ -84056,17 +84577,17 @@ void IMMO_RangeRewriteOperation_CompletionAndDTC39Monitor(void)
   undefined *puVar3;
   char cVar4;
   
-  puVar2 = PTR_DAT_00044034;
-  if (*PTR_DAT_00044034 == '\x01') {
+  puVar2 = PTR_IMMO_RangeRewriteOperation_ActiveFlag_00044034;
+  if (*PTR_IMMO_RangeRewriteOperation_ActiveFlag_00044034 == '\x01') {
     cVar4 = (*(code *)PTR_Gate20_ToggleAndCheck_00044038)();
-    puVar1 = PTR_DAT_0004402c;
+    puVar1 = PTR_IMMO_StatusRequestCounter_0004402c;
     if (cVar4 == '\x01') {
       *puVar2 = 1;
       puVar3 = PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00044048;
       if (0x13 < (byte)*puVar1) {
-        *PTR_DAT_0004403c = 1;
-        *PTR_DAT_00044040 = 0;
-        *PTR_DAT_00044044 = 1;
+        *PTR_IMMO_DTC39_FailLatchedFlag_0004403c = 1;
+        *PTR_IMMO_DTC39_NormalStateFlag_00044040 = 0;
+        *PTR_IMMO_DTC39_FaultStateFlag_00044044 = 1;
         (*(code *)puVar3)(0x39,0x10);
         *puVar2 = 0;
       }
@@ -84085,13 +84606,13 @@ void IMMO_RangeRewriteOperation_StartByIndexAndValue(byte param_1,ushort param_2
 {
   undefined *puVar1;
   
-  if (*PTR_DAT_0004404c == '\0') {
+  if (*PTR_IMMO_IOChannelInitializedFlag_0004404c == '\0') {
     IMMO_IOChannel_InitIfNeeded();
   }
   (*(code *)PTR_ServiceSeq_Mode4_ExecuteA_00044054)
             ((uint)param_1 * 0x10000 + (uint)param_2 + DAT_00044050);
-  puVar1 = PTR_DAT_0004402c;
-  *PTR_DAT_00044034 = 1;
+  puVar1 = PTR_IMMO_StatusRequestCounter_0004402c;
+  *PTR_IMMO_RangeRewriteOperation_ActiveFlag_00044034 = 1;
   *puVar1 = 0;
   return;
 }
@@ -84116,8 +84637,8 @@ void IMMO_IOChannel_InitIfNeeded(void)
   undefined *puVar1;
   
   puVar1 = PTR_ServiceSeq_Mode2_Execute_00044064;
-  if (*PTR_DAT_0004404c == '\0') {
-    *PTR_DAT_0004404c = 1;
+  if (*PTR_IMMO_IOChannelInitializedFlag_0004404c == '\0') {
+    *PTR_IMMO_IOChannelInitializedFlag_0004404c = 1;
     (*(code *)puVar1)(DAT_00044060);
     return;
   }
@@ -84132,8 +84653,8 @@ void IMMO_RequestSequenceDeferredDispatch_ConsumeAndCall(void)
   undefined *puVar1;
   
   puVar1 = PTR_ServiceSeq_Mode2_Execute_00044064;
-  if (*PTR_DAT_0004404c == '\x01') {
-    *PTR_DAT_0004404c = 0;
+  if (*PTR_IMMO_IOChannelInitializedFlag_0004404c == '\x01') {
+    *PTR_IMMO_IOChannelInitializedFlag_0004404c = 0;
     (*(code *)puVar1)(DAT_00044068);
     return;
   }
@@ -84142,15 +84663,15 @@ void IMMO_RequestSequenceDeferredDispatch_ConsumeAndCall(void)
 
 
 
-void IMMO_DTC39_ReportClearState(void)
+void IMMO_P1622_ReportNormalState(void)
 
 {
   undefined *puVar1;
   undefined *puVar2;
   
-  puVar2 = PTR_DAT_00044044;
-  puVar1 = PTR_DAT_00044040;
-  *PTR_DAT_0004403c = 0;
+  puVar2 = PTR_IMMO_DTC39_FaultStateFlag_00044044;
+  puVar1 = PTR_IMMO_DTC39_NormalStateFlag_00044040;
+  *PTR_IMMO_DTC39_FailLatchedFlag_0004403c = 0;
   *puVar1 = 1;
   *puVar2 = 0;
   (*(code *)PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00044048)(0x39,1);
@@ -84159,13 +84680,13 @@ void IMMO_DTC39_ReportClearState(void)
 
 
 
-void IMMO_DTC39_ResetStateFlags(void)
+void IMMO_P1622_ResetStateFlags(void)
 
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_00044044;
-  *PTR_DAT_00044040 = 0;
+  puVar1 = PTR_IMMO_DTC39_FaultStateFlag_00044044;
+  *PTR_IMMO_DTC39_NormalStateFlag_00044040 = 0;
   *puVar1 = 0;
   return;
 }
@@ -84191,7 +84712,7 @@ void NoOp_IMMO_IndicatorAndPacket_Service(void)
 
 
 
-void IMMO_PacketReader(void)
+void IMMO_PacketReader_Thunk(void)
 
 {
   IMMO_PacketReader();
@@ -84243,17 +84764,17 @@ void IMMO_IndicatorAndPacket_ServiceBundle_Sub_2(void)
 
 
 
-void IMMO_IndicatorAndPacket_ServiceBundle_Sub_3(void)
+void IMMO_ResetP1620_P1621_P1623_AndClearP1622_Bundle(void)
 
 {
-  IMMO_DTC37_38_3A_ResetBundle();
-  (*(code *)PTR_IMMO_DTC39_ReportClearState_0004417c)();
+  IMMO_P1620_P1621_P1623_ResetBundle();
+  (*(code *)PTR_IMMO_P1622_ReportNormalState_0004417c)();
   return;
 }
 
 
 
-void IMMO_IndicatorAndPacket_ServiceBundle_Sub_4(void)
+void IMMO_ServiceBundle_NoOpAfterPacket(void)
 
 {
   return;
@@ -84323,7 +84844,7 @@ uint IMMO_SessionSupervisor_Update(void)
     puVar4 = PTR_IMMO_SessionSupervisorForcedResetBatchByteA_0004438C;
     *PTR_IMMO_SessionSupervisorForcedResetLatchedFlag_00044384 = 0;
     *puVar4 = 1;
-    puVar4 = PTR_IMMO_DTC39_ReportClearState_00044394;
+    puVar4 = PTR_IMMO_P1622_ReportNormalState_00044394;
     *PTR_IMMO_SessionSupervisorForcedResetBatchByteB_00044390 = 0;
     (*(code *)puVar4)();
     puVar4 = PTR_IMMO_SessionSupervisorForcedResetBatchByteC_00044398;
@@ -84371,7 +84892,7 @@ uint IMMO_SessionSupervisor_Update(void)
   }
   uVar9 = (uint)(byte)*PTR_IMMO_SessionSupervisorReloadRequestedFlag_00044188;
   if (uVar9 == 1) {
-    uVar9 = (*(code *)PTR_IMMO_RangeRewriteOperation_CompletionAndDTC39Monitor_00044194)();
+    uVar9 = (*(code *)PTR_IMMO_P1622_RangeRewriteCompletionAndMonitor_00044194)();
     if (*PTR_IMMO_SessionSupervisorReloadInhibitFlag_00044198 == '\0') {
       uVar9 = IMMO_StatusSlotsLoadAndSequenceValidate();
       *puVar4 = 0;
@@ -84400,7 +84921,7 @@ LAB_IMMO_SessionSupervisor_PostIndicatorGateCommit_000441AC:
   if (*PTR_IMMO_SessionSupervisorResetWindowOnlyRequest_00044344 == '\0') {
     if ((*PTR_IMMO_SessionSupervisorDTC38SetAndResetRequest_00044348 != '\x01') &&
        (*PTR_IMMO_SessionSupervisorDTC38ImmediateSetRequest_0004434C != '\0')) {
-      IMMO_DTC38_SetIfNotClearing();
+      IMMO_P1621_SetIfNotClearing();
       IMMO_StatusWindow_ResetFlags();
       IMMO_StatusWindow_AdvanceToggleIfEnabled();
       uVar9 = extraout_r0_00;
@@ -84444,7 +84965,7 @@ LAB_IMMO_SessionSupervisor_PostIndicatorGateCommit_000441AC:
       }
       goto LAB_IMMO_SessionSupervisor_FinalPairCommit_0004431C;
     }
-    IMMO_DTC38_SetIfNotClearing();
+    IMMO_P1621_SetIfNotClearing();
     IMMO_StatusWindow_ResetFlags();
   }
   else {
@@ -84478,7 +84999,7 @@ void IMMO_RequestTrackerAndSequence_Update(void)
   if (*PTR_IMMO_RequestSequenceHardBlockFlag_000445B4 != '\0') {
     return;
   }
-  (*(code *)PTR_IMMO_RangeRewriteOperation_CompletionAndDTC39Monitor_000445b8)();
+  (*(code *)PTR_IMMO_P1622_RangeRewriteCompletionAndMonitor_000445b8)();
   puVar2 = PTR_IMMO_RequestSequenceHandshakeMirror_000445D8;
   puVar1 = PTR_IMMO_RequestSequenceHandshakeFlag_000445D4;
   if (*PTR_IMMO_RequestSequenceDispatchInProgressFlag_000445BC != '\0') {
@@ -84530,7 +85051,7 @@ void IMMO_PacketReader(void)
   undefined *puVar1;
   
   if ((*PTR_IMMO_RequestSequenceHardBlockFlag_000445B4 == '\0') &&
-     ((*(code *)PTR_IMMO_RangeRewriteOperation_CompletionAndDTC39Monitor_000445b8)(),
+     ((*(code *)PTR_IMMO_P1622_RangeRewriteCompletionAndMonitor_000445b8)(),
      puVar1 = PTR_IMMO_RequestSequenceOpCompleteFlag_000445EC,
      *PTR_IMMO_RequestSequenceDispatchInProgressFlag_000445BC == '\0')) {
     if (*PTR_IMMO_RequestSequenceRewriteSlot14Pending_000445F0 == '\x01') {
@@ -84640,7 +85161,7 @@ void IMMO_PE7_Indicator_StateMachine_Update(void)
   undefined4 local_14 [2];
   
   puVar2 = PTR_IMMO_IndicatorPulseCounter_0004475C;
-  puVar1 = PTR_ImmoStatusForIndicator_00044754;
+  puVar1 = PTR_IMMO_PE7_IndicatorOutputState_00044754;
   if (*PTR_IMMO_IndicatorRequestFlag_00044758 == '\0') {
 LAB_IMMO_IndicatorNoRequestForceOff_00044708:
     *puVar1 = 0;
@@ -84758,7 +85279,7 @@ void IMMO_PacketFetchDecodeAndDispatch(void)
     }
     puVar4 = PTR_IMMO_PacketDispatchAcceptedFlag_000449E8;
     *PTR_IMMO_PacketDispatchAcceptedFlag_000449E8 = 0;
-    IMMO_PacketOpcodeDispatchAndStateUpdate((int)(char)*puVar1);
+    IMMO_P1623_TailOpcodeCompareAndPacketStateUpdate((int)(char)*puVar1);
     if (*puVar4 == '\0') {
       *PTR_IMMO_PacketFetchSendRequestFlag_000449EC = 0;
       *PTR_IMMO_PacketFetchSendStateA_000449F0 = 0;
@@ -84825,7 +85346,7 @@ void IMMO_RequestGateAndLatch_Update(void)
         BytePairToggle_Consume
                   (PTR_IMMO_StatusRequestToggleComplement_00044A3C,
                    PTR_IMMO_StatusRequestToggleValue_00044A38);
-        (*(code *)PTR_IMMO_RangeRewriteOperation_CompletionAndDTC39Monitor_00044a40)();
+        (*(code *)PTR_IMMO_P1622_RangeRewriteCompletionAndMonitor_00044a40)();
         bVar2 = IMMO_AnyStatusFlagSet();
         if ((bVar2) || (*PTR_IMMO_StatusRequestPostConsumeForceFlag_00044A44 == '\x01')) {
           *puVar1 = 1;
@@ -84882,7 +85403,7 @@ bool IMMO_AnyStatusFlagSet(void)
 
 
 
-void IMMO_DTC37_38_3A_ResetBundle(void)
+void IMMO_P1620_P1621_P1623_ResetBundle(void)
 
 {
   undefined *puVar1;
@@ -84961,7 +85482,7 @@ uint IMMO_StatusSlotsLoadAndSequenceValidate(void)
     if (*puVar2 == '\x01') {
       *PTR_IMMO_StatusSlot20NonZeroParityFlag_00044C8C = 1;
     }
-    IMMO_StatusSlotSequenceAndDTC37_Update();
+    IMMO_P1620_StatusSlotSequence_DebounceAndReport();
     IMMO_BufferIndexShadow_Update();
     if (*puVar1 != '\x01') {
       BytePairToggle_Arm(PTR_IMMO_StatusSlot14NonZeroParityFlag_00044C70,
@@ -84985,7 +85506,7 @@ uint IMMO_StatusSlotsLoadAndSequenceValidate(void)
 
 
 
-void IMMO_StatusSlotSequenceAndDTC37_Update(void)
+void IMMO_P1620_StatusSlotSequence_DebounceAndReport(void)
 
 {
   ushort uVar1;
@@ -85083,7 +85604,7 @@ LAB_IMMO_StatusSeqApplySelectedPath_00044D6A:
     uVar1 = *(ushort *)puVar5;
     if (*(int *)PTR_IMMO_StatusSeqReadWord1_00044F00 == 0) {
       if ((uVar1 < 8) || (sVar10 < 0)) {
-        IMMO_DTC37_FailAndResetAuxDiagnostics();
+        IMMO_P1620_FailAndCascadeSetP1621_P1623();
         bVar4 = true;
       }
       else {
@@ -85108,7 +85629,7 @@ LAB_IMMO_StatusSeqApplySelectedPath_00044D6A:
     puVar6 = PTR_IMMO_DTC37SetStateMirror_00044F18;
     puVar5 = PTR_IMMO_DTC37SetStateFlag_00044F14;
     if (*(int *)PTR_IMMO_DTC37GuardWord_00044F0C == 0) {
-      IMMO_DTC37_FailAndResetAuxDiagnostics();
+      IMMO_P1620_FailAndCascadeSetP1621_P1623();
       return;
     }
     *PTR_IMMO_DTC37ClearRequestFlag_00044F10 = 0;
@@ -85117,13 +85638,13 @@ LAB_IMMO_StatusSeqApplySelectedPath_00044D6A:
     (*(code *)PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_00044f1c)(0x37,1);
     return;
   }
-  IMMO_DTC37_FailAndResetAuxDiagnostics();
+  IMMO_P1620_FailAndCascadeSetP1621_P1623();
   return;
 }
 
 
 
-void IMMO_DTC37_FailAndResetAuxDiagnostics(void)
+void IMMO_P1620_FailAndCascadeSetP1621_P1623(void)
 
 {
   undefined *puVar1;
@@ -85152,7 +85673,7 @@ void IMMO_DTC37_FailAndResetAuxDiagnostics(void)
 
 
 
-void IMMO_DTC38_SetIfNotClearing(void)
+void IMMO_P1621_SetIfNotClearing(void)
 
 {
   undefined *puVar1;
@@ -85331,19 +85852,21 @@ void IMMO_BufferWordRangeWriteByIndexSequence(byte param_1,byte param_2,int para
   undefined *puVar4;
   
   puVar3 = PTR_IMMO_RangeRewriteOperation_CompletionAndDTC39Monitor_0004537C;
-  *PTR_DAT_00045378 = 0;
+  *PTR_IMMO_RequestSequenceOpCompleteFlag_00045378 = 0;
   (*(code *)puVar3)();
   puVar4 = PTR_DAT_0004538c;
   puVar2 = PTR_DAT_00045388;
-  puVar3 = PTR_DAT_00045384;
-  if (*PTR_DAT_00045380 == '\0') {
-    *(ushort *)PTR_DAT_00045388 = (ushort)param_1 + (ushort)(byte)*PTR_DAT_00045384;
+  puVar3 = PTR_IMMO_BufferWordRangeWrite_PostWindowClearFlag_00045384;
+  if (*PTR_IMMO_RangeRewriteOperation_ActiveFlag_00045380 == '\0') {
+    *(ushort *)PTR_DAT_00045388 =
+         (ushort)param_1 + (ushort)(byte)*PTR_IMMO_BufferWordRangeWrite_PostWindowClearFlag_00045384
+    ;
     sVar1 = *(short *)((uint)(byte)*puVar3 * 2 + param_3);
     *(short *)puVar4 = sVar1;
     (*(code *)PTR_IMMO_RangeRewriteOperation_StartByIndexAndValue_00045390)
               ((int)*(short *)puVar2,(int)sVar1);
     *puVar3 = *puVar3 + '\x01';
-    puVar2 = PTR_DAT_00045378;
+    puVar2 = PTR_IMMO_RequestSequenceOpCompleteFlag_00045378;
     if (param_2 <= (byte)*puVar3) {
       *puVar3 = 0;
       *puVar2 = 1;
@@ -85394,10 +85917,10 @@ void IMMO_BufferWordRangeSelectAndRewriteEntry(byte param_1,byte param_2,short *
   byte bVar9;
   
   puVar2 = PTR_IMMO_RangeRewriteOperation_CompletionAndDTC39Monitor_0004537C;
-  *PTR_DAT_00045378 = 0;
+  *PTR_IMMO_RequestSequenceOpCompleteFlag_00045378 = 0;
   (*(code *)puVar2)();
   puVar2 = PTR_DAT_0004538c;
-  if (*PTR_DAT_00045380 == '\0') {
+  if (*PTR_IMMO_RangeRewriteOperation_ActiveFlag_00045380 == '\0') {
     bVar4 = 0;
     bVar5 = 0;
     bVar9 = 0;
@@ -85432,7 +85955,7 @@ void IMMO_BufferWordRangeSelectAndRewriteEntry(byte param_1,byte param_2,short *
     *(short *)PTR_DAT_00045388 = sVar3;
     (*(code *)PTR_IMMO_RangeRewriteOperation_StartByIndexAndValue_00045390)
               (sVar3,(int)*(short *)puVar2);
-    puVar1 = PTR_DAT_00045378;
+    puVar1 = PTR_IMMO_RequestSequenceOpCompleteFlag_00045378;
     param_3[(byte)(bVar4 - 1)] = *(short *)puVar2;
     *puVar1 = 1;
   }
@@ -85517,7 +86040,7 @@ char BytePairToggle_Consume(char *param_1,char *param_2)
 
 
 
-void IMMO_PacketOpcodeDispatchAndStateUpdate(uint param_1)
+void IMMO_P1623_TailOpcodeCompareAndPacketStateUpdate(uint param_1)
 
 {
   undefined *puVar1;
@@ -85552,9 +86075,11 @@ void IMMO_PacketOpcodeDispatchAndStateUpdate(uint param_1)
     return;
   }
   if (uVar7 == 0x13) {
-    if (((PTR_DAT_00045478[1] == '\x05') &&
-        ((byte)PTR_DAT_00045478[2] == DAT_IMMO_Opcode13_18_SelectorA_00045460)) &&
-       ((byte)PTR_DAT_00045478[3] == DAT_IMMO_Opcode13_18_SelectorB_00045462)) {
+    if (((PTR_IMMO_PacketFetchRxScratchBuffer_00045478[1] == '\x05') &&
+        ((byte)PTR_IMMO_PacketFetchRxScratchBuffer_00045478[2] ==
+         DAT_IMMO_Opcode13_18_SelectorA_00045460)) &&
+       ((byte)PTR_IMMO_PacketFetchRxScratchBuffer_00045478[3] ==
+        DAT_IMMO_Opcode13_18_SelectorB_00045462)) {
       *PTR_IMMO_TailOpcodeStageState_00045570 = 0;
       puVar5 = PTR_IMMO_TailOpcodeSeedAcceptedFlag_0004558C;
       puVar2 = PTR_IMMO_TailOpcodePackedSeedHighBytes_00045588;
@@ -85574,13 +86099,15 @@ void IMMO_PacketOpcodeDispatchAndStateUpdate(uint param_1)
     return;
   }
   if (uVar7 == 0x18) {
-    if ((PTR_DAT_00045478[1] == '\b') &&
-       (((byte)PTR_DAT_00045478[2] == DAT_IMMO_Opcode13_18_SelectorA_00045460 ||
-        ((byte)PTR_DAT_00045478[2] == DAT_IMMO_Opcode13_18_SelectorB_00045462)))) {
+    if ((PTR_IMMO_PacketFetchRxScratchBuffer_00045478[1] == '\b') &&
+       (((byte)PTR_IMMO_PacketFetchRxScratchBuffer_00045478[2] ==
+         DAT_IMMO_Opcode13_18_SelectorA_00045460 ||
+        ((byte)PTR_IMMO_PacketFetchRxScratchBuffer_00045478[2] ==
+         DAT_IMMO_Opcode13_18_SelectorB_00045462)))) {
       *PTR_IMMO_Opcode18TailBranchState_000459D0 = 0;
       puVar3 = PTR_IMMO_Opcode18_19SharedPacketBuffer_000459E4;
-      puVar2 = PTR_DAT_000459e0;
-      puVar1 = PTR_DAT_000459dc;
+      puVar2 = PTR_IMMO_PacketFetchTxPayloadBuffer_000459e0;
+      puVar1 = PTR_IMMO_SessionCounterC_000459dc;
       uVar7 = DAT_000459d8;
       if (*puVar6 == '\0') {
         if (PTR_IMMO_Opcode18_19SharedPacketBuffer_000459E4[2] == -0x80) {
@@ -85603,7 +86130,7 @@ void IMMO_PacketOpcodeDispatchAndStateUpdate(uint param_1)
               *(uint *)puVar6 = uVar7;
               *PTR_IMMO_Opcode18PrimaryWordUpdatedFlag_00045A0C = 1;
               *PTR_IMMO_Opcode18PrimaryWordLatchedFlag_00045A10 = 1;
-              *PTR_DAT_00045a14 = 1;
+              *PTR_IMMO_StatusFlagPairF_Value_00045a14 = 1;
               *PTR_IMMO_Opcode18SecondaryWordUpdatedFlag_00045A18 = 1;
               *PTR_IMMO_Opcode18SecondaryWordLatchedFlag_00045A1C = 1;
               *PTR_IMMO_Opcode18TransferReadyFlag_00045A20 = 1;
@@ -85613,7 +86140,7 @@ void IMMO_PacketOpcodeDispatchAndStateUpdate(uint param_1)
             *puVar5 = 1;
             *puVar1 = 0;
           }
-          else if (*PTR_DAT_000459e8 == '\x01') {
+          else if (*PTR_IMMO_SessionSupervisorThresholdPathSelectFlag_000459e8 == '\x01') {
             bVar8 = IMMO_AnyStatusFlagSet();
             puVar4 = PTR_IMMO_Opcode18PrimaryWordLatchedFlag_00045A10;
             if (bVar8) {
@@ -85642,7 +86169,7 @@ void IMMO_PacketOpcodeDispatchAndStateUpdate(uint param_1)
             *puVar1 = 0;
           }
         }
-        else if (*PTR_DAT_000459e8 == '\x01') {
+        else if (*PTR_IMMO_SessionSupervisorThresholdPathSelectFlag_000459e8 == '\x01') {
           bVar8 = IMMO_AnyStatusFlagSet();
           puVar6 = PTR_IMMO_Opcode18TransferReadyFlag_00045A20;
           puVar4 = PTR_IMMO_Opcode18PrimaryWordLatchedFlag_00045A10;
@@ -86000,10 +86527,10 @@ void SubsystemA_FlowDiag_ResetDebounceState(void)
 
 
 
-// Debounces the SubsystemA flow-diagnostic conditions using staged phase, selected MAP/IAT values,
-// and internal threshold timers before reporting DTC id 6 set/clear states.
+// Debounces the MAF flow/performance model against staged MAP/IAT-derived thresholds and reports
+// OBD DTC P0101.
 
-void SubsystemA_FlowDiag_DebounceAndReportDTC6(void)
+void MAF_P0101_FlowPerformance_DebounceAndReport(void)
 
 {
   undefined *puVar1;
@@ -86323,9 +86850,9 @@ void EGR_CoilDiag_DebounceAggregator(void)
 
 
 
-// Combines EGR coil mismatch debounce results and reports DTC id 0x24 set/clear states.
+// Combines EGR control-circuit mismatch debounce results and reports OBD DTC P0403.
 
-uint EGR_CoilDiag_ReportDTC24(void)
+uint EGR_ControlCircuit_P0403_DebounceAndReport(void)
 
 {
   undefined *puVar1;
@@ -86368,11 +86895,12 @@ uint EGR_CoilDiag_ReportDTC24(void)
 
 // Resets the SubsystemA MAP-response diagnostic baseline MAP samples and primary result flags.
 
-void SubsystemA_MAPResponseDiag_ResetBaselineState(void)
+void MAP_P0106_ResetBaselineState(void)
 
 {
   undefined *puVar1;
   
+                    // Resets the MAP P0106 baseline MAP samples and primary result flags.
   if (*PTR_OBD04_ClearDTCStateFlag_000464f0 != '\x01') {
     *(undefined4 *)PTR_DAT_000464f4 = 0;
     *(undefined4 *)PTR_DAT_000464fc = DAT_000464f8;
@@ -86388,11 +86916,12 @@ void SubsystemA_MAPResponseDiag_ResetBaselineState(void)
 
 // Clears the SubsystemA MAP-response diagnostic debounce counters and intermediate flags.
 
-void SubsystemA_MAPResponseDiag_ResetDebounceState(void)
+void MAP_P0106_ResetDebounceState(void)
 
 {
   undefined *puVar1;
   
+                    // Clears the MAP P0106 debounce counters and intermediate flags.
   puVar1 = PTR_DAT_00046510;
   *PTR_DAT_0004650c = 0;
   *puVar1 = 0;
@@ -86409,11 +86938,12 @@ void SubsystemA_MAPResponseDiag_ResetDebounceState(void)
 
 // Clears the SubsystemA MAP-response diagnostic summary set/clear flags.
 
-void SubsystemA_MAPResponseDiag_ResetSummaryFlags(void)
+void MAP_P0106_ResetSummaryFlags(void)
 
 {
   undefined *puVar1;
   
+                    // Clears the MAP P0106 summary set/clear flags.
   puVar1 = PTR_DAT_00046528;
   *PTR_DAT_00046524 = 0;
   *puVar1 = 0;
@@ -86422,10 +86952,10 @@ void SubsystemA_MAPResponseDiag_ResetSummaryFlags(void)
 
 
 
-// Updates the filtered MAP baseline/current comparison and sets preliminary SubsystemA MAP-response
-// flags for DTC id 9.
+// Updates the filtered MAP baseline/current comparison and preliminary flags for OBD P0106
+// range/performance.
 
-void SubsystemA_MAPResponseDiag_UpdateBaselineDelta(void)
+void MAP_P0106_BaselineDelta_Update(void)
 
 {
   char cVar1;
@@ -86485,7 +87015,7 @@ void SubsystemA_MAPResponseDiag_UpdateBaselineDelta(void)
 // Debounces the SubsystemA MAP-response diagnostic conditions using MAP delta, temperature, timers,
 // and calibration thresholds.
 
-uint SubsystemA_MAPResponseDiag_DebounceDeltaAndTemp(void)
+uint MAP_P0106_DebounceDeltaAndTemp_Update(void)
 
 {
   byte bVar1;
@@ -86577,9 +87107,9 @@ uint SubsystemA_MAPResponseDiag_DebounceDeltaAndTemp(void)
 
 
 
-// Combines the SubsystemA MAP-response debounce flags and reports DTC id 9 set/clear states.
+// Combines MAP range/performance debounce flags and reports OBD DTC P0106 (internal DTC 0x09).
 
-uint SubsystemA_MAPResponseDiag_ReportDTC9(void)
+uint MAP_P0106_RangePerformance_Report(void)
 
 {
   undefined *puVar1;
@@ -86624,13 +87154,14 @@ void NoOp_Return_46678(void)
 
 // Clears the next SubsystemA MAP-threshold diagnostic flags, counters, and stored MAP value.
 
-void SubsystemA_MAPThresholdDiag_ResetState(void)
+void HO2S2_P0140_ResetState(void)
 
 {
   undefined *puVar1;
   undefined *puVar2;
   
   puVar2 = PTR_DAT_000467d0;
+                    // Clears HO2S2 P0140 flags, counters, and stored sample state.
   puVar1 = PTR_DAT_000467cc;
   *PTR_DAT_000467c8 = 0;
   *puVar1 = 0;
@@ -86642,9 +87173,9 @@ void SubsystemA_MAPThresholdDiag_ResetState(void)
 
 
 
-// Checks preconditions for MAP-threshold diagnostic DTC id 0x19 and updates the enable flag.
+// Checks preconditions for HO2S2 no-activity diagnostic P0140 and updates its enable flag.
 
-void SubsystemA_MAPThresholdDiag_CheckPreconditions(void)
+void HO2S2_P0140_CheckPreconditions(void)
 
 {
   char cVar1;
@@ -86671,9 +87202,9 @@ void SubsystemA_MAPThresholdDiag_CheckPreconditions(void)
 
 
 
-// Debounces MAP-threshold diagnostic conditions and reports DTC id 0x19 set/clear states.
+// Debounces rear oxygen-sensor no-activity conditions on AN7 and reports OBD DTC P0140.
 
-void SubsystemA_MAPThresholdDiag_DebounceAndReportDTC19(void)
+void HO2S2_AN7_P0140_NoActivity_DebounceAndReport(void)
 
 {
   ushort uVar1;
@@ -86763,9 +87294,10 @@ void SubsystemA_NextDiag_ResetBaselineState(void)
 
 
 
-// Clears summary set/clear flags for SubsystemA delta diagnostic DTC id 0x0c.
+// Clears the summary set/clear flags for the intake-air-temperature P0111 range/performance
+// diagnostic.
 
-void SubsystemA_DeltaDiag_ResetSummaryFlags_DTC0C(void)
+void IAT_P0111_ResetSummaryFlags(void)
 
 {
   *PTR_DAT_00046940 = 0;
@@ -86775,9 +87307,9 @@ void SubsystemA_DeltaDiag_ResetSummaryFlags_DTC0C(void)
 
 
 
-// Checks SubsystemA delta diagnostic preconditions for DTC id 0x0c and updates the enable flag.
+// Checks the intake-air-temperature P0111 preconditions and updates the enable flag.
 
-void SubsystemA_DeltaDiag_CheckPreconditions_DTC0C(void)
+void IAT_P0111_CheckPreconditions(void)
 
 {
   ushort uVar1;
@@ -86799,10 +87331,10 @@ void SubsystemA_DeltaDiag_CheckPreconditions_DTC0C(void)
 
 
 
-// Updates two filtered baseline/current values used by the SubsystemA delta diagnostic for DTC id
-// 0x0c.
+// Updates the filtered baseline/current values used by the intake-air-temperature P0111
+// range/performance diagnostic.
 
-void SubsystemA_DeltaDiag_UpdateFilteredBaselines_DTC0C(void)
+void IAT_P0111_UpdateFilteredBaselines(void)
 
 {
   undefined *puVar1;
@@ -86820,10 +87352,9 @@ void SubsystemA_DeltaDiag_UpdateFilteredBaselines_DTC0C(void)
 
 
 
-// Compares filtered delta against threshold and reports local diagnostic DTC id 0x0c set/clear
-// states.
+// Compares the filtered intake-air-temperature delta against threshold and reports OBD DTC P0111.
 
-uint SubsystemA_DeltaDiag_ReportDTC0C(void)
+uint IAT_P0111_Report(void)
 
 {
   char cVar2;
@@ -86902,10 +87433,9 @@ void ECTSensor_AN28_P0116_ResetReportFlags(void)
 
 
 
-// Checks diagnostic preconditions for SubsystemA model/threshold DTC id 0x0f and updates the enable
-// flag.
+// Checks the confirmed preconditions for the ECT AN28 range/performance diagnostic OBD DTC P0116.
 
-void ECTSensor_AN28_P0116_CheckOBDGate(void)
+void ECTSensor_AN28_P0116_CheckPreconditions(void)
 
 {
   char cVar1;
@@ -86922,10 +87452,10 @@ void ECTSensor_AN28_P0116_CheckOBDGate(void)
 
 
 
-// Computes an SubsystemA threshold by 2D interpolation over MAP/IAT and debounces the DTC id 0x0f
-// condition.
+// Updates the ECT AN28 P0116 debounce/threshold state using the model-based range/performance
+// logic.
 
-void ECTSensor_AN28_P0116_ModelWarmupCounter_Update(void)
+void ECTSensor_AN28_P0116_DebounceThreshold_Update(void)
 
 {
   bool bVar1;
@@ -86975,10 +87505,9 @@ void ECTSensor_AN28_P0116_ModelWarmupCounter_Update(void)
 
 
 
-// Combines SubsystemA model/threshold debounce flags, ECT threshold, and reports DTC id 0x0f
-// set/clear states.
+// Combines the ECT AN28 range/performance debounce flags and reports OBD DTC P0116.
 
-uint ECTSensor_AN28_P0116_ReportRangePerformanceDTC(void)
+uint ECTSensor_AN28_P0116_Report(void)
 
 {
   undefined *puVar1;
@@ -87299,12 +87828,12 @@ void SubsystemA_Snapshot_CaptureOperatingExtremes(void)
       bVar10 = *PTR_DAT_000471ac;
     }
     *PTR_DAT_000471ac = bVar10;
-    uVar14 = *(ushort *)PTR_DAT_000471b4;
+    uVar14 = *(ushort *)PTR_CatalystMonitor_P0420_ComparisonIndexSnapshot_000471b4;
     if (*(ushort *)PTR_DAT_000471b0 < uVar14) {
       uVar14 = *(ushort *)PTR_DAT_000471b0;
     }
     *(ushort *)PTR_DAT_000471b0 = uVar14;
-    uVar14 = *(ushort *)PTR_DAT_000471bc;
+    uVar14 = *(ushort *)PTR_P0300_CatalystDamage200Rev_SelectedThresholdWord_000471bc;
     if (uVar14 < *(ushort *)PTR_DAT_000471b8) {
       uVar14 = *(ushort *)PTR_DAT_000471b8;
     }
@@ -87324,17 +87853,17 @@ void SubsystemA_Snapshot_CaptureOperatingExtremes(void)
       uVar14 = *(ushort *)PTR_DAT_000471d0;
     }
     *(ushort *)PTR_DAT_000471d0 = uVar14;
-    uVar14 = *(ushort *)PTR_DAT_000471dc;
+    uVar14 = *(ushort *)PTR_HO2S1_DTC_LowSideCrossingCounterSnapshot_000471dc;
     if (uVar14 < *(ushort *)PTR_DAT_000471d8) {
       uVar14 = *(ushort *)PTR_DAT_000471d8;
     }
     *(ushort *)PTR_DAT_000471d8 = uVar14;
-    uVar14 = *(ushort *)PTR_DAT_000471e4;
+    uVar14 = *(ushort *)PTR_HO2S1_DTC_HighSideCrossingCounterSnapshot_000471e4;
     if (uVar14 < *(ushort *)PTR_DAT_000471e0) {
       uVar14 = *(ushort *)PTR_DAT_000471e0;
     }
     *(ushort *)PTR_DAT_000471e0 = uVar14;
-    uVar14 = *(ushort *)PTR_DAT_000471ec;
+    uVar14 = *(ushort *)PTR_HO2S1_DTC_TransitionRateSnapshot_000471ec;
     if (uVar14 < *(ushort *)PTR_DAT_000471e8) {
       uVar14 = *(ushort *)PTR_DAT_000471e8;
     }
@@ -87829,25 +88358,28 @@ void SubsystemA_Control_UnusedHook_G(void)
 
 
 
-// Reads the local command/status flag through the shared flag-test helper.
+// Returns whether the protected SubsystemA command-output value is currently nonzero/valid through
+// the protected-dword checker.
 
-bool SubsystemA_CommandStatusFlag_IsSet(void)
+bool SubsystemA_CommandOutput_ProtectedValue_IsSet(void)
 
 {
   char cVar1;
   
-  cVar1 = (*(code *)PTR_ProtectedDword_ChecksumRepairOrFail_00047b88)(PTR_DAT_00047b84);
+  cVar1 = (*(code *)PTR_ProtectedDword_ChecksumRepairOrFail_00047b88)
+                    (PTR_SubsystemA_CommandOutput_ProtectedValue_00047b84);
   return cVar1 != '\0';
 }
 
 
 
-// Clears the local command/status flag through the shared flag-write helper.
+// Clears the protected SubsystemA command-output value through the protected-dword mirror writer.
 
-void SubsystemA_CommandStatusFlag_Clear(void)
+void SubsystemA_CommandOutput_ProtectedValue_Clear(void)
 
 {
-  (*(code *)PTR_ProtectedDword_WriteWithChecksumMirror_00047b8c)(0,PTR_DAT_00047b84);
+  (*(code *)PTR_ProtectedDword_WriteWithChecksumMirror_00047b8c)
+            (0,PTR_SubsystemA_CommandOutput_ProtectedValue_00047b84);
   return;
 }
 
@@ -87958,8 +88490,9 @@ void SubsystemA_SecondaryEnable_EvaluatePreconditions(void)
 
 
 
-// Updates the SubsystemA command output value with enable gating, a periodic counter, clamping, and
-// output helper call.
+// Writes the SubsystemA command-output loop result into a protected dword mirror. Secondary-enable
+// first blends the filtered state, a periodic counter promotes it into the clamped output, and
+// primary-enable gates the final protected value written to the protected slot.
 
 void SubsystemA_CommandOutput_UpdateFilteredValue(void)
 
@@ -87969,11 +88502,12 @@ void SubsystemA_CommandOutput_UpdateFilteredValue(void)
   undefined2 uVar3;
   undefined4 uVar4;
   
-  puVar1 = PTR_DAT_00047cf0;
-  uVar2 = (uint)*(short *)PTR_DAT_00047cec;
+  puVar1 = PTR_SubsystemA_CommandOutput_FilteredState_00047cf0;
+  uVar2 = (uint)*(short *)PTR_SubsystemA_CommandOutput_PeriodCounter_00047cec;
   if (*PTR_SubsystemA_SecondaryEnable_ReadyFlag_00047cf4 == '\x01') {
     uVar4 = (*(code *)PTR_FloatBlendTowardsTarget_WithDeadband_00047d04)
-                      (*(undefined4 *)PTR_DAT_00047d00,*(undefined4 *)PTR_DAT_00047cf0,
+                      (*(undefined4 *)PTR_DAT_00047d00,
+                       *(undefined4 *)PTR_SubsystemA_CommandOutput_FilteredState_00047cf0,
                        *(undefined4 *)PTR_DAT_00047cfc,DAT_00047cf8);
     *(undefined4 *)puVar1 = uVar4;
     uVar2 = (*(code *)PTR_AddUint16AndSaturateToFFFE_00047d08)(uVar2,1);
@@ -87984,16 +88518,17 @@ void SubsystemA_CommandOutput_UpdateFilteredValue(void)
                       (*(float *)PTR_DAT_00047d10 + *(float *)puVar1,*(undefined4 *)PTR_DAT_00047d18
                        ,*(undefined4 *)PTR_DAT_00047d14);
     uVar3 = 0;
-    *(undefined4 *)PTR_DAT_00047d20 = uVar4;
+    *(undefined4 *)PTR_SubsystemA_CommandOutput_ClampedOutput_00047d20 = uVar4;
   }
   if (*PTR_SubsystemA_PrimaryEnable_ReadyFlag_00047d24 == '\x01') {
-    uVar4 = *(undefined4 *)PTR_DAT_00047d20;
+    uVar4 = *(undefined4 *)PTR_SubsystemA_CommandOutput_ClampedOutput_00047d20;
   }
   else {
     uVar4 = 0;
   }
-  (*(code *)PTR_ProtectedDword_WriteWithChecksumMirror_00047d2c)(uVar4,PTR_DAT_00047d28);
-  *(undefined2 *)PTR_DAT_00047cec = uVar3;
+  (*(code *)PTR_ProtectedDword_WriteWithChecksumMirror_00047d2c)
+            (uVar4,PTR_SubsystemA_CommandOutput_ProtectedValue_00047d28);
+  *(undefined2 *)PTR_SubsystemA_CommandOutput_PeriodCounter_00047cec = uVar3;
   return;
 }
 
@@ -88022,16 +88557,16 @@ void SubsystemA_CommandOutput_UpdateEnableTimer(void)
 
 
 
-// Checks the local command/status flag inside the shared critical section wrapper.
+// Atomically checks whether the protected SubsystemA command-output value is currently set/nonzero.
 
-bool SubsystemA_CommandStatusFlag_IsSetAtomic(void)
+bool SubsystemA_CommandOutput_ProtectedValue_IsSetAtomic(void)
 
 {
   undefined4 uVar1;
   bool bVar2;
   
   uVar1 = (*(code *)PTR_SharedSchedulerGate_ReadMaskedSrLevel_00047d38)(0x10);
-  bVar2 = SubsystemA_CommandStatusFlag_IsSet();
+  bVar2 = SubsystemA_CommandOutput_ProtectedValue_IsSet();
   (*(code *)PTR_SharedSchedulerGate_NotifyIfZeroAndUnlocked_00047d3c)(uVar1);
   return bVar2;
 }
@@ -88144,7 +88679,7 @@ void ECT_GAUGE_CommandBase_UpdateFromCoolant(void)
   cVar1 = *PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_00047f5c;
   uVar3 = (*(code *)PTR_Interpolate1D_WithTransform_00047f64)
                     (*(undefined4 *)PTR_FuelDisplay_InputWindowAvg_00047f00,
-                     PTR_Desc_ECTGauge_PF5_CommandBase_FromInputWindow_Table_00047f60);
+                     PTR_Desc_ECT_Gauge_CommandBase_FromCoolant_Table_00047f60);
   *(undefined4 *)PTR_ECTGauge_CommandBase_TableTarget_00047f68 = uVar3;
   puVar2 = PTR_ECTGauge_CommandBase_RampedValue_00047f6c;
   if (cVar1 == '\0') {
@@ -88877,7 +89412,7 @@ ushort PD10_SignalGenerator_PrimaryRequest_UpdateFromECT(void)
                      PTR_Desc_PD10_SignalGenerator_RequestFromECT_Table_000489cc);
   *(ushort *)PTR_DAT_ffffc7b4_2_000489d4 = uVar1;
   if ((((*(ushort *)PTR_SubsystemA_PrimaryEnable_QualifiedCounter_000489dc < uVar1) ||
-       (uVar1 = 1, *PTR_DAT_000489e0 == '\x01')) ||
+       (uVar1 = 1, *PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_000489e0 == '\x01')) ||
       (uVar1 = (ushort)(byte)*PTR_DAT_000489e4, uVar1 == 1)) || (*PTR_DAT_000489e8 != '\0')) {
     *PTR_DAT_000489d8 = 1;
   }
@@ -88903,10 +89438,12 @@ void PD10_SignalGenerator_SecondaryEnable_Evaluate(void)
   else {
     *PTR_DAT_ffffc7bc_2_000489f8 = 1;
   }
-  if ((((*PTR_DAT_00048a00 == '\0') && (*PTR_DAT_00048a04 == '\0')) || (*PTR_DAT_00048a08 != '\0'))
-     && (((*PTR_DAT_ffffc7bc_2_000489f8 == '\x01' &&
-          (*PTR_InputBitPair_DebouncedState_00048a0c == '\x01')) &&
-         (*PTR_SubsystemA_EnableSharedInhibitFlag_00048a10 == '\0')))) {
+  if ((((*PTR_IdleUpMode_Mode1Bit20_DebouncedAnyFlag_00048a00 == '\0') &&
+       (*PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_00048a04 == '\0')) ||
+      (*PTR_DAT_00048a08 != '\0')) &&
+     (((*PTR_DAT_ffffc7bc_2_000489f8 == '\x01' &&
+       (*PTR_InputBitPair_DebouncedState_00048a0c == '\x01')) &&
+      (*PTR_SubsystemA_EnableSharedInhibitFlag_00048a10 == '\0')))) {
     *PTR_DAT_000489fc = 1;
   }
   else {
@@ -88935,7 +89472,7 @@ void PD10_SignalGenerator_PrimaryStage_Update(void)
   cVar1 = *PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagA_00048a14;
   cVar2 = *PTR_SubsystemA_EnableSharedInhibitFlag_00048a10;
   if (((*PTR_DAT_00048a1c == '\0') && (*PTR_DAT_000489fc != '\0')) &&
-     ((*PTR_DAT_000489e0 != '\x01' ||
+     ((*PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_000489e0 != '\x01' ||
       ((cVar1 != '\x01' || (*(ushort *)PTR_DAT_ffffc7b8_2_00048a20 < *(ushort *)PTR_DAT_00048a24))))
      )) {
     if (((*PTR_SubsystemA_CommandBlend_SeedRequestFlag_00048a28 != '\x01') ||
@@ -88954,8 +89491,8 @@ void PD10_SignalGenerator_PrimaryStage_Update(void)
     *(short *)PTR_DAT_000489b8 = (short)PTR_LAB_0000fffe_1_000489b4;
   }
   puVar6 = PTR_DAT_ffffc7b8_2_00048a20;
-  puVar4 = PTR_DAT_000489e0;
-  if ((*PTR_DAT_000489e0 == '\x01') && (cVar1 == '\x01')) {
+  puVar4 = PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_000489e0;
+  if ((*PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_000489e0 == '\x01') && (cVar1 == '\x01')) {
     uVar7 = (*(code *)puVar5)((int)*(short *)PTR_DAT_ffffc7b8_2_00048a20,1);
     *(undefined2 *)puVar6 = uVar7;
   }
@@ -88983,17 +89520,19 @@ void PD10_SignalGenerator_PrimaryStage_Update(void)
   if (cVar2 == '\x01') {
     *PTR_DAT_00048c00 = 0;
   }
-  if ((((cVar2 == '\0') && (*PTR_DAT_ffffc7c0_1_00048c0c == '\0')) && (*PTR_DAT_00048c10 == '\x01'))
-     && (*PTR_DAT_00048c00 == '\0')) {
+  if ((((cVar2 == '\0') && (*PTR_DAT_ffffc7c0_1_00048c0c == '\0')) &&
+      (*PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_00048c10 == '\x01')) &&
+     (*PTR_DAT_00048c00 == '\0')) {
     *(undefined2 *)PTR_DAT_00048c04 = *(undefined2 *)PTR_DAT_00048c08;
     *puVar3 = 1;
   }
-  else if (((*PTR_DAT_ffffc7c0_1_00048c0c == '\x01') && (*PTR_DAT_00048c10 == '\0')) &&
+  else if (((*PTR_DAT_ffffc7c0_1_00048c0c == '\x01') &&
+           (*PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_00048c10 == '\0')) &&
           (*(ushort *)PTR_DAT_00048c18 <= *(ushort *)PTR_DAT_00048c14)) {
     *(undefined2 *)PTR_DAT_00048c04 = *(undefined2 *)PTR_DAT_00048c08;
   }
   else if (((cVar2 == '\0') && (*PTR_DAT_ffffc7c0_1_00048c0c == '\0')) &&
-          (*PTR_DAT_00048c10 == '\x01')) {
+          (*PTR_PD10_GeneratorControl_PrimaryStageActiveFlag_00048c10 == '\x01')) {
     *(undefined2 *)PTR_DAT_00048c04 = *(undefined2 *)PTR_DAT_00048c1c;
   }
   puVar6 = PTR_DAT_00048c20;
@@ -90774,7 +91313,7 @@ void InfoDisplay_SecondaryMessage_UpdateStatusByte(void)
     wVar1 = WORD_0004a206;
   }
   bVar2 = (byte)wVar1;
-  if (*PTR_DAT_0004a210 == '\x01') {
+  if (*PTR_IdleUpMode_Mode1Bit08_RequestFlagC_0004a210 == '\x01') {
     bVar2 = bVar2 | 0x10;
   }
   if (*PTR_DAT_0004a214 == '\x01') {
@@ -91535,8 +92074,8 @@ void Diag_ClearIdResponseState_A(void)
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_0004ab6c;
-  *(undefined4 *)PTR_DAT_0004ab68 = 0;
+  puVar1 = PTR_HO2S2_DTC35_36_WindowMinVoltage_0004ab6c;
+  *(undefined4 *)PTR_HO2S2_DTC35_36_WindowMaxVoltage_0004ab68 = 0;
   *(undefined4 *)puVar1 = 0;
   return;
 }
@@ -91550,14 +92089,14 @@ void Diag_ClearIdResponseState_B(void)
 {
   undefined *puVar1;
   
-  puVar1 = PTR_DAT_0004ab74;
-  *(undefined2 *)PTR_DAT_0004ab70 = 0;
+  puVar1 = PTR_HO2S2_DTC36_P0138_DebounceCounter_0004ab74;
+  *(undefined2 *)PTR_HO2S2_DTC35_P0137_DebounceCounter_0004ab70 = 0;
   *(undefined2 *)puVar1 = 0;
-  puVar1 = PTR_DAT_0004ab7c;
-  *PTR_DAT_0004ab78 = 0;
+  puVar1 = PTR_HO2S2_DTC35_PreconditionLowCounter_0004ab7c;
+  *PTR_HO2S2_DTC35_EnableLatch_0004ab78 = 0;
   *(undefined2 *)puVar1 = 0;
-  puVar1 = PTR_DAT_0004ab84;
-  *(undefined2 *)PTR_DAT_0004ab80 = 0;
+  puVar1 = PTR_HO2S2_DTC35_36_EnableRuntimeCounter_0004ab84;
+  *(undefined2 *)PTR_HO2S2_DTC35_PreconditionHighCounter_0004ab80 = 0;
   *(undefined2 *)puVar1 = 0;
   return;
 }
@@ -91572,32 +92111,32 @@ void Diag_ClearResponseStateRegion(void)
   undefined *puVar1;
   undefined *puVar2;
   
-  puVar2 = PTR_DAT_0004ab90;
-  puVar1 = PTR_DAT_0004ab8c;
-  *(undefined4 *)PTR_DAT_0004ab88 = 0;
+  puVar2 = PTR_HO2S2_DTC35_WindowSwingSnapshotPass_0004ab90;
+  puVar1 = PTR_HO2S2_DTC35_WindowSwingSnapshotFail_0004ab8c;
+  *(undefined4 *)PTR_HO2S2_DTC35_36_WindowSwing_0004ab88 = 0;
   *(undefined4 *)puVar1 = 0;
   *(undefined4 *)puVar2 = 0;
-  *(undefined4 *)PTR_DAT_0004ab94 = 0;
-  *(undefined4 *)PTR_DAT_0004ab98 = 0;
-  *(undefined4 *)PTR_DAT_0004ab9c = 0;
-  *(undefined4 *)PTR_DAT_0004aba0 = 0;
-  *PTR_DAT_0004aba4 = 0;
-  *PTR_DAT_0004aba8 = 0;
-  *PTR_DAT_0004abac = 0;
-  *PTR_DAT_0004abb0 = 0;
-  *PTR_DAT_0004abb4 = 0;
-  *PTR_DAT_0004abb8 = 0;
-  *PTR_DAT_0004abbc = 0;
-  *PTR_DAT_0004abc0 = 0;
-  *PTR_DAT_0004abc4 = 0;
-  *PTR_DAT_0004abc8 = 0;
-  *PTR_DAT_0004abcc = 0;
-  *PTR_DAT_0004abd0 = 0;
-  *PTR_DAT_0004abd4 = 0;
-  *PTR_DAT_0004abd8 = 0;
-  *PTR_DAT_0004abdc = 0;
-  *PTR_DAT_0004abe0 = 0;
-  *PTR_DAT_0004abe4 = 0;
+  *(undefined4 *)PTR_HO2S2_DTC35_MaxVoltageSnapshot_0004ab94 = 0;
+  *(undefined4 *)PTR_HO2S2_DTC35_MinVoltageSnapshot_0004ab98 = 0;
+  *(undefined4 *)PTR_HO2S2_DTC36_MinVoltageSnapshotFail_0004ab9c = 0;
+  *(undefined4 *)PTR_HO2S2_DTC36_MinVoltageSnapshotPass_0004aba0 = 0;
+  *PTR_HO2S2_DTC35_FailLatch_0004aba4 = 0;
+  *PTR_HO2S2_DTC35_PassLatch_0004aba8 = 0;
+  *PTR_HO2S2_DTC36_FailLatch_0004abac = 0;
+  *PTR_HO2S2_DTC36_FailLatchA_0004abb0 = 0;
+  *PTR_HO2S2_DTC36_PassLatch_0004abb4 = 0;
+  *PTR_HO2S2_DTC36_PassLatchA_0004abb8 = 0;
+  *PTR_HO2S2_DTC35_StateFailPrevious_0004abbc = 0;
+  *PTR_HO2S2_DTC35_StatePassPrevious_0004abc0 = 0;
+  *PTR_HO2S2_DTC36_StateFailPrevious_0004abc4 = 0;
+  *PTR_HO2S2_DTC36_StatePassPrevious_0004abc8 = 0;
+  *PTR_HO2S2_DTC35_SwingFailFlag_0004abcc = 0;
+  *PTR_HO2S2_DTC35_SwingPassFlag_0004abd0 = 0;
+  *PTR_HO2S2_DTC35_MaxLevelFlag_0004abd4 = 0;
+  *PTR_HO2S2_DTC35_MinLevelFlag_0004abd8 = 0;
+  *PTR_HO2S2_DTC35_DebounceExpiredFlag_0004abdc = 0;
+  *PTR_HO2S2_DTC36_DebounceExpiredFlag_0004abe0 = 0;
+  *PTR_HO2S2_DTC36_MinReleaseFlag_0004abe4 = 0;
   return;
 }
 
@@ -91606,7 +92145,7 @@ void Diag_ClearResponseStateRegion(void)
 // Updates a filtered pair of diagnostic reference values when the enable threshold allows
 // smoothing; otherwise reloads the current source value.
 
-void Diag_DTC35_36_FilteredReferencePair_Update(void)
+void HO2S2_P0137_P0138_FilteredReferencePair_Update(void)
 
 {
   undefined *puVar1;
@@ -91614,19 +92153,20 @@ void Diag_DTC35_36_FilteredReferencePair_Update(void)
   undefined4 uVar3;
   undefined4 uVar4;
   
-  puVar2 = PTR_DAT_0004ab6c;
-  puVar1 = PTR_DAT_0004ab68;
+  puVar2 = PTR_HO2S2_DTC35_36_WindowMinVoltage_0004ab6c;
+  puVar1 = PTR_HO2S2_DTC35_36_WindowMaxVoltage_0004ab68;
   uVar4 = *(undefined4 *)PTR_SubsystemA_PrimaryEnable_PrerequisiteB_ImmediateThresholdInput_0004abe8
   ;
   if (*(float *)PTR_DAT_0004abf0 <=
       *(float *)PTR_SubsystemA_PrimaryEnable_PrerequisiteB_InterpolatedThreshold_0004abec) {
-    uVar3 = (*(code *)PTR_MaxFloat_0004abf4)(*(undefined4 *)PTR_DAT_0004ab68,uVar4);
+    uVar3 = (*(code *)PTR_MaxFloat_0004abf4)
+                      (*(undefined4 *)PTR_HO2S2_DTC35_36_WindowMaxVoltage_0004ab68,uVar4);
     *(undefined4 *)puVar1 = uVar3;
     uVar4 = (*(code *)PTR_MinFloat_0004abf8)(*(undefined4 *)puVar2,uVar4);
     *(undefined4 *)puVar2 = uVar4;
   }
   else {
-    *(undefined4 *)PTR_DAT_0004ab68 = uVar4;
+    *(undefined4 *)PTR_HO2S2_DTC35_36_WindowMaxVoltage_0004ab68 = uVar4;
     *(undefined4 *)puVar2 = uVar4;
   }
   return;
@@ -91637,7 +92177,7 @@ void Diag_DTC35_36_FilteredReferencePair_Update(void)
 // Updates diagnostic enable counters, timers, and precondition latches from threshold checks,
 // temperature windows, and gating flags.
 
-void Diag_DTC35_36_PreconditionCounters_Update(void)
+void HO2S2_P0137_P0138_PreconditionCounters_Update(void)
 
 {
   char cVar1;
@@ -91652,16 +92192,17 @@ void Diag_DTC35_36_PreconditionCounters_Update(void)
   float fVar10;
   
   puVar4 = PTR_AddUint16AndSaturateToFFFE_0004ac4c;
-  puVar3 = PTR_DAT_0004ab74;
-  puVar2 = PTR_DAT_0004ab70;
+  puVar3 = PTR_HO2S2_DTC36_P0138_DebounceCounter_0004ab74;
+  puVar2 = PTR_HO2S2_DTC35_P0137_DebounceCounter_0004ab70;
   fVar9 = *(float *)PTR_SubsystemA_PrimaryEnable_PrerequisiteB_ImmediateThresholdInput_0004abe8;
   fVar8 = *(float *)PTR_SubsystemA_PrimaryEnable_PrerequisiteB_InterpolatedThreshold_0004abec;
   fVar10 = *(float *)PTR_SubsystemA_CommandBlend_FilteredOutput_Current_0004abfc;
   cVar1 = *PTR_CommandBlend_RequestFlag_0004ac1c;
   if ((((fVar10 <= *(float *)PTR_DAT_0004ac20) &&
-       (*(ushort *)PTR_DAT_0004ac24 <= *(ushort *)PTR_DAT_0004ab7c)) ||
-      ((*(float *)PTR_DAT_0004ac28 <= fVar10 &&
-       (*(ushort *)PTR_DAT_0004ac2c <= *(ushort *)PTR_DAT_0004ab80)))) ||
+       (*(ushort *)PTR_DAT_0004ac24 <= *(ushort *)PTR_HO2S2_DTC35_PreconditionLowCounter_0004ab7c))
+      || ((*(float *)PTR_DAT_0004ac28 <= fVar10 &&
+          (*(ushort *)PTR_DAT_0004ac2c <=
+           *(ushort *)PTR_HO2S2_DTC35_PreconditionHighCounter_0004ab80)))) ||
      ((*(float *)PTR_DAT_0004ac00 <= *(float *)PTR_DAT_0004ac30 ||
       (*(float *)PTR_DAT_0004ac34 <= *(float *)PTR_DAT_0004ac00)))) {
     iVar7 = 0;
@@ -91682,13 +92223,14 @@ void Diag_DTC35_36_PreconditionCounters_Update(void)
     iVar7 = 1;
   }
   if (iVar7 == 0) {
-    *(undefined2 *)PTR_DAT_0004ab70 = 0;
+    *(undefined2 *)PTR_HO2S2_DTC35_P0137_DebounceCounter_0004ab70 = 0;
   }
   else {
-    if (fVar9 < *(float *)PTR_DAT_0004ac50) {
+    if (fVar9 < *(float *)PTR_HO2S2_DTC35_MaxVoltagePassThreshold_0p4_0004ac50) {
       if (iVar7 == 1) {
         uVar5 = (*(code *)PTR_AddUint16AndSaturateToFFFE_0004ac4c)
-                          ((int)*(short *)PTR_DAT_0004ab70,(int)*(short *)PTR_DAT_0004ae04);
+                          ((int)*(short *)PTR_HO2S2_DTC35_P0137_DebounceCounter_0004ab70,
+                           (int)*(short *)PTR_DAT_0004ae04);
         if (*(ushort *)PTR_DAT_0004ae08 < uVar5) {
           *(ushort *)puVar2 = *(ushort *)PTR_DAT_0004ae08;
         }
@@ -91698,9 +92240,9 @@ void Diag_DTC35_36_PreconditionCounters_Update(void)
       }
     }
     else {
-      *(undefined2 *)PTR_DAT_0004ab70 = 0;
+      *(undefined2 *)PTR_HO2S2_DTC35_P0137_DebounceCounter_0004ab70 = 0;
     }
-    if (*(float *)PTR_DAT_0004ae0c < fVar9) {
+    if (*(float *)PTR_HO2S2_DTC36_MinVoltageFailThreshold_0p95_0004ae0c < fVar9) {
       if (iVar7 == 1) {
         uVar5 = (*(code *)puVar4)((int)*(short *)puVar3,(int)*(short *)PTR_DAT_0004ae10);
         if (*(ushort *)PTR_DAT_0004ae14 < uVar5) {
@@ -91715,29 +92257,30 @@ void Diag_DTC35_36_PreconditionCounters_Update(void)
   }
   *(undefined2 *)puVar3 = 0;
 LAB_0004aca4:
-  puVar2 = PTR_DAT_0004ae18;
+  puVar2 = PTR_HO2S2_DTC35_PreconditionLowCounter_0004ae18;
   if (*(float *)PTR_DAT_0004ae1c < fVar10) {
-    *(undefined2 *)PTR_DAT_0004ae18 = 0;
+    *(undefined2 *)PTR_HO2S2_DTC35_PreconditionLowCounter_0004ae18 = 0;
   }
   else {
-    uVar6 = (*(code *)puVar4)((int)*(short *)PTR_DAT_0004ae18,1);
+    uVar6 = (*(code *)puVar4)((int)*(short *)PTR_HO2S2_DTC35_PreconditionLowCounter_0004ae18,1);
     *(undefined2 *)puVar2 = uVar6;
   }
-  puVar2 = PTR_DAT_0004ae20;
+  puVar2 = PTR_HO2S2_DTC35_PreconditionHighCounter_0004ae20;
   if (fVar10 < *(float *)PTR_DAT_0004ae24) {
-    *(undefined2 *)PTR_DAT_0004ae20 = 0;
+    *(undefined2 *)PTR_HO2S2_DTC35_PreconditionHighCounter_0004ae20 = 0;
   }
   else {
-    uVar6 = (*(code *)puVar4)((int)*(short *)PTR_DAT_0004ae20,1);
+    uVar6 = (*(code *)puVar4)((int)*(short *)PTR_HO2S2_DTC35_PreconditionHighCounter_0004ae20,1);
     *(undefined2 *)puVar2 = uVar6;
   }
-  puVar2 = PTR_DAT_0004ae28;
+  puVar2 = PTR_HO2S2_DTC35_36_EnableRuntimeCounter_0004ae28;
   if ((cVar1 != '\x01') || (fVar8 < *(float *)PTR_DAT_0004ae2c)) {
-    *(undefined2 *)PTR_DAT_0004ae28 = 0;
+    *(undefined2 *)PTR_HO2S2_DTC35_36_EnableRuntimeCounter_0004ae28 = 0;
   }
   else {
-    if (*(ushort *)PTR_DAT_0004ae30 <= *(ushort *)PTR_DAT_0004ae28) {
-      *PTR_DAT_0004ae34 = 1;
+    if (*(ushort *)PTR_DAT_0004ae30 <= *(ushort *)PTR_HO2S2_DTC35_36_EnableRuntimeCounter_0004ae28)
+    {
+      *PTR_HO2S2_DTC35_EnableLatch_0004ae34 = 1;
     }
     uVar6 = (*(code *)puVar4)((int)*(short *)puVar2,1);
     *(undefined2 *)puVar2 = uVar6;
@@ -91750,7 +92293,7 @@ LAB_0004aca4:
 // Evaluates diagnostic state transitions for DTC 0x35 and DTC 0x36, updates latches and captured
 // values, and requests status changes when thresholds are crossed.
 
-uint Diag_DTC35_36_StateManager_Update(void)
+uint HO2S2_P0137_P0138_StateManagerAndReport_Update(void)
 
 {
   bool bVar1;
@@ -91767,101 +92310,106 @@ uint Diag_DTC35_36_StateManager_Update(void)
   float fVar12;
   float fVar13;
   
-  puVar2 = PTR_DAT_0004ae50;
-  fVar13 = *(float *)PTR_DAT_0004ae38;
-  fVar12 = *(float *)PTR_DAT_0004ae3c;
-  cVar8 = *PTR_DAT_0004ae40;
+  puVar2 = PTR_HO2S2_DTC35_36_WindowSwing_0004ae50;
+  fVar13 = *(float *)PTR_HO2S2_DTC35_36_WindowMinVoltage_0004ae38;
+  fVar12 = *(float *)PTR_HO2S2_DTC35_36_WindowMaxVoltage_0004ae3c;
+  cVar8 = *PTR_HO2S2_DTC35_StateFailPrevious_0004ae40;
   fVar11 = fVar12 - fVar13;
-  cVar10 = *PTR_DAT_0004ae44;
-  bVar7 = *PTR_DAT_0004ae48;
-  bVar9 = *PTR_DAT_0004ae4c;
-  if (fVar11 < *(float *)PTR_DAT_0004ae54) {
-    *PTR_DAT_0004ae58 = 0;
+  cVar10 = *PTR_HO2S2_DTC35_StatePassPrevious_0004ae44;
+  bVar7 = *PTR_HO2S2_DTC36_StateFailPrevious_0004ae48;
+  bVar9 = *PTR_HO2S2_DTC36_StatePassPrevious_0004ae4c;
+  if (fVar11 < *(float *)PTR_HO2S2_DTC35_36_MinSwingThreshold_0p2_0004ae54) {
+    *PTR_HO2S2_DTC35_SwingFailFlag_0004ae58 = 0;
     *(float *)puVar2 = fVar11;
-    *(float *)PTR_DAT_0004ae64 = fVar11;
+    *(float *)PTR_HO2S2_DTC35_WindowSwingSnapshotPass_0004ae64 = fVar11;
   }
   else {
-    *PTR_DAT_0004ae58 = 1;
-    *PTR_DAT_0004ae5c = 1;
+    *PTR_HO2S2_DTC35_SwingFailFlag_0004ae58 = 1;
+    *PTR_HO2S2_DTC35_SwingPassFlag_0004ae5c = 1;
     *(float *)puVar2 = fVar11;
-    *(float *)PTR_DAT_0004ae60 = fVar11;
+    *(float *)PTR_HO2S2_DTC35_WindowSwingSnapshotFail_0004ae60 = fVar11;
   }
-  if (fVar12 < *(float *)PTR_DAT_0004ae6c) {
-    *PTR_DAT_0004ae68 = 0;
+  if (fVar12 < *(float *)PTR_HO2S2_DTC35_MaxVoltagePassThreshold_0p4_0004ae6c) {
+    *PTR_HO2S2_DTC35_MaxLevelFlag_0004ae68 = 0;
   }
   else {
-    *PTR_DAT_0004ae68 = 1;
+    *PTR_HO2S2_DTC35_MaxLevelFlag_0004ae68 = 1;
   }
-  puVar2 = PTR_DAT_0004ae74;
-  bVar1 = fVar13 <= *(float *)PTR_DAT_0004ae0c;
+  puVar2 = PTR_HO2S2_DTC35_MinVoltageSnapshot_0004ae74;
+  bVar1 = fVar13 <= *(float *)PTR_HO2S2_DTC36_MinVoltageFailThreshold_0p95_0004ae0c;
   if (bVar1) {
-    *PTR_DAT_0004ae70 = 1;
+    *PTR_HO2S2_DTC35_MinLevelFlag_0004ae70 = 1;
     *(float *)puVar2 = fVar13;
   }
-  puVar3 = PTR_DAT_0004ae80;
+  puVar3 = PTR_HO2S2_DTC35_PassLatch_0004ae80;
   puVar2 = PTR_DTC_IsOBDRelevantOrActive_0004ae78;
-  if ((*PTR_DAT_0004ae58 == '\x01') || (*PTR_DAT_0004ae68 == '\x01')) {
-    *PTR_DAT_0004ae7c = 1;
+  if ((*PTR_HO2S2_DTC35_SwingFailFlag_0004ae58 == '\x01') ||
+     (*PTR_HO2S2_DTC35_MaxLevelFlag_0004ae68 == '\x01')) {
+    *PTR_HO2S2_DTC35_FailLatch_0004ae7c = 1;
     *puVar3 = 0;
   }
   else {
     cVar6 = (*(code *)PTR_DTC_IsOBDRelevantOrActive_0004ae78)(0x35);
-    if ((cVar6 != '\0') || (*(ushort *)PTR_DAT_0004ae84 <= *(ushort *)PTR_DAT_0004ae88)) {
-      *PTR_DAT_0004ae8c = 0;
+    if ((cVar6 != '\0') ||
+       (*(ushort *)PTR_HO2S2_DTC35_P0137_DebounceCounter_0004ae84 <=
+        *(ushort *)PTR_HO2S2_DTC35_P0137_DebounceLimit_1250_0004ae88)) {
+      *PTR_HO2S2_DTC35_DebounceExpiredFlag_0004ae8c = 0;
       goto LAB_0004ade2;
     }
-    *PTR_DAT_0004ae7c = 0;
-    *PTR_DAT_0004ae80 = 1;
+    *PTR_HO2S2_DTC35_FailLatch_0004ae7c = 0;
+    *PTR_HO2S2_DTC35_PassLatch_0004ae80 = 1;
   }
-  *PTR_DAT_0004ae8c = 1;
-  *(float *)PTR_DAT_0004ae90 = fVar12;
+  *PTR_HO2S2_DTC35_DebounceExpiredFlag_0004ae8c = 1;
+  *(float *)PTR_HO2S2_DTC35_MaxVoltageSnapshot_0004ae90 = fVar12;
 LAB_0004ade2:
-  if ((*PTR_DAT_0004ae58 == '\x01') || (bVar1)) {
-    *PTR_DAT_0004ae94 = 1;
-    *PTR_DAT_0004ae98 = 0;
-    *PTR_DAT_0004ae9c = 1;
+  if ((*PTR_HO2S2_DTC35_SwingFailFlag_0004ae58 == '\x01') || (bVar1)) {
+    *PTR_HO2S2_DTC36_FailLatch_0004ae94 = 1;
+    *PTR_HO2S2_DTC36_FailLatchA_0004ae98 = 0;
+    *PTR_HO2S2_DTC36_DebounceExpiredFlag_0004ae9c = 1;
   }
   else {
     cVar6 = (*(code *)puVar2)(0x36);
-    puVar3 = PTR_DAT_0004aff4;
-    if ((cVar6 == '\0') && (*(ushort *)PTR_DAT_0004afec < *(ushort *)PTR_DAT_0004afe8)) {
-      *PTR_DAT_0004aff0 = 0;
+    puVar3 = PTR_HO2S2_DTC36_FailLatchA_0004aff4;
+    if ((cVar6 == '\0') &&
+       (*(ushort *)PTR_HO2S2_DTC36_P0138_DebounceLimit_1250_0004afec <
+        *(ushort *)PTR_HO2S2_DTC36_P0138_DebounceCounter_0004afe8)) {
+      *PTR_HO2S2_DTC36_FailLatch_0004aff0 = 0;
       *puVar3 = 1;
-      puVar3 = PTR_DAT_0004affc;
-      *PTR_DAT_0004aff8 = 1;
+      puVar3 = PTR_HO2S2_DTC35_SwingPassFlag_0004affc;
+      *PTR_HO2S2_DTC36_DebounceExpiredFlag_0004aff8 = 1;
       *puVar3 = 0;
-      *PTR_DAT_0004b000 = 0;
+      *PTR_HO2S2_DTC35_MinLevelFlag_0004b000 = 0;
     }
     else {
-      *PTR_DAT_0004aff8 = 0;
+      *PTR_HO2S2_DTC36_DebounceExpiredFlag_0004aff8 = 0;
     }
   }
-  puVar4 = PTR_DAT_0004b00c;
-  puVar3 = PTR_DAT_0004b004;
-  if (*(float *)PTR_DAT_0004b010 < fVar13) {
-    if (*PTR_DAT_0004b018 == '\x01') {
-      *PTR_DAT_0004b008 = 0;
+  puVar4 = PTR_HO2S2_DTC36_MinReleaseFlag_0004b00c;
+  puVar3 = PTR_HO2S2_DTC36_PassLatchA_0004b004;
+  if (*(float *)PTR_HO2S2_DTC36_MinVoltageReleaseThreshold_0p3_0004b010 < fVar13) {
+    if (*PTR_HO2S2_DTC35_EnableLatch_0004b018 == '\x01') {
+      *PTR_HO2S2_DTC36_PassLatch_0004b008 = 0;
       *puVar3 = 1;
       *puVar4 = 1;
-      *(float *)PTR_DAT_0004b01c = fVar13;
+      *(float *)PTR_HO2S2_DTC36_MinVoltageSnapshotPass_0004b01c = fVar13;
     }
     else {
-      *PTR_DAT_0004b00c = 0;
+      *PTR_HO2S2_DTC36_MinReleaseFlag_0004b00c = 0;
     }
   }
   else {
-    *PTR_DAT_0004b008 = 1;
+    *PTR_HO2S2_DTC36_PassLatch_0004b008 = 1;
     *puVar3 = 0;
     *puVar4 = 1;
-    *(float *)PTR_DAT_0004b014 = fVar13;
+    *(float *)PTR_HO2S2_DTC36_MinVoltageSnapshotFail_0004b014 = fVar13;
   }
   cVar6 = (*(code *)puVar2)(0x35);
   if (cVar6 == '\0') {
-    if (*PTR_DAT_0004b020 == '\x01') {
+    if (*PTR_HO2S2_DTC35_FailLatch_0004b020 == '\x01') {
       cVar8 = '\x01';
       cVar10 = '\0';
     }
-    else if (*PTR_DAT_0004b024 == '\x01') {
+    else if (*PTR_HO2S2_DTC35_PassLatch_0004b024 == '\x01') {
       cVar8 = '\0';
       cVar10 = '\x01';
     }
@@ -91875,11 +92423,13 @@ LAB_0004ade2:
   uVar5 = (*(code *)puVar2)(0x36);
   uVar5 = uVar5 & 0xff;
   if (uVar5 == 0) {
-    if ((*PTR_DAT_0004aff0 == '\x01') && (*PTR_DAT_0004b008 == '\x01')) {
+    if ((*PTR_HO2S2_DTC36_FailLatch_0004aff0 == '\x01') &&
+       (*PTR_HO2S2_DTC36_PassLatch_0004b008 == '\x01')) {
       bVar7 = 1;
       bVar9 = 0;
     }
-    else if ((*PTR_DAT_0004aff4 == '\x01') || (*PTR_DAT_0004b004 == '\x01')) {
+    else if ((*PTR_HO2S2_DTC36_FailLatchA_0004aff4 == '\x01') ||
+            (*PTR_HO2S2_DTC36_PassLatchA_0004b004 == '\x01')) {
       bVar7 = 0;
       bVar9 = 1;
     }
@@ -91891,11 +92441,11 @@ LAB_0004ade2:
       uVar5 = (*(code *)PTR_DTC_ReportState_DispatchNormalOrFaultIfNotClearing_0004b028)(0x36,0x10);
     }
   }
-  puVar2 = PTR_DAT_0004b030;
-  *PTR_DAT_0004b02c = cVar8;
+  puVar2 = PTR_HO2S2_DTC35_StatePassPrevious_0004b030;
+  *PTR_HO2S2_DTC35_StateFailPrevious_0004b02c = cVar8;
   *puVar2 = cVar10;
-  puVar2 = PTR_DAT_0004b038;
-  *PTR_DAT_0004b034 = bVar7;
+  puVar2 = PTR_HO2S2_DTC36_StatePassPrevious_0004b038;
+  *PTR_HO2S2_DTC36_StateFailPrevious_0004b034 = bVar7;
   *puVar2 = bVar9;
   return uVar5;
 }
@@ -91986,22 +92536,9 @@ void CoolingFanRelay1_PE4_P0480_OutputFeedbackDebounceAndReport(void)
 
 
 
-// Copies the current SubsystemA DTC 0x34 enable state into its previous-state snapshot for one
-// scheduler path.
+// Copies cooling fan relay 1 P0480 enable state into previous-state snapshot A.
 
-void SubsystemA_DTC34_EnableState_Snapshot_A(void)
-
-{
-  *PTR_DAT_0004b220 = *PTR_CommandBlend_RequestFlag_0004b21c;
-  return;
-}
-
-
-
-// Copies the current SubsystemA DTC 0x34 enable state into its previous-state snapshot for the
-// paired scheduler path.
-
-void SubsystemA_DTC34_EnableState_Snapshot_B(void)
+void CoolingFanRelay1_PE4_P0480_EnableState_Snapshot_A(void)
 
 {
   *PTR_DAT_0004b220 = *PTR_CommandBlend_RequestFlag_0004b21c;
@@ -92010,17 +92547,30 @@ void SubsystemA_DTC34_EnableState_Snapshot_B(void)
 
 
 
-// Updates the SubsystemA DTC 0x34 threshold value from coolant-temperature and load conditions
-// using a calibrated interpolation table.
+// Copies cooling fan relay 1 P0480 enable state into previous-state snapshot B.
 
-void SubsystemA_DTC34_ThresholdValue_UpdateFromECTAndLoad(void)
+void CoolingFanRelay1_PE4_P0480_EnableState_Snapshot_B(void)
+
+{
+  *PTR_DAT_0004b220 = *PTR_CommandBlend_RequestFlag_0004b21c;
+  return;
+}
+
+
+
+// Updates the cooling fan relay 1 P0480 threshold value from coolant temperature and load.
+
+void SubsystemA_DTC34_EctLoadThresholdOutput_Update(void)
 
 {
   char cVar1;
   undefined *puVar2;
   undefined4 uVar3;
   
-  puVar2 = PTR_DAT_0004b234;
+                    // Updates the SubsystemA DTC34 ECT/load threshold output used by
+                    // IgnitionPhaseCommandBlend_ResidualSum_Update. The older cooling-fan-oriented
+                    // name was misleading for this ROM path.
+  puVar2 = PTR_SubsystemA_DTC34_EctLoadThresholdOutput_0004b234;
   cVar1 = *PTR_CommandBlend_RequestFlag_0004b21c;
   if ((((*PTR_SubsystemA_ControlRampBlend_AndCommandBlend_TableSelectFlag_0004b230 == '\x01') &&
        ((cVar1 != '\x01' || (*(ushort *)PTR_DAT_0004b238 < *(ushort *)PTR_DAT_0004b23c)))) &&
@@ -92035,7 +92585,7 @@ void SubsystemA_DTC34_ThresholdValue_UpdateFromECTAndLoad(void)
     }
   }
   else {
-    *(undefined4 *)PTR_DAT_0004b234 = 0;
+    *(undefined4 *)PTR_SubsystemA_DTC34_EctLoadThresholdOutput_0004b234 = 0;
   }
   *PTR_DAT_0004b220 = cVar1;
   return;
@@ -92043,10 +92593,10 @@ void SubsystemA_DTC34_ThresholdValue_UpdateFromECTAndLoad(void)
 
 
 
-// Advances the SubsystemA DTC 0x34 enable timer while the gating flag is active and clears it
+// Advances the cooling fan relay 1 P0480 enable timer while its gate is active and clears it
 // otherwise.
 
-void SubsystemA_DTC34_EnableTimer_Update(void)
+void CoolingFanRelay1_PE4_P0480_EnableTimer_Update(void)
 
 {
   undefined *puVar1;
@@ -92715,7 +93265,7 @@ void MixedScheduler_GroupK_SubgroupA_SnapshotAndGaugeFlagPacket_Sub_4(void)
 // Updates a load-based diagnostic threshold/filter value from a 1D interpolation table and gating
 // flags.
 
-int Diag_LoadBasedThresholdFilter_Update(void)
+int SubsystemA_Diag_LoadBasedThresholdFilter_Update(void)
 
 {
   char cVar1;
@@ -92737,7 +93287,7 @@ int Diag_LoadBasedThresholdFilter_Update(void)
   cVar4 = *PTR_SharedDiagAggregate_StatusPair2022_AnyFlag_0004d1a0;
   uVar8 = (*(code *)PTR_Interpolate1D_WithTransform_0004d1a8)
                     (fVar9,PTR_Desc_Diag_LoadBasedThresholdFilter_TableC_0004d1a4);
-  puVar5 = PTR_DAT_0004d1b0;
+  puVar5 = PTR_SubsystemA_Diag_LoadBasedThresholdFilter_0004d1b0;
   *(undefined4 *)PTR_DAT_0004d1ac = uVar8;
   iVar6 = 1;
   if ((((cVar1 == '\x01') || (iVar6 = 1, cVar2 == '\x01')) || (iVar6 = (int)cVar3, iVar6 == 0)) ||
@@ -92890,7 +93440,7 @@ void ECT_GAUGE_FilterOverrideFlag_Update(void)
   cVar1 = *PTR_SubsystemA_StatusPrep_SecondaryLoadWindow_Flag_0004d3dc;
   fVar3 = *(float *)PTR_SubsystemA_PositionLimitedRamp_StageValue_0004d3e0;
   fVar6 = *(float *)PTR_DAT_0004d3c0;
-  fVar4 = *(float *)PTR_FLOAT_0004d3e4 + *(float *)PTR_DAT_0004d3d8;
+  fVar4 = *(float *)PTR_FLOAT_0004d3e4 + *(float *)PTR_IdleTargetRpm_SelectedFinal_0004d3d8;
   cVar2 = (*(code *)PTR_ValueInDeltaRange_0004d380)(fVar6,0,DAT_0004d37c);
   if ((((fVar4 <= fVar5) || (*(float *)PTR_FLOAT_0004d3e8 <= fVar6)) || (cVar2 == '\0')) ||
      (((cVar1 != '\x01' || (*PTR_DAT_0004d3ac != '\0')) || (*(float *)PTR_DAT_0004d3ec <= fVar3))))
@@ -93219,8 +93769,9 @@ void Diag_LiveDataSnapshot_RefreshScaledChannels(void)
   *(undefined2 *)PTR_DAT_0004de98 = uVar7;
   uVar8 = (*(code *)puVar3)(*(undefined4 *)puVar5,0x3f800000,uVar15);
   *PTR_DAT_0004dea0 = uVar8;
-  if (*PTR_DAT_0004dea4 == '\x01') {
-    uVar8 = (*(code *)puVar3)(*(undefined4 *)PTR_DAT_0004deb0,DAT_0004deac,DAT_0004dea8);
+  if (*PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagB_0004dea4 == '\x01') {
+    uVar8 = (*(code *)puVar3)(*(undefined4 *)PTR_IgnitionPhaseOutputAngle_Slot0_Snapshot_0004deb0,
+                              DAT_0004deac,DAT_0004dea8);
   }
   else {
     uVar8 = (undefined1)DAT_0004df58;
@@ -93244,7 +93795,7 @@ void Diag_LiveDataSnapshot_RefreshScaledChannels(void)
   uVar8 = (*(code *)puVar3)(*(undefined4 *)puVar5,DAT_0004df88,uVar15);
   *PTR_DAT_0004df98 = uVar8;
   uVar8 = (*(code *)puVar3)(*(float *)PTR_DAT_0004df9c * fVar14,uVar12,DAT_0004dfa0);
-  puVar5 = PTR_DAT_0004dfac;
+  puVar5 = PTR_IdleTargetRpm_SelectedFinal_0004dfac;
   *PTR_DAT_0004dfa4 = uVar8;
   uVar8 = (*(code *)puVar3)(*(undefined4 *)puVar5,DAT_0004dfa8,uVar15);
   *PTR_DAT_0004dfb0 = uVar8;
@@ -93497,8 +94048,9 @@ void Diag_LiveDataSnapshot_RefreshScaledChannels(void)
   *(undefined2 *)PTR_DAT_0004de98 = uVar7;
   uVar8 = (*(code *)puVar3)(*(undefined4 *)puVar5,0x3f800000,uVar15);
   *PTR_DAT_0004dea0 = uVar8;
-  if (*PTR_DAT_0004dea4 == '\x01') {
-    uVar8 = (*(code *)puVar3)(*(undefined4 *)PTR_DAT_0004deb0,DAT_0004deac,DAT_0004dea8);
+  if (*PTR_SubsystemA_ControlRampBlend_RequestWindow_OutputFlagB_0004dea4 == '\x01') {
+    uVar8 = (*(code *)puVar3)(*(undefined4 *)PTR_IgnitionPhaseOutputAngle_Slot0_Snapshot_0004deb0,
+                              DAT_0004deac,DAT_0004dea8);
   }
   else {
     uVar8 = (undefined1)DAT_0004df58;
@@ -93522,7 +94074,7 @@ void Diag_LiveDataSnapshot_RefreshScaledChannels(void)
   uVar8 = (*(code *)puVar3)(*(undefined4 *)puVar5,DAT_0004df88,uVar15);
   *PTR_DAT_0004df98 = uVar8;
   uVar8 = (*(code *)puVar3)(*(float *)PTR_DAT_0004df9c * fVar14,uVar12,DAT_0004dfa0);
-  puVar5 = PTR_DAT_0004dfac;
+  puVar5 = PTR_IdleTargetRpm_SelectedFinal_0004dfac;
   *PTR_DAT_0004dfa4 = uVar8;
   uVar8 = (*(code *)puVar3)(*(undefined4 *)puVar5,DAT_0004dfa8,uVar15);
   *PTR_DAT_0004dfb0 = uVar8;
@@ -94860,7 +95412,7 @@ uint OBD09_InfoTypeStatusBytes_Update(void)
   else {
     *PTR_DAT_0004f994 = *PTR_DAT_0004f994 & 0xfe;
   }
-  if (*PTR_DAT_0004f99c == '\x01') {
+  if (*PTR_FuelPumpRelay_PJ7_CommandRequest_0004f99c == '\x01') {
     *puVar1 = *puVar1 | 2;
   }
   else {
@@ -94873,7 +95425,7 @@ uint OBD09_InfoTypeStatusBytes_Update(void)
     *puVar1 = *puVar1 & 0xbf;
   }
   puVar1 = PTR_DAT_0004f9a4;
-  if (*PTR_DAT_0004f9a8 == '\x01') {
+  if (*PTR_SubsystemA_Mode2Bit10_DebouncedPrereqFlag_0004f9a8 == '\x01') {
     *PTR_DAT_0004f9a4 = *PTR_DAT_0004f9a4 | 2;
   }
   else {
@@ -94905,7 +95457,7 @@ uint OBD09_InfoTypeStatusBytes_Update(void)
     *puVar1 = *puVar1 & 0x7f;
   }
   puVar1 = PTR_DAT_0004f9c0;
-  if (*PTR_DAT_0004f9c4 == '\x01') {
+  if (*PTR_PhaseFrontend_Mode0Bit10_DebouncedComparisonFlag_0004f9c4 == '\x01') {
     *PTR_DAT_0004f9c0 = *PTR_DAT_0004f9c0 | 2;
   }
   else {
@@ -94942,13 +95494,14 @@ uint OBD09_InfoTypeStatusBytes_Update(void)
   else {
     *puVar1 = *puVar1 & 0xdf;
   }
-  if ((*PTR_DAT_0004f9e0 == '\x01') || (*PTR_DAT_0004f9e4 == '\x01')) {
+  if ((*PTR_IdleUpMode_Mode1Bit20_RequestFlagA_0004f9e0 == '\x01') ||
+     (*PTR_IdleUpMode_Mode1Bit20_RequestFlagB_0004f9e4 == '\x01')) {
     *puVar1 = *puVar1 | 0x40;
   }
   else {
     *puVar1 = *puVar1 & 0xbf;
   }
-  if (*PTR_DAT_0004f9e8 == '\x01') {
+  if (*PTR_IdleUpMode_Mode1Bit08_RequestFlagC_0004f9e8 == '\x01') {
     uVar2 = (int)(char)*puVar1 | 0x80;
     *puVar1 = (char)uVar2;
   }
@@ -95396,7 +95949,7 @@ void OBD09_InfoTypeRequest_RefreshStagePrimary(void)
   code *pcVar1;
   
   (*(code *)PTR_EGR_PrimaryEnable_DiagResetBatch_Gated_00050170)();
-  (*(code *)PTR_SubsystemA_DTC27_ProtectedStatus_Clear_Gated_00050174)();
+  (*(code *)PTR_CoolingFanRelay23_PE9_P0481_ProtectedStatus_Clear_Gated_00050174)();
   (*(code *)PTR_SubsystemA_Snapshot_LockedRefresh_00050178)();
   (*(code *)PTR_SubsystemA_Snapshot_LockedResetMinMax_0005017c)();
   (*(code *)PTR_SubsystemA_SeededLoadWindow_SubBundleB_InitAll_Gated_00050180)();
@@ -95422,7 +95975,7 @@ void OBD09_InfoTypeRequest_RefreshStageSecondary(void)
 
 {
   (*(code *)PTR_EGR_PrimaryEnable_DiagResetBatch_Gated_00050170)();
-  (*(code *)PTR_SubsystemA_DTC27_ProtectedStatus_Clear_Gated_00050174)();
+  (*(code *)PTR_CoolingFanRelay23_PE9_P0481_ProtectedStatus_Clear_Gated_00050174)();
   (*(code *)PTR_SubsystemA_Snapshot_LockedRefresh_00050178)();
   (*(code *)PTR_SubsystemA_Snapshot_LockedResetMinMax_0005017c)();
   (*(code *)PTR_SubsystemA_SeededLoadWindow_SubBundleB_InitAll_Gated_00050180)();
@@ -97947,16 +98500,16 @@ uint Diag_LocalIdTail_RequestCommitIfArmed(void)
   short sVar1;
   uint uVar2;
   
-  if ((byte)*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_00052f18 == 1) {
-    sVar1 = *(short *)PTR_DAT_00052f20;
+  if ((byte)*PTR_CatalystMonitor_P0420_PrerequisiteFlagC_00052f18 == 1) {
+    sVar1 = *(short *)PTR_CatalystMonitor_P0420_ThresholdIndex_00052f20;
     (*(code *)PTR_ProtectedWord_WriteWithInverse_00052f28)
-              (PTR_DAT_00052f24,(int)*(short *)PTR_DAT_00052f1c);
+              (PTR_DAT_00052f24,(int)*(short *)PTR_CatalystMonitor_P0420_ComparisonIndex_00052f1c);
     (*(code *)PTR_ProtectedWord_WriteWithInverse_00052f28)(PTR_DAT_00052f2c,(int)sVar1);
     uVar2 = (*(code *)PTR_ProtectedStatusBytePair_WriteValueWithComplement_00052f34)
                       (PTR_DAT_ffff8b22_2_00052f30,1);
     return uVar2;
   }
-  return (uint)(byte)*PTR_SubsystemA_PrimaryEnable_PrerequisiteFlagC_00052f18;
+  return (uint)(byte)*PTR_CatalystMonitor_P0420_PrerequisiteFlagC_00052f18;
 }
 
 
@@ -97977,9 +98530,9 @@ void Diag_LocalIdTail_ChannelA_UpdateFromLookup(char param_1)
   dVar4 = DWORD_00052f38;
   puVar1 = (undefined *)
            (*(code *)PTR_IndexFromFloat_Clamped_1_00052f40)
-                     (*(undefined4 *)PTR_DAT_00052f3c,DWORD_00052f38,0);
+                     (*(undefined4 *)PTR_HO2S1_DTC_WindowMaxVoltage_00052f3c,DWORD_00052f38,0);
   sVar2 = (*(code *)PTR_IndexFromFloat_Clamped_1_00052f40)
-                    (*(undefined4 *)PTR_DAT_00052f44,dVar4,uVar3);
+                    (*(undefined4 *)PTR_HO2S1_DTC_HighFaultThresholdVoltage_00052f44,dVar4,uVar3);
   if ((param_1 == '\x10') && (((uint)puVar1 & 0xffff) != 0)) {
     puVar1 = puVar1 + (int)PTR_LAB_0000fffe_1_00052f48;
   }
@@ -98005,9 +98558,9 @@ void Diag_LocalIdTail_ChannelB_UpdateFromLookup(char param_1)
   uVar3 = 0;
   dVar4 = DWORD_00052f38;
   uVar1 = (*(code *)PTR_IndexFromFloat_Clamped_1_00052f40)
-                    (*(undefined4 *)PTR_DAT_00052f58,DWORD_00052f38,0);
+                    (*(undefined4 *)PTR_HO2S1_DTC_WindowMinVoltage_00052f58,DWORD_00052f38,0);
   sVar2 = (*(code *)PTR_IndexFromFloat_Clamped_1_00052f40)
-                    (*(undefined4 *)PTR_DAT_00052f5c,dVar4,uVar3);
+                    (*(undefined4 *)PTR_HO2S1_DTC_LowFaultThresholdVoltage_00052f5c,dVar4,uVar3);
   if (param_1 == '\x10') {
     uVar1 = (*(code *)PTR_AddUint16AndSaturateToFFFE_00052f60)(uVar1,1);
   }
@@ -98120,17 +98673,18 @@ uint Diag_LocalIdTail_MultiChannelBundle_Update(char param_1)
   
   puVar1 = PTR_IndexFromFloat_Clamped_1_00053164;
   puVar6 = (undefined *)0x0;
-  uVar4 = (uint)(byte)*PTR_DAT_000531c4;
+  uVar4 = (uint)(byte)*PTR_HO2S2_DTC35_DebounceExpiredFlag_000531c4;
   iVar5 = 0;
   if (uVar4 == 1) {
     uVar7 = 0;
     uVar8 = DAT_000531c8;
     if (param_1 == '\x01') {
-      if (*PTR_DAT_000531d0 == '\x01') {
+      if (*PTR_HO2S2_DTC35_SwingFailFlag_000531d0 == '\x01') {
         puVar6 = (undefined *)
                  (*(code *)PTR_IndexFromFloat_Clamped_1_00053164)
-                           (*(undefined4 *)PTR_DAT_000531cc,DAT_000531c8,0);
-        iVar5 = (*(code *)puVar1)(*(undefined4 *)PTR_DAT_000531d4,uVar8,uVar7);
+                           (*(undefined4 *)PTR_HO2S2_DTC35_36_WindowSwing_000531cc,DAT_000531c8,0);
+        iVar5 = (*(code *)puVar1)(*(undefined4 *)PTR_HO2S2_DTC35_36_MinSwingThreshold_0p2_000531d4,
+                                  uVar8,uVar7);
       }
       else {
         puVar6 = (undefined *)0x0;
@@ -98140,8 +98694,9 @@ uint Diag_LocalIdTail_MultiChannelBundle_Update(char param_1)
     else if (param_1 == '\x10') {
       puVar6 = (undefined *)
                (*(code *)PTR_IndexFromFloat_Clamped_1_00053164)
-                         (*(undefined4 *)PTR_DAT_000531cc,DAT_000531c8,0);
-      iVar5 = (*(code *)puVar1)(*(undefined4 *)PTR_DAT_000531d4,uVar8,uVar7);
+                         (*(undefined4 *)PTR_HO2S2_DTC35_36_WindowSwing_000531cc,DAT_000531c8,0);
+      iVar5 = (*(code *)puVar1)(*(undefined4 *)PTR_HO2S2_DTC35_36_MinSwingThreshold_0p2_000531d4,
+                                uVar8,uVar7);
       if (((uint)puVar6 & 0xffff) != 0) {
         puVar6 = puVar6 + (int)PTR_LAB_0000fffe_1_0005316c;
       }
@@ -98152,9 +98707,13 @@ uint Diag_LocalIdTail_MultiChannelBundle_Update(char param_1)
     puVar3 = PTR_ProtectedStatusBytePair_WriteValueWithComplement_00053180;
     (*(code *)PTR_ProtectedStatusBytePair_WriteValueWithComplement_00053180)(PTR_DAT_000531e0,1);
     if (param_1 == '\x01') {
-      if (*PTR_DAT_000531e4 == '\x01') {
-        puVar6 = (undefined *)(*(code *)puVar1)(*(undefined4 *)PTR_DAT_000531e8,uVar8,uVar7);
-        iVar5 = (*(code *)puVar1)(*(undefined4 *)PTR_DAT_000531ec,uVar8,uVar7);
+      if (*PTR_HO2S2_DTC35_MaxLevelFlag_000531e4 == '\x01') {
+        puVar6 = (undefined *)
+                 (*(code *)puVar1)(*(undefined4 *)PTR_HO2S2_DTC35_MaxVoltageSnapshot_000531e8,uVar8,
+                                   uVar7);
+        iVar5 = (*(code *)puVar1)(*(undefined4 *)
+                                   PTR_HO2S2_DTC35_MaxVoltagePassThreshold_0p4_000531ec,uVar8,uVar7)
+        ;
       }
       else {
         puVar6 = (undefined *)0x0;
@@ -98173,8 +98732,8 @@ uint Diag_LocalIdTail_MultiChannelBundle_Update(char param_1)
       iVar5 = 0;
     }
     else if (param_1 == '\x10') {
-      puVar6 = (undefined *)(int)*(short *)PTR_DAT_000533f4;
-      iVar5 = (int)*(short *)PTR_DAT_000533f8;
+      puVar6 = (undefined *)(int)*(short *)PTR_HO2S2_DTC35_P0137_DebounceCounter_000533f4;
+      iVar5 = (int)*(short *)PTR_HO2S2_DTC35_P0137_DebounceLimit_1250_000533f8;
     }
     (*(code *)puVar2)(PTR_DAT_000533fc,puVar6);
     (*(code *)puVar2)(PTR_DAT_00053400,iVar5);
@@ -98207,16 +98766,18 @@ void Diag_LocalIdTail_ExtendedBundleA_Update(char param_1)
   puVar3 = PTR_ProtectedWord_ReadWithInverseFallback_00053410;
   puVar8 = (undefined *)0x0;
   iVar7 = 0;
-  cVar1 = *PTR_DAT_00053408;
-  cVar2 = *PTR_DAT_0005340c;
+  cVar1 = *PTR_HO2S2_DTC36_FailLatchA_00053408;
+  cVar2 = *PTR_HO2S2_DTC36_DebounceExpiredFlag_0005340c;
   uVar10 = 0;
   uVar9 = DAT_00053414;
   if (param_1 == '\x01') {
-    if (*PTR_DAT_0005341c == '\x01') {
+    if (*PTR_HO2S2_DTC35_SwingPassFlag_0005341c == '\x01') {
       puVar8 = (undefined *)
                (*(code *)PTR_IndexFromFloat_Clamped_1_00053418)
-                         (*(undefined4 *)PTR_DAT_00053420,DAT_00053414,0);
-      iVar7 = (*(code *)puVar4)(*(undefined4 *)PTR_DAT_00053424,uVar9,uVar10);
+                         (*(undefined4 *)PTR_HO2S2_DTC35_WindowSwingSnapshotFail_00053420,
+                          DAT_00053414,0);
+      iVar7 = (*(code *)puVar4)(*(undefined4 *)PTR_HO2S2_DTC35_36_MinSwingThreshold_0p2_00053424,
+                                uVar9,uVar10);
     }
     else {
       puVar8 = (undefined *)0x0;
@@ -98228,8 +98789,10 @@ void Diag_LocalIdTail_ExtendedBundleA_Update(char param_1)
       if (cVar1 == '\x01') {
         puVar8 = (undefined *)
                  (*(code *)PTR_IndexFromFloat_Clamped_1_00053418)
-                           (*(undefined4 *)PTR_DAT_00053428,DAT_00053414,0);
-        iVar7 = (*(code *)puVar4)(*(undefined4 *)PTR_DAT_00053424,uVar9,uVar10);
+                           (*(undefined4 *)PTR_HO2S2_DTC35_WindowSwingSnapshotPass_00053428,
+                            DAT_00053414,0);
+        iVar7 = (*(code *)puVar4)(*(undefined4 *)PTR_HO2S2_DTC35_36_MinSwingThreshold_0p2_00053424,
+                                  uVar9,uVar10);
         if (((uint)puVar8 & 0xffff) != 0) {
           puVar8 = puVar8 + (int)PTR_LAB_0000fffe_1_0005342c;
         }
@@ -98254,9 +98817,12 @@ void Diag_LocalIdTail_ExtendedBundleA_Update(char param_1)
   (*(code *)puVar5)(PTR_DAT_00053434,iVar7);
   (*(code *)PTR_ProtectedStatusBytePair_WriteValueWithComplement_00053440)(PTR_DAT_0005343c,1);
   if (param_1 == '\x01') {
-    if (*PTR_DAT_00053444 == '\x01') {
-      puVar8 = (undefined *)(*(code *)puVar4)(*(undefined4 *)PTR_DAT_00053448,uVar9,uVar10);
-      iVar7 = (*(code *)puVar4)(*(undefined4 *)PTR_DAT_0005344c,uVar9,uVar10);
+    if (*PTR_HO2S2_DTC35_MinLevelFlag_00053444 == '\x01') {
+      puVar8 = (undefined *)
+               (*(code *)puVar4)(*(undefined4 *)PTR_HO2S2_DTC35_MinVoltageSnapshot_00053448,uVar9,
+                                 uVar10);
+      iVar7 = (*(code *)puVar4)(*(undefined4 *)PTR_HO2S2_DTC36_MinVoltageFailThreshold_0p95_0005344c
+                                ,uVar9,uVar10);
     }
     else {
       puVar8 = (undefined *)0x0;
@@ -98277,8 +98843,8 @@ void Diag_LocalIdTail_ExtendedBundleA_Update(char param_1)
   else if (param_1 == '\x10') {
     if (cVar2 == '\x01') {
       if (cVar1 == '\x01') {
-        puVar8 = (undefined *)(int)*(short *)PTR_DAT_0005345c;
-        iVar7 = (int)*(short *)PTR_DAT_00053460;
+        puVar8 = (undefined *)(int)*(short *)PTR_HO2S2_DTC36_P0138_DebounceCounter_0005345c;
+        iVar7 = (int)*(short *)PTR_HO2S2_DTC36_P0138_DebounceLimit_1250_00053460;
       }
       else {
         puVar8 = (undefined *)0x0;
@@ -98298,14 +98864,20 @@ void Diag_LocalIdTail_ExtendedBundleA_Update(char param_1)
   (*(code *)puVar5)(PTR_DAT_00053468,iVar7);
   (*(code *)PTR_ProtectedStatusBytePair_WriteValueWithComplement_00053440)(PTR_DAT_0005346c,1);
   if (param_1 == '\x01') {
-    puVar8 = (undefined *)(*(code *)puVar4)(*(undefined4 *)PTR_DAT_00053470,uVar9,uVar10);
-    iVar7 = (*(code *)puVar4)(*(undefined4 *)PTR_DAT_00053474,uVar9,uVar10);
+    puVar8 = (undefined *)
+             (*(code *)puVar4)(*(undefined4 *)PTR_HO2S2_DTC36_MinVoltageSnapshotFail_00053470,uVar9,
+                               uVar10);
+    iVar7 = (*(code *)puVar4)(*(undefined4 *)PTR_HO2S2_DTC36_MinVoltageReleaseThreshold_0p3_00053474
+                              ,uVar9,uVar10);
   }
   else if (param_1 == '\x10') {
-    if (*PTR_DAT_0005366c == '\x01') {
-      if (*PTR_DAT_00053668 == '\x01') {
-        sVar6 = (*(code *)puVar4)(*(undefined4 *)PTR_DAT_00053670,uVar9,uVar10);
-        iVar7 = (*(code *)puVar4)(*(undefined4 *)PTR_DAT_00053674,uVar9,uVar10);
+    if (*PTR_HO2S2_DTC36_MinReleaseFlag_0005366c == '\x01') {
+      if (*PTR_HO2S2_DTC36_PassLatchA_00053668 == '\x01') {
+        sVar6 = (*(code *)puVar4)(*(undefined4 *)PTR_HO2S2_DTC36_MinVoltageSnapshotPass_00053670,
+                                  uVar9,uVar10);
+        iVar7 = (*(code *)puVar4)(*(undefined4 *)
+                                   PTR_HO2S2_DTC36_MinVoltageReleaseThreshold_0p3_00053674,uVar9,
+                                  uVar10);
         puVar8 = (undefined *)(*(code *)PTR_AddUint16AndSaturateToFFFE_00053678)((int)sVar6,1);
       }
       else {
@@ -98313,7 +98885,7 @@ void Diag_LocalIdTail_ExtendedBundleA_Update(char param_1)
         iVar7 = 0;
       }
     }
-    else if (*PTR_DAT_00053668 == '\x01') {
+    else if (*PTR_HO2S2_DTC36_PassLatchA_00053668 == '\x01') {
       puVar8 = (undefined *)(*(code *)puVar3)(PTR_DAT_0005367c,0);
       iVar7 = (*(code *)puVar3)(PTR_DAT_00053680,0);
     }
@@ -98398,14 +98970,15 @@ void Diag_LocalIdTail_ChannelTripletH_Update(void)
   
   puVar2 = PTR_ProtectedWord_WriteWithInverse_000536a4;
   (*(code *)PTR_ProtectedWord_WriteWithInverse_000536a4)
-            (PTR_DAT_000536c4,(int)*(short *)PTR_DAT_000536c0);
+            (PTR_DAT_000536c4,(int)*(short *)PTR_HO2S1_DTC_HighSideCrossingCounterMin_000536c0);
   (*(code *)puVar2)(PTR_DAT_000536cc,(int)*(short *)PTR_DAT_000536c8);
   puVar1 = PTR_ProtectedStatusBytePair_WriteValueWithComplement_00053688;
   (*(code *)PTR_ProtectedStatusBytePair_WriteValueWithComplement_00053688)(PTR_DAT_000536d0,1);
-  (*(code *)puVar2)(PTR_DAT_000536d8,(int)*(short *)PTR_DAT_000536d4);
+  (*(code *)puVar2)(PTR_DAT_000536d8,(int)*(short *)PTR_HO2S1_DTC_LowSideCrossingCounterMin_000536d4
+                   );
   (*(code *)puVar2)(PTR_DAT_000536e0,(int)*(short *)PTR_DAT_000536dc);
   (*(code *)puVar1)(PTR_DAT_000536e4,1);
-  (*(code *)puVar2)(PTR_DAT_000536ec,(int)*(short *)PTR_DAT_000536e8);
+  (*(code *)puVar2)(PTR_DAT_000536ec,(int)*(short *)PTR_HO2S1_DTC_TransitionRateValue_000536e8);
   (*(code *)puVar2)(PTR_DAT_000536f4,(int)*(short *)PTR_DAT_000536f0);
   (*(code *)puVar1)(PTR_DAT_000536f8,1);
   return;
@@ -99966,7 +100539,7 @@ void Diag_PointerTableResponseChain_RunStageF_SubstageB(void)
   int unaff_gbr;
   
   *(undefined2 *)(unaff_gbr + 0x118) = in_r0;
-  VVT_Desc_TransientFlag_Threshold_ByECT();
+  Diag_ResponseDescriptorBlock_StageF_SubstageB_56500();
                     // WARNING: Bad instruction - Truncating control flow here
   halt_baddata();
 }
@@ -100151,7 +100724,7 @@ void Diag_ResponseDescriptorBlock_BadStaticDecode_564B2
 // Diagnostic response descriptor/bytecode-looking block reached from the stage-F substage-B path;
 // static SH decompilation is not reliable here.
 
-void VVT_Desc_TransientFlag_Threshold_ByECT(void)
+void Diag_ResponseDescriptorBlock_StageF_SubstageB_56500(void)
 
 {
   int in_r0;
@@ -101559,7 +102132,7 @@ void Diag_PointerTableResponseChain_ServiceDispatcher
   *(int *)(extraout_r0_00 * 2) = extraout_r0_00;
   Diag_PointerTableResponseChain_RunTailStageB(param_1,param_2,param_3);
   Diag_PointerTableResponseChain_RunTailStageD(param_1,param_2,param_3);
-  pfVar3 = &FLOAT_0006bfac;
+  pfVar3 = &AxisY_IdleControlPct_2D_TableD_Input;
   iRam00000000 = 0;
   iVar1 = Diag_PointerTableResponseChain_RunStageF_SubsetA(param_1,param_2,param_3);
   *(int *)(iVar1 * 2) = iVar1;
